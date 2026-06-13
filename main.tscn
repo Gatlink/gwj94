@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://nq5weqkbj1jc"]
 
 [ext_resource type="Script" uid="uid://d1himhrdk4lh2" path="res://Character/character.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://1jqfn24h1gr7" path="res://InputPrompt/xbox_button_a.svg" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://b1e4l8danlq7" path="res://lift.gd" id="5_lquwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -34,6 +38,9 @@ height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
 albedo_color = Color(0.21392001, 0.42, 0.1512, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+size = Vector3(2, 0.5, 1)
 
 [node name="Main" type="Node3D" unique_id=389403922]
 
@@ -81,6 +88,9 @@ operation = 2
 size = Vector3(16, 2.25, 16)
 
 [node name="Character" type="CharacterBody3D" parent="." unique_id=782114311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_ig7tw")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character" unique_id=104791690]
@@ -93,6 +103,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_7dm0k")
 
 [node name="Graph" type="Node3D" parent="Character" unique_id=1146228148]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Body" type="CSGBox3D" parent="Character/Graph" unique_id=890200452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -104,7 +115,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.3)
 size = Vector3(0.4, 0.1, 0.1)
 material = SubResource("StandardMaterial3D_7dm0k")
 
+[node name="InputPrompt" type="Sprite3D" parent="Character" unique_id=34998662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+modulate = Color(0.15294118, 0.15294118, 0.15294118, 1)
+billboard = 1
+texture = ExtResource("2_0xm2m")
+script = ExtResource("3_h2yge")
+
 [node name="CameraHandler" type="Node3D" parent="." unique_id=946305553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHandler" unique_id=1409978657]
 transform = Transform3D(1, 0, 0, 0, 0.5000001, 0.8660254, 0, -0.8660254, 0.5000001, 0, 4, 2)
+
+[node name="Objective" parent="." unique_id=1332854662 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 6.25)
+
+[node name="Lift" type="Area3D" parent="." unique_id=1535644995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("5_lquwl")
+
+[node name="Model" type="CSGBox3D" parent="Lift" unique_id=1106830143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+size = Vector3(2, 2.75, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lift" unique_id=23400016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 1.5)
+shape = SubResource("BoxShape3D_1bvp3")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c888bstisw35"]
+
+[ext_resource type="PackedScene" uid="uid://bjc5ww73dmdsm" path="res://Objective/laptop.glb" id="1_dpl15"]
+[ext_resource type="Script" uid="uid://c6t0nqqpcajer" path="res://Objective/objective.gd" id="1_wd7uw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dpl15"]
+height = 0.25
+radius = 1.0
+
+[node name="Objective" type="Area3D" unique_id=1332854662]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_wd7uw")
+
+[node name="laptop" parent="." unique_id=36420289 instance=ExtResource("1_dpl15")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.375, 0, 0.35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=555346625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+shape = SubResource("CylinderShape3D_dpl15")

@@ -1,3 +1,4 @@
+class_name Character
 extends CharacterBody3D
 
 
@@ -6,6 +7,7 @@ const GROUND_LAYER := 1
 
 
 @onready var graph: Node3D = $Graph
+@onready var input_prompt: Sprite3D = $InputPrompt
 @onready var viewport: Viewport = get_viewport()
 
 

@@ -11,26 +11,31 @@ const GROUND_LAYER := 1
 var move_dir: Vector3
 var look_dir: Vector3
 var mouse_pos: Vector3
-var use_mouse: bool = false
+var use_kb_mouse: bool = false
 
 
 func _process(_delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	move_dir = Vector3(input_dir.x, 0, input_dir.y)
 	
-	input_dir = Input.get_vector("look_left", "look_right", "look_forward", "look_back")
 	look_dir = Vector3.ZERO
-	if input_dir:
-		look_dir = Vector3(input_dir.x, 0, input_dir.y)
-		use_mouse = false
-	elif use_mouse:
+	if use_kb_mouse:
 		update_mouse_pos()
 		look_dir = (mouse_pos - (camera.get_parent() as Node3D).global_position).normalized()
+	elif input_dir:
+		input_dir = Input.get_vector("look_left", "look_right", "look_forward", "look_back")
+		look_dir = Vector3(input_dir.x, 0, input_dir.y)
+		use_kb_mouse = false
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		use_mouse = true
+	if event is InputEventMouseMotion \
+	or event is InputEventMouseButton \
+	or event is InputEventKey:
+		use_kb_mouse = true
+	elif event is InputEventJoypadButton \
+	or event is InputEventJoypadMotion:
+		use_kb_mouse = false
 
 
 func update_mouse_pos() -> void:
