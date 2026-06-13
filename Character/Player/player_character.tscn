@@ -1,31 +1,30 @@
 [gd_scene format=3 uid="uid://mf5j4uhv50u4"]
 
 [ext_resource type="PackedScene" uid="uid://dki85rwv7lgio" path="res://Character/character.tscn" id="1_atbs6"]
-[ext_resource type="Script" uid="uid://dc4fkcbjnltlp" path="res://Character/States/no_input.gd" id="2_b6p10"]
-[ext_resource type="Script" uid="uid://dpys6klengdyb" path="res://Character/States/stand.gd" id="3_wj11p"]
-[ext_resource type="Script" uid="uid://bof87jdc17wsj" path="res://Character/States/move_to.gd" id="4_03ek6"]
-[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/character_dummy.tscn" id="5_14b3u"]
+[ext_resource type="Script" uid="uid://iwiv53j10q13" path="res://Character/Player/player_character.gd" id="2_08x8n"]
+[ext_resource type="Script" uid="uid://dc4fkcbjnltlp" path="res://Character/Player/States/no_input.gd" id="2_b6p10"]
+[ext_resource type="Script" uid="uid://dpys6klengdyb" path="res://Character/Player/States/stand.gd" id="3_wj11p"]
+[ext_resource type="Script" uid="uid://bof87jdc17wsj" path="res://Character/Player/States/move_to.gd" id="4_03ek6"]
+[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/Player/player_dummy.tscn" id="5_14b3u"]
 [ext_resource type="Texture2D" uid="uid://1jqfn24h1gr7" path="res://InputPrompt/xbox_button_a.svg" id="6_03ek6"]
 [ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="6_wj11p"]
 
 [node name="PlayerCharacter" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_atbs6")]
+script = ExtResource("2_08x8n")
 state = NodePath("NoInput")
 dummy = NodePath("Graph/CharacterDummy")
 
 [node name="NoInput" type="Node" parent="." index="0" unique_id=880661993]
 script = ExtResource("2_b6p10")
-metadata/_custom_type_script = "uid://dc4fkcbjnltlp"
 
 [node name="Stand" type="Node" parent="." index="1" unique_id=501851915]
 script = ExtResource("3_wj11p")
-metadata/_custom_type_script = "uid://dpys6klengdyb"
 
 [node name="MoveTo" type="Node" parent="." index="2" unique_id=1742631580]
 script = ExtResource("4_03ek6")
-metadata/_custom_type_script = "uid://bof87jdc17wsj"
 
 [node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="InputPrompt" type="Sprite3D" parent="." index="5" unique_id=1407943177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9900403, 0)

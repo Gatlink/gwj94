@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://dki85rwv7lgio"]
 
-[ext_resource type="Script" uid="uid://iwiv53j10q13" path="res://Character/player_character.gd" id="1_1l6l2"]
+[ext_resource type="Script" uid="uid://d1himhrdk4lh2" path="res://Character/character.gd" id="1_k3002"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
 radius = 0.25
 height = 1.0
 
-[node name="Character" type="CharacterBody3D" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy")]
+[node name="Character" type="CharacterBody3D" unique_id=1469343844]
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_1l6l2")
-state = NodePath("")
-dummy = NodePath("")
+script = ExtResource("1_k3002")
 
 [node name="PhysicsCollision" type="CollisionShape3D" parent="." unique_id=632068445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

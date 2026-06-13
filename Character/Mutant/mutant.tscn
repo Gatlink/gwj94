@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bmefsumjb7wc2"]
+
+[ext_resource type="PackedScene" uid="uid://dki85rwv7lgio" path="res://Character/character.tscn" id="1_7uq7p"]
+[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/Player/player_dummy.tscn" id="2_4degh"]
+[ext_resource type="Script" uid="uid://vimk6mq40sc5" path="res://Character/Mutant/mutant.gd" id="2_hqjvr"]
+[ext_resource type="Script" uid="uid://bavdl652wfwip" path="res://Character/Mutant/States/mutant_idle.gd" id="2_rskt8"]
+[ext_resource type="Script" uid="uid://bwvr2tsxuy7do" path="res://Character/Mutant/States/mutant_chase.gd" id="4_hqjvr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4degh"]
+radius = 8.0
+
+[node name="Mutant" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_7uq7p")]
+script = ExtResource("2_hqjvr")
+state = NodePath("Idle")
+dummy = NodePath("Graph/CharacterDummy")
+
+[node name="Idle" type="Node" parent="." index="0" unique_id=695727919]
+script = ExtResource("2_rskt8")
+metadata/_custom_type_script = "uid://bavdl652wfwip"
+
+[node name="Chase" type="Node" parent="." index="1" unique_id=287249119]
+script = ExtResource("4_hqjvr")
+metadata/_custom_type_script = "uid://bwvr2tsxuy7do"
+
+[node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("2_4degh")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Detection" type="Area3D" parent="." index="4" unique_id=2122562429]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" index="0" unique_id=1256561918]
+shape = SubResource("SphereShape3D_4degh")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

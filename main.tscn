@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://nq5weqkbj1jc"]
 
-[ext_resource type="PackedScene" uid="uid://mf5j4uhv50u4" path="res://Character/player_character.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://mf5j4uhv50u4" path="res://Character/Player/player_character.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bmefsumjb7wc2" path="res://Character/Mutant/mutant.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dstpu8qat3byo" path="res://Lift/lift.tscn" id="5_lquwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
@@ -98,3 +99,6 @@ visible = false
 
 [node name="CameraRemote" type="RemoteTransform3D" parent="PlayerCharacter" unique_id=920237655]
 remote_path = NodePath("../../CameraHandler")
+
+[node name="Mutant" parent="." unique_id=1084193376 instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 4.5)

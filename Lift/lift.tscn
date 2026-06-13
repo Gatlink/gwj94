@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dstpu8qat3byo"]
 
 [ext_resource type="Script" uid="uid://b1e4l8danlq7" path="res://Lift/lift.gd" id="1_vdouh"]
-[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/character_dummy.tscn" id="2_07h7l"]
+[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/Player/player_dummy.tscn" id="2_07h7l"]
 
 [sub_resource type="Animation" id="Animation_vdouh"]
 length = 0.001
