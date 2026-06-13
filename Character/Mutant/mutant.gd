@@ -4,6 +4,7 @@ extends Character
 
 @onready var idle: MutantIdle = $Idle
 @onready var chase: MutantChase = $Chase
+@onready var back_to_start: MutantBackToStart = $BackToStart
 
 
 var is_player_in_range: bool

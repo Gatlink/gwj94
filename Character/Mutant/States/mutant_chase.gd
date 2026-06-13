@@ -2,17 +2,17 @@ class_name MutantChase
 extends MutantState
 
 
-const SPEED := 5.1
+const SPEED := 4.8
 
 
 func enter() -> void:
 	super()
-	mutant.dummy.walk()
+	mutant.dummy.walk(SPEED)
 
 
 func _process(_delta: float) -> void:
 	if not mutant.is_player_in_range:
-		mutant.idle.transition_to()
+		mutant.back_to_start.transition_to()
 
 
 func _physics_process(_delta: float) -> void:

@@ -6,7 +6,7 @@
 [node name="CharacterDummy" unique_id=1327689915 instance=ExtResource("1_1urka")]
 script = ExtResource("2_ygwtj")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(330093676) index="0" unique_id=1196238767]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1353022049) index="0" unique_id=518057937]
 bones/5/rotation = Quaternion(4.6676824e-08, 2.6856242e-08, -0.3607225, 0.93267316)
 bones/9/rotation = Quaternion(4.6866116e-08, -2.683439e-08, 0.3625792, 0.931953)
 bones/13/rotation = Quaternion(-0.76785976, -2.6252803e-08, 1.5363918e-07, 0.64061797)
@@ -19,5 +19,5 @@ bones/21/rotation = Quaternion(-0.009153804, -1.329005e-07, -0.23305038, 0.97242
 bones/22/rotation = Quaternion(-0.008408515, 8.842538e-08, 0.3174834, 0.9482266)
 bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043586)
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=1608506929]
+[node name="AnimationPlayer" parent="." index="1" unique_id=621275970]
 autoplay = &"Idle"

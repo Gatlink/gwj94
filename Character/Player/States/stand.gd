@@ -7,7 +7,7 @@ const SPEED := 5.0
 
 func _process(_delta: float) -> void:
 	if character.velocity:
-		character.dummy.walk()
+		character.dummy.walk(SPEED)
 	else:
 		character.dummy.idle()
 

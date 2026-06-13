@@ -11,7 +11,7 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player != null:
 		on_interact()
 
@@ -27,6 +27,7 @@ func _on_body_exited(body: Node3D) -> void:
 	var new_char = body as PlayerCharacter
 	if new_char != null and player == new_char:
 		player.input_prompt.hide()
+		player = null
 
 
 @abstract func on_interact() -> void

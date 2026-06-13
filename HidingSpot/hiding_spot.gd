@@ -3,8 +3,11 @@ extends Interactable
 
 
 func on_interact() -> void:
-	PlayerCharacter.instance.move_to.transition_to(global_position)
+	if player.state is PlayerHide:
+		return
 	
-	await PlayerCharacter.instance.move_to.target_reached
+	player.move_to.transition_to(global_position)
 	
-	# hide
+	await player.move_to.target_reached
+	
+	player.hide_state.transition_to()
