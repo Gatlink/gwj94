@@ -1,3 +1,110 @@
 [gd_scene format=3 uid="uid://nq5weqkbj1jc"]
 
+[ext_resource type="Script" uid="uid://d1himhrdk4lh2" path="res://Character/character.gd" id="1_ig7tw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+tonemap_mode = 2
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ig7tw"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0xm2m"]
+plane = Plane(0, 0, 1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h2yge"]
+plane = Plane(0, 0, -1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1bvp3"]
+plane = Plane(1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lquwl"]
+plane = Plane(-1, 0, 0, 0)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
+albedo_color = Color(0.21392001, 0.42, 0.1512, 1)
+
 [node name="Main" type="Node3D" unique_id=389403922]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=816753249]
+environment = SubResource("Environment_0xm2m")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1965086122]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GroundBounds" type="StaticBody3D" parent="." unique_id=1120913428]
+collision_mask = 0
+
+[node name="Ground" type="CollisionShape3D" parent="GroundBounds" unique_id=1695009674]
+shape = SubResource("WorldBoundaryShape3D_ig7tw")
+
+[node name="Walls" type="StaticBody3D" parent="." unique_id=560179562]
+collision_layer = 2
+collision_mask = 0
+
+[node name="North" type="CollisionShape3D" parent="Walls" unique_id=1711907190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+shape = SubResource("WorldBoundaryShape3D_0xm2m")
+
+[node name="South" type="CollisionShape3D" parent="Walls" unique_id=1951853375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+shape = SubResource("WorldBoundaryShape3D_h2yge")
+
+[node name="West" type="CollisionShape3D" parent="Walls" unique_id=1422315037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_1bvp3")
+
+[node name="East" type="CollisionShape3D" parent="Walls" unique_id=1450029394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_lquwl")
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=790101739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+collision_mask = 0
+size = Vector3(16.5, 2.5, 16.5)
+
+[node name="Sub" type="CSGBox3D" parent="Ground" unique_id=970475525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+operation = 2
+size = Vector3(16, 2.25, 16)
+
+[node name="Character" type="CharacterBody3D" parent="." unique_id=782114311]
+script = ExtResource("1_ig7tw")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character" unique_id=104791690]
+remote_path = NodePath("../../CameraHandler")
+update_rotation = false
+update_scale = false
+
+[node name="PhysicsCollision" type="CollisionShape3D" parent="Character" unique_id=1354830246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_7dm0k")
+
+[node name="Graph" type="Node3D" parent="Character" unique_id=1146228148]
+
+[node name="Body" type="CSGBox3D" parent="Character/Graph" unique_id=890200452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(0.5, 1, 0.5)
+material = SubResource("StandardMaterial3D_7dm0k")
+
+[node name="Body2" type="CSGBox3D" parent="Character/Graph/Body" unique_id=834466762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.3)
+size = Vector3(0.4, 0.1, 0.1)
+material = SubResource("StandardMaterial3D_7dm0k")
+
+[node name="CameraHandler" type="Node3D" parent="." unique_id=946305553]
+
+[node name="Camera3D" type="Camera3D" parent="CameraHandler" unique_id=1409978657]
+transform = Transform3D(1, 0, 0, 0, 0.5000001, 0.8660254, 0, -0.8660254, 0.5000001, 0, 4, 2)
