@@ -25,6 +25,10 @@ Fade="*uid://dtd821djy87r5"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[editor]
+
+movie_writer/movie_file="/var/home/gatlink/Documents/GitHub/gwj94/movie.avi"
+
 [input]
 
 forward={

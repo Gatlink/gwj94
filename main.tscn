@@ -81,7 +81,7 @@ operation = 2
 size = Vector3(2, 2.25, 0.35)
 
 [node name="Character" parent="." unique_id=1469343844 instance=ExtResource("1_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character" unique_id=2121251444]
@@ -90,7 +90,7 @@ update_rotation = false
 update_scale = false
 
 [node name="CameraHandler" type="Node3D" parent="." unique_id=946305553]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHandler" unique_id=1409978657]
 transform = Transform3D(1, 0, 0, 0, 0.5000001, 0.8660254, 0, -0.8660254, 0.5000001, 0, 4, 2)

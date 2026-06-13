@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cvt8xschd3s77"
-valid=false
+path="res://.godot/imported/Chara.blend-0c9270adcea946d927e110fcec77b7cf.scn"
 
 [deps]
 
 source_file="res://Art/Chara.blend"
+dest_files=["res://.godot/imported/Chara.blend-0c9270adcea946d927e110fcec77b7cf.scn"]
 
 [params]
 

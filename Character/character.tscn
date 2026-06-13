@@ -6,13 +6,11 @@
 [ext_resource type="Script" uid="uid://dc4fkcbjnltlp" path="res://Character/States/no_input.gd" id="2_uerqc"]
 [ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="3_a23tb"]
 [ext_resource type="Script" uid="uid://bof87jdc17wsj" path="res://Character/States/move_to.gd" id="4_uerqc"]
+[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/character_dummy.tscn" id="5_1l6l2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
 radius = 0.25
 height = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
-albedo_color = Color(0.21392001, 0.42, 0.1512, 1)
 
 [node name="Character" type="CharacterBody3D" unique_id=1469343844]
 collision_layer = 4
@@ -38,15 +36,8 @@ shape = SubResource("CapsuleShape3D_7dm0k")
 [node name="Graph" type="Node3D" parent="." unique_id=789870063]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Body" type="CSGBox3D" parent="Graph" unique_id=374986066]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-size = Vector3(0.5, 1, 0.5)
-material = SubResource("StandardMaterial3D_7dm0k")
-
-[node name="Body2" type="CSGBox3D" parent="Graph/Body" unique_id=1971432207]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.3)
-size = Vector3(0.4, 0.1, 0.1)
-material = SubResource("StandardMaterial3D_7dm0k")
+[node name="CharacterDummy" parent="Graph" unique_id=1327689915 instance=ExtResource("5_1l6l2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="InputPrompt" type="Sprite3D" parent="." unique_id=464000287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

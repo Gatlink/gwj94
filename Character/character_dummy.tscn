@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://vi7mrak5vlgl"]
+
+[ext_resource type="PackedScene" uid="uid://cfh4a44blgodn" path="res://Art/Chara_2.blend" id="1_1urka"]
+[ext_resource type="Script" uid="uid://c2p7qygv5oe5x" path="res://character_dummy.gd" id="2_ygwtj"]
+
+[node name="CharacterDummy" unique_id=1327689915 instance=ExtResource("1_1urka")]
+script = ExtResource("2_ygwtj")
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(330093676) index="0" unique_id=1196238767]
+bones/5/rotation = Quaternion(4.6676824e-08, 2.6856242e-08, -0.3607225, 0.93267316)
+bones/9/rotation = Quaternion(4.6866116e-08, -2.683439e-08, 0.3625792, 0.931953)
+bones/13/rotation = Quaternion(-0.76785976, -2.6252803e-08, 1.5363918e-07, 0.64061797)
+bones/14/rotation = Quaternion(-0.03189443, -2.1118215e-08, 3.2373556e-08, 0.9994913)
+bones/15/rotation = Quaternion(-0.009153804, 1.329005e-07, 0.23305038, 0.9724216)
+bones/16/rotation = Quaternion(-0.008408515, -8.842538e-08, -0.3174834, 0.9482266)
+bones/19/rotation = Quaternion(-0.76785976, 2.6252803e-08, -1.5363918e-07, 0.64061797)
+bones/20/rotation = Quaternion(-0.03189443, 2.1118215e-08, -3.2373556e-08, 0.9994913)
+bones/21/rotation = Quaternion(-0.009153804, -1.329005e-07, -0.23305038, 0.9724216)
+bones/22/rotation = Quaternion(-0.008408515, 8.842538e-08, 0.3174834, 0.9482266)
+bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043586)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1608506929]
+autoplay = &"Idle"

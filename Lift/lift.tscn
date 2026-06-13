@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dstpu8qat3byo"]
 
 [ext_resource type="Script" uid="uid://b1e4l8danlq7" path="res://Lift/lift.gd" id="1_vdouh"]
+[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/character_dummy.tscn" id="2_07h7l"]
 
 [sub_resource type="Animation" id="Animation_vdouh"]
 length = 0.001
@@ -47,10 +48,10 @@ tracks/3/path = NodePath("Model/CharacterDummy:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -0.375, 0)]
+"values": [Vector3(0, -0.875, 0), Vector3(0, -0.875, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -62,7 +63,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 3.1415925, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -141,49 +142,13 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0.5, 0.15, 0.8), Vector3(1.375, 0.15, 0.8)]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Model/CharacterDummy:position")
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -0.375, 0), Vector3(0, -0.375, 0), Vector3(0, -0.375, 2)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Model/CharacterDummy:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Model/CharacterDummy:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 3.1415925, 0)]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(1.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -191,29 +156,82 @@ tracks/6/keys = {
 "method": &"spawn_character"
 }]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("WallDoorLeft:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WallDoorLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0.95, 1.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-0.49999997, 1, 0.925), Vector3(-1.375, 1, 0.925)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("WallDoorRight:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WallDoorRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.95, 1.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.5, 1, 0.925), Vector3(1.375, 1, 0.925)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Model/CharacterDummy:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Model/CharacterDummy:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.875, 0), Vector3(0, -0.875, 0), Vector3(0, -0.875, 2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Model/CharacterDummy:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Model/CharacterDummy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"idle"
+}, {
+"args": [],
+"method": &"walk"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_dmwkf"]
@@ -259,26 +277,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Model/CharacterDummy:visible")
+tracks/3/path = NodePath("WallDoorLeft:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0.45000002, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.375, 1, 0.925), Vector3(-0.5, 1, 0.925)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Model/CharacterDummy:rotation")
+tracks/4/path = NodePath("WallDoorRight:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.39999998),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.45000002, 0.95),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 1.7484555e-07, 0)]
+"values": [Vector3(1.375, 1, 0.925), Vector3(0.5, 1, 0.925)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -287,34 +305,51 @@ tracks/5/path = NodePath("Model/CharacterDummy:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.39999998),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -0.375, 2), Vector3(0, -0.375, 0)]
+"values": [Vector3(0, -0.875, 2), Vector3(0, -0.875, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("WallDoorLeft:position")
+tracks/6/path = NodePath("Model/CharacterDummy:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.45000002, 0.95),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.375, 1, 0.925), Vector3(-0.5, 1, 0.925)]
+"values": [Vector3(0, 3.1415927, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("WallDoorRight:position")
+tracks/7/path = NodePath("Model/CharacterDummy:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.45000002, 0.95),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Model/CharacterDummy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.375, 1, 0.925), Vector3(0.5, 1, 0.925)]
+"values": [{
+"args": [],
+"method": &"walk"
+}, {
+"args": [],
+"method": &"idle"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dmwkf"]
@@ -323,9 +358,6 @@ _data = {
 &"come": SubResource("Animation_07h7l"),
 &"go": SubResource("Animation_dmwkf")
 }
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdouh"]
-albedo_color = Color(0.21392001, 0.42, 0.1512, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
 size = Vector3(2, 0.52500004, 1)
@@ -357,20 +389,13 @@ size = Vector3(1, 2.1000001, 0.125)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.14999986, 0.8)
 size = Vector3(1, 2.1000001, 0.125)
 
-[node name="CharacterDummy" type="CSGBox3D" parent="Model" unique_id=2058232807]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, -0.375, 0)
-size = Vector3(0.5, 1, 0.5)
-material = SubResource("StandardMaterial3D_vdouh")
-
-[node name="Head" type="CSGBox3D" parent="Model/CharacterDummy" unique_id=1623337986]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.3)
-size = Vector3(0.4, 0.1, 0.1)
-material = SubResource("StandardMaterial3D_vdouh")
-
 [node name="CarveTop" type="CSGBox3D" parent="Model" unique_id=272697841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0.0625)
 operation = 2
 size = Vector3(4, 0.25, 2)
+
+[node name="CharacterDummy" parent="Model" unique_id=1327689915 instance=ExtResource("2_07h7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0)
 
 [node name="WallDoorLeft" type="CSGBox3D" parent="." unique_id=1633991672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49999997, 1, 0.925)
