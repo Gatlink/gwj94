@@ -1,0 +1,2 @@
+class_name CharacterNoInput
+extends CharacterState

@@ -2,28 +2,22 @@ class_name Character
 extends CharacterBody3D
 
 
-const SPEED := 5.0
-const GROUND_LAYER := 1
+static var instance: Character
 
 
 @onready var graph: Node3D = $Graph
 @onready var input_prompt: Sprite3D = $InputPrompt
 @onready var viewport: Viewport = get_viewport()
+@onready var no_input: CharacterNoInput = $NoInput
+@onready var stand: CharacterStand = $Stand
+@onready var move_to: CharacterMoveTo = $MoveTo
+@onready var state: CharacterState = no_input
 
 
-func _physics_process(_delta: float) -> void:
-	# Movement
-	if PlayerInput.move_dir:
-		velocity.x = PlayerInput.move_dir.x * SPEED
-		velocity.z = PlayerInput.move_dir.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+func _ready() -> void:
+	instance = self
+	state.enter()
 
-	move_and_slide()
-	
-	# Look At
-	if PlayerInput.look_dir:
-		graph.look_at(global_position + PlayerInput.look_dir)
-	elif PlayerInput.move_dir:
-		graph.look_at(global_position + PlayerInput.move_dir)
+
+func _exit_tree() -> void:
+	instance = null

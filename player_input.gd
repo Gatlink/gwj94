@@ -5,9 +5,9 @@ const GROUND_LAYER := 1
 
 
 @onready var viewport: Viewport = get_viewport()
-@onready var camera := viewport.get_camera_3d()
 
 
+var camera: Camera3D
 var move_dir: Vector3
 var look_dir: Vector3
 var mouse_pos: Vector3
@@ -20,8 +20,8 @@ func _process(_delta: float) -> void:
 	
 	look_dir = Vector3.ZERO
 	if use_kb_mouse:
-		update_mouse_pos()
-		look_dir = (mouse_pos - (camera.get_parent() as Node3D).global_position).normalized()
+		if update_mouse_pos():
+			look_dir = (mouse_pos - (camera.get_parent() as Node3D).global_position).normalized()
 	elif input_dir:
 		input_dir = Input.get_vector("look_left", "look_right", "look_forward", "look_back")
 		look_dir = Vector3(input_dir.x, 0, input_dir.y)
@@ -38,7 +38,12 @@ func _input(event: InputEvent) -> void:
 		use_kb_mouse = false
 
 
-func update_mouse_pos() -> void:
+func update_mouse_pos() -> bool:
+	if not is_instance_valid(camera):
+		camera = viewport.get_camera_3d()
+		if not is_instance_valid(camera):
+			return false
+	
 	var mouse_position := viewport.get_mouse_position()
 	var origin := camera.project_ray_origin(mouse_position)
 	var normal := camera.project_ray_normal(mouse_position)
@@ -48,3 +53,11 @@ func update_mouse_pos() -> void:
 	var result := space_state.intersect_ray(query)
 	if not result.is_empty():
 		mouse_pos = result.position
+		return true
+	
+	return false
+
+
+func reset() -> void:
+	move_dir = Vector3.ZERO
+	look_dir = Vector3.ZERO
