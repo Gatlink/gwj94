@@ -1,4 +1,4 @@
-class_name CharacterMoveTo
+class_name PlayerMoveTo
 extends PlayerState
 
 

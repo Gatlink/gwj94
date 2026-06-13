@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://h0usm14q2wg6"]
+
+[ext_resource type="PackedScene" uid="uid://2l0oktmxtmaf" path="res://HidingSpot/desk.glb" id="1_05gis"]
+[ext_resource type="Script" uid="uid://tftcojrpic8m" path="res://HidingSpot/hiding_spot.gd" id="1_7hfcf"]
+
+[node name="Desk" type="Area3D" unique_id=34138757]
+script = ExtResource("1_7hfcf")
+
+[node name="desk" parent="." unique_id=1882277053 instance=ExtResource("1_05gis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0, 0.175)

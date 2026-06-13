@@ -1,2 +1,2 @@
-class_name CharacterNoInput
+class_name PlayerNoInput
 extends PlayerState

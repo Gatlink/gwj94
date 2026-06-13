@@ -6,9 +6,10 @@ static var instance: PlayerCharacter
 
 
 @onready var input_prompt: InputPrompt = $InputPrompt
-@onready var no_input: CharacterNoInput = $NoInput
-@onready var stand: CharacterStand = $Stand
-@onready var move_to: CharacterMoveTo = $MoveTo
+@onready var no_input: PlayerNoInput = $NoInput
+@onready var stand: PlayerStand = $Stand
+@onready var move_to: PlayerMoveTo = $MoveTo
+@onready var collision: CollisionShape3D = $PhysicsCollision
 
 
 func _ready() -> void:

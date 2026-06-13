@@ -1,4 +1,4 @@
-class_name CharacterStand
+class_name PlayerStand
 extends PlayerState
 
 
