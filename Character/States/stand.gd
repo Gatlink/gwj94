@@ -1,5 +1,5 @@
 class_name CharacterStand
-extends CharacterState
+extends PlayerState
 
 
 const SPEED := 5.0

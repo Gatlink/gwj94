@@ -1,3 +1,4 @@
+class_name InputPrompt
 extends Sprite3D
 
 

@@ -1,2 +1,2 @@
 class_name CharacterNoInput
-extends CharacterState
+extends PlayerState

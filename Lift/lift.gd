@@ -24,12 +24,12 @@ func _exit_tree() -> void:
 
 func on_interact() -> void:
 	is_unlocked = false
-	Character.instance.move_to.transition_to(character_mark.global_position)
+	PlayerCharacter.instance.move_to.transition_to(character_mark.global_position)
 	
-	await character.move_to.target_reached
+	await PlayerCharacter.instance.move_to.target_reached
 	
-	Character.instance.no_input.transition_to()
-	Character.instance.hide()
+	PlayerCharacter.instance.no_input.transition_to()
+	PlayerCharacter.instance.hide()
 	animation.play("go")
 	Fade.fade_out()
 	
@@ -46,5 +46,5 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func spawn_character() -> void:
-	Character.instance.show()
-	Character.instance.stand.transition_to()
+	PlayerCharacter.instance.show()
+	PlayerCharacter.instance.stand.transition_to()
