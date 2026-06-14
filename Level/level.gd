@@ -8,6 +8,7 @@ const ROOM_SIZE := 10
 const ROOM_ROW := 3
 const ROOM_COL := 3
 const CLOSE_DOOR_COUNT := 3
+const LIFT_ROOM_IDX := floori(ROOM_COL / 2.0)
 
 
 enum {
@@ -45,11 +46,59 @@ func _ready() -> void:
 			room.position = pos
 			rooms.append(room)
 			
-			if col == 0:
-				room.close_door(WEST)
-			elif col == ROOM_COL - 1:
-				room.close_door(EAST)
-			if row == 0 and not col == floori(ROOM_COL / 2.0):
-				room.close_door(NORTH)
-			elif row == ROOM_ROW - 1:
-				room.close_door(SOUTH)
+			# Open door to lift
+			if row == 0 and col == LIFT_ROOM_IDX:
+				room.open_door(NORTH)
+	
+	var unconnected_rooms_idx: Array[int] = []
+	for i in rooms.size():
+		if i != LIFT_ROOM_IDX:
+			unconnected_rooms_idx.append(i)
+	
+	while unconnected_rooms_idx.size() > 0:
+		var room_idx: int = unconnected_rooms_idx.pick_random()
+		connect_room(room_idx, unconnected_rooms_idx)
+
+
+func connect_room(room_idx: int, unconnected_rooms_idx: Array[int]) -> void:
+	var visited_idx: Array[int] = []
+	while unconnected_rooms_idx.has(room_idx):
+		var coord := get_room_coord(room_idx)
+		var sides := directions.duplicate()
+		if coord.x == 0:
+			sides.erase(WEST)
+		elif coord.x == ROOM_COL - 1:
+			sides.erase(EAST)
+		if coord.y == 0:
+			sides.erase(NORTH)
+		elif coord.y == ROOM_ROW - 1:
+			sides.erase(SOUTH)
+		
+		sides.shuffle()
+		for side in sides:
+			var next_idx := get_neighbor_index(room_idx, side)
+			if next_idx != -1 and not visited_idx.has(next_idx):
+				unconnected_rooms_idx.erase(room_idx)
+				visited_idx.append(room_idx)
+				rooms[room_idx].open_door(side)
+				rooms[next_idx].open_door(get_opposite(side))
+				room_idx = next_idx
+				break
+
+
+func get_room_coord(room_idx: int) -> Vector2:
+	@warning_ignore("integer_division")
+	return Vector2(room_idx % ROOM_COL, room_idx / ROOM_COL)
+
+
+func get_neighbor_index(idx: int, side: int) -> int:
+	if side == NORTH and idx >= ROOM_COL:
+		return idx - ROOM_COL
+	if side == SOUTH and idx < rooms.size() - ROOM_COL:
+		return idx + ROOM_COL
+	if side == WEST and idx % ROOM_COL > 0:
+		return idx - 1
+	if side == EAST and idx % ROOM_COL < ROOM_COL - 1:
+		return idx + 1
+	
+	return -1

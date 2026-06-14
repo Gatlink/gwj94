@@ -17,32 +17,6 @@ extends Node3D
 }
 
 
-var connected_rooms: Dictionary[int, Room] = {}
-
-
-#func _ready() -> void:
-	#var slot := get_parent() as RoomSlot
-	#close_doors(slot.open_sides)
-
-
-func close_doors(open_side_flags: int) -> void:
-	if open_side_flags & Level.NORTH == 0:
-		close_door(Level.NORTH)
-	
-	if open_side_flags & Level.EAST == 0:
-		close_door(Level.EAST)
-	
-	if open_side_flags & Level.SOUTH == 0:
-		close_door(Level.SOUTH)
-	
-	if open_side_flags & Level.WEST == 0:
-		close_door(Level.WEST)
-
-
-func close_door(side: int) -> void:
-	doors[side].visible = false
-	door_colliders[side].disabled = false
-
-
-func is_door_opened(side: int) -> bool:
-	return doors[side].visible
+func open_door(side: int) -> void:
+	doors[side].visible = true
+	door_colliders[side].disabled = true

@@ -39,6 +39,11 @@ metadata/_custom_type_script = "uid://b7ajy1gfptajh"
 [node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=1389191218]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5896957e-08, 1.55, -0.525)
+light_energy = 0.8
+omni_range = 3.0
+
 [node name="InputPrompt" type="Sprite3D" parent="." index="7" unique_id=1407943177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9900403, 0)
 visible = false
@@ -46,7 +51,3 @@ billboard = 1
 texture = ExtResource("6_03ek6")
 script = ExtResource("6_wj11p")
 metadata/_custom_type_script = "uid://b2hjdph5wiest"
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="8" unique_id=1389191218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0.525)
-light_energy = 0.8

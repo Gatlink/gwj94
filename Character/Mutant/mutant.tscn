@@ -15,7 +15,7 @@ radius = 5.0
 radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d6aly"]
-radius = 1.5
+radius = 1.25
 
 [node name="Mutant" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_7uq7p")]
 script = ExtResource("2_hqjvr")
@@ -69,7 +69,7 @@ collision_mask = 4
 monitorable = false
 
 [node name="RangeShape" type="CollisionShape3D" parent="Hitbox" index="0" unique_id=1702197170]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6226832e-07, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4041265e-07, 0, -1.25)
 shape = SubResource("SphereShape3D_d6aly")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

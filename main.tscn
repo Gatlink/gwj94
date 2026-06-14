@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dyhi7ohqwlio3" path="res://Level/level.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://mf5j4uhv50u4" path="res://Character/Player/player_character.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bmefsumjb7wc2" path="res://Character/Mutant/mutant.tscn" id="4_lquwl"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 
@@ -13,9 +12,9 @@
 environment = SubResource("Environment_lquwl")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1965086122]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_color = Color(0.79, 0.916, 1, 1)
-light_energy = 0.01
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.3416, 0.5250067, 0.61, 1)
+light_energy = 0.015
 shadow_enabled = true
 
 [node name="Level" parent="." unique_id=1460984159 instance=ExtResource("1_lquwl")]
@@ -35,6 +34,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHandler" unique_id=1409978657]
 transform = Transform3D(1, 0, 0, 0, 0.5000001, 0.8660254, 0, -0.8660254, 0.5000001, 0, 6, 4)
-
-[node name="Mutant" parent="." unique_id=1814413638 instance=ExtResource("4_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.75)
