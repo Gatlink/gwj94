@@ -5,3 +5,25 @@
 
 [node name="MutantDummy" unique_id=2140569891 instance=ExtResource("1_51td0")]
 script = ExtResource("2_sbggs")
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1404750092) index="0" unique_id=2061261467]
+bones/0/rotation = Quaternion(-0.00918648, -0.15736671, 0.05754846, 0.9858192)
+bones/1/rotation = Quaternion(0.11899765, -0.028717026, 0.079073735, 0.98932415)
+bones/2/rotation = Quaternion(3.742835e-09, 8.4213765e-09, -0.09670863, 0.99531275)
+bones/3/rotation = Quaternion(0.020627944, 0.14385372, -0.020605544, 0.98916936)
+bones/4/rotation = Quaternion(-0.0044344813, -0.13759507, -0.7520549, 0.64456296)
+bones/5/rotation = Quaternion(-0.14005837, 0.38793808, -0.61781484, 0.66947186)
+bones/6/rotation = Quaternion(0.22650778, -0.082031794, -0.16431318, 0.95653874)
+bones/8/rotation = Quaternion(8.88191e-08, -1.1786672e-07, 0.7006537, 0.7135016)
+bones/9/rotation = Quaternion(0.008931256, 0.01928604, 0.5234564, 0.8517873)
+bones/10/rotation = Quaternion(-0.01985441, -0.014042065, -0.049742326, 0.998466)
+bones/12/rotation = Quaternion(-0.31516933, -0.68302447, -0.43490383, 0.4949793)
+bones/13/rotation = Quaternion(-0.72750396, -0.3190691, -0.043236174, 0.6058577)
+bones/14/rotation = Quaternion(-0.03813017, -0.010714599, 0.2069979, 0.9775394)
+bones/15/rotation = Quaternion(-0.02597251, -0.011874107, 0.19530867, 0.98032594)
+bones/16/rotation = Quaternion(0.091619745, -0.044636358, -0.55787456, 0.82364404)
+bones/17/rotation = Quaternion(-0.065017685, -0.05498124, -0.31350982, 0.94575965)
+bones/18/rotation = Quaternion(-0.43490374, 0.49497926, 0.31516942, 0.68302447)
+bones/19/rotation = Quaternion(-0.7726937, -0.010866962, -0.08271384, 0.6292732)
+bones/20/rotation = Quaternion(-0.038934954, 0.008228866, -0.23030323, 0.9723049)
+bones/23/rotation = Quaternion(-0.07073902, 0.11459224, 0.42059416, 0.8971985)

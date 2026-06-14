@@ -7,5 +7,9 @@ extends Node3D
 @abstract func idle() -> void
 
 
+func hit() -> void:
+	pass
+
+
 func set_stand_parameter(_direction: Vector2, _speed := 1.0) -> void:
 	pass

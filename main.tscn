@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dyhi7ohqwlio3" path="res://Level/level.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://mf5j4uhv50u4" path="res://Character/Player/player_character.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bmefsumjb7wc2" path="res://Character/Mutant/mutant.tscn" id="4_lquwl"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 
@@ -34,3 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHandler" unique_id=1409978657]
 transform = Transform3D(1, 0, 0, 0, 0.5000001, 0.8660254, 0, -0.8660254, 0.5000001, 0, 6, 4)
+
+[node name="Mutant" parent="." unique_id=1814413638 instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.75)

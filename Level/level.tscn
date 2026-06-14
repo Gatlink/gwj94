@@ -2,63 +2,8 @@
 
 [ext_resource type="Script" uid="uid://3gli0nxc7juk" path="res://Level/level.gd" id="1_52x1o"]
 [ext_resource type="PackedScene" uid="uid://dstpu8qat3byo" path="res://Lift/lift.tscn" id="1_o6mkr"]
-[ext_resource type="Script" uid="uid://b5t8omyw6t4ug" path="res://Level/tile_slot.gd" id="3_uawph"]
 
 [node name="Level" type="Node3D" unique_id=1460984159]
 script = ExtResource("1_52x1o")
 
 [node name="Lift" parent="." unique_id=25060028 instance=ExtResource("1_o6mkr")]
-
-[node name="TileSlotN" type="Marker3D" parent="." unique_id=1236743681]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
-script = ExtResource("3_uawph")
-open_sides = 15
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotNW" type="Marker3D" parent="." unique_id=1023037882]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5)
-script = ExtResource("3_uawph")
-open_sides = 6
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotNE" type="Marker3D" parent="." unique_id=1778094806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
-script = ExtResource("3_uawph")
-open_sides = 12
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotCenter" type="Marker3D" parent="." unique_id=397410689]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
-script = ExtResource("3_uawph")
-open_sides = 15
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotW" type="Marker3D" parent="." unique_id=41185600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15)
-script = ExtResource("3_uawph")
-open_sides = 7
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotE" type="Marker3D" parent="." unique_id=1749936978]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15)
-script = ExtResource("3_uawph")
-open_sides = 13
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotS" type="Marker3D" parent="." unique_id=1348286068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
-script = ExtResource("3_uawph")
-open_sides = 11
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotSW" type="Marker3D" parent="." unique_id=679495430]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 25)
-script = ExtResource("3_uawph")
-open_sides = 3
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"
-
-[node name="TileSlotSE" type="Marker3D" parent="." unique_id=1793593022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 25)
-script = ExtResource("3_uawph")
-open_sides = 9
-metadata/_custom_type_script = "uid://b5t8omyw6t4ug"

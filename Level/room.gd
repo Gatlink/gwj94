@@ -1,4 +1,4 @@
-class_name Tile
+class_name Room
 extends Node3D
 
 
@@ -17,9 +17,12 @@ extends Node3D
 }
 
 
-func _ready() -> void:
-	var slot := get_parent() as TileSlot
-	close_doors(slot.open_sides)
+var connected_rooms: Dictionary[int, Room] = {}
+
+
+#func _ready() -> void:
+	#var slot := get_parent() as RoomSlot
+	#close_doors(slot.open_sides)
 
 
 func close_doors(open_side_flags: int) -> void:
@@ -39,3 +42,7 @@ func close_doors(open_side_flags: int) -> void:
 func close_door(side: int) -> void:
 	doors[side].visible = false
 	door_colliders[side].disabled = false
+
+
+func is_door_opened(side: int) -> bool:
+	return doors[side].visible

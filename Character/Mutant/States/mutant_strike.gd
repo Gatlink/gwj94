@@ -7,23 +7,21 @@ var target: PlayerCharacter
 
 func enter() -> void:
 	super()
-	mutant.dummy.idle()
 	mutant.graph.look_at(target.global_position)
 	
-	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_property(mutant.graph, "scale", Vector3(1.2, 0.8, 1.2), 0.25)
-	tween.tween_callback(hit)
-	tween.tween_property(mutant.graph, "scale", Vector3(1, 1, 1), 0.25)
-	tween.tween_callback(mutant.chase.transition_to)
-	tween.play()
-
-
-func hit() -> void:
+	var dummy := mutant.dummy as MutantDummy
+	dummy.hit()
+	
+	await dummy.animation.animation_finished
+	
 	if mutant.hitbox.overlaps_body(PlayerCharacter.instance):
 		PlayerCharacter.instance.die.transition_to()
 		target = null
 		mutant.range_shape.disabled = true
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	mutant.chase.transition_to()
 
 
 func _on_range_body_entered(body: Node3D) -> void:
