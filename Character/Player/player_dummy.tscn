@@ -3,10 +3,50 @@
 [ext_resource type="PackedScene" uid="uid://cfh4a44blgodn" path="res://Art/Chara_2.blend" id="1_1urka"]
 [ext_resource type="Script" uid="uid://c2p7qygv5oe5x" path="res://Character/character_dummy.gd" id="2_ygwtj"]
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_5cqxv"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5cqxv"]
+animation = &"Walk_Side_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rplnd"]
+animation = &"Walk_Side_R"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7u5p3"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82ftx"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3v13n"]
+animation = &"Walk"
+play_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_aqqjw"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_5cqxv")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_rplnd")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_7u5p3")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_82ftx")
+blend_point_3/pos = Vector2(0, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_3v13n")
+blend_point_4/pos = Vector2(0, -1)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ftr0q"]
+graph_offset = Vector2(-502.26486, 126.65747)
+nodes/output/position = Vector2(300, 160)
+nodes/Speed/node = SubResource("AnimationNodeTimeScale_5cqxv")
+nodes/Speed/position = Vector2(130, 150)
+nodes/Stand/node = SubResource("AnimationNodeBlendSpace2D_aqqjw")
+nodes/Stand/position = Vector2(-80, 180)
+node_connections = [&"output", 0, &"Speed", &"Speed", 0, &"Stand"]
+
 [node name="CharacterDummy" unique_id=1327689915 instance=ExtResource("1_1urka")]
 script = ExtResource("2_ygwtj")
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1353022049) index="0" unique_id=518057937]
+bones/0/position = Vector3(0, -0.0036726808, 0)
 bones/5/rotation = Quaternion(4.6676824e-08, 2.6856242e-08, -0.3607225, 0.93267316)
 bones/9/rotation = Quaternion(4.6866116e-08, -2.683439e-08, 0.3625792, 0.931953)
 bones/13/rotation = Quaternion(-0.76785976, -2.6252803e-08, 1.5363918e-07, 0.64061797)
@@ -21,3 +61,9 @@ bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=621275970]
 autoplay = &"Idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1950884693]
+tree_root = SubResource("AnimationNodeBlendTree_ftr0q")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Speed/scale = 1.0
+parameters/Stand/blend_position = Vector2(0, 0)

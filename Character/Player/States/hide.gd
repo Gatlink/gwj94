@@ -5,7 +5,6 @@ extends PlayerState
 func enter() -> void:
 	super()
 	player.collision.disabled = true
-	player.dummy.idle()
 	player.graph.scale.y = 0.5
 
 
