@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bmefsumjb7wc2"]
 
 [ext_resource type="PackedScene" uid="uid://dki85rwv7lgio" path="res://Character/character.tscn" id="1_7uq7p"]
-[ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/Player/player_dummy.tscn" id="2_4degh"]
 [ext_resource type="Script" uid="uid://vimk6mq40sc5" path="res://Character/Mutant/mutant.gd" id="2_hqjvr"]
 [ext_resource type="Script" uid="uid://bavdl652wfwip" path="res://Character/Mutant/States/mutant_idle.gd" id="2_rskt8"]
 [ext_resource type="Script" uid="uid://bwvr2tsxuy7do" path="res://Character/Mutant/States/mutant_chase.gd" id="4_hqjvr"]
 [ext_resource type="Script" uid="uid://l8gtrf81litj" path="res://Character/Mutant/States/mutant_back_to_start.gd" id="5_0lmxh"]
 [ext_resource type="Script" uid="uid://pfaisxguwrfg" path="res://Character/Mutant/States/mutant_strike.gd" id="6_d6aly"]
+[ext_resource type="PackedScene" uid="uid://ch6opmwy3lvq3" path="res://Character/Mutant/mutant_dummy.tscn" id="7_d6aly"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4degh"]
 radius = 5.0
@@ -20,7 +20,7 @@ radius = 1.5
 [node name="Mutant" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_7uq7p")]
 script = ExtResource("2_hqjvr")
 state = NodePath("Idle")
-dummy = NodePath("Graph/CharacterDummy")
+dummy = NodePath("Graph/MutantDummy")
 
 [node name="Idle" type="Node" parent="." index="0" unique_id=695727919]
 script = ExtResource("2_rskt8")
@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://l8gtrf81litj"
 script = ExtResource("6_d6aly")
 metadata/_custom_type_script = "uid://pfaisxguwrfg"
 
-[node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("2_4degh")]
+[node name="MutantDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=2140569891 instance=ExtResource("7_d6aly")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=156104095]

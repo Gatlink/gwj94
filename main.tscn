@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dyhi7ohqwlio3" path="res://Level/level.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://mf5j4uhv50u4" path="res://Character/Player/player_character.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://h0usm14q2wg6" path="res://HidingSpot/desk.tscn" id="5_7mycd"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 
@@ -35,6 +34,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Camera3D" type="Camera3D" parent="CameraHandler" unique_id=1409978657]
 transform = Transform3D(1, 0, 0, 0, 0.5000001, 0.8660254, 0, -0.8660254, 0.5000001, 0, 6, 4)
-
-[node name="Desk" parent="." unique_id=34138757 instance=ExtResource("5_7mycd")]
-transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, -4.5, 0, 2.25)

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bjf4c3v0ja6vl"]
 
+[ext_resource type="Script" uid="uid://bfg2x64l3lyq" path="res://Level/tile.gd" id="1_cymfl"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xcpxl"]
 size = Vector3(2, 2, 0.1)
 
@@ -16,6 +18,7 @@ size = Vector3(4, 2, 0.1)
 size = Vector3(0.1, 2, 4)
 
 [node name="BaseTile" type="Node3D" unique_id=707751106]
+script = ExtResource("1_cymfl")
 
 [node name="Ground" type="CSGBox3D" parent="." unique_id=1250310369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
