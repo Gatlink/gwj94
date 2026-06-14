@@ -22,4 +22,4 @@ func reload() -> void:
 	
 	await Fade.animation.animation_finished
 	
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://UI/screen_game_over.tscn")

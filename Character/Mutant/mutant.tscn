@@ -76,5 +76,3 @@ shape = SubResource("SphereShape3D_d6aly")
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
 [connection signal="body_entered" from="Range" to="Strike" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="Strike" method="_on_range_body_exited"]
-[connection signal="body_entered" from="Hitbox" to="Strike" method="_on_range_body_entered"]
-[connection signal="body_exited" from="Hitbox" to="Strike" method="_on_range_body_exited"]

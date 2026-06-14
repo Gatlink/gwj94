@@ -3,11 +3,11 @@ extends Character
 
 
 @onready var range_shape: CollisionShape3D = $Range/RangeShape
+@onready var hitbox: Area3D = $Hitbox
 @onready var idle: MutantIdle = $Idle
 @onready var chase: MutantChase = $Chase
 @onready var back_to_start: MutantBackToStart = $BackToStart
 @onready var strike: MutantStrike = $Strike
-@onready var hitbox: Area3D = $Hitbox
 
 
 var player: PlayerCharacter

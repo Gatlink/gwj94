@@ -12,7 +12,7 @@ func enter() -> void:
 	
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_property(mutant.graph, "scale", Vector3(1.2, 0.8, 1.2), 0.5)
+	tween.tween_property(mutant.graph, "scale", Vector3(1.2, 0.8, 1.2), 0.25)
 	tween.tween_callback(hit)
 	tween.tween_property(mutant.graph, "scale", Vector3(1, 1, 1), 0.25)
 	tween.tween_callback(mutant.chase.transition_to)
