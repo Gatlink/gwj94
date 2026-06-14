@@ -6,6 +6,8 @@
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h2yge"]
+
 [node name="Main" type="Node3D" unique_id=389403922]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=816753249]
@@ -16,6 +18,12 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 light_color = Color(0.3416, 0.5250067, 0.61, 1)
 light_energy = 0.015
 shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=480832451]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1481902617]
+shape = SubResource("WorldBoundaryShape3D_h2yge")
 
 [node name="Level" parent="." unique_id=1460984159 instance=ExtResource("1_lquwl")]
 
