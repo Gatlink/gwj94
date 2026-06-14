@@ -20,8 +20,8 @@ func enter() -> void:
 
 
 func hit() -> void:
-	if target != null:
-		target.die.transition_to()
+	if mutant.hitbox.overlaps_body(PlayerCharacter.instance):
+		PlayerCharacter.instance.die.transition_to()
 		target = null
 		mutant.range_shape.disabled = true
 

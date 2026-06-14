@@ -7,6 +7,7 @@ extends Character
 @onready var chase: MutantChase = $Chase
 @onready var back_to_start: MutantBackToStart = $BackToStart
 @onready var strike: MutantStrike = $Strike
+@onready var hitbox: Area3D = $Hitbox
 
 
 var player: PlayerCharacter
