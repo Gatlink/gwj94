@@ -8,7 +8,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Model:position")
+tracks/0/path = NodePath("Graph/Model:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +20,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Model/DoorLeft:position")
+tracks/1/path = NodePath("Graph/Model/DoorLeft:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -32,7 +32,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Model/DoorRight:position")
+tracks/2/path = NodePath("Graph/Model/DoorRight:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -44,7 +44,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Model/CharacterDummy:position")
+tracks/3/path = NodePath("Graph/Model/CharacterDummy:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -56,7 +56,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Model/CharacterDummy:rotation")
+tracks/4/path = NodePath("Graph/Model/CharacterDummy:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -68,7 +68,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Model/CharacterDummy:visible")
+tracks/5/path = NodePath("Graph/Model/CharacterDummy:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -80,7 +80,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("WallDoorLeft:position")
+tracks/6/path = NodePath("Graph/WallDoorLeft:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -92,7 +92,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("WallDoorRight:position")
+tracks/7/path = NodePath("Graph/WallDoorRight:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -104,12 +104,12 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_07h7l"]
 resource_name = "come"
-length = 1.9
+length = 2.4
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Model:position")
+tracks/0/path = NodePath("Graph/Model:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -121,26 +121,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Model/DoorLeft:position")
+tracks/1/path = NodePath("Graph/Model/DoorLeft:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1, 1.5, 1.85, 2.3500001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.5, 0.15, 0.8), Vector3(-1.4, 0.15, 0.8)]
+"values": [Vector3(-0.5, 0.15, 0.8), Vector3(-1.4, 0.15, 0.8), Vector3(-1.4, 0.15, 0.8), Vector3(-0.5, 0.15, 0.8)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Model/DoorRight:position")
+tracks/2/path = NodePath("Graph/Model/DoorRight:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1, 1.5, 1.85, 2.3500001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.5, 0.15, 0.8), Vector3(1.375, 0.15, 0.8)]
+"values": [Vector3(0.5, 0.15, 0.8), Vector3(1.375, 0.15, 0.8), Vector3(1.375, 0.15, 0.8), Vector3(0.5, 0.15, 0.8)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -159,31 +159,31 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("WallDoorLeft:position")
+tracks/4/path = NodePath("Graph/WallDoorLeft:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.95, 1.45),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.95, 1.45, 1.9, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.49999997, 1, 0.925), Vector3(-1.375, 1, 0.925)]
+"values": [Vector3(-0.49999997, 1, 0.925), Vector3(-1.375, 1, 0.925), Vector3(-1.375, 1, 0.925), Vector3(-0.49999997, 1, 0.925)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("WallDoorRight:position")
+tracks/5/path = NodePath("Graph/WallDoorRight:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.95, 1.45),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.95, 1.45, 1.9, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.5, 1, 0.925), Vector3(1.375, 1, 0.925)]
+"values": [Vector3(0.5, 1, 0.925), Vector3(1.375, 1, 0.925), Vector3(1.375, 1, 0.925), Vector3(0.5, 1, 0.925)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Model/CharacterDummy:visible")
+tracks/6/path = NodePath("Graph/Model/CharacterDummy:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -195,19 +195,19 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Model/CharacterDummy:position")
+tracks/7/path = NodePath("Graph/Model/CharacterDummy:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0, 1.5, 1.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -0.875, 0), Vector3(0, -0.875, 0), Vector3(0, -0.875, 2)]
+"values": [Vector3(0, -0.875, 0), Vector3(0, -0.875, 0), Vector3(0, -0.875, 3)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Model/CharacterDummy:rotation")
+tracks/8/path = NodePath("Graph/Model/CharacterDummy:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -219,7 +219,7 @@ tracks/8/keys = {
 tracks/9/type = "method"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Model/CharacterDummy")
+tracks/9/path = NodePath("Graph/Model/CharacterDummy")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -236,16 +236,16 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_dmwkf"]
 resource_name = "go"
-length = 1.9
+length = 2.4
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Model:position")
+tracks/0/path = NodePath("Graph/Model:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.9, 1, 1.9),
+"times": PackedFloat32Array(1.4000001, 1.5000001, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0.875, 0), Vector3(0, 0.775, 0), Vector3(0, 2.25, 0)]
@@ -253,71 +253,71 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Model/DoorLeft:position")
+tracks/1/path = NodePath("Graph/Model/DoorLeft:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.39999998, 0.9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.9000001, 1.4000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-1.375, 0.15, 0.8), Vector3(-0.5, 0.15, 0.8)]
+"values": [Vector3(-0.5, 0.15, 0.8), Vector3(-1.375, 0.15, 0.8), Vector3(-1.375, 0.15, 0.8), Vector3(-0.5, 0.15, 0.8)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Model/DoorRight:position")
+tracks/2/path = NodePath("Graph/Model/DoorRight:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.39999998, 0.9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 0.9000001, 1.4000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.375, 0.15, 0.8), Vector3(0.5, 0.15, 0.8)]
+"values": [Vector3(0.5, 0.15, 0.8), Vector3(1.375, 0.15, 0.8), Vector3(1.375, 0.15, 0.8), Vector3(0.5, 0.15, 0.8)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("WallDoorLeft:position")
+tracks/3/path = NodePath("Graph/WallDoorLeft:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.45000002, 0.95),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.049999952, 0.55, 0.95000017, 1.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-1.375, 1, 0.925), Vector3(-0.5, 1, 0.925)]
+"values": [Vector3(-0.5, 1, 0.925), Vector3(-1.375, 1, 0.925), Vector3(-1.375, 1, 0.925), Vector3(-0.5, 1, 0.925)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("WallDoorRight:position")
+tracks/4/path = NodePath("Graph/WallDoorRight:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.45000002, 0.95),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.049999952, 0.55, 0.95000017, 1.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.375, 1, 0.925), Vector3(0.5, 1, 0.925)]
+"values": [Vector3(0.5, 1, 0.925), Vector3(1.375, 1, 0.925), Vector3(1.375, 1, 0.925), Vector3(0.5, 1, 0.925)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Model/CharacterDummy:position")
+tracks/5/path = NodePath("Graph/Model/CharacterDummy:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.5000001, 1.0000001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -0.875, 2), Vector3(0, -0.875, 0)]
+"values": [Vector3(0, -0.875, 3), Vector3(0, -0.875, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Model/CharacterDummy:rotation")
+tracks/6/path = NodePath("Graph/Model/CharacterDummy:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.5000001),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 3.1415927, 0)]
@@ -325,7 +325,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Model/CharacterDummy:visible")
+tracks/7/path = NodePath("Graph/Model/CharacterDummy:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -337,13 +337,16 @@ tracks/7/keys = {
 tracks/8/type = "method"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Model/CharacterDummy")
+tracks/8/path = NodePath("Graph/Model/CharacterDummy")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5000001, 1.0000001),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
+"args": [],
+"method": &"idle"
+}, {
 "args": [5.0],
 "method": &"walk"
 }, {
@@ -362,6 +365,9 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
 size = Vector3(2, 0.52500004, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_07h7l"]
+size = Vector3(2, 2, 0.1)
+
 [node name="Lift" type="Area3D" unique_id=25060028]
 collision_layer = 0
 collision_mask = 4
@@ -372,41 +378,44 @@ script = ExtResource("1_vdouh")
 libraries/ = SubResource("AnimationLibrary_dmwkf")
 autoplay = &"come"
 
-[node name="Model" type="CSGBox3D" parent="." unique_id=1397618472]
+[node name="Graph" type="Node3D" parent="." unique_id=1029428374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.875)
+
+[node name="Model" type="CSGBox3D" parent="Graph" unique_id=1397618472]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
 size = Vector3(2, 2.3500001, 1.875)
 
-[node name="Carve" type="CSGBox3D" parent="Model" unique_id=69587482]
+[node name="Carve" type="CSGBox3D" parent="Graph/Model" unique_id=69587482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3499999, 0.1875)
 operation = 2
 size = Vector3(1.75, 2.45, 2)
 
-[node name="DoorLeft" type="CSGBox3D" parent="Model" unique_id=714787300]
+[node name="DoorLeft" type="CSGBox3D" parent="Graph/Model" unique_id=714787300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.14999986, 0.8)
-size = Vector3(1, 2.1000001, 0.125)
+size = Vector3(1, 2.1, 0.1)
 
-[node name="DoorRight" type="CSGBox3D" parent="Model" unique_id=2001245284]
+[node name="DoorRight" type="CSGBox3D" parent="Graph/Model" unique_id=2001245284]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.14999986, 0.8)
-size = Vector3(1, 2.1000001, 0.125)
+size = Vector3(1, 2.1, 0.1)
 
-[node name="CarveTop" type="CSGBox3D" parent="Model" unique_id=272697841]
+[node name="CarveTop" type="CSGBox3D" parent="Graph/Model" unique_id=272697841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0.0625)
 operation = 2
 size = Vector3(4, 0.25, 2)
 
-[node name="CharacterDummy" parent="Model" unique_id=1327689915 instance=ExtResource("2_07h7l")]
+[node name="CharacterDummy" parent="Graph/Model" unique_id=1327689915 instance=ExtResource("2_07h7l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0)
 
-[node name="WallDoorLeft" type="CSGBox3D" parent="." unique_id=1633991672]
+[node name="WallDoorLeft" type="CSGBox3D" parent="Graph" unique_id=1633991672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49999997, 1, 0.925)
-size = Vector3(1, 2, 0.125)
+size = Vector3(1, 2, 0.1)
 
-[node name="WallDoorRight" type="CSGBox3D" parent="." unique_id=2019667088]
+[node name="WallDoorRight" type="CSGBox3D" parent="Graph" unique_id=2019667088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.925)
-size = Vector3(1, 2, 0.125)
+size = Vector3(1, 2, 0.1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1456047246]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2125, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.5)
 shape = SubResource("BoxShape3D_1bvp3")
 
 [node name="CharacterMark" type="Marker3D" parent="." unique_id=1512177337]
@@ -415,3 +424,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=25410958]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3, 0)
 light_energy = 0.5
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=227700504]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" unique_id=1724709261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_07h7l")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dyhi7ohqwlio3"]
+
+[ext_resource type="PackedScene" uid="uid://dstpu8qat3byo" path="res://Lift/lift.tscn" id="1_o6mkr"]
+[ext_resource type="PackedScene" uid="uid://bjf4c3v0ja6vl" path="res://Level/base_tile.tscn" id="2_qmtf6"]
+
+[node name="Level" type="Node3D" unique_id=1460984159]
+
+[node name="Lift" parent="." unique_id=25060028 instance=ExtResource("1_o6mkr")]
+
+[node name="BaseTile" parent="." unique_id=707751106 instance=ExtResource("2_qmtf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
