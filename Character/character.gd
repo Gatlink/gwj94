@@ -13,7 +13,7 @@ func _ready() -> void:
 	state.enter()
 
 
-func _process(_delta: float) -> void:
+func update_stand_parameters() -> void:
 	var look_forward := -graph.basis.z
 	var look_dir := Vector2(look_forward.x, look_forward.z)
 	var walk_forward := velocity.normalized()

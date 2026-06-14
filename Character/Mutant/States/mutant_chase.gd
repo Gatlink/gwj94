@@ -11,7 +11,9 @@ func enter() -> void:
 
 
 func _process(_delta: float) -> void:
-	if not mutant.is_player_in_range:
+	if mutant.strike.target != null:
+		mutant.strike.transition_to()
+	elif not mutant.is_player_in_range():
 		mutant.back_to_start.transition_to()
 
 

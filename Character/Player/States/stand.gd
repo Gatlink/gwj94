@@ -5,6 +5,10 @@ extends PlayerState
 const SPEED := 5.0
 
 
+func _process(_delta: float) -> void:
+	player.update_stand_parameters()
+
+
 func _physics_process(_delta: float) -> void:
 	# Movement
 	if PlayerInput.move_dir:

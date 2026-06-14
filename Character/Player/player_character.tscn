@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://1jqfn24h1gr7" path="res://InputPrompt/xbox_button_a.svg" id="6_03ek6"]
 [ext_resource type="Script" uid="uid://cxb0llhvd73j7" path="res://Character/Player/States/hide.gd" id="6_08wd5"]
 [ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="6_wj11p"]
+[ext_resource type="Script" uid="uid://b7ajy1gfptajh" path="res://Character/Player/States/die.gd" id="7_1vi68"]
 
 [node name="PlayerCharacter" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_atbs6")]
 script = ExtResource("2_08x8n")
@@ -31,10 +32,14 @@ metadata/_custom_type_script = "uid://bof87jdc17wsj"
 script = ExtResource("6_08wd5")
 metadata/_custom_type_script = "uid://cxb0llhvd73j7"
 
+[node name="Die" type="Node" parent="." index="4" unique_id=1201222763]
+script = ExtResource("7_1vi68")
+metadata/_custom_type_script = "uid://b7ajy1gfptajh"
+
 [node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
-[node name="InputPrompt" type="Sprite3D" parent="." index="6" unique_id=1407943177]
+[node name="InputPrompt" type="Sprite3D" parent="." index="7" unique_id=1407943177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9900403, 0)
 visible = false
 billboard = 1
@@ -42,6 +47,6 @@ texture = ExtResource("6_03ek6")
 script = ExtResource("6_wj11p")
 metadata/_custom_type_script = "uid://b2hjdph5wiest"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="7" unique_id=1389191218]
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="8" unique_id=1389191218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0.525)
 light_energy = 0.8

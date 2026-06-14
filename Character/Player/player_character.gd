@@ -11,6 +11,7 @@ static var instance: PlayerCharacter
 @onready var stand: PlayerStand = $Stand
 @onready var move_to: PlayerMoveTo = $MoveTo
 @onready var hide_state: PlayerHide = $Hide
+@onready var die: PlayerDie = $Die
 
 
 func _ready() -> void:

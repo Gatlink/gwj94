@@ -6,6 +6,7 @@ func enter() -> void:
 	super()
 	player.collision.disabled = true
 	player.graph.scale.y = 0.5
+	player.dummy.idle()
 
 
 func exit() -> void:
