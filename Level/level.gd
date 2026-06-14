@@ -35,12 +35,21 @@ var rooms: Array[Room] = []
 
 
 func _ready() -> void:
-	var row_offset := -(ROOM_ROW - 1) * ROOM_SIZE / 2.0
-	var col_offset := ROOM_SIZE / 2.0
-	for col in ROOM_COL:
-		for row in ROOM_ROW:
-			var pos := Vector3(row * ROOM_SIZE + row_offset, 0, col * ROOM_SIZE + col_offset)
+	var col_offset := -(ROOM_ROW - 1) * ROOM_SIZE / 2.0
+	var row_offset := ROOM_SIZE / 2.0
+	for row in ROOM_ROW:
+		for col in ROOM_COL:
+			var pos := Vector3(col * ROOM_SIZE + col_offset, 0, row * ROOM_SIZE + row_offset)
 			var room := ROOM.instantiate() as Room
 			add_child(room)
 			room.position = pos
 			rooms.append(room)
+			
+			if col == 0:
+				room.close_door(WEST)
+			elif col == ROOM_COL - 1:
+				room.close_door(EAST)
+			if row == 0 and not col == floori(ROOM_COL / 2.0):
+				room.close_door(NORTH)
+			elif row == ROOM_ROW - 1:
+				room.close_door(SOUTH)

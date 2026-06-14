@@ -12,13 +12,13 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and player != null:
+	if event.is_action_pressed("interact") and player != null and not player.state is PlayerDie:
 		on_interact()
 
 
 func _on_body_entered(body: Node3D) -> void:
 	var new_char = body as PlayerCharacter
-	if new_char != null:
+	if new_char != null and not new_char.state is PlayerDie:
 		player = new_char
 		player.input_prompt.show()
 
