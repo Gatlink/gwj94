@@ -3,10 +3,10 @@ extends Node3D
 
 
 @onready var doors: Dictionary[int, Node3D] = {
-	Level.NORTH: $Ground/DoorNorth,
-	Level.EAST: $Ground/DoorEast,
-	Level.SOUTH: $Ground/DoorSouth,
-	Level.WEST: $Ground/DoorWest
+	Level.NORTH: $DoorNorth,
+	Level.EAST: $DoorEast,
+	Level.SOUTH: $DoorSouth,
+	Level.WEST: $DoorWest
 }
 
 @onready var door_colliders: Dictionary[int, CollisionShape3D] = {
@@ -21,7 +21,7 @@ extends Node3D
 
 
 func open_door(side: int) -> void:
-	doors[side].visible = true
+	doors[side].visible = false
 	door_colliders[side].disabled = true
 
 

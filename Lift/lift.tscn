@@ -408,11 +408,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0)
 
 [node name="WallDoorLeft" type="CSGBox3D" parent="Graph" unique_id=1633991672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49999997, 1, 0.925)
-size = Vector3(1, 2, 0.1)
+size = Vector3(1, 2, 0.075)
 
 [node name="WallDoorRight" type="CSGBox3D" parent="Graph" unique_id=2019667088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.925)
-size = Vector3(1, 2, 0.1)
+size = Vector3(1, 2, 0.075)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1456047246]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.5)
