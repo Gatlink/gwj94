@@ -23,5 +23,8 @@ func enter() -> void:
 
 
 func _process(_delta: float) -> void:
-	if mutant.navigation.is_target_reached():
+	if mutant.has_target:
+		mutant.navigation.target_position = mutant.global_position
+		mutant.chase.transition_to()
+	elif mutant.navigation.is_target_reached():
 		mutant.idle.transition_to()

@@ -97,6 +97,7 @@ shoot={
 3d_physics/layer_1="Ground"
 3d_physics/layer_2="Obstacles"
 3d_physics/layer_3="player"
+3d_physics/layer_4="mutant"
 
 [navigation]
 

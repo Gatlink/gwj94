@@ -9,5 +9,5 @@ func enter() -> void:
 
 
 func _process(_delta: float) -> void:
-	if mutant.is_player_in_range() and not PlayerCharacter.instance.state is PlayerDie:
+	if mutant.has_target:
 		mutant.chase.transition_to()

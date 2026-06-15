@@ -9,15 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://ch6opmwy3lvq3" path="res://Character/Mutant/mutant_dummy.tscn" id="7_d6aly"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4degh"]
-radius = 3.0
+radius = 6.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0lmxh"]
 radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d6aly"]
-radius = 1.25
+radius = 0.875
 
 [node name="Mutant" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_7uq7p")]
+collision_layer = 8
 script = ExtResource("2_hqjvr")
 state = NodePath("Idle")
 dummy = NodePath("Graph/MutantDummy")
@@ -38,29 +39,25 @@ metadata/_custom_type_script = "uid://l8gtrf81litj"
 script = ExtResource("6_d6aly")
 metadata/_custom_type_script = "uid://pfaisxguwrfg"
 
-[node name="MutantDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=2140569891 instance=ExtResource("7_d6aly")]
+[node name="Graph" parent="." index="5" unique_id=789870063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MutantDummy" parent="Graph" index="0" unique_id=2140569891 instance=ExtResource("7_d6aly")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="RemoteHitbox" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=156104095]
+[node name="RemoteHitbox" type="RemoteTransform3D" parent="Graph" index="1" unique_id=156104095]
 remote_path = NodePath("../../Hitbox")
-update_position = false
-update_scale = false
-
-[node name="RemoteDetection" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="2" unique_id=141151248]
-remote_path = NodePath("../../Detection")
 update_position = false
 update_scale = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="6" unique_id=168669667]
 
 [node name="Detection" type="Area3D" parent="." index="7" unique_id=2122562429]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" index="0" unique_id=1256561918]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.496911e-07, 0, -2)
 shape = SubResource("SphereShape3D_4degh")
 
 [node name="Range" type="Area3D" parent="." index="8" unique_id=338861457]
@@ -72,7 +69,6 @@ monitorable = false
 shape = SubResource("SphereShape3D_0lmxh")
 
 [node name="Hitbox" type="Area3D" parent="." index="9" unique_id=1529736645]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -80,6 +76,12 @@ monitorable = false
 [node name="RangeShape" type="CollisionShape3D" parent="Hitbox" index="0" unique_id=1702197170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4041265e-07, 0, -1.25)
 shape = SubResource("SphereShape3D_d6aly")
+
+[node name="DetectionRay" type="RayCast3D" parent="." index="10" unique_id=44878972]
+enabled = false
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
+debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
