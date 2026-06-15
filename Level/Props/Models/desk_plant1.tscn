@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cebh6ewiwy4g3"]
+
+[ext_resource type="PackedScene" uid="uid://c8uom4hmymu0j" path="res://Level/Props/Meshes/plantSmall1.glb" id="1_vf7x4"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_lr2no"]
+
+[node name="Plant1" type="Node3D" unique_id=529897335]
+
+[node name="plantSmall1" parent="." unique_id=177982691 instance=ExtResource("1_vf7x4")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=1153235527]
+script = ExtResource("2_lr2no")
+angle = 90.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

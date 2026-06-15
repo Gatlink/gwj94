@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://wukay4qyiusw"]
+
+[ext_resource type="PackedScene" uid="uid://bgs500slp14y7" path="res://Level/Props/Meshes/computerKeyboard.glb" id="1_ia3de"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_2g7ft"]
+[ext_resource type="PackedScene" uid="uid://dvch2guoypuq7" path="res://Level/Props/Meshes/computerMouse.glb" id="3_15bys"]
+[ext_resource type="PackedScene" uid="uid://i26njfjx1udk" path="res://Level/Props/Meshes/computerScreen.glb" id="4_kwo6t"]
+
+[node name="Computer" type="Node3D" unique_id=304875939]
+
+[node name="Keyboard" type="Node3D" parent="." unique_id=857959776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.225)
+
+[node name="computerKeyboard" parent="Keyboard" unique_id=844801679 instance=ExtResource("1_ia3de")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.4, 0, 0.17499997)
+
+[node name="RotateOnReady" type="Node" parent="Keyboard" unique_id=1791144938]
+script = ExtResource("2_2g7ft")
+angle = 5.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
+
+[node name="computerScreen" parent="." unique_id=1422617057 instance=ExtResource("4_kwo6t")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.55, 0, -0.1)
+
+[node name="Mouse" type="Node3D" parent="." unique_id=1404269744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0.25)
+
+[node name="computerMouse" parent="Mouse" unique_id=570004576 instance=ExtResource("3_15bys")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0.15)
+
+[node name="RotateOnReady" type="Node" parent="Mouse" unique_id=721168790]
+script = ExtResource("2_2g7ft")
+angle = 15.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c6c0aham8dfad"]
+
+[ext_resource type="Script" uid="uid://wbyty5saddfx" path="res://Level/Props/prop.gd" id="1_5p0bs"]
+
+[node name="BaseProp" type="StaticBody3D" unique_id=1424770536]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_5p0bs")

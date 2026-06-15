@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://nv6jw4ug10ou"]
+
+[ext_resource type="PackedScene" uid="uid://c6c0aham8dfad" path="res://Level/Props/base_prop.tscn" id="1_dyrwf"]
+[ext_resource type="PackedScene" uid="uid://dv107x0p02sg2" path="res://Level/Props/Models/desk_chair.tscn" id="3_tfpkk"]
+[ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="4_2llth"]
+[ext_resource type="PackedScene" uid="uid://chw08o2rpn207" path="res://Level/Props/Models/desk.tscn" id="4_lyufb"]
+[ext_resource type="PackedScene" uid="uid://cp7m2rnk445xm" path="res://Level/Props/Models/books.tscn" id="5_27yf3"]
+[ext_resource type="PackedScene" uid="uid://cebh6ewiwy4g3" path="res://Level/Props/Models/desk_plant1.tscn" id="7_mqbfm"]
+[ext_resource type="PackedScene" uid="uid://buoslr5b1qsrm" path="res://Level/Props/Models/desk_plant2.tscn" id="8_1vkdc"]
+[ext_resource type="PackedScene" uid="uid://dm8aa0i1tsyct" path="res://Level/Props/Models/desk_plant3.tscn" id="9_v3v8g"]
+[ext_resource type="PackedScene" uid="uid://wukay4qyiusw" path="res://Level/Props/Models/computer.tscn" id="10_xg6il"]
+[ext_resource type="PackedScene" uid="uid://hbqv3ku0i4gs" path="res://Level/Props/Models/laptop.tscn" id="11_dys53"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2llth"]
+size = Vector3(2.2, 1.15, 1.1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tfpkk"]
+height = 1.8125
+
+[node name="PropDesk" unique_id=1424770536 instance=ExtResource("1_dyrwf")]
+
+[node name="CollisionDesk" type="CollisionShape3D" parent="." index="0" unique_id=509970325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575, 0)
+shape = SubResource("BoxShape3D_2llth")
+
+[node name="CollisionChair" type="CollisionShape3D" parent="." index="1" unique_id=1598328624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90624994, 1.1)
+shape = SubResource("CylinderShape3D_tfpkk")
+
+[node name="Desk" parent="." index="2" unique_id=1969569637 instance=ExtResource("4_lyufb")]
+
+[node name="DeskChair" parent="." index="3" unique_id=370415062 instance=ExtResource("3_tfpkk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 1.1)
+
+[node name="PopulateSmall" type="Node3D" parent="." index="4" unique_id=600785419]
+script = ExtResource("4_2llth")
+models = Array[PackedScene]([ExtResource("5_27yf3"), ExtResource("7_mqbfm"), ExtResource("8_1vkdc"), ExtResource("9_v3v8g")])
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D" type="Marker3D" parent="PopulateSmall" index="0" unique_id=1218685766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.825, 1.15, -0.32500002)
+
+[node name="Marker3D2" type="Marker3D" parent="PopulateSmall" index="1" unique_id=637574269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 1.15, -0.3)
+
+[node name="PopulateBig" type="Node3D" parent="." index="5" unique_id=148470753]
+script = ExtResource("4_2llth")
+models = Array[PackedScene]([ExtResource("10_xg6il"), ExtResource("11_dys53")])
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D" type="Marker3D" parent="PopulateBig" index="0" unique_id=2100127076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)

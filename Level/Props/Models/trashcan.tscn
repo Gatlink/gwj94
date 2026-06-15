@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c1ogfnw7tgm27"]
+
+[ext_resource type="PackedScene" uid="uid://b72yxcurn8c6a" path="res://Level/Props/Meshes/trashcan.glb" id="1_uquhe"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_wfm1q"]
+
+[node name="Trashcan" type="Node3D" unique_id=870262749]
+
+[node name="trashcan" parent="." unique_id=822882822 instance=ExtResource("1_uquhe")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=1448804620]
+script = ExtResource("2_wfm1q")
+angle = 5.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

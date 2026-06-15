@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dda48ngabijvv"]
+
+[ext_resource type="PackedScene" uid="uid://bjf4c3v0ja6vl" path="res://Level/base_room.tscn" id="1_tov4a"]
+[ext_resource type="PackedScene" uid="uid://h0usm14q2wg6" path="res://HidingSpot/hiding_spot_desk.tscn" id="2_dicun"]
+[ext_resource type="PackedScene" uid="uid://nv6jw4ug10ou" path="res://Level/Props/Office/prop_desk.tscn" id="3_vquj1"]
+
+[node name="Office1" unique_id=707751106 instance=ExtResource("1_tov4a")]
+
+[node name="HidingSpotDesk" parent="." index="2" unique_id=34138757 instance=ExtResource("2_dicun")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.11, 0, -0.59)
+
+[node name="PropDesk" parent="." index="3" unique_id=1424770536 instance=ExtResource("3_vquj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1000001, 0, 0.59999996)
+
+[node name="PropDesk2" parent="." index="4" unique_id=331995498 instance=ExtResource("3_vquj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999997, 0, 0.6)
+
+[node name="PropDesk3" parent="." index="5" unique_id=1053231247 instance=ExtResource("3_vquj1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.0999997, 0, -0.59999996)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://h0usm14q2wg6"]
+
+[ext_resource type="PackedScene" uid="uid://2l0oktmxtmaf" path="res://Level/Props/Meshes/desk.glb" id="1_05gis"]
+[ext_resource type="Script" uid="uid://tftcojrpic8m" path="res://HidingSpot/hiding_spot.gd" id="1_7hfcf"]
+[ext_resource type="PackedScene" uid="uid://cpabuwcpq414f" path="res://Level/Props/Models/desk_lamp.tscn" id="3_1xdhi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7hfcf"]
+radius = 1.5
+
+[node name="HidingSpotDesk" type="Area3D" unique_id=34138757]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_7hfcf")
+
+[node name="desk" parent="." unique_id=1882277053 instance=ExtResource("1_05gis")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.0749999, 0, 0.55)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1096095063]
+shape = SubResource("SphereShape3D_7hfcf")
+
+[node name="DeskLamp" parent="." unique_id=771299055 instance=ExtResource("3_1xdhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 1.15, -0.25)

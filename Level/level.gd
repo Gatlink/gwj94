@@ -2,7 +2,6 @@ class_name Level
 extends Node3D
 
 
-const ROOM := preload("uid://bjf4c3v0ja6vl")
 const ROOM_SIZE := 10
 # MUST BE ODD
 const ROOM_ROW := 3
@@ -32,6 +31,9 @@ static func get_opposite(side: int) -> int:
 static var directions: Array[int] = [NORTH, EAST, SOUTH, WEST]
 
 
+@export var room_scenes: Array[PackedScene]
+
+
 var rooms: Array[Room] = []
 
 
@@ -41,7 +43,7 @@ func _ready() -> void:
 	for row in ROOM_ROW:
 		for col in ROOM_COL:
 			var pos := Vector3(col * ROOM_SIZE + col_offset, 0, row * ROOM_SIZE + row_offset)
-			var room := ROOM.instantiate() as Room
+			var room := room_scenes.pick_random().instantiate() as Room
 			add_child(room)
 			room.position = pos
 			rooms.append(room)

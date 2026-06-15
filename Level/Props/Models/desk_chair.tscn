@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dv107x0p02sg2"]
+
+[ext_resource type="PackedScene" uid="uid://b76bfslsyo0l3" path="res://Level/Props/Meshes/chairDesk.glb" id="1_qygmb"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_4l1sl"]
+
+[node name="DeskChair" type="Node3D" unique_id=370415062]
+
+[node name="chairDesk" parent="." unique_id=105987122 instance=ExtResource("1_qygmb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.5, 0, 0.5)
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=613360208]
+script = ExtResource("2_4l1sl")
+angle = 75.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
