@@ -98,6 +98,10 @@ shoot={
 3d_physics/layer_2="Obstacles"
 3d_physics/layer_3="player"
 
+[navigation]
+
+3d/default_cell_height=0.001
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

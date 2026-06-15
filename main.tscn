@@ -19,10 +19,10 @@ light_color = Color(0.3416, 0.5250067, 0.61, 1)
 light_energy = 0.015
 shadow_enabled = true
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=480832451]
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2071557390]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1481902617]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=667334158]
 shape = SubResource("WorldBoundaryShape3D_h2yge")
 
 [node name="Level" parent="." unique_id=1460984159 instance=ExtResource("1_lquwl")]

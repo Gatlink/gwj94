@@ -16,7 +16,19 @@ extends Node3D
 	Level.WEST: $CollisionWalls/DoorWest
 }
 
+@onready var mutant_spawn_points: Node3D = $MutantSpawnPoints
+
 
 func open_door(side: int) -> void:
 	doors[side].visible = true
 	door_colliders[side].disabled = true
+
+
+func get_spawn_points() -> Array[Vector3]:
+	var points: Array[Vector3] = []
+	for child in mutant_spawn_points.get_children():
+		var marker := child as Marker3D
+		if marker != null:
+			points.append(marker.global_position)
+	
+	return points

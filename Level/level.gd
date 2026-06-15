@@ -1,7 +1,8 @@
 class_name Level
 extends Node3D
 
-
+const MUTANT := preload("uid://bmefsumjb7wc2")
+const MUTANT_COUNT := 2
 const ROOM_SIZE := 10
 # MUST BE ODD
 const ROOM_ROW := 3
@@ -34,6 +35,9 @@ static var directions: Array[int] = [NORTH, EAST, SOUTH, WEST]
 @export var room_scenes: Array[PackedScene]
 
 
+@onready var navigation_region: NavigationRegion3D = $NavigationRegion3D
+
+
 var rooms: Array[Room] = []
 
 
@@ -44,7 +48,7 @@ func _ready() -> void:
 		for col in ROOM_COL:
 			var pos := Vector3(col * ROOM_SIZE + col_offset, 0, row * ROOM_SIZE + row_offset)
 			var room := room_scenes.pick_random().instantiate() as Room
-			add_child(room)
+			navigation_region.add_child(room)
 			room.position = pos
 			rooms.append(room)
 			
@@ -60,6 +64,23 @@ func _ready() -> void:
 	while unconnected_rooms_idx.size() > 0:
 		var room_idx: int = unconnected_rooms_idx.pick_random()
 		connect_room(room_idx, unconnected_rooms_idx)
+	
+	navigation_region.bake_navigation_mesh()
+	
+	var spawn_points: Array[Vector3] = []
+	for i in rooms.size():
+		if i == LIFT_ROOM_IDX:
+			continue
+		
+		var room := rooms[i]
+		spawn_points.append_array(room.get_spawn_points())
+	
+	spawn_points.shuffle()
+	for i in MUTANT_COUNT:
+		var pos: Vector3 = spawn_points.pop_front()
+		var instance := MUTANT.instantiate() as Mutant
+		instance.position = pos
+		add_child(instance)
 
 
 func connect_room(room_idx: int, unconnected_rooms_idx: Array[int]) -> void:

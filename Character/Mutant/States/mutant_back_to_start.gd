@@ -16,11 +16,12 @@ func _ready() -> void:
 func enter() -> void:
 	super()
 	
-	mutant.graph.look_at(start_pos)
 	mutant.dummy.walk(SPEED)
-	
-	var duration := mutant.global_position.distance_to(start_pos) / SPEED
-	var tween := create_tween()
-	tween.tween_property(mutant, "global_position", start_pos, duration)
-	tween.tween_callback(mutant.idle.transition_to)
-	tween.play()
+	mutant.current_speed = SPEED
+	mutant.navigation.max_speed = SPEED
+	mutant.navigation.target_position = start_pos
+
+
+func _process(_delta: float) -> void:
+	if mutant.navigation.is_target_reached():
+		mutant.idle.transition_to()

@@ -6,14 +6,16 @@
 
 [node name="Office1" unique_id=707751106 instance=ExtResource("1_cm2vs")]
 
-[node name="HidingSpotDesk" parent="." index="2" unique_id=34138757 instance=ExtResource("2_s86q4")]
+[node name="Marker3D" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="0" unique_id=651768743]
+
+[node name="HidingSpotDesk" parent="." index="4" unique_id=34138757 instance=ExtResource("2_s86q4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.325, 0, -3.775)
 
-[node name="PropDesk" parent="." index="3" unique_id=1424770536 instance=ExtResource("3_s86q4")]
+[node name="PropDesk" parent="." index="5" unique_id=1424770536 instance=ExtResource("3_s86q4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3, 0, 3.8)
 
-[node name="PropDesk2" parent="." index="4" unique_id=331995498 instance=ExtResource("3_s86q4")]
+[node name="PropDesk2" parent="." index="6" unique_id=331995498 instance=ExtResource("3_s86q4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2999997, 0, 3.8)
 
-[node name="PropDesk3" parent="." index="5" unique_id=1053231247 instance=ExtResource("3_s86q4")]
+[node name="PropDesk3" parent="." index="7" unique_id=1053231247 instance=ExtResource("3_s86q4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2999997, 0, -3.8)
