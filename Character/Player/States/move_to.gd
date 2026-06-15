@@ -13,12 +13,18 @@ func enter() -> void:
 	if player.global_position != target:
 		player.graph.look_at(target)
 	player.dummy.walk(player.stand.SPEED)
+	player.collision.disabled = true
 	
 	var duration := player.global_position.distance_to(target) / player.stand.SPEED
 	var tween := create_tween()
 	tween.tween_property(player, "global_position", target, duration)
 	tween.tween_callback(target_reached.emit)
 	tween.play()
+
+
+func exit() -> void:
+	super()
+	player.collision.disabled = false
 
 
 func transition_to(...params: Array) -> void:
