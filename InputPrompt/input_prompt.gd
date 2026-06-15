@@ -9,5 +9,5 @@ const KEYBOARD_TEXTURE = preload("uid://cmg4y7p1qgp4y")
 
 
 func _process(_delta: float) -> void:
-	modulate = KEYBOARD_COLOR if PlayerInput.use_kb_mouse else JOYPAD_COLOR
+	#modulate = KEYBOARD_COLOR if PlayerInput.use_kb_mouse else JOYPAD_COLOR
 	texture = KEYBOARD_TEXTURE if PlayerInput.use_kb_mouse else JOYPAD_TEXTURE
