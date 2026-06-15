@@ -86,37 +86,52 @@ func _ready() -> void:
 		add_child(instance)
 
 
-func connect_room(room_idx: int, unconnected_rooms_idx: Array[int]) -> void:
-	var visited_idx: Array[int] = []
-	while unconnected_rooms_idx.has(room_idx):
-		if not objective_placed and not room_idx == LIFT_ROOM_IDX:
-			var marker: Node3D = rooms[room_idx].objective_spawn_points.get_children().pick_random()
-			var objective := OBJECTIVE.instantiate() as Node3D
-			add_child(objective)
-			objective.global_position = marker.global_position
-			objective_placed = true
+func connect_room(room_idx: int, unconnected_idx: Array[int]) -> void:
+	var path: Dictionary[int, int] = {}
+	if create_path(room_idx, path, unconnected_idx):
+		if not objective_placed:
+			place_objective(room_idx)
 		
-		var coord := get_room_coord(room_idx)
-		var sides := directions.duplicate()
-		if coord.x == 0:
-			sides.erase(WEST)
-		elif coord.x == ROOM_COL - 1:
-			sides.erase(EAST)
-		if coord.y == 0:
-			sides.erase(NORTH)
-		elif coord.y == ROOM_ROW - 1:
-			sides.erase(SOUTH)
-		
-		sides.shuffle()
-		for side in sides:
-			var next_idx := get_neighbor_index(room_idx, side)
-			if next_idx != -1 and not visited_idx.has(next_idx):
-				unconnected_rooms_idx.erase(room_idx)
-				visited_idx.append(room_idx)
-				rooms[room_idx].open_door(side)
-				rooms[next_idx].open_door(get_opposite(side))
-				room_idx = next_idx
-				break
+		for idx in path:
+			var side := path[idx]
+			var neighbor := get_neighbor_index(idx, side)
+			unconnected_idx.erase(idx)
+			unconnected_idx.erase(neighbor)
+			rooms[idx].open_door(path[idx])
+			rooms[neighbor].open_door(get_opposite(side))
+
+
+func create_path(room_idx: int, path: Dictionary[int, int], unconnected_idx: Array[int]) -> bool:
+	# Path leads to a connected room: success
+	if not unconnected_idx.has(room_idx):
+		return true
+	
+	# Get valid neighbors: room exists and not already visited
+	var valid_neighbors: Dictionary[int, int] = {}
+	var sides := directions.duplicate()
+	sides.shuffle()
+	for side in sides:
+		var neighbor_idx := get_neighbor_index(room_idx, side)
+		if neighbor_idx != -1 and not path.has(neighbor_idx):
+			valid_neighbors[side] = neighbor_idx
+	
+	# Continue path through valid neighbors
+	for side in valid_neighbors:
+		path[room_idx] = side
+		if create_path(valid_neighbors[side], path, unconnected_idx):
+			return true
+	
+	# No valid path found
+	path.erase(room_idx)
+	return false
+
+
+func place_objective(room_idx: int) -> void:
+	var marker: Node3D = rooms[room_idx].objective_spawn_points.get_children().pick_random()
+	var objective := OBJECTIVE.instantiate() as Node3D
+	add_child(objective)
+	objective.global_position = marker.global_position
+	objective_placed = true
 
 
 func get_room_coord(room_idx: int) -> Vector2:
