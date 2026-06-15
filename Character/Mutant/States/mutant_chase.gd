@@ -23,13 +23,8 @@ func _process(_delta: float) -> void:
 		mutant.strike.transition_to()
 	elif not mutant.is_player_in_range():
 		mutant.back_to_start.transition_to()
-	
-	#timer -= delta
-	#if timer <= 0:
-		#mutant.navigation.target_position = mutant.player.global_position
-		#timer = PATH_REFRESH_RATE
 
 
 func _physics_process(_delta: float) -> void:
-	if mutant.navigation.is_navigation_finished():
+	if mutant.navigation.is_navigation_finished() and mutant.is_player_in_range():
 		mutant.navigation.target_position = mutant.player.global_position

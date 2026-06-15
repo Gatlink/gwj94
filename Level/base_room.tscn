@@ -115,3 +115,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_3mkoj")
 
 [node name="MutantSpawnPoints" type="Node3D" parent="." unique_id=959217816]
+
+[node name="ObjectiveSpawnPoints" type="Node3D" parent="." unique_id=942698550]

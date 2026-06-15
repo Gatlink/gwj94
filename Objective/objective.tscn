@@ -7,15 +7,91 @@
 height = 0.25
 radius = 1.0
 
+[sub_resource type="Animation" id="Animation_wd7uw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graph:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.25, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graph:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j0flj"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graph:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.25, 0), Vector3(0, 0.5, 0), Vector3(0, 0.25, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graph:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1mdwq"]
+_data = {
+&"RESET": SubResource("Animation_wd7uw"),
+&"idle": SubResource("Animation_j0flj")
+}
+
 [node name="Objective" type="Area3D" unique_id=1332854662]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 script = ExtResource("1_wd7uw")
 
-[node name="laptop" parent="." unique_id=36420289 instance=ExtResource("1_dpl15")]
+[node name="Graph" type="Node3D" parent="." unique_id=710924644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Graph" unique_id=1754498875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+light_color = Color(0.8812483, 0.89, 0.36490002, 1)
+light_energy = 1.5
+omni_range = 1.0
+
+[node name="laptop" parent="Graph" unique_id=36420289 instance=ExtResource("1_dpl15")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.375, 0, 0.35)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=555346625]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
 shape = SubResource("CylinderShape3D_dpl15")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1069526299]
+libraries/ = SubResource("AnimationLibrary_1mdwq")
+autoplay = &"idle"

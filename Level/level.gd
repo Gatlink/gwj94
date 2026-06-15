@@ -1,6 +1,8 @@
 class_name Level
 extends Node3D
 
+
+const OBJECTIVE = preload("uid://c888bstisw35")
 const MUTANT := preload("uid://bmefsumjb7wc2")
 const MUTANT_COUNT := 2
 const ROOM_SIZE := 10
@@ -39,6 +41,7 @@ static var directions: Array[int] = [NORTH, EAST, SOUTH, WEST]
 
 
 var rooms: Array[Room] = []
+var objective_placed := false
 
 
 func _ready() -> void:
@@ -86,6 +89,13 @@ func _ready() -> void:
 func connect_room(room_idx: int, unconnected_rooms_idx: Array[int]) -> void:
 	var visited_idx: Array[int] = []
 	while unconnected_rooms_idx.has(room_idx):
+		if not objective_placed and not room_idx == LIFT_ROOM_IDX:
+			var marker: Node3D = rooms[room_idx].objective_spawn_points.get_children().pick_random()
+			var objective := OBJECTIVE.instantiate() as Node3D
+			add_child(objective)
+			objective.global_position = marker.global_position
+			objective_placed = true
+		
 		var coord := get_room_coord(room_idx)
 		var sides := directions.duplicate()
 		if coord.x == 0:

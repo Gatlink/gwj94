@@ -17,6 +17,7 @@ extends Node3D
 }
 
 @onready var mutant_spawn_points: Node3D = $MutantSpawnPoints
+@onready var objective_spawn_points: Node3D = $ObjectiveSpawnPoints
 
 
 func open_door(side: int) -> void:

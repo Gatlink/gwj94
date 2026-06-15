@@ -10,7 +10,8 @@ var target: Vector3
 
 func enter() -> void:
 	super()
-	player.graph.look_at(target)
+	if player.global_position != target:
+		player.graph.look_at(target)
 	player.dummy.walk(player.stand.SPEED)
 	
 	var duration := player.global_position.distance_to(target) / player.stand.SPEED

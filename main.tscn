@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dyhi7ohqwlio3" path="res://Level/level.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://mf5j4uhv50u4" path="res://Character/Player/player_character.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="4_1bvp3"]
 
 [sub_resource type="Environment" id="Environment_lquwl"]
 
@@ -26,9 +25,6 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape3D_h2yge")
 
 [node name="Level" parent="." unique_id=1460984159 instance=ExtResource("1_lquwl")]
-
-[node name="Objective" parent="." unique_id=1332854662 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 
 [node name="PlayerCharacter" parent="." unique_id=1469343844 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
