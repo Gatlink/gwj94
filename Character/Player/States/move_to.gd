@@ -12,10 +12,10 @@ func enter() -> void:
 	super()
 	if player.global_position != target:
 		player.graph.look_at(target)
-	player.dummy.walk(player.stand.SPEED)
+	player.dummy.walk(player.get_speed())
 	player.collision.disabled = true
 	
-	var duration := player.global_position.distance_to(target) / player.stand.SPEED
+	var duration := player.global_position.distance_to(target) / player.get_speed()
 	var tween := create_tween()
 	tween.tween_property(player, "global_position", target, duration)
 	tween.tween_callback(target_reached.emit)

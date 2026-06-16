@@ -70,3 +70,7 @@ func update_target_pos() -> void:
 		has_target = true
 		target_pos = player.global_position
 	detection_ray.enabled = false
+
+
+func die() -> void:
+	queue_free()

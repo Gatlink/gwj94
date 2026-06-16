@@ -16,9 +16,8 @@ func enter() -> void:
 	await dummy.animation.animation_finished
 	
 	if mutant.hitbox.overlaps_body(PlayerCharacter.instance):
-		PlayerCharacter.instance.die.transition_to()
+		PlayerCharacter.instance.hurt()
 		target = null
-		mutant.range_shape.disabled = true
 	
 	await get_tree().create_timer(0.5).timeout
 	

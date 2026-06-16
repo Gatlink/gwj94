@@ -2,22 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b1mwi8vcc7fcf" path="res://UI/screen_game_over.gd" id="1_rd2ot"]
 [ext_resource type="Texture2D" uid="uid://1jqfn24h1gr7" path="res://InputPrompt/xbox_button_a.svg" id="1_si7os"]
+[ext_resource type="Theme" uid="uid://t37g0mac1odw" path="res://UI/ui_theme.tres" id="2_w18f4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_74ijo"]
 font_size = 128
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si7os"]
-content_margin_left = 32.0
-content_margin_right = 32.0
-bg_color = Color(0.76, 0.456, 0, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 
 [sub_resource type="InputEventAction" id="InputEventAction_si7os"]
 action = &"interact"
@@ -56,8 +44,8 @@ vertical_alignment = 1
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1529293354]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_w18f4")
 theme_override_font_sizes/font_size = 96
-theme_override_styles/normal = SubResource("StyleBoxFlat_si7os")
 shortcut = SubResource("Shortcut_rd2ot")
 text = "RETRY"
 icon = ExtResource("1_si7os")

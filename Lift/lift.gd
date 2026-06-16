@@ -35,7 +35,7 @@ func on_interact() -> void:
 	
 	await animation.animation_finished
 	
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://UI/upgrade_screen.tscn")
 
 
 func _on_body_entered(body: Node3D) -> void:

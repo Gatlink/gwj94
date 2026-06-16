@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://boecofonuw238"]
+
+[ext_resource type="Script" uid="uid://v5giuvkjoijs" path="res://Upgrades/upgrade.gd" id="1_c84is"]
+[ext_resource type="Texture2D" uid="uid://c5u1ywb43d8bw" path="res://Upgrades/Icons/icon_speed.png" id="1_uu70q"]
+
+[resource]
+script = ExtResource("1_c84is")
+name = "Strong Legs"
+description = "Grow the muscle in your legs, allowing you to move faster."
+icon = ExtResource("1_uu70q")
+price = 25
+metadata/_custom_type_script = "uid://v5giuvkjoijs"

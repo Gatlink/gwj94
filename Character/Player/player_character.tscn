@@ -10,6 +10,10 @@
 [ext_resource type="Script" uid="uid://cxb0llhvd73j7" path="res://Character/Player/States/hide.gd" id="6_08wd5"]
 [ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="6_wj11p"]
 [ext_resource type="Script" uid="uid://b7ajy1gfptajh" path="res://Character/Player/States/die.gd" id="7_1vi68"]
+[ext_resource type="Script" uid="uid://dhg88r3n05dy8" path="res://Character/Player/States/shoot.gd" id="8_agv0s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vi68"]
+size = Vector3(2, 1, 4)
 
 [node name="PlayerCharacter" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_atbs6")]
 script = ExtResource("2_08x8n")
@@ -36,18 +40,49 @@ metadata/_custom_type_script = "uid://cxb0llhvd73j7"
 script = ExtResource("7_1vi68")
 metadata/_custom_type_script = "uid://b7ajy1gfptajh"
 
+[node name="Shoot" type="Node" parent="." index="5" unique_id=1393182218]
+script = ExtResource("8_agv0s")
+metadata/_custom_type_script = "uid://dhg88r3n05dy8"
+
 [node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=1389191218]
+[node name="Light" type="OmniLight3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=1389191218]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5896957e-08, 1.55, -0.525)
+visible = false
 light_energy = 0.8
 omni_range = 3.0
 
-[node name="InputPrompt" type="Sprite3D" parent="." index="7" unique_id=1407943177]
+[node name="RemoteShoot" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="2" unique_id=316965958]
+remote_path = NodePath("../../HitBox")
+update_position = false
+update_scale = false
+
+[node name="InputPrompt" type="Sprite3D" parent="." index="8" unique_id=1407943177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9900403, 0)
 visible = false
 billboard = 1
 texture = ExtResource("6_03ek6")
 script = ExtResource("6_wj11p")
 metadata/_custom_type_script = "uid://b2hjdph5wiest"
+
+[node name="HitBox" type="Area3D" parent="." index="9" unique_id=1152601203]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" index="0" unique_id=938965776]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.496911e-07, 0.5, -2)
+shape = SubResource("BoxShape3D_1vi68")
+disabled = true
+
+[node name="ShootRay" type="RayCast3D" parent="." index="10" unique_id=444686378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+enabled = false
+target_position = Vector3(0, 0, -4)
+collision_mask = 10
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[connection signal="body_entered" from="HitBox" to="Shoot" method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="Shoot" method="_on_hit_box_body_exited"]
