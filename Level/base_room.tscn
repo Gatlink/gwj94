@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://bjf4c3v0ja6vl"]
 
 [ext_resource type="Script" uid="uid://bfg2x64l3lyq" path="res://Level/room.gd" id="1_3mkoj"]
-[ext_resource type="PackedScene" uid="uid://6acg2ekoms1l" path="res://Art/Room_Lab.glb" id="2_b3y1a"]
-[ext_resource type="PackedScene" uid="uid://n1mwuvis81un" path="res://Art/Door_Lab_1.glb" id="3_oshya"]
-[ext_resource type="PackedScene" uid="uid://dxii80oar3qex" path="res://Art/Door_Lab_2.glb" id="4_6orvo"]
-[ext_resource type="PackedScene" uid="uid://b4vjblnvmd007" path="res://Art/Door_Lab_3.glb" id="5_m82bq"]
-[ext_resource type="PackedScene" uid="uid://db3wdmuesei60" path="res://Art/Door_Lab_4.glb" id="6_q7gm3"]
+[ext_resource type="PackedScene" uid="uid://l6w8i4cuot1d" path="res://Level/room_model.tscn" id="2_hyvvg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xcpxl"]
 size = Vector3(2, 2, 0.1)
@@ -28,20 +24,7 @@ size = Vector3(10, 0.1, 10)
 [node name="BaseRoom" type="Node3D" unique_id=707751106]
 script = ExtResource("1_3mkoj")
 
-[node name="Room_Lab" parent="." unique_id=985963966 instance=ExtResource("2_b3y1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-
-[node name="DoorNorth" parent="." unique_id=327965159 instance=ExtResource("3_oshya")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-
-[node name="DoorEast" parent="." unique_id=571951129 instance=ExtResource("4_6orvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-
-[node name="DoorSouth" parent="." unique_id=121403887 instance=ExtResource("5_m82bq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-
-[node name="DoorWest" parent="." unique_id=654950387 instance=ExtResource("6_q7gm3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+[node name="RoomModel" parent="." unique_id=968121001 instance=ExtResource("2_hyvvg")]
 
 [node name="CollisionWalls" type="StaticBody3D" parent="." unique_id=1513438102]
 collision_layer = 2

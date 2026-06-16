@@ -19,6 +19,7 @@ radius = 0.875
 
 [node name="Mutant" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_7uq7p")]
 collision_layer = 8
+collision_mask = 7
 script = ExtResource("2_hqjvr")
 state = NodePath("Idle")
 dummy = NodePath("Graph/MutantDummy")

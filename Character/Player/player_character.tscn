@@ -16,6 +16,7 @@
 size = Vector3(2, 1, 4)
 
 [node name="PlayerCharacter" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_atbs6")]
+collision_mask = 11
 script = ExtResource("2_08x8n")
 state = NodePath("NoInput")
 dummy = NodePath("Graph/CharacterDummy")
@@ -49,9 +50,10 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0
 
 [node name="Light" type="OmniLight3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=1389191218]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5896957e-08, 1.55, -0.525)
-visible = false
+layers = 3
 light_energy = 0.8
-omni_range = 3.0
+light_cull_mask = 4293918723
+omni_attenuation = 2.0
 
 [node name="RemoteShoot" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="2" unique_id=316965958]
 remote_path = NodePath("../../HitBox")

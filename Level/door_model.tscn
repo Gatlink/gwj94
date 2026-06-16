@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cq1keonpo4mvs"]
+
+[ext_resource type="PackedScene" uid="uid://n1mwuvis81un" path="res://Art/Door_Lab_1.glb" id="1_ofn7p"]
+[ext_resource type="Script" uid="uid://clfyb3y281fxt" path="res://Level/door_model.gd" id="2_k3ep0"]
+[ext_resource type="Material" uid="uid://c8s6xroo6e5t1" path="res://Level/Models/Materials/material_wall_office.tres" id="2_y41pl"]
+
+[node name="DoorModel" unique_id=2122477860 instance=ExtResource("1_ofn7p")]
+transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_k3ep0")
+
+[node name="Door_003" parent="." index="0" unique_id=704617158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+surface_material_override/0 = ExtResource("2_y41pl")

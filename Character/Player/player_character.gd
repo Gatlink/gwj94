@@ -4,6 +4,7 @@ extends Character
 
 const SPEED := 5.0
 const SPEED_BOOSTED := SPEED * 1.2
+const LIGHT_RANGE_BONUS := 2.0
 
 
 static var instance: PlayerCharacter
@@ -28,7 +29,7 @@ var was_hit: bool
 func _ready() -> void:
 	instance = self
 	if not Game.is_locked(Game.UPGRADES.LIGHT):
-		light.show()
+		light.omni_range += LIGHT_RANGE_BONUS
 	
 	super()
 

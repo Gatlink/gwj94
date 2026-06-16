@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://l6w8i4cuot1d"]
+
+[ext_resource type="PackedScene" uid="uid://c5sijgnfasldk" path="res://Art/Room_Office.glb" id="1_sa1ei"]
+[ext_resource type="Script" uid="uid://c08svkej2nmkr" path="res://Level/room_model.gd" id="2_q741x"]
+[ext_resource type="Material" uid="uid://cmwkmwtlhhi8x" path="res://Level/Models/Materials/material_outer_office.tres" id="3_2meum"]
+[ext_resource type="Material" uid="uid://c8s6xroo6e5t1" path="res://Level/Models/Materials/material_wall_office.tres" id="4_2meum"]
+[ext_resource type="Material" uid="uid://b0f3j0jenm2bx" path="res://Level/Models/Materials/material_floor_office.tres" id="4_gw34f"]
+[ext_resource type="PackedScene" uid="uid://cq1keonpo4mvs" path="res://Level/door_model.tscn" id="6_gfw2t"]
+
+[node name="RoomModel" unique_id=968121001 instance=ExtResource("1_sa1ei")]
+script = ExtResource("2_q741x")
+
+[node name="Room" parent="." index="0" unique_id=1050496662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+surface_material_override/0 = ExtResource("4_gw34f")
+surface_material_override/1 = ExtResource("4_2meum")
+surface_material_override/2 = ExtResource("3_2meum")
+
+[node name="DoorNorth" parent="." index="1" unique_id=2122477860 instance=ExtResource("6_gfw2t")]
+
+[node name="DoorEast" parent="." index="2" unique_id=1120549588 instance=ExtResource("6_gfw2t")]
+transform = Transform3D(-4.8082526e-08, 0, -1, 0, 1, 0, 1.1, 0, -4.371139e-08, 0, 0, 0)
+direction = 1
+
+[node name="DoorSouth" parent="." index="3" unique_id=157512675 instance=ExtResource("6_gfw2t")]
+transform = Transform3D(-1.1, 0, 1.509958e-07, 0, 1, 0, -1.6609539e-07, 0, -1, 0, 0, 0)
+direction = 2
+
+[node name="DoorWest" parent="." index="4" unique_id=1131917998 instance=ExtResource("6_gfw2t")]
+transform = Transform3D(-4.8082526e-08, 0, 1, 0, 1, 0, -1.1, 0, -4.371139e-08, 0, 0, 0)
+direction = 3

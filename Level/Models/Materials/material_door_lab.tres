@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://4x1g22v20qb2"]
+
+[ext_resource type="Texture2D" uid="uid://c4vwyl5ja0stc" path="res://Art/Door_Lab_1_T_Wall_Lab_2.png" id="1_u4n8e"]
+
+[resource]
+resource_name = "Wall_lab"
+cull_mode = 2
+albedo_texture = ExtResource("1_u4n8e")
+roughness = 0.5
