@@ -13,7 +13,7 @@ static var instance: PlayerCharacter
 @onready var input_prompt: InputPrompt = $InputPrompt
 @onready var collision: CollisionShape3D = $PhysicsCollision
 @onready var hitbox: CollisionShape3D = $HitBox/CollisionShape3D
-@onready var light: OmniLight3D = $Graph/Light
+@onready var light: OmniLight3D = $LightHolder/Light
 @onready var shoot_ray: RayCast3D = $ShootRay
 @onready var no_input: PlayerNoInput = $NoInput
 @onready var stand: PlayerStand = $Stand

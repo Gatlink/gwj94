@@ -52,6 +52,6 @@ func hit() -> void:
 	for target in targets:
 		player.shoot_ray.target_position = target.global_position - player.global_position
 		player.shoot_ray.force_raycast_update()
-		if player.shoot_ray.is_colliding() and player.shoot_ray.get_collider() is Mutant:
+		if not player.shoot_ray.is_colliding():
 			target.die()
 			await get_tree().physics_frame

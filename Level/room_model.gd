@@ -49,6 +49,10 @@ const materials_door: Dictionary[RoomType, StandardMaterial3D] = {
 }
 
 
+func _ready() -> void:
+	update_materials()
+
+
 func update_materials() -> void:
 	if not is_instance_valid(mesh):
 		return

@@ -27,7 +27,7 @@ script = ExtResource("1_3mkoj")
 [node name="RoomModel" parent="." unique_id=968121001 instance=ExtResource("2_hyvvg")]
 
 [node name="CollisionWalls" type="StaticBody3D" parent="." unique_id=1513438102]
-collision_layer = 2
+collision_layer = 16
 collision_mask = 0
 
 [node name="DoorNorth" type="CollisionShape3D" parent="CollisionWalls" unique_id=173056484]

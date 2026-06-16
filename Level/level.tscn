@@ -4,16 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://dstpu8qat3byo" path="res://Lift/lift.tscn" id="1_o6mkr"]
 [ext_resource type="PackedScene" uid="uid://c5se5jx6c72gf" path="res://Level/Rooms/office_1.tscn" id="2_52x1o"]
 [ext_resource type="PackedScene" uid="uid://dda48ngabijvv" path="res://Level/Rooms/office_2.tscn" id="3_iincs"]
+[ext_resource type="PackedScene" uid="uid://2ttw6nseajh2" path="res://Level/Rooms/lab_1.tscn" id="4_iincs"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_52x1o"]
 geometry_parsed_geometry_type = 1
-geometry_collision_mask = 3
+geometry_collision_mask = 19
 cell_height = 0.01
 agent_max_climb = 0.0
 
 [node name="Level" type="Node3D" unique_id=1460984159]
 script = ExtResource("1_52x1o")
-room_scenes = Array[PackedScene]([ExtResource("2_52x1o"), ExtResource("3_iincs")])
+room_scenes = Array[PackedScene]([ExtResource("2_52x1o"), ExtResource("3_iincs"), ExtResource("4_iincs")])
 
 [node name="Lift" parent="." unique_id=25060028 instance=ExtResource("1_o6mkr")]
 

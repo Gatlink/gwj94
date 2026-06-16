@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_svpqs")
-name = "Hardened Shell"
+name = "Hard Shell"
 description = "Your shell thickens, allowing you to prevent one damage before dying."
 icon = ExtResource("1_omgg1")
 price = 50

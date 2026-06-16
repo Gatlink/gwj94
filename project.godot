@@ -104,8 +104,9 @@ shell={
 
 3d_physics/layer_1="Ground"
 3d_physics/layer_2="Obstacles"
-3d_physics/layer_3="player"
-3d_physics/layer_4="mutant"
+3d_physics/layer_3="Player"
+3d_physics/layer_4="Mutant"
+3d_physics/layer_5="walls"
 
 [navigation]
 
@@ -120,4 +121,4 @@ shell={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.05842053, 0.058420613, 0.058420606, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
