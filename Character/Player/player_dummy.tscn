@@ -6,39 +6,6 @@
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ucilm"]
 animation = &"Shoot_Shotgun"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uabie"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n2c3b"]
-animation = &"WalkFast"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_00x0a"]
-animation = &"Walk"
-play_mode = 1
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2v76o"]
-animation = &"Walk_Side_R"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_216qw"]
-animation = &"Walk_Side_L"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pojkp"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_uabie")
-blend_point_0/pos = Vector2(0, 0)
-blend_point_0/name = &"Idle"
-blend_point_1/node = SubResource("AnimationNodeAnimation_n2c3b")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_1/name = &"WalkFast"
-blend_point_2/node = SubResource("AnimationNodeAnimation_00x0a")
-blend_point_2/pos = Vector2(0, -1)
-blend_point_2/name = &"WalkFast 2"
-blend_point_3/node = SubResource("AnimationNodeAnimation_2v76o")
-blend_point_3/pos = Vector2(1, 0)
-blend_point_3/name = &"Walk_Side_R"
-blend_point_4/node = SubResource("AnimationNodeAnimation_216qw")
-blend_point_4/pos = Vector2(-1, 0)
-blend_point_4/name = &"Walk_Side_L"
-
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uabie"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_5cqxv"]
@@ -76,6 +43,39 @@ blend_point_4/node = SubResource("AnimationNodeAnimation_3v13n")
 blend_point_4/pos = Vector2(0, -1)
 blend_point_4/name = &"4"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uabie"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n2c3b"]
+animation = &"WalkFast"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_00x0a"]
+animation = &"Walk"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2v76o"]
+animation = &"Walk_Side_R"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_216qw"]
+animation = &"Walk_Side_L"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pojkp"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_uabie")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_0/name = &"Idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_n2c3b")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_1/name = &"WalkFast"
+blend_point_2/node = SubResource("AnimationNodeAnimation_00x0a")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_2/name = &"WalkFast 2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_2v76o")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_3/name = &"Walk_Side_R"
+blend_point_4/node = SubResource("AnimationNodeAnimation_216qw")
+blend_point_4/pos = Vector2(-1, 0)
+blend_point_4/name = &"Walk_Side_L"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqqjw"]
 animation = &"Idle_Shotgun"
 
@@ -87,10 +87,11 @@ animation = &"Walk_Shotgun"
 play_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ga0v3"]
-animation = &"Walk_Side_L"
+animation = &"Walk_Side_ShotGun"
+play_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sxk74"]
-animation = &"Walk_Side_R"
+animation = &"Walk_Side_ShotGun"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ga0v3"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_aqqjw")
@@ -123,8 +124,10 @@ input_2/auto_advance = false
 input_2/break_loop_at_end = false
 input_2/reset = true
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_rplnd"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ftr0q"]
-graph_offset = Vector2(-636.50745, -59.572845)
+graph_offset = Vector2(-540.7579, 158.90547)
 nodes/output/position = Vector2(580, 160)
 nodes/Speed/node = SubResource("AnimationNodeTimeScale_5cqxv")
 nodes/Speed/position = Vector2(130, 150)
@@ -137,23 +140,24 @@ nodes/StandShotgun/position = Vector2(-300, 420)
 nodes/Shoot/node = SubResource("AnimationNodeOneShot_uabie")
 nodes/Shoot/position = Vector2(360, 160)
 nodes/AnimShoot/node = SubResource("AnimationNodeAnimation_ucilm")
-nodes/AnimShoot/position = Vector2(130, 360)
-nodes/FastWalk/node = SubResource("AnimationNodeBlendSpace2D_pojkp")
-nodes/FastWalk/position = Vector2(-300, 200)
-node_connections = [&"output", 0, &"Shoot", &"Speed", 0, &"State", &"State", 0, &"Stand", &"State", 1, &"FastWalk", &"State", 2, &"StandShotgun", &"Shoot", 0, &"Speed", &"Shoot", 1, &"AnimShoot"]
+nodes/AnimShoot/position = Vector2(-60, 480)
+nodes/StandFast/node = SubResource("AnimationNodeBlendSpace2D_pojkp")
+nodes/StandFast/position = Vector2(-300, 200)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rplnd")
+nodes/TimeScale/position = Vector2(140, 480)
+node_connections = [&"output", 0, &"Shoot", &"Speed", 0, &"State", &"State", 0, &"Stand", &"State", 1, &"StandFast", &"State", 2, &"StandShotgun", &"Shoot", 0, &"Speed", &"Shoot", 1, &"TimeScale", &"TimeScale", 0, &"AnimShoot"]
 
 [node name="PlayerDummy" unique_id=1327689915 instance=ExtResource("1_1urka")]
 script = ExtResource("2_5cqxv")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(299333135) index="0" unique_id=1039315490]
-bones/0/position = Vector3(0, -0.010895712, 0)
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1118004184) index="0" unique_id=1339588978]
+bones/0/position = Vector3(0, -0.020433359, 0)
 bones/0/rotation = Quaternion(-2.9802326e-08, 1.1920928e-07, -2.5243543e-29, 1)
 bones/1/rotation = Quaternion(-3.5527103e-15, 1.7763568e-14, -4.0389676e-28, 1)
 bones/2/rotation = Quaternion(-3.5527103e-15, 0, -4.038968e-28, 1)
 bones/4/rotation = Quaternion(1.9457343e-07, 2.8450685e-08, -0.83122295, 0.55593926)
 bones/5/rotation = Quaternion(4.6676824e-08, 2.6856242e-08, -0.3607225, 0.93267316)
 bones/6/rotation = Quaternion(1.5657083e-10, 1.2447047e-07, -0.0004744829, 0.9999999)
-bones/8/rotation = Quaternion(-3.6055408e-09, -1.6099696e-07, 0.83122295, 0.55593926)
 bones/9/rotation = Quaternion(4.6866116e-08, -2.683439e-08, 0.3625792, 0.931953)
 bones/10/rotation = Quaternion(1.565823e-10, -1.244705e-07, 0.0004744978, 0.9999999)
 bones/13/rotation = Quaternion(-0.76785976, -2.6252803e-08, 1.5363918e-07, 0.64061797)
@@ -166,17 +170,14 @@ bones/21/rotation = Quaternion(-0.009153804, -1.329005e-07, -0.23305038, 0.97242
 bones/22/rotation = Quaternion(-0.008408515, 8.842538e-08, 0.3174834, 0.9482266)
 bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043586)
 
-[node name="Chara" parent="Armature/Skeleton3D" index="0" unique_id=1560181083]
+[node name="Chara" parent="Armature/Skeleton3D" index="0" unique_id=418461786]
 gi_mode = 0
 
-[node name="ShotGun" parent="." index="1" unique_id=1976514361]
+[node name="ShotGun" parent="." index="1" unique_id=634364430]
 visible = false
 
-[node name="Charapace" parent="." index="2" unique_id=708692481]
+[node name="Charapace" parent="." index="2" unique_id=1437869922]
 visible = false
-
-[node name="AnimationPlayer" parent="." index="3" unique_id=1911088866]
-autoplay = &"Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4" unique_id=1950884693]
 tree_root = SubResource("AnimationNodeBlendTree_ftr0q")
@@ -190,4 +191,5 @@ parameters/StandShotgun/blend_position = Vector2(0, 0)
 parameters/Shoot/active = false
 parameters/Shoot/internal_active = false
 parameters/Shoot/request = 0
-parameters/FastWalk/blend_position = Vector2(0, 0)
+parameters/StandFast/blend_position = Vector2(0, 0)
+parameters/TimeScale/scale = 3.0

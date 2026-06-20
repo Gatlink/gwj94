@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c5n1db1eos5te"]
+
+[ext_resource type="Texture2D" uid="uid://s3762kt1rpw3" path="res://Art/Texture_Chara.png" id="1_7wtmp"]
+
+[resource]
+resource_name = "T_Chara"
+cull_mode = 2
+albedo_texture = ExtResource("1_7wtmp")
