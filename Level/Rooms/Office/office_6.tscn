@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://clv74ytnvsoji"]
+
+[ext_resource type="PackedScene" uid="uid://bjf4c3v0ja6vl" path="res://Level/base_room.tscn" id="1_h0hao"]
+[ext_resource type="PackedScene" uid="uid://h0usm14q2wg6" path="res://HidingSpot/hiding_spot_desk.tscn" id="2_abbv6"]
+[ext_resource type="PackedScene" uid="uid://nv6jw4ug10ou" path="res://Level/Props/Office/prop_desk.tscn" id="3_5fncc"]
+[ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="4_ak3ln"]
+[ext_resource type="PackedScene" uid="uid://btnbfaf27f8wa" path="res://Level/Props/Office/prop_closet.tscn" id="5_3yixq"]
+[ext_resource type="PackedScene" uid="uid://b5q2b7nrwle1v" path="res://Level/Props/Office/prop_drawer.tscn" id="6_dj2w3"]
+
+[node name="Office1" unique_id=707751106 instance=ExtResource("1_h0hao")]
+
+[node name="Marker3D" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="0" unique_id=651768743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.25)
+
+[node name="Marker3D2" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="1" unique_id=944528688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1)
+
+[node name="Marker3D" type="Marker3D" parent="ObjectiveSpawnPoints" parent_id_path=PackedInt32Array(942698550) index="0" unique_id=2113429285]
+
+[node name="HidingSpotDesk" parent="." index="5" unique_id=34138757 instance=ExtResource("2_abbv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.775, 0, -4.3124995)
+
+[node name="PropDesk" parent="." index="6" unique_id=1424770536 instance=ExtResource("3_5fncc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0, -4.2875)
+
+[node name="PropDesk2" parent="." index="7" unique_id=331995498 instance=ExtResource("3_5fncc")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.8000004, 0, 4.3124995)
+
+[node name="PropDesk3" parent="." index="8" unique_id=1053231247 instance=ExtResource("3_5fncc")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.7999995, 0, 4.3124995)
+
+[node name="PopulateOnReady" type="Node3D" parent="." index="9" unique_id=221777504]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.0000002, 0, 4.5)
+script = ExtResource("4_ak3ln")
+models = Array[PackedScene]([ExtResource("5_3yixq"), ExtResource("6_dj2w3")])
+empty_chance = 0.5
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D" type="Marker3D" parent="PopulateOnReady" index="0" unique_id=1638555984]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PopulateOnReady2" type="Node3D" parent="." index="10" unique_id=1495787165]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9999998, 0, -4.5)
+script = ExtResource("4_ak3ln")
+models = Array[PackedScene]([ExtResource("5_3yixq"), ExtResource("6_dj2w3")])
+empty_chance = 0.5
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D" type="Marker3D" parent="PopulateOnReady2" index="0" unique_id=1576807038]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PopulateOnReady3" type="Node3D" parent="." index="11" unique_id=1655540625]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0000002, 0, -4.5)
+script = ExtResource("4_ak3ln")
+models = Array[PackedScene]([ExtResource("5_3yixq"), ExtResource("6_dj2w3")])
+empty_chance = 0.5
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D" type="Marker3D" parent="PopulateOnReady3" index="0" unique_id=1134227611]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PopulateOnReady4" type="Node3D" parent="." index="12" unique_id=1555852539]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.9999998, 0, 4.5)
+script = ExtResource("4_ak3ln")
+models = Array[PackedScene]([ExtResource("5_3yixq"), ExtResource("6_dj2w3")])
+empty_chance = 0.5
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D" type="Marker3D" parent="PopulateOnReady4" index="0" unique_id=1055135690]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)

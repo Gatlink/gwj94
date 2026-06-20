@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cp7m2rnk445xm"]
-
-[ext_resource type="PackedScene" uid="uid://b23tm8r5xncev" path="res://Level/Props/Meshes/books.glb" id="1_rtba7"]
-
-[node name="Books" type="Node3D" unique_id=1376804222]
-
-[node name="books" parent="." unique_id=231032308 instance=ExtResource("1_rtba7")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.22500001, 0, 0.15)

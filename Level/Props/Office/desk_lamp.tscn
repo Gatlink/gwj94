@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpabuwcpq414f"]
+
+[ext_resource type="PackedScene" uid="uid://b7nscxtg4m84d" path="res://Art/Assets/Office_Lamp.glb" id="2_2kb88"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_cfv3g"]
+
+[node name="DeskLamp" type="Node3D" unique_id=771299055]
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=1226579749]
+script = ExtResource("2_cfv3g")
+angle = 10.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1718852688]
+transform = Transform3D(1, 5.856216e-09, -2.1855696e-08, 2.1855694e-08, -0.50000006, 0.8660254, -5.8562164e-09, -0.8660254, -0.50000006, 0, 0.35000002, 0.35000002)
+light_color = Color(0.99383336, 1, 0.63, 1)
+light_energy = 0.5
+spot_range = 3.0
+spot_attenuation = 2.0
+
+[node name="Office_Lamp" parent="." unique_id=1813768296 instance=ExtResource("2_2kb88")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

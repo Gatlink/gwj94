@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://3gli0nxc7juk" path="res://Level/level.gd" id="1_52x1o"]
 [ext_resource type="PackedScene" uid="uid://dstpu8qat3byo" path="res://Lift/lift.tscn" id="1_o6mkr"]
-[ext_resource type="PackedScene" uid="uid://c5se5jx6c72gf" path="res://Level/Rooms/office_1.tscn" id="2_52x1o"]
-[ext_resource type="PackedScene" uid="uid://dda48ngabijvv" path="res://Level/Rooms/office_2.tscn" id="3_iincs"]
-[ext_resource type="PackedScene" uid="uid://2ttw6nseajh2" path="res://Level/Rooms/lab_1.tscn" id="4_iincs"]
+[ext_resource type="PackedScene" uid="uid://c5se5jx6c72gf" path="res://Level/Rooms/Office/office_1.tscn" id="2_52x1o"]
+[ext_resource type="PackedScene" uid="uid://dda48ngabijvv" path="res://Level/Rooms/Office/office_2.tscn" id="3_iincs"]
+[ext_resource type="PackedScene" uid="uid://bv0hhr6l8d1ru" path="res://Level/Rooms/Lab/lab_2.tscn" id="3_py82k"]
+[ext_resource type="PackedScene" uid="uid://2ttw6nseajh2" path="res://Level/Rooms/Lab/lab_1.tscn" id="4_iincs"]
+[ext_resource type="PackedScene" uid="uid://cxboxxyhnfuk2" path="res://Level/Rooms/Office/office_3.tscn" id="6_1teg4"]
+[ext_resource type="PackedScene" uid="uid://civxm6khghy0m" path="res://Level/Rooms/Office/office_4.tscn" id="7_i5g78"]
+[ext_resource type="PackedScene" uid="uid://bx3notysi2h0t" path="res://Level/Rooms/Office/office_5.tscn" id="8_q47le"]
+[ext_resource type="PackedScene" uid="uid://clv74ytnvsoji" path="res://Level/Rooms/Office/office_6.tscn" id="9_dx36h"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_52x1o"]
 geometry_parsed_geometry_type = 1
@@ -14,7 +19,7 @@ agent_max_climb = 0.0
 
 [node name="Level" type="Node3D" unique_id=1460984159]
 script = ExtResource("1_52x1o")
-room_scenes = Array[PackedScene]([ExtResource("2_52x1o"), ExtResource("3_iincs"), ExtResource("4_iincs")])
+room_scenes = Array[PackedScene]([ExtResource("4_iincs"), ExtResource("3_py82k"), ExtResource("2_52x1o"), ExtResource("3_iincs"), ExtResource("6_1teg4"), ExtResource("7_i5g78"), ExtResource("8_q47le"), ExtResource("9_dx36h")])
 
 [node name="Lift" parent="." unique_id=25060028 instance=ExtResource("1_o6mkr")]
 

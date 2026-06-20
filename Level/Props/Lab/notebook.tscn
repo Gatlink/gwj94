@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b3kuv442fc7ng"]
+
+[ext_resource type="PackedScene" uid="uid://hta6e2ire0g6" path="res://Art/Assets/Lab_BlocPaper.glb" id="1_qtkun"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_6te2s"]
+
+[node name="Notebook" type="Node3D" unique_id=812939659]
+
+[node name="Lab_BlocPaper" parent="." unique_id=60988927 instance=ExtResource("1_qtkun")]
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=2023800806]
+script = ExtResource("2_6te2s")
+angle = 10.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

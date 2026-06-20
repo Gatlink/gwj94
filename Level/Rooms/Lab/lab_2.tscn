@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bv0hhr6l8d1ru"]
+
+[ext_resource type="PackedScene" uid="uid://bjf4c3v0ja6vl" path="res://Level/base_room.tscn" id="1_i6wdb"]
+[ext_resource type="PackedScene" uid="uid://bmccpdsjjsxej" path="res://Level/Props/Lab/prop_worktable.tscn" id="2_lcj02"]
+[ext_resource type="PackedScene" uid="uid://de3liht1iwux6" path="res://Level/Props/Lab/prop_coatrack.tscn" id="3_8pbgx"]
+
+[node name="Lab1" unique_id=707751106 instance=ExtResource("1_i6wdb")]
+
+[node name="RoomModel" parent="." index="0" unique_id=968121001]
+type = 1
+
+[node name="Marker3D" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="0" unique_id=843888261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="1" unique_id=332187736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="ObjectiveSpawnPoints" parent_id_path=PackedInt32Array(942698550) index="0" unique_id=1885215064]
+
+[node name="PropWorktable" parent="." index="5" unique_id=1424770536 instance=ExtResource("2_lcj02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="PropWorktable2" parent="." index="6" unique_id=233245869 instance=ExtResource("2_lcj02")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -2.5)
+
+[node name="PropWorktable3" parent="." index="7" unique_id=553057151 instance=ExtResource("2_lcj02")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 2.5)
+
+[node name="PropWorktable4" parent="." index="8" unique_id=254035360 instance=ExtResource("2_lcj02")]
+transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 0, 0, 1.5)
+
+[node name="PropCoatrack" parent="." index="9" unique_id=887326390 instance=ExtResource("3_8pbgx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.625, 0, -1.5)
+
+[node name="PropCoatrack2" parent="." index="10" unique_id=306809041 instance=ExtResource("3_8pbgx")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 4.625, 0, 1.5)

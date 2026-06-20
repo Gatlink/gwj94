@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bmxmc6a0k1ru"]
+
+[ext_resource type="PackedScene" uid="uid://ijawsxuvp6q" path="res://Art/Assets/Lab_BecBunzen.glb" id="1_q324u"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_w0om0"]
+
+[node name="Becbunzen" type="Node3D" unique_id=944323083]
+
+[node name="Lab_BecBunzen" parent="." unique_id=1038573713 instance=ExtResource("1_q324u")]
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=841067571]
+script = ExtResource("2_w0om0")
+angle = 80.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
