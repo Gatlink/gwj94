@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cm8xk63x2bylx"]
+
+[ext_resource type="Script" uid="uid://ds2py6iwi2tuu" path="res://UI/hud.gd" id="1_ne75i"]
+[ext_resource type="Texture2D" uid="uid://bsqg7s14yn787" path="res://UI/objective.svg" id="2_bytes"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p4jld"]
+font_size = 48
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne75i"]
+atlas = ExtResource("2_bytes")
+region = Rect2(0, 0, 512, 512)
+
+[node name="Hud" type="MarginContainer" unique_id=970830937]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+script = ExtResource("1_ne75i")
+
+[node name="Top" type="HBoxContainer" parent="." unique_id=532667376]
+layout_mode = 2
+
+[node name="FloorLabel" type="Label" parent="Top" unique_id=1268240850]
+layout_mode = 2
+text = "Floor "
+label_settings = SubResource("LabelSettings_p4jld")
+
+[node name="FloorNumber" type="Label" parent="Top" unique_id=567430353]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_p4jld")
+
+[node name="Spacer" type="Control" parent="Top" unique_id=718702804]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LiftLabel" type="Label" parent="Top" unique_id=167579451]
+visible = false
+layout_mode = 2
+text = "Go back to the lift!"
+label_settings = SubResource("LabelSettings_p4jld")
+
+[node name="Spacer2" type="Control" parent="Top" unique_id=1740671140]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="ObjectiveLabel" type="Label" parent="Top" unique_id=1188437244]
+layout_mode = 2
+text = "Objectives: "
+label_settings = SubResource("LabelSettings_p4jld")
+
+[node name="ObjectivePip" type="TextureRect" parent="Top" unique_id=170688431]
+modulate = Color(0.3019608, 0.3019608, 0.3019608, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ne75i")
+expand_mode = 3
+stretch_mode = 5
