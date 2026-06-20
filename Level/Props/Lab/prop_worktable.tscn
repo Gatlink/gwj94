@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6c0aham8dfad" path="res://Level/Props/base_prop.tscn" id="1_i4lrq"]
 [ext_resource type="PackedScene" uid="uid://000f8slga8el" path="res://Art/Assets/Lab_Worktable.glb" id="2_ovl6f"]
+[ext_resource type="PackedScene" uid="uid://clpd1m2s5w3b8" path="res://HidingSpot/hiding_spot_worktable.tscn" id="2_wx020"]
 [ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="3_317md"]
 [ext_resource type="PackedScene" uid="uid://bmxmc6a0k1ru" path="res://Level/Props/Lab/becbunzen.tscn" id="4_m8b35"]
 [ext_resource type="PackedScene" uid="uid://6iht5givut8n" path="res://Level/Props/Lab/erlenmeyer.tscn" id="5_nnq0d"]
@@ -18,6 +19,7 @@ size = Vector3(2.4, 1, 1)
 height = 1.0
 
 [node name="PropWorktable" unique_id=1424770536 instance=ExtResource("1_i4lrq")]
+hiding_spot_scene = ExtResource("2_wx020")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1714205897]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

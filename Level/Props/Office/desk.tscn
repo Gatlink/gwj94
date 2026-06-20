@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://chw08o2rpn207"]
-
-[ext_resource type="PackedScene" uid="uid://2l0oktmxtmaf" path="res://Level/Props/Meshes/desk.glb" id="1_i65gk"]
-
-[node name="Desk" type="Node3D" unique_id=1969569637]
-
-[node name="desk" parent="." unique_id=1382746078 instance=ExtResource("1_i65gk")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.0749999, 0, 0.55)

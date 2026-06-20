@@ -73,6 +73,7 @@ func _ready() -> void:
 	
 	place_objective()
 	place_mutants()
+	place_hiding_spots()
 
 
 func connect_room(room_idx: int, unconnected_idx: Array[int]) -> void:
@@ -163,6 +164,34 @@ func place_mutants() -> void:
 		var instance := MUTANT.instantiate() as Mutant
 		instance.position = pos
 		add_child(instance)
+
+
+func place_hiding_spots() -> void:
+	var props: Array[Prop] = []
+	var prop_to_room: Dictionary[Prop, int] = {}
+	for idx in rooms.size():
+		var room := rooms[idx]
+		for child in room.get_children():
+			var prop := child as Prop
+			if prop != null and prop.hiding_spot_scene != null:
+				props.append(prop)
+				prop_to_room[prop] = idx
+	
+	var already_spawned: Array[int] = []
+	for i in Game.get_hiding_spots_count():
+		var spot_dh := DecisionHelper.new(props)
+		spot_dh.remove(func (p: Prop): return already_spawned.has(prop_to_room[p]))
+		spot_dh.score(func (p: Prop): return -1 if prop_to_room[p] == obj_room_idx else 0)
+		spot_dh.score(func (p: Prop): return 2 if prop_to_room[p] == LIFT_ROOM_IDX else 0)
+		
+		var prop: Prop = spot_dh.get_best()
+		if prop != null:
+			var hide_spot: Node3D = prop.hiding_spot_scene.instantiate()
+			prop.get_parent().add_child(hide_spot)
+			hide_spot.transform = prop.transform
+			prop.queue_free()
+			already_spawned.append(prop_to_room[prop])
+			props.erase(prop)
 
 
 func get_room_coord(room_idx: int) -> Vector2:

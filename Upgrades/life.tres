@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bfd83idhg0svd"]
 
-[ext_resource type="Texture2D" uid="uid://p1gsxaqkw55e" path="res://Upgrades/Icons/icon_life.png" id="1_omgg1"]
+[ext_resource type="Texture2D" uid="uid://bxsx8crbm1h8k" path="res://Art/Icons/Shell.png" id="1_omgg1"]
 [ext_resource type="Script" uid="uid://v5giuvkjoijs" path="res://Upgrades/upgrade.gd" id="1_svpqs"]
 
 [resource]

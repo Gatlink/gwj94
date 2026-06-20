@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://w6t5d17d0rwm"]
 
-[ext_resource type="Texture2D" uid="uid://bgcnegul7b4wx" path="res://Upgrades/Icons/icon_shotgun.png" id="1_0f6w5"]
+[ext_resource type="Texture2D" uid="uid://c5ncp1f7wa8yl" path="res://Art/Icons/Shotgun.png" id="1_0f6w5"]
 [ext_resource type="Script" uid="uid://v5giuvkjoijs" path="res://Upgrades/upgrade.gd" id="1_imlvl"]
 
 [resource]

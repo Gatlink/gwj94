@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://clpd1m2s5w3b8"]
+
+[ext_resource type="Script" uid="uid://tftcojrpic8m" path="res://HidingSpot/hiding_spot.gd" id="1_42t0v"]
+[ext_resource type="PackedScene" uid="uid://000f8slga8el" path="res://Art/Assets/Lab_Worktable.glb" id="2_42t0v"]
+[ext_resource type="PackedScene" uid="uid://cpabuwcpq414f" path="res://Level/Props/Office/desk_lamp.tscn" id="3_3pgvf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7hfcf"]
+radius = 1.5
+
+[node name="HidingSpotDesk" type="Area3D" unique_id=34138757]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_42t0v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1096095063]
+shape = SubResource("SphereShape3D_7hfcf")
+
+[node name="Lab_Worktable" parent="." unique_id=906116225 instance=ExtResource("2_42t0v")]
+
+[node name="DeskLamp" parent="." unique_id=771299055 instance=ExtResource("3_3pgvf")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.9, 1, -0.175)
