@@ -28,3 +28,12 @@ func get_spawn_points() -> Array[Vector3]:
 			points.append(marker.global_position)
 	
 	return points
+
+
+func get_open_doors_count() -> int:
+	var count := 0
+	for collider in door_colliders.values():
+		if not collider.disabled:
+			count += 1
+	
+	return count
