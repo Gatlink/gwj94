@@ -10,8 +10,8 @@ const UPGRADES: Dictionary[String, Upgrade] = {
 	"SHOTGUN": preload("uid://w6t5d17d0rwm")
 }
 
-const MUTANTS_PER_FLOOR: Array[int] = [1, 2, 2, 3, 3, 4, 4, 5, 6, 8]
-const HIDING_SPOTS_PER_FLOOR: Array[int] = [8, 8, 6, 6, 4, 4, 2, 2, 0]
+const MUTANTS_PER_FLOOR: Array[int] = [1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 10]
+const HIDING_SPOTS_PER_FLOOR: Array[int] = [8, 8, 6, 6, 4, 4, 2, 2, 1, 0]
 
 
 var floor_nbr: int = 1

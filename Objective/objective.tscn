@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://c888bstisw35"]
 
-[ext_resource type="PackedScene" uid="uid://bjc5ww73dmdsm" path="res://Objective/laptop.glb" id="1_dpl15"]
 [ext_resource type="Script" uid="uid://c6t0nqqpcajer" path="res://Objective/objective.gd" id="1_wd7uw"]
+[ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="2_wd7uw"]
+[ext_resource type="PackedScene" uid="uid://dl1obpoy2q1gf" path="res://Art/Assets/OBJ_Cup.glb" id="3_ptxsv"]
+[ext_resource type="PackedScene" uid="uid://8nvl4p4gb2vx" path="res://Art/Assets/OBJ_Disk.glb" id="4_qssux"]
+[ext_resource type="PackedScene" uid="uid://epwrccxb5opa" path="res://Art/Assets/OBJ_Duck.glb" id="5_hfb82"]
+[ext_resource type="PackedScene" uid="uid://bd03us7arbyc7" path="res://Art/Assets/OBJ_File.glb" id="6_82fyt"]
+[ext_resource type="PackedScene" uid="uid://cjhkelo1k0h3l" path="res://Art/Assets/OBJ_Laptop.glb" id="7_6rscr"]
+[ext_resource type="PackedScene" uid="uid://cq4hh6l8et87i" path="res://Art/Assets/OBJ_Tube.glb" id="8_oycyh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dpl15"]
 height = 0.25
@@ -76,17 +82,21 @@ collision_mask = 4
 monitorable = false
 script = ExtResource("1_wd7uw")
 
-[node name="Graph" type="Node3D" parent="." unique_id=710924644]
+[node name="Graph" type="Node3D" parent="." unique_id=1031166380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+script = ExtResource("2_wd7uw")
+models = Array[PackedScene]([ExtResource("3_ptxsv"), ExtResource("4_qssux"), ExtResource("5_hfb82"), ExtResource("6_82fyt"), ExtResource("7_6rscr"), ExtResource("8_oycyh")])
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Graph" unique_id=1754498875]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-light_color = Color(0.8812483, 0.89, 0.36490002, 1)
+[node name="Marker3D" type="Marker3D" parent="Graph" unique_id=1330619050]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Spotlight3" type="SpotLight3D" parent="." unique_id=2001835366]
+transform = Transform3D(1, 0, 0, 0, 4.371139e-08, 1, 0, -1, 4.371139e-08, 0, 2, 0)
 light_energy = 1.5
-omni_range = 1.0
-
-[node name="laptop" parent="Graph" unique_id=36420289 instance=ExtResource("1_dpl15")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.375, 0, 0.35)
+spot_range = 3.0
+spot_attenuation = 2.0
+spot_angle = 26.800034
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=555346625]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)

@@ -153,7 +153,7 @@ func place_mutants() -> void:
 		var spawn_dh := DecisionHelper.new(spawn_points)
 		spawn_dh.remove(func (point: Vector3): return points_to_room[point] == LIFT_ROOM_IDX)
 		spawn_dh.score(func (point: Vector3): return rooms[points_to_room[point]].get_open_doors_count())
-		spawn_dh.score(func (point: Vector3): return 2 if points_to_room[point] == obj_room_idx else 0)
+		spawn_dh.score(func (point: Vector3): return 1 if points_to_room[point] == obj_room_idx else 0)
 		spawn_dh.score(func (point: Vector3): return -3 if already_spawned.has(points_to_room[point]) else 0)
 		spawn_dh.score(func (_point: Vector3): return randf())
 		
