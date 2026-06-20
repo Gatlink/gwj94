@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dm6mxucye4fpu"]
+
+[ext_resource type="PackedScene" uid="uid://b3cbygk1bf5m2" path="res://Art/Assets/Lab_TestTube.glb" id="1_6uasw"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_c7jwg"]
+
+[node name="TestTubes" type="Node3D" unique_id=1546795393]
+
+[node name="Lab_TestTube" parent="." unique_id=1377335632 instance=ExtResource("1_6uasw")]
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=754464875]
+script = ExtResource("2_c7jwg")
+angle = 15.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

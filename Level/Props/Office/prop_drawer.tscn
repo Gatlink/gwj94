@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b5q2b7nrwle1v"]
+
+[ext_resource type="PackedScene" uid="uid://c6c0aham8dfad" path="res://Level/Props/base_prop.tscn" id="1_fxxvi"]
+[ext_resource type="PackedScene" uid="uid://el0obfruxr78" path="res://Art/Assets/Office_Drawer.glb" id="2_04263"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4jld"]
+size = Vector3(0.575, 0.925, 0.5)
+
+[node name="PropDrawer" unique_id=1424770536 instance=ExtResource("1_fxxvi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1223666093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4625, 0)
+shape = SubResource("BoxShape3D_p4jld")
+
+[node name="Office_Drawer" parent="." index="1" unique_id=1483464108 instance=ExtResource("2_04263")]

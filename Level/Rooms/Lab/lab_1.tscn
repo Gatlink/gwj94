@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://2ttw6nseajh2"]
+
+[ext_resource type="PackedScene" uid="uid://bjf4c3v0ja6vl" path="res://Level/base_room.tscn" id="1_17ti6"]
+[ext_resource type="PackedScene" uid="uid://bmccpdsjjsxej" path="res://Level/Props/Lab/prop_worktable.tscn" id="2_tqca5"]
+[ext_resource type="PackedScene" uid="uid://de3liht1iwux6" path="res://Level/Props/Lab/prop_coatrack.tscn" id="3_rvrca"]
+
+[node name="Lab1" unique_id=707751106 instance=ExtResource("1_17ti6")]
+
+[node name="RoomModel" parent="." index="0" unique_id=968121001]
+type = 1
+
+[node name="Marker3D" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="0" unique_id=2006880404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="Marker3D2" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="1" unique_id=956081875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="Marker3D3" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="2" unique_id=17728878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+
+[node name="Marker3D4" type="Marker3D" parent="MutantSpawnPoints" parent_id_path=PackedInt32Array(959217816) index="3" unique_id=941364239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="Marker3D" type="Marker3D" parent="ObjectiveSpawnPoints" parent_id_path=PackedInt32Array(942698550) index="0" unique_id=1885215064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="ObjectiveSpawnPoints" parent_id_path=PackedInt32Array(942698550) index="1" unique_id=1516200286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Marker3D3" type="Marker3D" parent="ObjectiveSpawnPoints" parent_id_path=PackedInt32Array(942698550) index="2" unique_id=1680052574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Marker3D4" type="Marker3D" parent="ObjectiveSpawnPoints" parent_id_path=PackedInt32Array(942698550) index="3" unique_id=1111989350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="PropWorktable" parent="." index="5" unique_id=1424770536 instance=ExtResource("2_tqca5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="PropWorktable2" parent="." index="6" unique_id=233245869 instance=ExtResource("2_tqca5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.5)
+
+[node name="PropCoatrack" parent="." index="7" unique_id=887326390 instance=ExtResource("3_rvrca")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.375, 0, 0)

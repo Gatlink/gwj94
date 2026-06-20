@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dq2ouitux6hf2"]
+
+[ext_resource type="PackedScene" uid="uid://c6gktdqwguged" path="res://Art/Assets/Lab_Microscope.glb" id="1_kfbux"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_h6x7h"]
+
+[node name="Microscope" type="Node3D" unique_id=1056879715]
+
+[node name="Lab_Microscope" parent="." unique_id=551344200 instance=ExtResource("1_kfbux")]
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=907834504]
+script = ExtResource("2_h6x7h")
+angle = 5.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

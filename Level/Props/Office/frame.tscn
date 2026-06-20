@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c4pk8j7ntewmb"]
+
+[ext_resource type="PackedScene" uid="uid://cnyx2j7k16tjv" path="res://Art/Assets/Office_Picture.glb" id="1_qi2vx"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_amsad"]
+
+[node name="Frame" type="Node3D" unique_id=1733491916]
+
+[node name="Office_Picture" parent="." unique_id=724935024 instance=ExtResource("1_qi2vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
+
+[node name="RotateOnReady" type="Node" parent="." unique_id=1595697430]
+script = ExtResource("2_amsad")
+angle = 45.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

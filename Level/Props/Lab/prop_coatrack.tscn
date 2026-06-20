@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://de3liht1iwux6"]
+
+[ext_resource type="PackedScene" uid="uid://c6c0aham8dfad" path="res://Level/Props/base_prop.tscn" id="1_cee78"]
+[ext_resource type="PackedScene" uid="uid://br64dapj12n07" path="res://Art/Assets/Lab_CoatRack.glb" id="2_06ynt"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="3_dl2l5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_p4jld"]
+radius = 0.25
+
+[node name="PropCoatrack" unique_id=1424770536 instance=ExtResource("1_cee78")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1141697554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_p4jld")
+
+[node name="Lab_CoatRack" parent="." index="1" unique_id=1623161357 instance=ExtResource("2_06ynt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="RotateOnReady" type="Node" parent="." index="2" unique_id=1221220497]
+script = ExtResource("3_dl2l5")
+angle = 15.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

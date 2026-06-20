@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://btnbfaf27f8wa"]
+
+[ext_resource type="PackedScene" uid="uid://c6c0aham8dfad" path="res://Level/Props/base_prop.tscn" id="1_ibhyi"]
+[ext_resource type="PackedScene" uid="uid://bfk1q3vnaapbi" path="res://Art/Assets/Office_Closet.glb" id="2_ykl8u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4jld"]
+size = Vector3(1, 2, 0.75)
+
+[node name="PropCloset" unique_id=1424770536 instance=ExtResource("1_ibhyi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1984002426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_p4jld")
+
+[node name="Office_Closet" parent="." index="1" unique_id=872718220 instance=ExtResource("2_ykl8u")]

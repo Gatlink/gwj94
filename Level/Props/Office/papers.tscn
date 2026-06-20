@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bxslyjm23ca6q"]
+
+[ext_resource type="PackedScene" uid="uid://caaxppxo1f237" path="res://Art/Assets/Office_Paper.glb" id="1_s1sbb"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_sm72w"]
+[ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="3_lup7t"]
+[ext_resource type="PackedScene" uid="uid://cwujql00ixot2" path="res://Art/Assets/Office_Pen.glb" id="4_ne70t"]
+
+[node name="Papers" type="Node3D" unique_id=885027884]
+
+[node name="Office_Paper" parent="." unique_id=152246341 instance=ExtResource("1_s1sbb")]
+
+[node name="RotateOnReady" type="Node" parent="Office_Paper" unique_id=1686981880]
+script = ExtResource("2_sm72w")
+angle = 45.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
+
+[node name="PopulateOnReady" type="Node3D" parent="." unique_id=1462744503]
+script = ExtResource("3_lup7t")
+models = Array[PackedScene]([ExtResource("4_ne70t")])
+unique = true
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D" type="Marker3D" parent="PopulateOnReady" unique_id=813100132]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.3, 0, 0)
+
+[node name="RotateOnReady" type="Node" parent="PopulateOnReady/Marker3D" unique_id=580137585]
+script = ExtResource("2_sm72w")
+angle = 10.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
+
+[node name="Marker3D2" type="Marker3D" parent="PopulateOnReady" unique_id=2036951520]
+transform = Transform3D(-0.9659258, 0, 0.25881895, 0, 1, 0, -0.25881895, 0, -0.9659258, 0.07499999, 0, -0.025)
+
+[node name="RotateOnReady" type="Node" parent="PopulateOnReady/Marker3D2" unique_id=198423084]
+script = ExtResource("2_sm72w")
+angle = 10.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
+
+[node name="Marker3D3" type="Marker3D" parent="PopulateOnReady" unique_id=1008874628]
+transform = Transform3D(8.940697e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 8.940697e-08, -0.025000015, 0, -0.25)
+
+[node name="RotateOnReady" type="Node" parent="PopulateOnReady/Marker3D3" unique_id=48963716]
+script = ExtResource("2_sm72w")
+angle = 10.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

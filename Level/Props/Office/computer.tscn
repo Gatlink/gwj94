@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://wukay4qyiusw"]
+
+[ext_resource type="PackedScene" uid="uid://dpq13682jesx5" path="res://Art/Assets/Office_Screen.glb" id="1_172tr"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_2g7ft"]
+[ext_resource type="PackedScene" uid="uid://b1plurca3jj7c" path="res://Art/Assets/Office_Keyboard.glb" id="2_y0o2u"]
+
+[node name="Computer" type="Node3D" unique_id=304875939]
+
+[node name="Office_Screen" parent="." unique_id=1975060166 instance=ExtResource("1_172tr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
+
+[node name="Office_Keyboard" parent="." unique_id=1130353679 instance=ExtResource("2_y0o2u")]
+
+[node name="RotateOnReady" type="Node" parent="Office_Keyboard" unique_id=1791144938]
+script = ExtResource("2_2g7ft")
+angle = 5.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"

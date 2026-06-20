@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bmccpdsjjsxej"]
+
+[ext_resource type="PackedScene" uid="uid://c6c0aham8dfad" path="res://Level/Props/base_prop.tscn" id="1_i4lrq"]
+[ext_resource type="PackedScene" uid="uid://000f8slga8el" path="res://Art/Assets/Lab_Worktable.glb" id="2_ovl6f"]
+[ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="3_317md"]
+[ext_resource type="PackedScene" uid="uid://bmxmc6a0k1ru" path="res://Level/Props/Lab/becbunzen.tscn" id="4_m8b35"]
+[ext_resource type="PackedScene" uid="uid://6iht5givut8n" path="res://Level/Props/Lab/erlenmeyer.tscn" id="5_nnq0d"]
+[ext_resource type="PackedScene" uid="uid://dm6mxucye4fpu" path="res://Level/Props/Lab/test_tubes.tscn" id="6_7ilyt"]
+[ext_resource type="PackedScene" uid="uid://dq2ouitux6hf2" path="res://Level/Props/Lab/microscope.tscn" id="7_m8b35"]
+[ext_resource type="PackedScene" uid="uid://b3kuv442fc7ng" path="res://Level/Props/Lab/notebook.tscn" id="8_nnq0d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4jld"]
+size = Vector3(2.4, 1, 1)
+
+[node name="PropWorktable" unique_id=1424770536 instance=ExtResource("1_i4lrq")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=1714205897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_p4jld")
+
+[node name="Lab_Worktable" parent="." index="1" unique_id=906116225 instance=ExtResource("2_ovl6f")]
+
+[node name="PopulateOnReady" type="Node3D" parent="." index="2" unique_id=1456585838]
+script = ExtResource("3_317md")
+models = Array[PackedScene]([ExtResource("4_m8b35"), ExtResource("5_nnq0d"), ExtResource("6_7ilyt"), ExtResource("7_m8b35"), ExtResource("8_nnq0d")])
+metadata/_custom_type_script = "uid://cuqeph06nmvcr"
+
+[node name="Marker3D2" type="Marker3D" parent="PopulateOnReady" index="0" unique_id=1152973935]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -0.8, 1, -0.175)
+
+[node name="Marker3D4" type="Marker3D" parent="PopulateOnReady" index="1" unique_id=1102428687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 1, 0.10000001)
+
+[node name="Marker3D3" type="Marker3D" parent="PopulateOnReady" index="2" unique_id=623957019]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.25, 1, -0.25)
