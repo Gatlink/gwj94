@@ -11,8 +11,12 @@ const PARAMETER_SHOOT := "parameters/Shoot/request"
 const ANIM_SPEED_WALK_FACTOR := 0.8
 
 
+@export var play_sfx := true
+
+
 @onready var animation: AnimationTree = $AnimationTree
 @onready var shotgun: MeshInstance3D = $Armature/Skeleton3D/Hand_L/ShotGun
+@onready var sfx_step: AudioStreamPlayer3D = $SFXStep
 
 
 var parameter_walk := PARAMETER_WALK
@@ -49,3 +53,8 @@ func set_stand_parameter(direction: Vector2, speed := 1.0) -> void:
 
 func shoot() -> void:
 	animation.set(PARAMETER_SHOOT, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+
+func _on_footsteps_body_entered(_body: Node3D) -> void:
+	if play_sfx:
+		sfx_step.play()

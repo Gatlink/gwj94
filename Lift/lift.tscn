@@ -405,6 +405,7 @@ size = Vector3(4, 0.25, 2)
 
 [node name="CharacterDummy" parent="Graph/Model" unique_id=1327689915 instance=ExtResource("2_07h7l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0)
+play_sfx = false
 
 [node name="WallDoorLeft" type="CSGBox3D" parent="Graph" unique_id=1633991672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49999997, 1, 0.925)

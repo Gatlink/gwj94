@@ -15,6 +15,10 @@ run/main_scene="uid://nq5weqkbj1jc"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://3y58t72aiuks"
+
 [autoload]
 
 Game="*uid://d4c482xn77nup"
@@ -120,6 +124,7 @@ validate={
 3d_physics/layer_3="Player"
 3d_physics/layer_4="Mutant"
 3d_physics/layer_5="walls"
+3d_physics/layer_6="steps"
 
 [navigation]
 
