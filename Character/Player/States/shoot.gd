@@ -11,7 +11,7 @@ var tween: Tween
 
 func enter() -> void:
 	super()
-	player.dummy.idle()
+	player.dummy.shoot()
 	player.hitbox.disabled = false
 	
 	tween = create_tween()
