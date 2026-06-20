@@ -8,9 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://dm6mxucye4fpu" path="res://Level/Props/Lab/test_tubes.tscn" id="6_7ilyt"]
 [ext_resource type="PackedScene" uid="uid://dq2ouitux6hf2" path="res://Level/Props/Lab/microscope.tscn" id="7_m8b35"]
 [ext_resource type="PackedScene" uid="uid://b3kuv442fc7ng" path="res://Level/Props/Lab/notebook.tscn" id="8_nnq0d"]
+[ext_resource type="PackedScene" uid="uid://bru1075yn3ls2" path="res://Art/Assets/Lab_Stool.glb" id="9_nnq0d"]
+[ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="10_7ilyt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4jld"]
 size = Vector3(2.4, 1, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wx020"]
+height = 1.0
 
 [node name="PropWorktable" unique_id=1424770536 instance=ExtResource("1_i4lrq")]
 
@@ -18,9 +23,13 @@ size = Vector3(2.4, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_p4jld")
 
-[node name="Lab_Worktable" parent="." index="1" unique_id=906116225 instance=ExtResource("2_ovl6f")]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1" unique_id=319428866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.5, 0.95)
+shape = SubResource("CylinderShape3D_wx020")
 
-[node name="PopulateOnReady" type="Node3D" parent="." index="2" unique_id=1456585838]
+[node name="Lab_Worktable" parent="." index="2" unique_id=906116225 instance=ExtResource("2_ovl6f")]
+
+[node name="PopulateOnReady" type="Node3D" parent="." index="3" unique_id=1456585838]
 script = ExtResource("3_317md")
 models = Array[PackedScene]([ExtResource("4_m8b35"), ExtResource("5_nnq0d"), ExtResource("6_7ilyt"), ExtResource("7_m8b35"), ExtResource("8_nnq0d")])
 metadata/_custom_type_script = "uid://cuqeph06nmvcr"
@@ -33,3 +42,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 1, 0.10000001)
 
 [node name="Marker3D3" type="Marker3D" parent="PopulateOnReady" index="2" unique_id=623957019]
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 0.25, 1, -0.25)
+
+[node name="Lab_Stool" parent="." index="4" unique_id=916570368 instance=ExtResource("9_nnq0d")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.19999999, 0, 0.95000005)
+
+[node name="RotateOnReady" type="Node" parent="Lab_Stool" index="1" unique_id=1048861803]
+script = ExtResource("10_7ilyt")
+angle = 180.0
+metadata/_custom_type_script = "uid://d1fdmaqhtleem"
