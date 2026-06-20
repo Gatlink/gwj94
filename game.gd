@@ -1,6 +1,7 @@
 extends Node
 
 
+const MAX_FLOOR: int = 10
 const UPGRADES: Dictionary[String, Upgrade] = {
 	"LIGHT": preload("uid://c63etlsq14cgm"),
 	"SPEED": preload("uid://boecofonuw238"),
@@ -9,7 +10,10 @@ const UPGRADES: Dictionary[String, Upgrade] = {
 	"SHOTGUN": preload("uid://w6t5d17d0rwm")
 }
 
+const MUTANTS_PER_FLOOR: Array[int] = [1, 2, 2, 3, 3, 3, 4, 4, 4, 6]
 
+
+var floor_nbr: int = 1
 var money: int = 0
 var unlocked_upgrades: Array[Upgrade] = []
 
@@ -25,5 +29,15 @@ func buy_upgrade(upgrade: Upgrade) -> void:
 
 
 func reset() -> void:
+	floor_nbr = 1
 	money = 0
 	unlocked_upgrades.clear()
+
+
+func change_floor() -> void:
+	floor_nbr += 1
+	get_tree().change_scene_to_file("res://UI/upgrade_screen.tscn")
+
+
+func get_mutant_count() -> int:
+	return MUTANTS_PER_FLOOR[floor_nbr - 1]

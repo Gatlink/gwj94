@@ -4,7 +4,6 @@ extends Node3D
 
 const OBJECTIVE = preload("uid://c888bstisw35")
 const MUTANT := preload("uid://bmefsumjb7wc2")
-const MUTANT_COUNT := 2
 const ROOM_SIZE := 10
 # MUST BE ODD
 const ROOM_ROW := 3
@@ -41,7 +40,8 @@ static var directions: Array[int] = [NORTH, EAST, SOUTH, WEST]
 
 
 var rooms: Array[Room] = []
-var objective_placed := false
+var room_dist: Array[int] = []
+var obj_room_idx: int = -1
 
 
 func _ready() -> void:
@@ -54,10 +54,11 @@ func _ready() -> void:
 			navigation_region.add_child(room)
 			room.position = pos
 			rooms.append(room)
-			
-			# Open door to lift
-			if row == 0 and col == LIFT_ROOM_IDX:
-				room.open_door(NORTH)
+			room_dist.append(-1)
+	
+	# Open door to lift
+	rooms[LIFT_ROOM_IDX].open_door(NORTH)
+	room_dist[LIFT_ROOM_IDX] = 0
 	
 	var unconnected_rooms_idx: Array[int] = []
 	for i in rooms.size():
@@ -70,35 +71,28 @@ func _ready() -> void:
 	
 	navigation_region.bake_navigation_mesh()
 	
-	var spawn_points: Array[Vector3] = []
-	for i in rooms.size():
-		if i == LIFT_ROOM_IDX:
-			continue
-		
-		var room := rooms[i]
-		spawn_points.append_array(room.get_spawn_points())
-	
-	spawn_points.shuffle()
-	for i in MUTANT_COUNT:
-		var pos: Vector3 = spawn_points.pop_front()
-		var instance := MUTANT.instantiate() as Mutant
-		instance.position = pos
-		add_child(instance)
+	place_objective()
+	place_mutants()
 
 
 func connect_room(room_idx: int, unconnected_idx: Array[int]) -> void:
 	var path: Dictionary[int, int] = {}
-	if create_path(room_idx, path, unconnected_idx):
-		if not objective_placed:
-			place_objective(room_idx)
-		
-		for idx in path:
-			var side := path[idx]
-			var neighbor := get_neighbor_index(idx, side)
-			unconnected_idx.erase(idx)
-			unconnected_idx.erase(neighbor)
-			rooms[idx].open_door(path[idx])
-			rooms[neighbor].open_door(get_opposite(side))
+	if not create_path(room_idx, path, unconnected_idx):
+		return
+	
+	var distance := path.size()
+	var last_idx := get_neighbor_index(path.keys().back(), path.values().back())
+	distance += room_dist[last_idx]
+	
+	for idx in path:
+		var side := path[idx]
+		var neighbor := get_neighbor_index(idx, side)
+		unconnected_idx.erase(idx)
+		unconnected_idx.erase(neighbor)
+		rooms[idx].open_door(path[idx])
+		rooms[neighbor].open_door(get_opposite(side))
+		room_dist[idx] = distance
+		distance -= 1
 
 
 func create_path(room_idx: int, path: Dictionary[int, int], unconnected_idx: Array[int]) -> bool:
@@ -126,12 +120,49 @@ func create_path(room_idx: int, path: Dictionary[int, int], unconnected_idx: Arr
 	return false
 
 
-func place_objective(room_idx: int) -> void:
-	var marker: Node3D = rooms[room_idx].objective_spawn_points.get_children().pick_random()
+func place_objective() -> void:
+	var objective_dh := DecisionHelper.new(range(rooms.size()))
+	objective_dh.remove(func (i: int): return i == LIFT_ROOM_IDX)
+	objective_dh.score(func (i: int): return room_dist[i])
+	objective_dh.score(func (i: int): return -rooms[i].get_open_doors_count() * 0.25)
+	objective_dh.score(func (_i: int): return randf())
+	
+	obj_room_idx = objective_dh.get_best()
+	var room: Room = rooms[obj_room_idx]
+	var marker: Node3D = room.objective_spawn_points.get_children().pick_random()
 	var objective := OBJECTIVE.instantiate() as Node3D
 	add_child(objective)
 	objective.global_position = marker.global_position
-	objective_placed = true
+
+
+func place_mutants() -> void:
+	var spawn_points: Array[Vector3] = []
+	var points_to_room: Dictionary[Vector3, int] = {}
+	for room_idx in rooms.size():
+		var points := rooms[room_idx].get_spawn_points()
+		spawn_points.append_array(points)
+		for point in points:
+			points_to_room[point] = room_idx
+	
+	var already_spawned: Array[int] = []
+	for i in Game.get_mutant_count():
+		if spawn_points.is_empty():
+			break
+		
+		var spawn_dh := DecisionHelper.new(spawn_points)
+		spawn_dh.remove(func (point: Vector3): return points_to_room[point] == LIFT_ROOM_IDX)
+		spawn_dh.score(func (point: Vector3): return rooms[points_to_room[point]].get_open_doors_count())
+		spawn_dh.score(func (point: Vector3): return 2 if points_to_room[point] == obj_room_idx else 0)
+		spawn_dh.score(func (point: Vector3): return -3 if already_spawned.has(points_to_room[point]) else 0)
+		spawn_dh.score(func (_point: Vector3): return randf())
+		
+		var pos: Vector3 = spawn_dh.get_best()
+		spawn_points.erase(pos)
+		already_spawned.append(points_to_room[pos])
+		
+		var instance := MUTANT.instantiate() as Mutant
+		instance.position = pos
+		add_child(instance)
 
 
 func get_room_coord(room_idx: int) -> Vector2:
