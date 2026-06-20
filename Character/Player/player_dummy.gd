@@ -12,7 +12,7 @@ const ANIM_SPEED_WALK_FACTOR := 0.8
 
 
 @onready var animation: AnimationTree = $AnimationTree
-@onready var shotgun: MeshInstance3D = $ShotGun
+@onready var shotgun: MeshInstance3D = $Armature/Skeleton3D/Hand_L/ShotGun
 
 
 var parameter_walk := PARAMETER_WALK

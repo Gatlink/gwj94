@@ -150,8 +150,8 @@ node_connections = [&"output", 0, &"Shoot", &"Speed", 0, &"State", &"State", 0, 
 [node name="PlayerDummy" unique_id=1327689915 instance=ExtResource("1_1urka")]
 script = ExtResource("2_5cqxv")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1118004184) index="0" unique_id=1339588978]
-bones/0/position = Vector3(0, -0.020433359, 0)
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(911931027) index="0" unique_id=1929025778]
+bones/0/position = Vector3(0, -0.0124361105, 0)
 bones/0/rotation = Quaternion(-2.9802326e-08, 1.1920928e-07, -2.5243543e-29, 1)
 bones/1/rotation = Quaternion(-3.5527103e-15, 1.7763568e-14, -4.0389676e-28, 1)
 bones/2/rotation = Quaternion(-3.5527103e-15, 0, -4.038968e-28, 1)
@@ -170,16 +170,19 @@ bones/21/rotation = Quaternion(-0.009153804, -1.329005e-07, -0.23305038, 0.97242
 bones/22/rotation = Quaternion(-0.008408515, 8.842538e-08, 0.3174834, 0.9482266)
 bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043586)
 
-[node name="Chara" parent="Armature/Skeleton3D" index="0" unique_id=418461786]
+[node name="Hand_L" parent="Armature/Skeleton3D" index="0" unique_id=1802758748]
+transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.14382948, -6.745133e-08)
+
+[node name="ShotGun" parent="Armature/Skeleton3D/Hand_L" index="0" unique_id=88200033]
+visible = false
+
+[node name="Chara" parent="Armature/Skeleton3D" index="1" unique_id=1645139347]
 gi_mode = 0
 
-[node name="ShotGun" parent="." index="1" unique_id=634364430]
+[node name="Charapace" parent="." index="1" unique_id=767998991]
 visible = false
 
-[node name="Charapace" parent="." index="2" unique_id=1437869922]
-visible = false
-
-[node name="AnimationTree" type="AnimationTree" parent="." index="4" unique_id=1950884693]
+[node name="AnimationTree" type="AnimationTree" parent="." index="3" unique_id=1950884693]
 tree_root = SubResource("AnimationNodeBlendTree_ftr0q")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Speed/scale = 1.0
