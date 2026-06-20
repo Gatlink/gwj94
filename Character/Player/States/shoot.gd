@@ -11,8 +11,10 @@ var tween: Tween
 
 func enter() -> void:
 	super()
+	player.sfx_shotgun.play()
 	player.dummy.shoot()
 	player.hitbox.disabled = false
+	player.shotgun_timer = player.SHOTGUN_COOLDOWN
 	
 	tween = create_tween()
 	tween.tween_property(player.dummy, "position", -player.dummy.basis.z * KICKBACK, 0.1).set_ease(Tween.EASE_OUT)

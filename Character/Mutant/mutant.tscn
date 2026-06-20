@@ -7,6 +7,19 @@
 [ext_resource type="Script" uid="uid://l8gtrf81litj" path="res://Character/Mutant/States/mutant_back_to_start.gd" id="5_0lmxh"]
 [ext_resource type="Script" uid="uid://pfaisxguwrfg" path="res://Character/Mutant/States/mutant_strike.gd" id="6_d6aly"]
 [ext_resource type="PackedScene" uid="uid://ch6opmwy3lvq3" path="res://Character/Mutant/mutant_dummy.tscn" id="7_d6aly"]
+[ext_resource type="AudioStream" uid="uid://dd0btf0sqfwty" path="res://Character/Mutant/SFX/low_growl1.ogg" id="8_l10f5"]
+[ext_resource type="AudioStream" uid="uid://cw27hmy5yf7ko" path="res://Character/Mutant/SFX/low_growl2.ogg" id="9_kjesq"]
+[ext_resource type="AudioStream" uid="uid://f7aryfb5vmgt" path="res://Character/Mutant/SFX/low_growl3.ogg" id="10_2g1w5"]
+[ext_resource type="AudioStream" uid="uid://druo0qgj58adx" path="res://Character/Mutant/SFX/low_growl4.ogg" id="11_k3j6s"]
+[ext_resource type="AudioStream" uid="uid://bhg8nvcqu4slf" path="res://Character/Mutant/SFX/low_growl5.ogg" id="12_igwua"]
+[ext_resource type="AudioStream" uid="uid://cnfk0wjd3mfr3" path="res://Character/Mutant/SFX/low_growl6.ogg" id="13_08fwr"]
+[ext_resource type="AudioStream" uid="uid://bxwerooij2cyo" path="res://Character/Mutant/SFX/low_growl7.ogg" id="14_66wpc"]
+[ext_resource type="AudioStream" uid="uid://qnymxev8acfo" path="res://Character/Mutant/SFX/low_growl8.ogg" id="15_gs2bg"]
+[ext_resource type="AudioStream" uid="uid://btgknmlxyu8ls" path="res://Character/Mutant/SFX/big_growl1.ogg" id="16_08fwr"]
+[ext_resource type="AudioStream" uid="uid://ddx38l6i34be5" path="res://Character/Mutant/SFX/big_growl3.ogg" id="17_66wpc"]
+[ext_resource type="AudioStream" uid="uid://bjstl6o1x2nws" path="res://Character/Mutant/SFX/big_growl4.ogg" id="18_gs2bg"]
+[ext_resource type="AudioStream" uid="uid://cxsd1g3irrfs3" path="res://Character/Mutant/SFX/big_growl5.ogg" id="19_tn1tj"]
+[ext_resource type="AudioStream" uid="uid://r27npmciap57" path="res://Character/Mutant/SFX/big_growl6.ogg" id="20_05k2w"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4degh"]
 radius = 6.0
@@ -16,6 +29,26 @@ radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d6aly"]
 radius = 0.875
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p4jld"]
+streams_count = 8
+stream_0/stream = ExtResource("8_l10f5")
+stream_1/stream = ExtResource("9_kjesq")
+stream_2/stream = ExtResource("10_2g1w5")
+stream_3/stream = ExtResource("11_k3j6s")
+stream_4/stream = ExtResource("12_igwua")
+stream_5/stream = ExtResource("13_08fwr")
+stream_6/stream = ExtResource("14_66wpc")
+stream_7/stream = ExtResource("15_gs2bg")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_61nkt"]
+streams_count = 6
+stream_0/stream = ExtResource("16_08fwr")
+stream_1/stream = ExtResource("9_kjesq")
+stream_2/stream = ExtResource("17_66wpc")
+stream_3/stream = ExtResource("18_gs2bg")
+stream_4/stream = ExtResource("19_tn1tj")
+stream_5/stream = ExtResource("20_05k2w")
 
 [node name="Mutant" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_7uq7p")]
 collision_layer = 8
@@ -83,6 +116,14 @@ enabled = false
 target_position = Vector3(0, 0, -1)
 collision_mask = 16
 debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="LowGrowl" type="AudioStreamPlayer3D" parent="." index="11" unique_id=539114344]
+stream = SubResource("AudioStreamRandomizer_p4jld")
+bus = &"SFX"
+
+[node name="BigGrowl" type="AudioStreamPlayer3D" parent="." index="12" unique_id=1381619338]
+stream = SubResource("AudioStreamRandomizer_61nkt")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

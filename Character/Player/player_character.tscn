@@ -11,11 +11,13 @@
 [ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="6_wj11p"]
 [ext_resource type="Script" uid="uid://b7ajy1gfptajh" path="res://Character/Player/States/die.gd" id="7_1vi68"]
 [ext_resource type="Script" uid="uid://dhg88r3n05dy8" path="res://Character/Player/States/shoot.gd" id="8_agv0s"]
+[ext_resource type="AudioStream" uid="uid://fk5nogexmpsv" path="res://Character/Player/SFX/shotgun.ogg" id="12_nb0on"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vi68"]
 size = Vector3(2, 1, 4)
 
 [node name="PlayerCharacter" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_atbs6")]
+visible = false
 collision_mask = 27
 script = ExtResource("2_08x8n")
 state = NodePath("NoInput")
@@ -47,6 +49,7 @@ metadata/_custom_type_script = "uid://dhg88r3n05dy8"
 
 [node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
+play_sfx = false
 
 [node name="RemoteShoot" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=316965958]
 remote_path = NodePath("../../HitBox")
@@ -93,6 +96,10 @@ layers = 35
 light_energy = 0.8
 light_cull_mask = 4293918723
 omni_attenuation = 2.0
+
+[node name="SFXShotgun" type="AudioStreamPlayer3D" parent="." index="12" unique_id=1891516026]
+stream = ExtResource("12_nb0on")
+bus = &"SFX"
 
 [connection signal="body_entered" from="HitBox" to="Shoot" method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="Shoot" method="_on_hit_box_body_exited"]

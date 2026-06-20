@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cfh4a44blgodn" path="res://Art/Chara_2.blend" id="1_1urka"]
 [ext_resource type="Script" uid="uid://i18x8kcjtma5" path="res://Character/Player/player_dummy.gd" id="2_5cqxv"]
-[ext_resource type="AudioStream" uid="uid://cqi1bt56ajvfk" path="res://SoundManager/SFX/footstep_wood_000.ogg" id="3_aqqjw"]
-[ext_resource type="AudioStream" uid="uid://b8x1k6n2ei05e" path="res://SoundManager/SFX/footstep_wood_001.ogg" id="4_ftr0q"]
-[ext_resource type="AudioStream" uid="uid://cgerdwdwekiiq" path="res://SoundManager/SFX/footstep_wood_002.ogg" id="5_i2r67"]
-[ext_resource type="AudioStream" uid="uid://b0pjmaf2guday" path="res://SoundManager/SFX/footstep_wood_003.ogg" id="6_ga0v3"]
-[ext_resource type="AudioStream" uid="uid://brtr2nng14hmr" path="res://SoundManager/SFX/footstep_wood_004.ogg" id="7_sxk74"]
+[ext_resource type="AudioStream" uid="uid://cqi1bt56ajvfk" path="res://Character/Player/SFX/footstep1.ogg" id="3_aqqjw"]
+[ext_resource type="AudioStream" uid="uid://b8x1k6n2ei05e" path="res://Character/Player/SFX/footstep2.ogg" id="4_ftr0q"]
+[ext_resource type="AudioStream" uid="uid://cgerdwdwekiiq" path="res://Character/Player/SFX/footstep3.ogg" id="5_i2r67"]
+[ext_resource type="AudioStream" uid="uid://b0pjmaf2guday" path="res://Character/Player/SFX/footstep4.ogg" id="6_ga0v3"]
+[ext_resource type="AudioStream" uid="uid://brtr2nng14hmr" path="res://Character/Player/SFX/footstep5.ogg" id="7_sxk74"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ucilm"]
 animation = &"Shoot_Shotgun"
@@ -166,7 +166,7 @@ radius = 0.175
 script = ExtResource("2_5cqxv")
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(819509369) index="0" unique_id=390892416]
-bones/0/position = Vector3(0, -0.00018952927, 0)
+bones/0/position = Vector3(0, -0.0021860455, 0)
 bones/0/rotation = Quaternion(-2.9802326e-08, 1.1920928e-07, -2.5243543e-29, 1)
 bones/1/rotation = Quaternion(-3.5527103e-15, 1.7763568e-14, -4.0389676e-28, 1)
 bones/2/rotation = Quaternion(-3.5527103e-15, 0, -4.038968e-28, 1)
@@ -186,7 +186,7 @@ bones/22/rotation = Quaternion(-0.008408515, 8.842538e-08, 0.3174834, 0.9482266)
 bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043586)
 
 [node name="Hand_L" parent="Armature/Skeleton3D" index="0" unique_id=1841735966]
-transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.15607603, -6.745133e-08)
+transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.15407951, -6.745133e-08)
 
 [node name="ShotGun" parent="Armature/Skeleton3D/Hand_L" index="0" unique_id=845455112]
 visible = false
@@ -237,6 +237,7 @@ stream = SubResource("AudioStreamRandomizer_ucilm")
 bus = &"SFX"
 
 [node name="Footsteps" type="Area3D" parent="." index="5" unique_id=529670288]
+top_level = true
 collision_layer = 0
 monitorable = false
 

@@ -10,6 +10,7 @@ func enter() -> void:
 	mutant.dummy.walk(SPEED)
 	mutant.current_speed = SPEED
 	mutant.navigation.max_speed = SPEED
+	mutant.sfx_big_growl.play()
 
 
 func _process(_delta: float) -> void:

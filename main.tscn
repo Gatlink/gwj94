@@ -32,7 +32,6 @@ shape = SubResource("WorldBoundaryShape3D_h2yge")
 
 [node name="PlayerCharacter" parent="." unique_id=1469343844 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-visible = false
 
 [node name="CameraRemote" type="RemoteTransform3D" parent="PlayerCharacter" unique_id=920237655]
 remote_path = NodePath("../../CameraHandler")

@@ -41,8 +41,8 @@ func change_floor() -> void:
 
 
 func get_mutant_count() -> int:
-	return MUTANTS_PER_FLOOR[floor_nbr - 1]
+	return MUTANTS_PER_FLOOR[mini(floor_nbr, MUTANTS_PER_FLOOR.size()) - 1]
 
 
 func get_hiding_spots_count() -> int:
-	return HIDING_SPOTS_PER_FLOOR[floor_nbr - 1]
+	return HIDING_SPOTS_PER_FLOOR[mini(floor_nbr, HIDING_SPOTS_PER_FLOOR.size()) - 1]

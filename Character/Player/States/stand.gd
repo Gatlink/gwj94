@@ -26,5 +26,5 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shell") and not Game.is_locked(Game.UPGRADES.SHELL):
 		player.hide_state.transition_to()
-	elif event.is_action_pressed("shoot") and not Game.is_locked(Game.UPGRADES.SHOTGUN):
+	elif event.is_action_pressed("shoot") and not Game.is_locked(Game.UPGRADES.SHOTGUN) and player.can_shoot():
 		player.shoot.transition_to()

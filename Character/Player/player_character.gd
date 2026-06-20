@@ -5,6 +5,7 @@ extends Character
 const SPEED := 5.0
 const SPEED_BOOSTED := SPEED * 1.2
 const LIGHT_RANGE_BONUS := 2.0
+const SHOTGUN_COOLDOWN := 1.5
 
 
 static var instance: PlayerCharacter
@@ -21,9 +22,11 @@ static var instance: PlayerCharacter
 @onready var hide_state: PlayerHide = $Hide
 @onready var die: PlayerDie = $Die
 @onready var shoot: PlayerShoot = $Shoot
+@onready var sfx_shotgun: AudioStreamPlayer3D = $SFXShotgun
 
 
 var was_hit: bool
+var shotgun_timer: float
 
 
 func _ready() -> void:
@@ -32,10 +35,17 @@ func _ready() -> void:
 		light.omni_range += LIGHT_RANGE_BONUS
 	
 	super()
+	
+	dummy.play_sfx = true
 
 
 func _exit_tree() -> void:
 	instance = null
+
+
+func _process(delta: float) -> void:
+	if shotgun_timer >= 0:
+		shotgun_timer -= delta
 
 
 func get_speed() -> float:
@@ -48,3 +58,7 @@ func hurt() -> void:
 		hide_state.transition_to()
 	else:
 		die.transition_to()
+
+
+func can_shoot() -> bool:
+	return shotgun_timer <= 0
