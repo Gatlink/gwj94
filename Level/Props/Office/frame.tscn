@@ -6,7 +6,7 @@
 [node name="Frame" type="Node3D" unique_id=1733491916]
 
 [node name="Office_Picture" parent="." unique_id=724935024 instance=ExtResource("1_qi2vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.15)
 
 [node name="RotateOnReady" type="Node" parent="." unique_id=1595697430]
 script = ExtResource("2_amsad")
