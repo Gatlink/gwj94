@@ -160,6 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MutantDummy" parent="Graph" index="0" unique_id=2140569891 instance=ExtResource("7_d6aly")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+walk_speed_factor = 1.4
 
 [node name="RemoteHitbox" type="RemoteTransform3D" parent="Graph" index="1" unique_id=156104095]
 remote_path = NodePath("../../Hitbox")
@@ -190,7 +191,7 @@ collision_mask = 4
 monitorable = false
 
 [node name="RangeShape" type="CollisionShape3D" parent="Hitbox" index="0" unique_id=1702197170]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4041265e-07, 0, -1.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4041265e-07, 0, -0.5)
 shape = SubResource("SphereShape3D_d6aly")
 
 [node name="DetectionRay" type="RayCast3D" parent="." index="9" unique_id=44878972]

@@ -18,9 +18,8 @@ func _process(_delta: float) -> void:
 	if mutant.strike.target != null:
 		mutant.strike.transition_to()
 	elif not mutant.has_target:
-		mutant.idle.transition_to()
-		if PlayerCharacter.instance.state is PlayerHide:
-			mutant.display_question()
+		mutant.idle.transition_to(0.5)
+		mutant.display_question()
 
 
 func _physics_process(_delta: float) -> void:

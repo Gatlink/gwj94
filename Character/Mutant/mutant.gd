@@ -5,6 +5,7 @@ extends Character
 const DETECTION_RANGE_MIN := 1.0
 const DETECTION_DELAY := 0.2
 const DETECTION_MASK := 0b0010
+const TURN_SPEED := 0.2
 
 
 @onready var range_shape: CollisionShape3D = $Range/RangeShape
@@ -40,7 +41,10 @@ func _physics_process(delta: float) -> void:
 	if navigation.is_navigation_finished():
 		return
 	
-	velocity = global_position.direction_to(navigation.get_next_path_position()) * current_speed
+	var next_pos := navigation.get_next_path_position()
+	var next_dir := global_position.direction_to(next_pos)
+	next_dir = velocity.normalized().lerp(next_dir, TURN_SPEED)
+	velocity = next_dir * current_speed
 	move_and_slide()
 
 

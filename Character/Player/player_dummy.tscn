@@ -168,7 +168,7 @@ radius = 0.175
 script = ExtResource("2_5cqxv")
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(819509369) index="0" unique_id=390892416]
-bones/0/position = Vector3(0, -0.01987273, 0)
+bones/0/position = Vector3(0, -0.0050075664, 0)
 bones/0/rotation = Quaternion(-2.9802326e-08, 1.1920928e-07, -2.5243543e-29, 1)
 bones/1/rotation = Quaternion(-3.5527103e-15, 1.7763568e-14, -4.0389676e-28, 1)
 bones/2/rotation = Quaternion(-3.5527103e-15, 0, -4.038968e-28, 1)
@@ -188,7 +188,7 @@ bones/22/rotation = Quaternion(-0.008408515, 8.842538e-08, 0.3174834, 0.9482266)
 bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043586)
 
 [node name="Hand_L" parent="Armature/Skeleton3D" index="0" unique_id=1841735966]
-transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.13639286, -6.745133e-08)
+transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.151258, -6.745133e-08)
 
 [node name="ShotGun" parent="Armature/Skeleton3D/Hand_L" index="0" unique_id=845455112]
 visible = false
@@ -217,7 +217,7 @@ update_rotation = false
 update_scale = false
 
 [node name="Muzzle" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4" unique_id=521854402]
-transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.13639286, -6.745133e-08)
+transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.151258, -6.745133e-08)
 bone_name = "Hand_L"
 bone_idx = 11
 
@@ -263,7 +263,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15580066, 0.15417291, -5.1
 shape = SubResource("SphereShape3D_61nkt")
 
 [node name="MuzzleFlash" type="Node3D" parent="." index="6" unique_id=186445788]
-transform = Transform3D(-0.9036848, -0.4281978, 5.223658e-07, 0.4281983, -0.90368396, -3.518608e-07, 6.2272005e-07, -9.429501e-08, 1.0000004, -0.39238608, 0.47551414, -6.745133e-08)
+transform = Transform3D(-0.9036848, -0.4281978, 5.223658e-07, 0.4281983, -0.90368396, -3.518608e-07, 6.2272005e-07, -9.429501e-08, 1.0000004, -0.39238608, 0.49037927, -6.745133e-08)
 
 [node name="BigFlash_03" parent="MuzzleFlash" index="0" unique_id=1166401343 instance=ExtResource("8_ftr0q")]
 transform = Transform3D(-8.742268e-08, -5.9604766e-08, -1.9999999, -2.1316282e-13, 1.9999999, -1.1920916e-07, 2, 1.1368684e-13, -8.7422904e-08, 0.11111879, -0.23450816, 0.9999995)

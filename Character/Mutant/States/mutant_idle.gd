@@ -2,11 +2,13 @@ class_name MutantIdle
 extends MutantState
 
 
-const SPEED := 1.0
-const ROAM_MIN_TIME := 5.0
-const ROAM_MAX_TIME := 8.0
+const SPEED := 1.5
+const ROAM_MIN_TIME := 4.0
+const ROAM_MAX_TIME := 6.0
 const GROWL_MIN_TIME := 3.0
 const GROWL_MAX_TIME := 10.0
+const FRAME_START_MOVE := 0.4
+const FRAME_STOP_MOVE := 1.5
 
 
 var roam_timer: float
@@ -43,6 +45,17 @@ func _process(delta: float) -> void:
 			reset_roam_timer()
 		else:
 			mutant.dummy.idle()
+	else:
+		var dummy := mutant.dummy as MutantDummy
+		var anim_pos := dummy.animation.current_animation_position
+		mutant.current_speed = SPEED if anim_pos >= FRAME_START_MOVE and anim_pos <= FRAME_STOP_MOVE else 0.0
+
+
+func transition_to(...params: Array) -> void:
+	super(params)
+	
+	if params[0] is float:
+		roam_timer *= params[0]
 
 
 func reset_roam_timer() -> void:
