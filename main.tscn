@@ -14,6 +14,9 @@ reflected_light_source = 1
 
 [node name="Main" type="Node3D" unique_id=389403922]
 
+[node name="Hud" parent="." unique_id=970830937 instance=ExtResource("3_1bvp3")]
+offset_bottom = 99.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=816753249]
 environment = SubResource("Environment_lquwl")
 
@@ -43,5 +46,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 [node name="Camera3D" type="Camera3D" parent="CameraHandler" unique_id=1409978657]
 transform = Transform3D(1, 0, 0, 0, 0.5000001, 0.8660254, 0, -0.8660254, 0.5000001, 0, 6, 4)
 script = ExtResource("3_lquwl")
-
-[node name="Hud" parent="." unique_id=970830937 instance=ExtResource("3_1bvp3")]

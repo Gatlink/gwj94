@@ -93,10 +93,11 @@ models = Array[PackedScene]([ExtResource("3_ptxsv"), ExtResource("4_qssux"), Ext
 metadata/_custom_type_script = "uid://cuqeph06nmvcr"
 
 [node name="Marker3D" type="Marker3D" parent="Graph" unique_id=1330619050]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Spotlight" type="SpotLight3D" parent="." unique_id=2001835366]
 transform = Transform3D(1, 0, 0, 0, 4.371139e-08, 1, 0, -1, 4.371139e-08, 0, 2, 0)
+light_color = Color(1, 0.71066666, 0.38, 1)
 light_energy = 1.5
 spot_range = 3.0
 spot_attenuation = 2.0

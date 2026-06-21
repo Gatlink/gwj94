@@ -14,7 +14,7 @@ var upgrade_buttons: Array[UpgradeButton] = []
 
 
 func _ready() -> void:
-	var gave_focus := false
+	var gave_focus := PlayerInput.use_kb_mouse
 	for child in upgrades_grid.get_children():
 		var upgrade_button := child as UpgradeButton
 		if upgrade_button == null:
@@ -31,7 +31,10 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	button.icon = START_ICON if not PlayerInput.use_kb_mouse else null
+	if not PlayerInput.use_kb_mouse:
+		button.icon = START_ICON
+	else:
+		button.icon = null
 
 
 func _on_button_pressed() -> void:

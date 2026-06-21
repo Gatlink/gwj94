@@ -2,6 +2,7 @@ class_name Level
 extends Node3D
 
 
+const MAIN_OBJECTIVE = preload("uid://d1ooremb8kc7p")
 const OBJECTIVE = preload("uid://c888bstisw35")
 const MUTANT := preload("uid://bmefsumjb7wc2")
 const ROOM_SIZE := 10
@@ -71,7 +72,7 @@ func _ready() -> void:
 	
 	navigation_region.bake_navigation_mesh()
 	
-	place_objective()
+	place_objectives()
 	place_mutants()
 	place_hiding_spots()
 
@@ -121,19 +122,26 @@ func create_path(room_idx: int, path: Dictionary[int, int], unconnected_idx: Arr
 	return false
 
 
-func place_objective() -> void:
-	var objective_dh := DecisionHelper.new(range(rooms.size()))
-	objective_dh.remove(func (i: int): return i == LIFT_ROOM_IDX)
-	objective_dh.score(func (i: int): return room_dist[i])
-	objective_dh.score(func (i: int): return -rooms[i].get_open_doors_count() * 0.25)
-	objective_dh.score(func (_i: int): return randf())
-	
-	obj_room_idx = objective_dh.get_best()
-	var room: Room = rooms[obj_room_idx]
-	var marker: Node3D = room.objective_spawn_points.get_children().pick_random()
-	var objective := OBJECTIVE.instantiate() as Node3D
-	add_child(objective)
-	objective.global_position = marker.global_position
+func place_objectives() -> void:
+	var placed: Array[int] = []
+	for i in Game.SECONDARY_OBJ_COUNT + 1:
+		var objective_dh := DecisionHelper.new(range(rooms.size()))
+		objective_dh.remove(func (idx: int): return idx == LIFT_ROOM_IDX)
+		objective_dh.remove(func (idx: int): return placed.has(idx))
+		objective_dh.score(func (idx: int): return room_dist[idx])
+		objective_dh.score(func (idx: int): return -rooms[idx].get_open_doors_count() * 0.25)
+		objective_dh.score(func (idx: int): return -3 if placed.any(func (oidx: int): return are_neighbors(idx, oidx)) else 0)
+		objective_dh.score(func (_idx: int): return randi_range(0, 2))
+		
+		obj_room_idx = objective_dh.get_best()
+		placed.append(obj_room_idx)
+		
+		var room: Room = rooms[obj_room_idx]
+		var marker: Node3D = room.objective_spawn_points.get_children().pick_random()
+		var objective := (MAIN_OBJECTIVE if i == 0 else OBJECTIVE).instantiate() as Objective
+		add_child(objective)
+		objective.global_position = marker.global_position
+		HUD.instance.add_objective(objective)
 
 
 func place_mutants() -> void:
@@ -155,7 +163,7 @@ func place_mutants() -> void:
 		spawn_dh.score(func (point: Vector3): return rooms[points_to_room[point]].get_open_doors_count())
 		spawn_dh.score(func (point: Vector3): return 1 if points_to_room[point] == obj_room_idx else 0)
 		spawn_dh.score(func (point: Vector3): return -3 if already_spawned.has(points_to_room[point]) else 0)
-		spawn_dh.score(func (_point: Vector3): return randf())
+		spawn_dh.score(func (_point: Vector3): return randi_range(0, 2))
 		
 		var pos: Vector3 = spawn_dh.get_best()
 		spawn_points.erase(pos)
@@ -212,5 +220,9 @@ func get_neighbor_index(idx: int, side: int) -> int:
 	return -1
 
 
-func get_random_point() -> Vector3:
-	return Vector3.ZERO
+func are_neighbors(idx_a: int, idx_b: int) -> bool:
+	for side in directions:
+		if get_neighbor_index(idx_a, side) == idx_b:
+			return true
+	
+	return false

@@ -2,6 +2,7 @@ extends Node
 
 
 const MAX_FLOOR: int = 10
+const SECONDARY_OBJ_COUNT := 2
 const UPGRADES: Dictionary[String, Upgrade] = {
 	"LIGHT": preload("uid://c63etlsq14cgm"),
 	"SPEED": preload("uid://boecofonuw238"),

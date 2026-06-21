@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c5vsegkieh7hc"]
+
+[ext_resource type="Texture2D" uid="uid://c6cpnkxxhwidf" path="res://UI/objective_small.svg" id="1_idq5p"]
+[ext_resource type="Script" uid="uid://bff26hmvfshoj" path="res://UI/objective_pip.gd" id="1_jugej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idq5p"]
+resource_local_to_scene = true
+atlas = ExtResource("1_idq5p")
+region = Rect2(0, 0, 512, 0)
+
+[node name="ObjectivePip" type="TextureRect" unique_id=54316212]
+texture = SubResource("AtlasTexture_idq5p")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("1_jugej")
+metadata/_custom_type_script = "uid://bff26hmvfshoj"

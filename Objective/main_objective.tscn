@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d1ooremb8kc7p"]
+
+[ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="1_wthkv"]
+
+[node name="MainObjective" unique_id=1332854662 instance=ExtResource("1_wthkv")]
+money_gain = 25
+is_main = true
+
+[node name="Marker3D" parent="Graph" parent_id_path=PackedInt32Array(1031166380) index="0" unique_id=1330619050]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Spotlight" parent="." index="2" unique_id=2001835366]
+light_color = Color(0.7136, 0.96, 0.28800002, 1)
