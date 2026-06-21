@@ -23,6 +23,7 @@ static var instance: PlayerCharacter
 @onready var die: PlayerDie = $Die
 @onready var shoot: PlayerShoot = $Shoot
 @onready var sfx_shotgun: AudioStreamPlayer3D = $SFXShotgun
+@onready var sfx_objective: AudioStreamPlayer3D = $SFXObjective
 
 
 var was_hit: bool

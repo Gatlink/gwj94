@@ -2,6 +2,9 @@ class_name MutantDummy
 extends CharacterDummy
 
 
+const IDLE_SPEED := 0.5
+
+
 @export var walk_speed_factor := 1.0
 
 
@@ -9,7 +12,7 @@ extends CharacterDummy
 
 
 func idle() -> void:
-	animation.play("Idle")
+	animation.play("Idle", 0.2, IDLE_SPEED)
 
 
 func walk(speed: float) -> void:

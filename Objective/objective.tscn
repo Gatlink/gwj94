@@ -8,10 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bd03us7arbyc7" path="res://Art/Assets/OBJ_File.glb" id="6_82fyt"]
 [ext_resource type="PackedScene" uid="uid://cjhkelo1k0h3l" path="res://Art/Assets/OBJ_Laptop.glb" id="7_6rscr"]
 [ext_resource type="PackedScene" uid="uid://cq4hh6l8et87i" path="res://Art/Assets/OBJ_Tube.glb" id="8_oycyh"]
-[ext_resource type="AudioStream" uid="uid://d4joi7x7b8rb1" path="res://Objective/SFX/ding1.ogg" id="9_6rscr"]
-[ext_resource type="AudioStream" uid="uid://dtpen3k3ggdno" path="res://Objective/SFX/ding2.ogg" id="10_oycyh"]
-[ext_resource type="AudioStream" uid="uid://cj40rbfusanf3" path="res://Objective/SFX/ding3.ogg" id="11_eeoki"]
-[ext_resource type="AudioStream" uid="uid://dybg6ge5toiwt" path="res://Objective/SFX/ding4.ogg" id="12_gfpcp"]
 
 [sub_resource type="Animation" id="Animation_wd7uw"]
 length = 0.001
@@ -80,13 +76,6 @@ _data = {
 height = 0.25
 radius = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1785a"]
-streams_count = 4
-stream_0/stream = ExtResource("9_6rscr")
-stream_1/stream = ExtResource("10_oycyh")
-stream_2/stream = ExtResource("11_eeoki")
-stream_3/stream = ExtResource("12_gfpcp")
-
 [node name="Objective" type="Area3D" unique_id=1332854662]
 collision_layer = 0
 collision_mask = 4
@@ -106,7 +95,7 @@ metadata/_custom_type_script = "uid://cuqeph06nmvcr"
 [node name="Marker3D" type="Marker3D" parent="Graph" unique_id=1330619050]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="Spotlight3" type="SpotLight3D" parent="." unique_id=2001835366]
+[node name="Spotlight" type="SpotLight3D" parent="." unique_id=2001835366]
 transform = Transform3D(1, 0, 0, 0, 4.371139e-08, 1, 0, -1, 4.371139e-08, 0, 2, 0)
 light_energy = 1.5
 spot_range = 3.0
@@ -116,8 +105,3 @@ spot_angle = 26.800034
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=555346625]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
 shape = SubResource("CylinderShape3D_dpl15")
-
-[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=347110097]
-stream = SubResource("AudioStreamRandomizer_1785a")
-volume_db = -4.0
-bus = &"SFX"

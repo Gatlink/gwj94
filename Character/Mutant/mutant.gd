@@ -13,10 +13,10 @@ const DETECTION_MASK := 0b0010
 @onready var detection_ray: RayCast3D = $DetectionRay
 @onready var idle: MutantIdle = $Idle
 @onready var chase: MutantChase = $Chase
-@onready var back_to_start: MutantBackToStart = $BackToStart
 @onready var strike: MutantStrike = $Strike
 @onready var sfx_low_growl: AudioStreamPlayer3D = $LowGrowl
 @onready var sfx_big_growl: AudioStreamPlayer3D = $BigGrowl
+@onready var question_animation: AnimationPlayer = $QuestionMark/AnimationPlayer
 
 
 var has_target: bool
@@ -76,3 +76,8 @@ func update_target_pos() -> void:
 
 func die() -> void:
 	queue_free()
+
+
+func display_question() -> void:
+	question_animation.stop()
+	question_animation.play("show")

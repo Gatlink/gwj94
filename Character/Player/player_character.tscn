@@ -12,9 +12,20 @@
 [ext_resource type="Script" uid="uid://b7ajy1gfptajh" path="res://Character/Player/States/die.gd" id="7_1vi68"]
 [ext_resource type="Script" uid="uid://dhg88r3n05dy8" path="res://Character/Player/States/shoot.gd" id="8_agv0s"]
 [ext_resource type="AudioStream" uid="uid://fk5nogexmpsv" path="res://Character/Player/SFX/shotgun.ogg" id="12_nb0on"]
+[ext_resource type="AudioStream" uid="uid://d4joi7x7b8rb1" path="res://Objective/SFX/ding1.ogg" id="13_6vabk"]
+[ext_resource type="AudioStream" uid="uid://dtpen3k3ggdno" path="res://Objective/SFX/ding2.ogg" id="14_mss4s"]
+[ext_resource type="AudioStream" uid="uid://cj40rbfusanf3" path="res://Objective/SFX/ding3.ogg" id="15_8dlre"]
+[ext_resource type="AudioStream" uid="uid://dybg6ge5toiwt" path="res://Objective/SFX/ding4.ogg" id="16_h4mg0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vi68"]
 size = Vector3(2, 1, 4)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0i5j3"]
+streams_count = 4
+stream_0/stream = ExtResource("13_6vabk")
+stream_1/stream = ExtResource("14_mss4s")
+stream_2/stream = ExtResource("15_8dlre")
+stream_3/stream = ExtResource("16_h4mg0")
 
 [node name="PlayerCharacter" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_atbs6")]
 visible = false
@@ -99,6 +110,11 @@ omni_attenuation = 2.0
 
 [node name="SFXShotgun" type="AudioStreamPlayer3D" parent="." index="12" unique_id=1891516026]
 stream = ExtResource("12_nb0on")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="SFXObjective" type="AudioStreamPlayer3D" parent="." index="13" unique_id=1258425193]
+stream = SubResource("AudioStreamRandomizer_0i5j3")
 volume_db = -4.0
 bus = &"SFX"
 

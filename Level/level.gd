@@ -210,3 +210,7 @@ func get_neighbor_index(idx: int, side: int) -> int:
 		return idx + 1
 	
 	return -1
+
+
+func get_random_point() -> Vector3:
+	return Vector3.ZERO
