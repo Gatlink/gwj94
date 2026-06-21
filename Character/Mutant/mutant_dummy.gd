@@ -16,7 +16,7 @@ func idle() -> void:
 
 
 func walk(speed: float) -> void:
-	animation.play("Walk" if speed <= MutantBackToStart.SPEED else "Chase", 0.2, speed * walk_speed_factor)
+	animation.play("Walk" if speed <= MutantIdle.SPEED else "Chase", 0.2, speed * walk_speed_factor)
 
 
 func hit() -> void:
