@@ -119,5 +119,5 @@ shape = SubResource("CylinderShape3D_dpl15")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=347110097]
 stream = SubResource("AudioStreamRandomizer_1785a")
-volume_db = -2.0
+volume_db = -4.0
 bus = &"SFX"
