@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_lp1la")
 name = "Soft Body"
-description = "Your soft body allows you to retract in your shell, providing a handy hiding spot wherever you are."
+description = "Your soft body allows you to retract in your shell, providing a handy hiding spot wherever you are.
+Press F (keyboard) or X (gamepad) to hide anywhere."
 icon = ExtResource("1_up7j5")
 price = 30
 metadata/_custom_type_script = "uid://v5giuvkjoijs"

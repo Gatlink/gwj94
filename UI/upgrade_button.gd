@@ -19,6 +19,8 @@ func refresh() -> void:
 		disabled = true
 		label_price.text = "SOLD OUT"
 		label_price.self_modulate = Color.WHITE
+	
+	tooltip_text = upgrade.description
 
 
 func _on_pressed() -> void:

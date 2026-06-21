@@ -38,7 +38,11 @@ func reset() -> void:
 
 func change_floor() -> void:
 	floor_nbr += 1
-	get_tree().change_scene_to_file("res://UI/upgrade_screen.tscn")
+	if floor_nbr == 11:
+		reset()
+		get_tree().change_scene_to_file("res://UI/end_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://UI/upgrade_screen.tscn")
 
 
 func get_mutant_count() -> int:
