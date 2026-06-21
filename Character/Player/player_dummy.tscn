@@ -132,6 +132,7 @@ input_2/reset = true
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_rplnd"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ftr0q"]
+graph_offset = Vector2(-311.5, -27.5)
 nodes/output/position = Vector2(580, 160)
 nodes/Speed/node = SubResource("AnimationNodeTimeScale_5cqxv")
 nodes/Speed/position = Vector2(130, 150)
@@ -166,7 +167,6 @@ radius = 0.175
 script = ExtResource("2_5cqxv")
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(819509369) index="0" unique_id=390892416]
-bones/0/position = Vector3(0, -0.0021860455, 0)
 bones/0/rotation = Quaternion(-2.9802326e-08, 1.1920928e-07, -2.5243543e-29, 1)
 bones/1/rotation = Quaternion(-3.5527103e-15, 1.7763568e-14, -4.0389676e-28, 1)
 bones/2/rotation = Quaternion(-3.5527103e-15, 0, -4.038968e-28, 1)
@@ -186,7 +186,7 @@ bones/22/rotation = Quaternion(-0.008408515, 8.842538e-08, 0.3174834, 0.9482266)
 bones/23/rotation = Quaternion(0.0029086133, -4.1893127e-08, 0.43497917, 0.90043586)
 
 [node name="Hand_L" parent="Armature/Skeleton3D" index="0" unique_id=1841735966]
-transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.15407951, -6.745133e-08)
+transform = Transform3D(-0.9036845, -0.42819807, 5.2236555e-07, 0.42819816, -0.9036845, -3.5186065e-07, 6.227198e-07, -9.429507e-08, 0.9999999, -0.39238608, 0.15626557, -6.745133e-08)
 
 [node name="ShotGun" parent="Armature/Skeleton3D/Hand_L" index="0" unique_id=845455112]
 visible = false
@@ -215,6 +215,7 @@ update_rotation = false
 update_scale = false
 
 [node name="Charapace" parent="." index="1" unique_id=411155749]
+transform = Transform3D(1.25, 0, 0, 0, 0.21706028, -1.2310097, 0, 1.2310097, 0.21706028, 0, -0.97499996, -0.54999995)
 visible = false
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3" unique_id=1950884693]

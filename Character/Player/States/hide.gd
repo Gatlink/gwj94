@@ -5,15 +5,17 @@ extends PlayerState
 func enter() -> void:
 	super()
 	player.collision.disabled = true
-	player.graph.scale.y = 0.5
 	player.dummy.idle()
+	player.dummy.armature.hide()
+	player.dummy.shell.show()
 	player.input_prompt.show()
 
 
 func exit() -> void:
 	super()
 	player.collision.disabled = false
-	player.graph.scale.y = 1.0
+	player.dummy.shell.hide()
+	player.dummy.armature.show()
 	player.input_prompt.hide()
 
 
