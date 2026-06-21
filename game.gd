@@ -16,7 +16,7 @@ const HIDING_SPOTS_PER_FLOOR: Array[int] = [8, 8, 6, 6, 4, 4, 2, 2, 1, 0]
 
 var floor_nbr: int = 1
 var money: int = 0
-var unlocked_upgrades: Array[Upgrade] = [ UPGRADES.SHELL ]
+var unlocked_upgrades: Array[Upgrade] = [ UPGRADES.SHOTGUN ]
 
 
 func is_locked(upgrade: Upgrade) -> bool:

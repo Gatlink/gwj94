@@ -13,6 +13,7 @@ func enter() -> void:
 	super()
 	player.sfx_shotgun.play()
 	player.dummy.shoot()
+	player.dummy.flash.play()
 	player.hitbox.disabled = false
 	player.shotgun_timer = player.SHOTGUN_COOLDOWN
 	

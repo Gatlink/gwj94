@@ -19,6 +19,7 @@ const ANIM_SPEED_WALK_FACTOR := 0.8
 @onready var sfx_step: AudioStreamPlayer3D = $SFXStep
 @onready var shell: MeshInstance3D = $Charapace
 @onready var armature: Node3D = $Armature
+@onready var flash: VFXController = $MuzzleFlash/BigFlash_03
 
 
 var parameter_walk := PARAMETER_WALK
