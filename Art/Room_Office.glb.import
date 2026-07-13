@@ -16,6 +16,8 @@ dest_files=["res://.godot/imported/Room_Office.glb-f0dd767109070a96078d6f6c63b06
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -46,15 +48,16 @@ _subresources={
 },
 "Material.001": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Level/Models/Materials/Material.001.tres",
+"use_external/fallback_path": "res://Level/Models/Materials/material_outer_office.tres",
 "use_external/path": "uid://cmwkmwtlhhi8x"
 },
 "Wall_Office": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Level/Models/Materials/Wall_Office.tres",
+"use_external/fallback_path": "res://Level/Models/Materials/material_wall_office.tres",
 "use_external/path": "uid://c8s6xroo6e5t1"
 }
 }
 }
 gltf/naming_version=2
 gltf/embedded_image_handling=1
+gltf/texture_map_mode=0

@@ -14,7 +14,7 @@ var upgrade_buttons: Array[UpgradeButton] = []
 
 
 func _ready() -> void:
-	var gave_focus := PlayerInput.use_kb_mouse
+	var gave_focus: bool = PlayerInput.use_kb_mouse
 	for child in upgrades_grid.get_children():
 		var upgrade_button := child as UpgradeButton
 		if upgrade_button == null:

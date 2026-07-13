@@ -11,7 +11,7 @@ extends Button
 func refresh() -> void:
 	icon = upgrade.icon
 	if Game.is_locked(upgrade):
-		var has_money := Game.money >= upgrade.price
+		var has_money: bool = Game.money >= upgrade.price
 		disabled = not has_money
 		label_price.text = "$%d" % upgrade.price
 		label_price.self_modulate = Color.DARK_RED if not has_money else Color.WHITE

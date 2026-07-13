@@ -111,12 +111,12 @@ omni_attenuation = 2.0
 [node name="SFXShotgun" type="AudioStreamPlayer3D" parent="." index="12" unique_id=1891516026]
 stream = ExtResource("12_nb0on")
 volume_db = -4.0
-bus = &"SFX"
+bus = &"SFXPlayer"
 
 [node name="SFXObjective" type="AudioStreamPlayer3D" parent="." index="13" unique_id=1258425193]
 stream = SubResource("AudioStreamRandomizer_0i5j3")
 volume_db = -4.0
-bus = &"SFX"
+bus = &"SFXPlayer"
 
 [connection signal="body_entered" from="HitBox" to="Shoot" method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="Shoot" method="_on_hit_box_body_exited"]

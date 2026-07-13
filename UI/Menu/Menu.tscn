@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://ctix7ht7j4wfy"]
+
+[ext_resource type="Script" uid="uid://cto6yet2gorpv" path="res://UI/Menu/Menu.gd" id="2"]
+[ext_resource type="Theme" uid="uid://cwvl2mwyoxrrk" path="res://UI/Menu/MenuTheme.tres" id="2_3hib7"]
+[ext_resource type="PackedScene" uid="uid://dm8mubq6gkj1p" path="res://UI/Level Select/level_select.tscn" id="2_khkki"]
+[ext_resource type="Texture2D" uid="uid://chg3xfudt4hxj" path="res://Art/Visual/KeyArt.png" id="2_w32jx"]
+[ext_resource type="Theme" uid="uid://dac2l6uvyv1my" path="res://UI/Menu/SubMenuTheme.tres" id="3_20qwh"]
+[ext_resource type="PackedScene" uid="uid://b7c5vpfo7my25" path="res://UI/Menu/BusSlider.tscn" id="4"]
+
+[node name="Menu" type="Control" unique_id=892885759]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+play_scene = ExtResource("2_khkki")
+
+[node name="Background" type="TextureRect" parent="." unique_id=240306243]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_w32jx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=434065947]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="MainMenu" unique_id=1031762099]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_3hib7")
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="MainMenu" unique_id=1017319714]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_3hib7")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MainMenu" unique_id=657517318]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_3hib7")
+text = "Quit"
+
+[node name="MainMenuMask" type="ColorRect" parent="." unique_id=1195027951]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.211765, 0.211765, 0.211765, 0)
+
+[node name="SubMenu" type="VBoxContainer" parent="." unique_id=1635712136]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_right = 0.000488281
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="SubMenu" unique_id=655352464 groups=["Settings"]]
+layout_mode = 2
+theme = ExtResource("3_20qwh")
+theme_override_font_sizes/font_size = 128
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Separator" type="Control" parent="SubMenu" unique_id=1341022513]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Main" parent="SubMenu" unique_id=661575065 groups=["Settings"] instance=ExtResource("4")]
+layout_mode = 2
+label_text = "Main Volume"
+bus_name = "Master"
+highlight_color = Color(0.68, 0.498667, 0, 1)
+
+[node name="Music" parent="SubMenu" unique_id=569759119 groups=["Settings"] instance=ExtResource("4")]
+layout_mode = 2
+label_text = "Music"
+bus_name = "Music"
+highlight_color = Color(0.68, 0.498667, 0, 1)
+
+[node name="EffectsMonster" parent="SubMenu" unique_id=1622316186 groups=["Settings"] instance=ExtResource("4")]
+layout_mode = 2
+label_text = "Monster Sound Effects"
+bus_name = "SFXMonster"
+highlight_color = Color(0.68, 0.498667, 0, 1)
+
+[node name="EffectsPlayer" parent="SubMenu" unique_id=1671770632 groups=["Settings"] instance=ExtResource("4")]
+layout_mode = 2
+label_text = "Player Sound Effects"
+bus_name = "SFXPlayer"
+highlight_color = Color(0.68, 0.498667, 0, 1)
+
+[node name="Separator2" type="Control" parent="SubMenu" unique_id=1297973174]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="SubMenu" unique_id=412696892 groups=["Settings"]]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("3_20qwh")
+text = "Back"
+
+[connection signal="pressed" from="MainMenu/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_submenu_button_pressed" binds= ["Settings"]]
+[connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="SubMenu/BackButton" to="." method="close_submenu"]

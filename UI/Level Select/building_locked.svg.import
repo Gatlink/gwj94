@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsqg7s14yn787"
-path="res://.godot/imported/objective.svg-d50a10bb219dc123d94c53d47785d584.ctex"
+uid="uid://dj3xpty5cvsig"
+path="res://.godot/imported/building_locked.svg-5ee0664d0e3372f080d2be3a9468c2bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/objective.svg"
-dest_files=["res://.godot/imported/objective.svg-d50a10bb219dc123d94c53d47785d584.ctex"]
+source_file="res://UI/Level Select/building_locked.svg"
+dest_files=["res://.godot/imported/building_locked.svg-5ee0664d0e3372f080d2be3a9468c2bc.ctex"]
 
 [params]
 

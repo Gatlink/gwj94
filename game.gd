@@ -1,6 +1,11 @@
 extends Node
 
 
+const TITLE_SCREEN := "res://UI/Menu/Menu.tscn"
+const LEVEL_SCREEN := "res://UI/Level Select/level_select.tscn"
+const END_SCREEN := "res://UI/End Screen/end_screen.tscn"
+const SHOP_SCREEN := "res://UI/Shop/upgrade_screen.tscn"
+
 const MAX_FLOOR: int = 10
 const SECONDARY_OBJ_COUNT := 2
 const UPGRADES: Dictionary[String, Upgrade] = {
@@ -15,6 +20,7 @@ const MUTANTS_PER_FLOOR: Array[int] = [1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 10]
 const HIDING_SPOTS_PER_FLOOR: Array[int] = [8, 8, 6, 6, 4, 4, 2, 2, 1, 0]
 
 
+var level: LevelData
 var floor_nbr: int = 1
 var money: int = 0
 var unlocked_upgrades: Array[Upgrade] = []
@@ -40,9 +46,9 @@ func change_floor() -> void:
 	floor_nbr += 1
 	if floor_nbr == 11:
 		reset()
-		get_tree().change_scene_to_file("res://UI/end_screen.tscn")
+		get_tree().change_scene_to_file("res://UI/End Screen/end_screen.tscn")
 	else:
-		get_tree().change_scene_to_file("res://UI/upgrade_screen.tscn")
+		get_tree().change_scene_to_file("res://UI/Shop/upgrade_screen.tscn")
 
 
 func get_mutant_count() -> int:

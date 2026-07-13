@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ia6gmfq8qu0a"]
 
-[ext_resource type="Script" uid="uid://vhigsor6l4ns" path="res://UI/upgrade_screen.gd" id="1_hssnf"]
-[ext_resource type="PackedScene" uid="uid://ne1n42v0s2u2" path="res://UI/upgrade_button.tscn" id="2_hssnf"]
+[ext_resource type="Script" uid="uid://vhigsor6l4ns" path="res://UI/Shop/upgrade_screen.gd" id="1_hssnf"]
+[ext_resource type="PackedScene" uid="uid://ne1n42v0s2u2" path="res://UI/Shop/upgrade_button.tscn" id="2_hssnf"]
 [ext_resource type="Resource" uid="uid://c63etlsq14cgm" path="res://Upgrades/light.tres" id="3_e11pv"]
 [ext_resource type="Resource" uid="uid://boecofonuw238" path="res://Upgrades/speed.tres" id="4_gsokw"]
 [ext_resource type="Resource" uid="uid://cikwl46xtjaeb" path="res://Upgrades/shell.tres" id="5_3y66t"]

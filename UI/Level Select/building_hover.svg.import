@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6cpnkxxhwidf"
-path="res://.godot/imported/objective_small.svg-bd2b42014a615cf2ae96587390f3f9b6.ctex"
+uid="uid://cym4y5dcprt1p"
+path="res://.godot/imported/building_hover.svg-9b1809e32d52e821793a8d4a7736c7de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/objective_small.svg"
-dest_files=["res://.godot/imported/objective_small.svg-bd2b42014a615cf2ae96587390f3f9b6.ctex"]
+source_file="res://UI/Level Select/building_hover.svg"
+dest_files=["res://.godot/imported/building_hover.svg-9b1809e32d52e821793a8d4a7736c7de.ctex"]
 
 [params]
 

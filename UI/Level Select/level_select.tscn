@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://dm8mubq6gkj1p"]
+
+[ext_resource type="Script" uid="uid://c60aro73710h3" path="res://UI/Level Select/level_select.gd" id="1_e4kk8"]
+[ext_resource type="Texture2D" uid="uid://djmpm6vgiwgwl" path="res://UI/Level Select/building.svg" id="1_y4r7b"]
+[ext_resource type="Texture2D" uid="uid://cym4y5dcprt1p" path="res://UI/Level Select/building_hover.svg" id="2_1q60p"]
+[ext_resource type="Texture2D" uid="uid://dj3xpty5cvsig" path="res://UI/Level Select/building_locked.svg" id="3_1q60p"]
+[ext_resource type="Script" uid="uid://ddrba81q3hrnx" path="res://UI/Level Select/level_button.gd" id="5_hnfoh"]
+[ext_resource type="Texture2D" uid="uid://cs6ppybmbkl55" path="res://UI/Level Select/building_focus.svg" id="5_tey2q"]
+[ext_resource type="Resource" uid="uid://d4km2jcexskb3" path="res://Level/Data/office_tower.tres" id="6_ciytr"]
+[ext_resource type="Resource" uid="uid://m0qh0lbxfbv0" path="res://Level/Data/lab.tres" id="7_tey2q"]
+[ext_resource type="Resource" uid="uid://chlldy1l4etrj" path="res://Level/Data/hq.tres" id="8_n67vk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 128
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelSelect" type="Control" unique_id=365193983]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4kk8")
+
+[node name="Background" type="VBoxContainer" parent="." unique_id=798088282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Sky" type="ColorRect" parent="Background" unique_id=348451784]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.4985022, 0.8204359, 0.96292824, 1)
+
+[node name="Background3" type="ColorRect" parent="Background" unique_id=879160325]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+color = Color(0.38928658, 0.38928658, 0.38928673, 1)
+
+[node name="Background2" type="ColorRect" parent="Background" unique_id=2065018794]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+color = Color(0.2592937, 0.2592937, 0.2592937, 1)
+
+[node name="Background1" type="ColorRect" parent="Background" unique_id=1989492945]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+color = Color(0, 0, 0, 1)
+
+[node name="Level1" type="TextureButton" parent="." unique_id=761213651]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1078125
+anchor_top = 0.048148148
+anchor_right = 0.275
+anchor_bottom = 0.97407407
+focus_neighbor_right = NodePath("../Level2")
+texture_normal = ExtResource("1_y4r7b")
+texture_pressed = ExtResource("2_1q60p")
+texture_hover = ExtResource("2_1q60p")
+texture_disabled = ExtResource("3_1q60p")
+texture_focused = ExtResource("5_tey2q")
+stretch_mode = 3
+script = ExtResource("5_hnfoh")
+data = ExtResource("6_ciytr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Level2" type="TextureButton" parent="." unique_id=659850026]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4515625
+anchor_top = -0.025
+anchor_right = 0.61875
+anchor_bottom = 0.90092593
+focus_neighbor_left = NodePath("../Level1")
+focus_neighbor_right = NodePath("../Level3")
+disabled = true
+texture_normal = ExtResource("1_y4r7b")
+texture_pressed = ExtResource("2_1q60p")
+texture_hover = ExtResource("2_1q60p")
+texture_disabled = ExtResource("3_1q60p")
+texture_focused = ExtResource("5_tey2q")
+stretch_mode = 3
+script = ExtResource("5_hnfoh")
+data = ExtResource("7_tey2q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Level3" type="TextureButton" parent="." unique_id=830862517]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81458336
+anchor_top = -0.10462963
+anchor_right = 0.9817708
+anchor_bottom = 0.8212963
+focus_neighbor_left = NodePath("../Level2")
+disabled = true
+texture_normal = ExtResource("1_y4r7b")
+texture_pressed = ExtResource("2_1q60p")
+texture_hover = ExtResource("2_1q60p")
+texture_disabled = ExtResource("3_1q60p")
+texture_focused = ExtResource("5_tey2q")
+stretch_mode = 3
+script = ExtResource("5_hnfoh")
+data = ExtResource("8_n67vk")
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelName" type="Label" parent="." unique_id=613921244]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027604166
+anchor_top = 0.044444446
+anchor_right = 1.0276042
+anchor_bottom = 0.18518518
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "OFFICE TOWER"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_use_anchors_ = true

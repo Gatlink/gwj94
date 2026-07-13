@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://d4km2jcexskb3"]
+
+[ext_resource type="Script" uid="uid://bjdcijbj5nf2n" path="res://Level/level_data.gd" id="1_2scel"]
+[ext_resource type="PackedScene" uid="uid://nq5weqkbj1jc" path="res://main.tscn" id="1_tfohi"]
+
+[resource]
+script = ExtResource("1_2scel")
+name = "Office Tower"
+unlocked = true
+scene = ExtResource("1_tfohi")
+metadata/_custom_type_script = "uid://bjdcijbj5nf2n"

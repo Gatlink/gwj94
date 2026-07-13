@@ -202,11 +202,11 @@ debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="LowGrowl" type="AudioStreamPlayer3D" parent="." index="10" unique_id=539114344]
 stream = SubResource("AudioStreamRandomizer_p4jld")
-bus = &"SFX"
+bus = &"SFXMonster"
 
 [node name="BigGrowl" type="AudioStreamPlayer3D" parent="." index="11" unique_id=1381619338]
 stream = SubResource("AudioStreamRandomizer_61nkt")
-bus = &"SFX"
+bus = &"SFXMonster"
 
 [node name="QuestionMark" type="Node3D" parent="." index="12" unique_id=583749478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)

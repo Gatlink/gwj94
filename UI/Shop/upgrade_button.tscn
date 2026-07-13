@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://t37g0mac1odw" path="res://UI/ui_theme.tres" id="1_7xvuj"]
 [ext_resource type="Texture2D" uid="uid://c5ncp1f7wa8yl" path="res://Art/Icons/Shotgun.png" id="2_gux1r"]
-[ext_resource type="Script" uid="uid://cvmgseoxqgmwh" path="res://UI/upgrade_button.gd" id="3_gwgor"]
+[ext_resource type="Script" uid="uid://cvmgseoxqgmwh" path="res://UI/Shop/upgrade_button.gd" id="3_gwgor"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7xvuj"]
 font_size = 32

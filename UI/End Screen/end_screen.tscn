@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://nou8x1mtysja"]
 
-[ext_resource type="Script" uid="uid://8jybauuw80g0" path="res://UI/title_screen.gd" id="1_5p2us"]
-[ext_resource type="Texture2D" uid="uid://chg3xfudt4hxj" path="res://Art/Visual/KeyArt.png" id="2_r4sma"]
-[ext_resource type="AudioStream" uid="uid://da6xpyqd3fana" path="res://UI/validate_title.ogg" id="3_rx8bq"]
+[ext_resource type="Script" uid="uid://8jybauuw80g0" path="res://UI/End Screen/end_screen.gd" id="1_s8crm"]
+[ext_resource type="Texture2D" uid="uid://chg3xfudt4hxj" path="res://Art/Visual/KeyArt.png" id="2_qamop"]
+[ext_resource type="AudioStream" uid="uid://da6xpyqd3fana" path="res://UI/validate_title.ogg" id="3_sf05b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4jld"]
 font_size = 96
@@ -120,7 +120,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5p2us")
+script = ExtResource("1_s8crm")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1289323879]
 layout_mode = 1
@@ -129,7 +129,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_r4sma")
+texture = ExtResource("2_qamop")
 expand_mode = 3
 stretch_mode = 5
 
@@ -155,4 +155,4 @@ libraries/ = SubResource("AnimationLibrary_5whv5")
 autoplay = &"idle"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=630459755]
-stream = ExtResource("3_rx8bq")
+stream = ExtResource("3_sf05b")
