@@ -10,9 +10,13 @@ const FLOOR_TOP = preload("uid://dx6vlfhr8quue")
 @onready var floors: VBoxContainer = $Control/Floors
 @onready var label_time: Label = $Control/Stats/LabelTime
 @onready var label_salary: Label = $Control/Stats/LabelSalary
+@onready var title: Label = $Title
 
 
 func _ready() -> void:
+	if Game.floor_nbr >= Game.level.floor_count:
+		title.text = "Victory!"
+	
 	var duration := roundi((Time.get_ticks_msec() - Game.start_time) / 1000)
 	label_time.text = "Duration: %02d:%02d" % [duration / 60.0, duration % 60]
 	
