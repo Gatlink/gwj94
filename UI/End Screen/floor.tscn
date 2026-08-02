@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b0f437nyyx7kq"]
+
+[ext_resource type="Texture2D" uid="uid://dyqppcntu3bn3" path="res://UI/End Screen/Sprites/floor_lit.svg" id="1_fnunh"]
+[ext_resource type="Texture2D" uid="uid://bjvlmvmtdtwom" path="res://UI/End Screen/Sprites/floor.svg" id="1_rcbc1"]
+[ext_resource type="Script" uid="uid://0t81a68q01bp" path="res://UI/End Screen/floor.gd" id="2_o242f"]
+
+[node name="Floor" type="TextureRect" unique_id=831829067]
+anchors_preset = -1
+anchor_right = 0.2125
+anchor_bottom = 0.10003462
+grow_horizontal = 2
+size_flags_vertical = 9
+texture = ExtResource("1_rcbc1")
+expand_mode = 5
+script = ExtResource("2_o242f")
+metadata/_edit_use_anchors_ = true
+
+[node name="LitWindows" type="TextureRect" parent="." unique_id=281532004]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fnunh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ContentAnchorLeft" type="Control" parent="." unique_id=1530721938]
+layout_mode = 1
+anchor_left = 0.04411765
+anchor_top = 0.5
+anchor_right = 0.04411765
+anchor_bottom = 0.5
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ContentAnchorRight" type="Control" parent="." unique_id=2021348921]
+layout_mode = 1
+anchor_left = 0.9558824
+anchor_top = 0.5
+anchor_right = 0.9558824
+anchor_bottom = 0.5
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

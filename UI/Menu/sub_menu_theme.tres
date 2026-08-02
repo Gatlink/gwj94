@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://dac2l6uvyv1my"]
 
-[ext_resource type="SystemFont" uid="uid://vxifw6dqivsu" path="res://UI/Menu/MenuFont.tres" id="1_efj4v"]
+[ext_resource type="SystemFont" uid="uid://vxifw6dqivsu" path="res://UI/Menu/menu_font.tres" id="1_efj4v"]
 
 
 [resource]

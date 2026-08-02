@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dhj5q0mqk1w1a"]
+
+[ext_resource type="Texture2D" uid="uid://df72uwa8p2eeg" path="res://UI/End Screen/Sprites/content_death.svg" id="1_r3a3w"]
+[ext_resource type="Texture2D" uid="uid://068rche458dd" path="res://UI/End Screen/Sprites/floor_content.svg" id="1_s28xm"]
+[ext_resource type="Script" uid="uid://cfcoywqhm5jqx" path="res://UI/End Screen/floor_content_item.gd" id="1_t8s2o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyave"]
+atlas = ExtResource("1_s28xm")
+region = Rect2(21, 0, 4, 64)
+
+[node name="FloorContentItem" type="TextureRect" unique_id=1561778423]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("AtlasTexture_kyave")
+script = ExtResource("1_t8s2o")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2070690787]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r3a3w")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

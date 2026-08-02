@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ctix7ht7j4wfy"]
 
-[ext_resource type="Script" uid="uid://cto6yet2gorpv" path="res://UI/Menu/Menu.gd" id="2"]
-[ext_resource type="Theme" uid="uid://cwvl2mwyoxrrk" path="res://UI/Menu/MenuTheme.tres" id="2_3hib7"]
+[ext_resource type="Script" uid="uid://cto6yet2gorpv" path="res://UI/Menu/menu.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dm8mubq6gkj1p" path="res://UI/Level Select/level_select.tscn" id="2_khkki"]
 [ext_resource type="Texture2D" uid="uid://chg3xfudt4hxj" path="res://Art/Visual/KeyArt.png" id="2_w32jx"]
-[ext_resource type="Theme" uid="uid://dac2l6uvyv1my" path="res://UI/Menu/SubMenuTheme.tres" id="3_20qwh"]
-[ext_resource type="PackedScene" uid="uid://b7c5vpfo7my25" path="res://UI/Menu/BusSlider.tscn" id="4"]
+[ext_resource type="Theme" uid="uid://dac2l6uvyv1my" path="res://UI/Menu/sub_menu_theme.tres" id="3_20qwh"]
+[ext_resource type="PackedScene" uid="uid://b7c5vpfo7my25" path="res://UI/Menu/bus_slider.tscn" id="4"]
+[ext_resource type="Theme" uid="uid://cwvl2mwyoxrrk" path="res://UI/Menu/menu_theme.tres" id="4_vk7q2"]
 
 [node name="Menu" type="Control" unique_id=892885759]
 layout_mode = 3
@@ -40,21 +40,21 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_3hib7")
+theme = ExtResource("4_vk7q2")
 text = "Play"
 
 [node name="SettingsButton" type="Button" parent="MainMenu" unique_id=1017319714]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_3hib7")
+theme = ExtResource("4_vk7q2")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="MainMenu" unique_id=657517318]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_3hib7")
+theme = ExtResource("4_vk7q2")
 text = "Quit"
 
 [node name="MainMenuMask" type="ColorRect" parent="." unique_id=1195027951]

@@ -8,6 +8,7 @@ const DURATION := 1.0
 func enter() -> void:
 	super()
 	player.dummy.idle()
+	Game.register_history(UIFloor.HISTORY_DEATH)
 	
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT)
@@ -22,5 +23,4 @@ func reload() -> void:
 	
 	await Fade.animation.animation_finished
 	
-	Game.reset()
 	get_tree().change_scene_to_file("res://UI/End Screen/end_screen.tscn")

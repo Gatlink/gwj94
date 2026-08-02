@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666666 8.4666669"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="content_main_objective.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#4f4f4f"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="11.313708"
+     inkscape:cx="17.235728"
+     inkscape:cy="30.626563"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false"
+     showgrid="false" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="circle1"
+       style="fill:#37cd32;stroke-width:0.00437526;fill-opacity:1"
+       d="M 4.233338,0 A 4.2333314,4.2333314 0 0 0 0,4.2333295 4.2333314,4.2333314 0 0 0 4.233338,8.4666585 4.2333314,4.2333314 0 0 0 8.4666667,4.2333295 4.2333314,4.2333314 0 0 0 4.233338,0 Z m 0,1.0687364 c 1.7451675,0 3.1645924,1.4194247 3.1645924,3.1645931 0,1.745168 -1.4194249,3.1646016 -3.1645924,3.1646016 -1.7451681,0 -3.1646018,-1.4194336 -3.1646018,-3.1646016 0,-1.7451684 1.4194337,-3.1645931 3.1646018,-3.1645931 z m 0,0.4375354 c -1.5087106,0 -2.7270662,1.2183464 -2.7270662,2.7270577 0,1.5087111 1.2183556,2.727066 2.7270662,2.727066 1.5087112,0 2.7270575,-1.2183549 2.7270575,-2.727066 0,-1.5087113 -1.2183463,-2.7270577 -2.7270575,-2.7270577 z" />
+  </g>
+</svg>

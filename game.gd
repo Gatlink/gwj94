@@ -6,7 +6,6 @@ const LEVEL_SCREEN := "res://UI/Level Select/level_select.tscn"
 const END_SCREEN := "res://UI/End Screen/end_screen.tscn"
 const SHOP_SCREEN := "res://UI/Shop/upgrade_screen.tscn"
 
-const MAX_FLOOR: int = 10
 const SECONDARY_OBJ_COUNT := 2
 const UPGRADES: Dictionary[String, Upgrade] = {
 	"LIGHT": preload("uid://c63etlsq14cgm"),
@@ -24,6 +23,8 @@ var level: LevelData
 var floor_nbr: int = 1
 var money: int = 0
 var unlocked_upgrades: Array[Upgrade] = []
+var floor_history: Dictionary[int, PackedStringArray] = {}
+var start_time: float
 
 
 func is_locked(upgrade: Upgrade) -> bool:
@@ -34,9 +35,11 @@ func buy_upgrade(upgrade: Upgrade) -> void:
 	if is_locked(upgrade) and money >= upgrade.price:
 		money -= upgrade.price
 		unlocked_upgrades.append(upgrade)
+		register_history("%s%s" % [UIFloor.HISTORY_UPGRADE, UPGRADES.find_key(upgrade)])
 
 
 func reset() -> void:
+	floor_history.clear()
 	floor_nbr = 1
 	money = 0
 	unlocked_upgrades.clear()
@@ -44,8 +47,7 @@ func reset() -> void:
 
 func change_floor() -> void:
 	floor_nbr += 1
-	if floor_nbr == 11:
-		reset()
+	if floor_nbr > level.floor_count:
 		get_tree().change_scene_to_file("res://UI/End Screen/end_screen.tscn")
 	else:
 		get_tree().change_scene_to_file("res://UI/Shop/upgrade_screen.tscn")
@@ -57,3 +59,9 @@ func get_mutant_count() -> int:
 
 func get_hiding_spots_count() -> int:
 	return HIDING_SPOTS_PER_FLOOR[mini(floor_nbr, HIDING_SPOTS_PER_FLOOR.size()) - 1]
+
+
+func register_history(content: String) -> void:
+	if not floor_history.has(floor_nbr):
+		floor_history[floor_nbr] = PackedStringArray()
+	floor_history[floor_nbr].append(content)

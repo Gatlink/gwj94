@@ -19,3 +19,6 @@ func on_interact() -> void:
 	if is_main:
 		Lift.instance.is_unlocked = true
 		HUD.instance.lift_label.show()
+		Game.register_history(UIFloor.HISTORY_MAIN_OBJECTIVE)
+	else:
+		Game.register_history(UIFloor.HISTORY_OBJECTIVE)

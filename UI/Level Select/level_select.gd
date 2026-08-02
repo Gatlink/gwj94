@@ -1,6 +1,11 @@
 extends Control
 
 
+const FLOOR = preload("uid://b0f437nyyx7kq")
+const FLOOR_BOTTOM = preload("uid://3qu4oer0jgst")
+const FLOOR_TOP = preload("uid://dx6vlfhr8quue")
+
+
 @onready var level_name: Label = $LevelName
 
 
@@ -22,16 +27,17 @@ func _ready() -> void:
 			level_button.focus_exited.connect(on_mouse_exit)
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().change_scene_to_file(Game.TITLE_SCREEN)
-	else:
-		var focused := get_viewport().gui_get_focus_owner()
-		if focused == null:
-			if not PlayerInput.use_kb_mouse and PlayerInput.move_dir:
-				first_button.grab_focus()
-		elif PlayerInput.use_kb_mouse:
-			focused.release_focus()
+		return
+	
+	var focused := get_viewport().gui_get_focus_owner()
+	if focused == null:
+		if not PlayerInput.use_kb_mouse and PlayerInput.move_dir:
+			first_button.grab_focus()
+	elif PlayerInput.use_kb_mouse:
+		focused.release_focus()
 
 
 func on_mouse_enter(level_button: LevelButton) -> void:
@@ -44,5 +50,7 @@ func on_mouse_exit() -> void:
 
 
 func on_pressed(level_button: LevelButton) -> void:
+	Game.reset()
 	Game.level = level_button.data
+	Game.start_time = Time.get_ticks_msec()
 	get_tree().change_scene_to_packed(level_button.data.scene)

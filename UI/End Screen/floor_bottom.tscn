@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://3qu4oer0jgst"]
+
+[ext_resource type="PackedScene" uid="uid://b0f437nyyx7kq" path="res://UI/End Screen/floor.tscn" id="1_gq150"]
+[ext_resource type="Texture2D" uid="uid://7w57bpx24m4u" path="res://UI/End Screen/Sprites/floor_bottom.svg" id="2_tqthq"]
+[ext_resource type="Texture2D" uid="uid://bd6rdwpu6rr2t" path="res://UI/End Screen/Sprites/floor_bottom_lit.svg" id="3_tqthq"]
+
+[node name="FloorBottom" unique_id=831829067 instance=ExtResource("1_gq150")]
+anchor_bottom = 0.17064728
+grow_vertical = 2
+texture = ExtResource("2_tqthq")
+
+[node name="ContentAnchorLeft" parent="." index="0" unique_id=1530721938]
+anchor_top = 0.3
+anchor_bottom = 0.3
+
+[node name="ContentAnchorRight" parent="." index="1" unique_id=2021348921]
+anchor_top = 0.3
+anchor_bottom = 0.3
+
+[node name="LitWindows" parent="." index="2" unique_id=281532004]
+texture = ExtResource("3_tqthq")

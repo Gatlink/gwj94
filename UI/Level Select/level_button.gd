@@ -7,3 +7,4 @@ extends TextureButton
 	set(value):
 		data = value
 		disabled = not data.unlocked
+		focus_mode = Control.FOCUS_NONE if disabled else Control.FOCUS_ALL

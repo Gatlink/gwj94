@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666666 8.4666669"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="content_objective.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#4f4f4f"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="7.2859053"
+     inkscape:cx="12.832997"
+     inkscape:cy="35.753965"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false"
+     showgrid="false" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="circle1"
+       style="fill:#daa520;stroke-width:0.00382835;fill-opacity:1"
+       d="M 4.2333378,0.52916983 A 3.704165,3.704165 0 0 0 0.52916683,4.2333328 3.704165,3.704165 0 0 0 4.2333378,7.9374968 3.704165,3.704165 0 0 0 7.9374998,4.2333328 3.704165,3.704165 0 0 0 4.2333378,0.52916983 Z m 0,0.93514397 c 1.527022,0 2.769019,1.241997 2.769019,2.769019 0,1.527023 -1.241997,2.769027 -2.769019,2.769027 -1.527022,0 -2.769027,-1.242004 -2.769027,-2.769027 0,-1.527022 1.242005,-2.769019 2.769027,-2.769019 z m 0,0.382844 c -1.320122,0 -2.386183,1.066053 -2.386183,2.386175 0,1.320123 1.066061,2.386184 2.386183,2.386184 1.320122,0 2.386175,-1.066061 2.386175,-2.386184 0,-1.320122 -1.066053,-2.386175 -2.386175,-2.386175 z" />
+  </g>
+</svg>
