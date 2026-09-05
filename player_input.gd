@@ -36,6 +36,8 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventJoypadButton \
 	or event is InputEventJoypadMotion:
 		use_kb_mouse = false
+	
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if use_kb_mouse else Input.MOUSE_MODE_HIDDEN
 
 
 func update_mouse_pos() -> bool:
