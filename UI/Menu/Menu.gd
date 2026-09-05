@@ -50,6 +50,7 @@ func _ready() -> void:
 	mask_invisible_color = mask.color
 	mask_visible_color = mask_invisible_color
 	mask_visible_color.a = 0.98
+	first_button.grab_focus()
 
 
 func _unhandled_input(event: InputEvent) -> void:
