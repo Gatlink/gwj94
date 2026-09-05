@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://f0xabhd4wpqo"]
+
+[ext_resource type="FontFile" uid="uid://b6n2s8mw0yby6" path="res://UI/BricolageGrotesque_48pt-Bold.ttf" id="1_3x2k6"]
+
+[resource]
+font = ExtResource("1_3x2k6")
+font_size = 48

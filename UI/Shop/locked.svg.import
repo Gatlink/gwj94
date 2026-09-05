@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://004uaxy5dg0d"
-path="res://.godot/imported/xbox_button_start_icon.svg-04b158a556109a081867ddeef33d9a9d.ctex"
+uid="uid://dpj6pt2vdvkf7"
+path="res://.godot/imported/locked.svg-b937e01dfb6342d172a2a613016b53b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/xbox_button_start_icon.svg"
-dest_files=["res://.godot/imported/xbox_button_start_icon.svg-04b158a556109a081867ddeef33d9a9d.ctex"]
+source_file="res://UI/Shop/locked.svg"
+dest_files=["res://.godot/imported/locked.svg-b937e01dfb6342d172a2a613016b53b8.ctex"]
 
 [params]
 
@@ -38,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
+svg/scale=4.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

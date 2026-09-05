@@ -1,0 +1,260 @@
+[gd_scene format=3 uid="uid://ia6gmfq8qu0a"]
+
+[ext_resource type="Script" uid="uid://c6d846p7bed06" path="res://UI/Shop/shop.gd" id="1_hssnf"]
+[ext_resource type="Texture2D" uid="uid://cjnul012yuggl" path="res://UI/Shop/character.svg" id="2_6icjw"]
+[ext_resource type="LabelSettings" uid="uid://kwr3b4nj21q7" path="res://UI/Shop/label_settings_player_info.tres" id="3_sar1i"]
+[ext_resource type="PackedScene" uid="uid://ne1n42v0s2u2" path="res://UI/Shop/upgrade_button.tscn" id="4_eeyqd"]
+[ext_resource type="PackedScene" uid="uid://dav4apgnobv4" path="res://UI/Shop/upgrade_info.tscn" id="5_eeyqd"]
+[ext_resource type="PackedScene" uid="uid://br4gk8vxbkj74" path="res://UI/ValidateButton/validate_button.tscn" id="6_eeyqd"]
+[ext_resource type="FontFile" uid="uid://csf2jrs5e2xlu" path="res://UI/BricolageGrotesque_72pt-ExtraBold.ttf" id="6_gyclb"]
+[ext_resource type="PackedScene" uid="uid://c0qcxgn2gtgnq" path="res://UI/Shop/heal_button.tscn" id="6_w83ww"]
+[ext_resource type="PackedScene" uid="uid://nq5weqkbj1jc" path="res://main.tscn" id="8_l4q0s"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l4q0s"]
+grow_begin = 32.0
+grow_end = 32.0
+thickness = 12
+vertical = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_qaqjx"]
+font = ExtResource("6_gyclb")
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("6_gyclb")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_sar1i"]
+action = &"gamepad_ui_start"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_l4q0s"]
+events = [SubResource("InputEventAction_sar1i")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w83ww"]
+font = ExtResource("6_gyclb")
+font_size = 72
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dt0ho"]
+font = ExtResource("6_gyclb")
+font_size = 72
+font_color = Color(1, 0.49803922, 0.16470589, 1)
+
+[node name="Shop" type="Control" unique_id=1323299204]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hssnf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=442722045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=343238254]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6icjw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=28903288]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1747298071]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Top" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=104960017]
+layout_mode = 2
+
+[node name="Infos" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Top" unique_id=2028731735]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+theme_override_constants/separation = 16
+
+[node name="LabelFloor" type="Label" parent="MarginContainer/VBoxContainer/Top/Infos" unique_id=665802047]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "Floor 1"
+label_settings = ExtResource("3_sar1i")
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Top/Infos" unique_id=1981180919]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_l4q0s")
+
+[node name="LabelMoney" type="Label" parent="MarginContainer/VBoxContainer/Top/Infos" unique_id=142225959]
+self_modulate = Color(1, 0.49803922, 0.16470589, 1)
+layout_mode = 2
+text = "$0"
+label_settings = ExtResource("3_sar1i")
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Top" unique_id=329005036]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Welcome to my shop!"
+label_settings = SubResource("LabelSettings_qaqjx")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Top" unique_id=416146471]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=627383346]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="FloorLocks" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=535175449]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/FloorLocks" unique_id=770288332]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LabelFloorLock4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FloorLocks" unique_id=1348393787]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Unlocks
+on floor 4"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelFloorLock7" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/FloorLocks" unique_id=1335179662]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Unlocks
+on floor 7"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Upgrades" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1238194911]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 1.3333
+stretch_mode = 1
+alignment_horizontal = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades" unique_id=383045456]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 4
+
+[node name="Upgrade1" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=945369171 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade2" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=371146330 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade3" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=308094771 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade4" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1907466396 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade5" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1280492316 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade6" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=432983913 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade7" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1416476226 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade8" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=515385474 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade9" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1317579371 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade10" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1574437519 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade11" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=707589995 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="Upgrade12" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1660778341 instance=ExtResource("4_eeyqd")]
+layout_mode = 2
+
+[node name="UpgradeInfo" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=681915191 instance=ExtResource("5_eeyqd")]
+layout_mode = 2
+size_flags_stretch_ratio = 0.65
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1825460830]
+layout_mode = 2
+alignment = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2081019252]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=393469855]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ValidateButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/CenterContainer" unique_id=59776374 instance=ExtResource("6_eeyqd")]
+layout_mode = 2
+focus_mode = 0
+focus_behavior_recursive = 1
+shortcut = SubResource("Shortcut_l4q0s")
+next_scene = ExtResource("8_l4q0s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=839061086]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="HealButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=239196852 instance=ExtResource("6_w83ww")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=302678412]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="LabelHeal" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer" unique_id=2119158531]
+layout_mode = 2
+text = "HEAL"
+label_settings = SubResource("LabelSettings_w83ww")
+
+[node name="LabelPrice" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer" unique_id=989325057]
+layout_mode = 2
+text = "$10"
+label_settings = SubResource("LabelSettings_dt0ho")

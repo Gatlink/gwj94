@@ -1,6 +1,9 @@
 extends Node
 
 
+signal upgrade_bought(upgrade: Upgrade)
+
+
 const TITLE_SCREEN := "res://UI/Menu/Menu.tscn"
 const LEVEL_SCREEN := "res://UI/Level Select/level_select.tscn"
 const END_SCREEN := "res://UI/End Screen/end_screen.tscn"
@@ -35,6 +38,7 @@ func buy_upgrade(upgrade: Upgrade) -> void:
 	if is_locked(upgrade) and money >= upgrade.price:
 		money -= upgrade.price
 		unlocked_upgrades.append(upgrade)
+		upgrade_bought.emit(upgrade)
 		register_history("%s%s" % [UIFloor.HISTORY_UPGRADE, UPGRADES.find_key(upgrade)])
 
 
@@ -50,7 +54,7 @@ func change_floor() -> void:
 	if floor_nbr > level.floor_count:
 		get_tree().change_scene_to_file("res://UI/End Screen/end_screen.tscn")
 	else:
-		get_tree().change_scene_to_file("res://UI/Shop/upgrade_screen.tscn")
+		get_tree().change_scene_to_file("res://UI/Shop/shop.tscn")
 
 
 func get_mutant_count() -> int:

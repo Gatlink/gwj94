@@ -1,26 +1,27 @@
 [gd_scene format=3 uid="uid://br4gk8vxbkj74"]
 
-[ext_resource type="Theme" uid="uid://t37g0mac1odw" path="res://UI/ui_theme.tres" id="1_1hqyp"]
-[ext_resource type="SystemFont" uid="uid://vxifw6dqivsu" path="res://UI/Menu/menu_font.tres" id="2_a0him"]
-[ext_resource type="Texture2D" uid="uid://004uaxy5dg0d" path="res://UI/xbox_button_start_icon.svg" id="3_6efy1"]
+[ext_resource type="Theme" uid="uid://t37g0mac1odw" path="res://UI/ValidateButton/theme_validate_button.tres" id="1_1hqyp"]
+[ext_resource type="Script" uid="uid://c8lekdkqvnbdc" path="res://UI/Input Prompt/button_input_prompt.gd" id="3_1hqyp"]
 [ext_resource type="Script" uid="uid://2kdgf3uim2k8" path="res://UI/ValidateButton/validate_button.gd" id="4_a0him"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_lxcvw"]
-action = &"validate"
+[sub_resource type="InputEventAction" id="InputEventAction_a0him"]
+action = &"gamepad_ui_a"
 pressed = true
 
-[sub_resource type="Shortcut" id="Shortcut_sf05b"]
-events = [SubResource("InputEventAction_lxcvw")]
+[sub_resource type="Shortcut" id="Shortcut_6efy1"]
+events = [SubResource("InputEventAction_a0him")]
 
-[node name="Button" type="Button" unique_id=59776374]
+[node name="ValidateButton" type="Button" unique_id=59776374]
 offset_right = 223.0
 offset_bottom = 81.0
 theme = ExtResource("1_1hqyp")
-theme_override_fonts/font = ExtResource("2_a0him")
-theme_override_font_sizes/font_size = 64
-shortcut = SubResource("Shortcut_sf05b")
+shortcut = SubResource("Shortcut_6efy1")
 text = "Next"
-icon = ExtResource("3_6efy1")
 script = ExtResource("4_a0him")
+
+[node name="ButtonInputPrompt" type="Node" parent="." unique_id=2044948555]
+script = ExtResource("3_1hqyp")
+gamepad_button = "Start"
+metadata/_custom_type_script = "uid://c8lekdkqvnbdc"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

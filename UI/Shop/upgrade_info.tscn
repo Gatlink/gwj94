@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dav4apgnobv4"]
+
+[ext_resource type="Script" uid="uid://c31rekke31yqa" path="res://UI/Shop/upgrade_info.gd" id="1_0f728"]
+[ext_resource type="LabelSettings" uid="uid://f0xabhd4wpqo" path="res://UI/label_settings_48.tres" id="1_ue23x"]
+[ext_resource type="FontFile" uid="uid://b13swarjyab5r" path="res://UI/BricolageGrotesque_24pt-Regular.ttf" id="2_0f728"]
+[ext_resource type="FontFile" uid="uid://csf2jrs5e2xlu" path="res://UI/BricolageGrotesque_72pt-ExtraBold.ttf" id="3_56eeu"]
+[ext_resource type="Script" uid="uid://c8lekdkqvnbdc" path="res://UI/Input Prompt/button_input_prompt.gd" id="5_56eeu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g4v7s"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_gyclb"]
+font = ExtResource("2_0f728")
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w83ww"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyclb"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+bg_color = Color(1, 0.83137256, 0.16078432, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+bg_color = Color(1, 0.49803922, 0.16470589, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_g4v7s"]
+Button/font_sizes/font_size = 72
+Button/fonts/font = ExtResource("3_56eeu")
+Button/styles/disabled = SubResource("StyleBoxFlat_w83ww")
+Button/styles/focus = SubResource("StyleBoxFlat_gyclb")
+Button/styles/hover = SubResource("StyleBoxFlat_gyclb")
+Button/styles/normal = SubResource("StyleBoxFlat_yf5fn")
+Button/styles/pressed = SubResource("StyleBoxFlat_gyclb")
+
+[sub_resource type="InputEventAction" id="InputEventAction_56eeu"]
+action = &"gamepad_ui_x"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_lq10b"]
+events = [SubResource("InputEventAction_56eeu")]
+
+[node name="UpgradeInfo" type="VBoxContainer" unique_id=681915191]
+theme_override_constants/separation = 32
+script = ExtResource("1_0f728")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1035043885]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1943887817]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LabelName" type="Label" parent="PanelContainer/VBoxContainer" unique_id=999470812]
+layout_mode = 2
+text = "Upgrade Name"
+label_settings = ExtResource("1_ue23x")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=710515037]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_g4v7s")
+
+[node name="LabelDescription" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1983711494]
+custom_minimum_size = Vector2(448, 0)
+custom_maximum_size = Vector2(448, -1)
+layout_mode = 2
+text = "This is a rather long description of an upgrade than can be bought in the shop. There is no real upgrade discussed here so I don't have anything to say really, I just want to have a big text to see how it looks."
+label_settings = SubResource("LabelSettings_gyclb")
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1115431583]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonBuy" type="Button" parent="PanelContainer/VBoxContainer" unique_id=152831343]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+focus_behavior_recursive = 1
+theme = SubResource("Theme_g4v7s")
+shortcut = SubResource("Shortcut_lq10b")
+text = "$000"
+
+[node name="ButtonInputPrompt" type="Node" parent="PanelContainer/VBoxContainer/ButtonBuy" unique_id=1994646273]
+script = ExtResource("5_56eeu")
+metadata/_custom_type_script = "uid://c8lekdkqvnbdc"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ButtonBuy" to="." method="_on_button_buy_pressed"]

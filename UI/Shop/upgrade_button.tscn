@@ -1,40 +1,91 @@
 [gd_scene format=3 uid="uid://ne1n42v0s2u2"]
 
-[ext_resource type="Theme" uid="uid://t37g0mac1odw" path="res://UI/ui_theme.tres" id="1_7xvuj"]
 [ext_resource type="Texture2D" uid="uid://c5ncp1f7wa8yl" path="res://Art/Icons/Shotgun.png" id="2_gux1r"]
-[ext_resource type="Script" uid="uid://cvmgseoxqgmwh" path="res://UI/Shop/upgrade_button.gd" id="3_gwgor"]
+[ext_resource type="Script" uid="uid://s4bl58t1ic2a" path="res://UI/Shop/upgrade_button.gd" id="3_gwgor"]
+[ext_resource type="LabelSettings" uid="uid://f0xabhd4wpqo" path="res://UI/label_settings_48.tres" id="4_7fv6t"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7xvuj"]
-font_size = 32
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w83ww"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fijl8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 0.49803922, 0.16470589, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fv6t"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lpqx"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(1, 0.49803922, 0.16470589, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [node name="UpgradeButton" type="Button" unique_id=1040045413]
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(128, 128)
 offset_right = 128.0
 offset_bottom = 128.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_7xvuj")
-icon = ExtResource("2_gux1r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w83ww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fijl8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fijl8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7fv6t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7lpqx")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("3_gwgor")
 
-[node name="Price" type="Label" parent="." unique_id=2135969923]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1485140937]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -33.0
-offset_top = -28.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Icon" type="TextureRect" parent="MarginContainer" unique_id=1469779914]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_gux1r")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Price" type="Label" parent="MarginContainer" unique_id=2135969923]
+layout_mode = 2
+size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "$25"
-label_settings = SubResource("LabelSettings_7xvuj")
+label_settings = ExtResource("4_7fv6t")
 horizontal_alignment = 2
 vertical_alignment = 2
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
