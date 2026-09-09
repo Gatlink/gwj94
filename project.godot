@@ -21,6 +21,8 @@ buses/default_bus_layout="uid://3y58t72aiuks"
 
 [autoload]
 
+Upgrades="*uid://058fjbfkfsyx"
+Levels="*uid://dhus008jy17ra"
 Game="*uid://d4c482xn77nup"
 PlayerInput="*uid://dfcirttsp2g7o"
 Fade="*uid://dtd821djy87r5"

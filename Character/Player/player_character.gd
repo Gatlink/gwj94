@@ -32,7 +32,7 @@ var shotgun_timer: float
 
 func _ready() -> void:
 	instance = self
-	if not Game.is_locked(Game.UPGRADES.LIGHT):
+	if Upgrades.is_unlocked_id("LIGHT"):
 		light.omni_range += LIGHT_RANGE_BONUS
 	
 	super()
@@ -50,11 +50,11 @@ func _process(delta: float) -> void:
 
 
 func get_speed() -> float:
-	return SPEED_BOOSTED if not Game.is_locked(Game.UPGRADES.SPEED) else SPEED
+	return SPEED_BOOSTED if Upgrades.is_unlocked_id("SPEED") else SPEED
 
 
 func hurt() -> void:
-	if not Game.is_locked(Game.UPGRADES.LIFE) and not was_hit:
+	if Upgrades.is_unlocked_id("LIFE") and not was_hit:
 		was_hit = true
 		hide_state.transition_to()
 	else:

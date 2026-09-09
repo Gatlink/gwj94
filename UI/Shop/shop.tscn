@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c6d846p7bed06" path="res://UI/Shop/shop.gd" id="1_hssnf"]
 [ext_resource type="Texture2D" uid="uid://cjnul012yuggl" path="res://UI/Shop/character.svg" id="2_6icjw"]
 [ext_resource type="LabelSettings" uid="uid://kwr3b4nj21q7" path="res://UI/Shop/label_settings_player_info.tres" id="3_sar1i"]
-[ext_resource type="PackedScene" uid="uid://ne1n42v0s2u2" path="res://UI/Shop/upgrade_button.tscn" id="4_eeyqd"]
 [ext_resource type="PackedScene" uid="uid://dav4apgnobv4" path="res://UI/Shop/upgrade_info.tscn" id="5_eeyqd"]
 [ext_resource type="PackedScene" uid="uid://br4gk8vxbkj74" path="res://UI/ValidateButton/validate_button.tscn" id="6_eeyqd"]
 [ext_resource type="FontFile" uid="uid://csf2jrs5e2xlu" path="res://UI/BricolageGrotesque_72pt-ExtraBold.ttf" id="6_gyclb"]
@@ -26,12 +25,12 @@ font = ExtResource("6_gyclb")
 font_size = 42
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="InputEventAction" id="InputEventAction_sar1i"]
+[sub_resource type="InputEventAction" id="InputEventAction_l4q0s"]
 action = &"gamepad_ui_start"
 pressed = true
 
-[sub_resource type="Shortcut" id="Shortcut_l4q0s"]
-events = [SubResource("InputEventAction_sar1i")]
+[sub_resource type="Shortcut" id="Shortcut_pagdw"]
+events = [SubResource("InputEventAction_l4q0s")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w83ww"]
 font = ExtResource("6_gyclb")
@@ -175,42 +174,6 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 columns = 4
 
-[node name="Upgrade1" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=945369171 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade2" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=371146330 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade3" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=308094771 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade4" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1907466396 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade5" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1280492316 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade6" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=432983913 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade7" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1416476226 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade8" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=515385474 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade9" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1317579371 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade10" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1574437519 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade11" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=707589995 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
-[node name="Upgrade12" parent="MarginContainer/VBoxContainer/HBoxContainer/Upgrades/GridContainer" unique_id=1660778341 instance=ExtResource("4_eeyqd")]
-layout_mode = 2
-
 [node name="UpgradeInfo" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=681915191 instance=ExtResource("5_eeyqd")]
 layout_mode = 2
 size_flags_stretch_ratio = 0.65
@@ -232,7 +195,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 focus_mode = 0
 focus_behavior_recursive = 1
-shortcut = SubResource("Shortcut_l4q0s")
+shortcut = SubResource("Shortcut_pagdw")
 next_scene = ExtResource("8_l4q0s")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=839061086]

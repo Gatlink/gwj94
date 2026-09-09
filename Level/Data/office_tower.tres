@@ -2,10 +2,71 @@
 
 [ext_resource type="Script" uid="uid://bjdcijbj5nf2n" path="res://Level/level_data.gd" id="1_2scel"]
 [ext_resource type="PackedScene" uid="uid://nq5weqkbj1jc" path="res://main.tscn" id="1_tfohi"]
+[ext_resource type="Script" uid="uid://b7lkvteys8mky" path="res://Level/floor_data.gd" id="1_vsi80"]
+
+[sub_resource type="Resource" id="Resource_jd3xt"]
+script = ExtResource("1_vsi80")
+mutant_count = 1
+hideout_count = 8
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_0ci7o"]
+script = ExtResource("1_vsi80")
+mutant_count = 2
+hideout_count = 8
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_qwavc"]
+script = ExtResource("1_vsi80")
+mutant_count = 2
+hideout_count = 6
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_gcas3"]
+script = ExtResource("1_vsi80")
+mutant_count = 3
+hideout_count = 6
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_4sqco"]
+script = ExtResource("1_vsi80")
+mutant_count = 3
+hideout_count = 4
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_vma3f"]
+script = ExtResource("1_vsi80")
+mutant_count = 4
+hideout_count = 4
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_xlnqx"]
+script = ExtResource("1_vsi80")
+mutant_count = 4
+hideout_count = 2
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_imxe7"]
+script = ExtResource("1_vsi80")
+mutant_count = 5
+hideout_count = 2
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_xj3cb"]
+script = ExtResource("1_vsi80")
+mutant_count = 6
+hideout_count = 1
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_s2c5l"]
+script = ExtResource("1_vsi80")
+mutant_count = 7
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
 
 [resource]
 script = ExtResource("1_2scel")
 name = "Office Tower"
-unlocked = true
+floors = Array[ExtResource("1_vsi80")]([SubResource("Resource_jd3xt"), SubResource("Resource_0ci7o"), SubResource("Resource_qwavc"), SubResource("Resource_gcas3"), SubResource("Resource_4sqco"), SubResource("Resource_vma3f"), SubResource("Resource_xlnqx"), SubResource("Resource_imxe7"), SubResource("Resource_xj3cb"), SubResource("Resource_s2c5l")])
+starts_unlocked = true
 scene = ExtResource("1_tfohi")
 metadata/_custom_type_script = "uid://bjdcijbj5nf2n"

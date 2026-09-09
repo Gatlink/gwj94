@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dhus008jy17ra"]
+
+[ext_resource type="Script" uid="uid://cb11ioq56cjk2" path="res://Level/levels.gd" id="1_jd3xt"]
+[ext_resource type="Script" uid="uid://bjdcijbj5nf2n" path="res://Level/level_data.gd" id="2_gcas3"]
+[ext_resource type="Script" uid="uid://b7lkvteys8mky" path="res://Level/floor_data.gd" id="3_4sqco"]
+[ext_resource type="PackedScene" uid="uid://nq5weqkbj1jc" path="res://main.tscn" id="4_vma3f"]
+
+[sub_resource type="Resource" id="Resource_jd3xt"]
+script = ExtResource("3_4sqco")
+mutant_count = 1
+hideout_count = 8
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_0ci7o"]
+script = ExtResource("3_4sqco")
+mutant_count = 2
+hideout_count = 8
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_qwavc"]
+script = ExtResource("3_4sqco")
+mutant_count = 2
+hideout_count = 6
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_gcas3"]
+script = ExtResource("3_4sqco")
+mutant_count = 3
+hideout_count = 6
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_4sqco"]
+script = ExtResource("3_4sqco")
+mutant_count = 3
+hideout_count = 4
+available_upgrades = 8
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_vma3f"]
+script = ExtResource("3_4sqco")
+mutant_count = 4
+hideout_count = 4
+available_upgrades = 8
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_xlnqx"]
+script = ExtResource("3_4sqco")
+mutant_count = 4
+hideout_count = 2
+available_upgrades = 8
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_imxe7"]
+script = ExtResource("3_4sqco")
+mutant_count = 5
+hideout_count = 2
+available_upgrades = 12
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_xj3cb"]
+script = ExtResource("3_4sqco")
+mutant_count = 6
+hideout_count = 1
+available_upgrades = 12
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_s2c5l"]
+script = ExtResource("3_4sqco")
+available_upgrades = 12
+metadata/_custom_type_script = "uid://b7lkvteys8mky"
+
+[sub_resource type="Resource" id="Resource_g3rac"]
+resource_name = "OFFICE"
+script = ExtResource("2_gcas3")
+name = "Office Tower"
+floors = Array[ExtResource("3_4sqco")]([SubResource("Resource_jd3xt"), SubResource("Resource_0ci7o"), SubResource("Resource_qwavc"), SubResource("Resource_gcas3"), SubResource("Resource_4sqco"), SubResource("Resource_vma3f"), SubResource("Resource_xlnqx"), SubResource("Resource_imxe7"), SubResource("Resource_xj3cb"), SubResource("Resource_s2c5l")])
+starts_available = true
+scene = ExtResource("4_vma3f")
+metadata/_custom_type_script = "uid://bjdcijbj5nf2n"
+
+[sub_resource type="Resource" id="Resource_dm12v"]
+resource_name = "LAB"
+script = ExtResource("2_gcas3")
+name = "Lab"
+starts_available = true
+metadata/_custom_type_script = "uid://bjdcijbj5nf2n"
+
+[sub_resource type="Resource" id="Resource_f1suf"]
+resource_name = "HQ"
+script = ExtResource("2_gcas3")
+name = "HQ"
+metadata/_custom_type_script = "uid://bjdcijbj5nf2n"
+
+[node name="Levels" type="Node" unique_id=998284604]
+script = ExtResource("1_jd3xt")
+all = Array[ExtResource("2_gcas3")]([SubResource("Resource_g3rac"), SubResource("Resource_dm12v"), SubResource("Resource_f1suf")])

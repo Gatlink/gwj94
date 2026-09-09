@@ -16,12 +16,18 @@ const HISTORY_OBJECTIVE := "objective"
 
 
 func display_content_left(floor_idx: int) -> void:
+	if not Game.floor_history.has(floor_idx):
+		return
+	
 	var instance := FLOOR_CONTENT_LEFT.instantiate() as UIFloorContent
 	content_anchor_left.add_child(instance)
 	instance.set_content(Game.floor_history[floor_idx])
 
 
 func display_content_right(floor_idx: int) -> void:
+	if not Game.floor_history.has(floor_idx):
+		return
+	
 	var instance := FLOOR_CONTENT_RIGHT.instantiate() as UIFloorContent
 	content_anchor_right.add_child(instance)
 	instance.set_content(Game.floor_history[floor_idx])

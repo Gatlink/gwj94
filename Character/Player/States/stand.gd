@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 		character.graph.look_at(character.global_position + PlayerInput.move_dir)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shell") and not Game.is_locked(Game.UPGRADES.SHELL):
+	if event.is_action_pressed("shell") and Upgrades.is_unlocked_id("SHELL"):
 		player.hide_state.transition_to()
-	elif event.is_action_pressed("shoot") and not Game.is_locked(Game.UPGRADES.SHOTGUN) and player.can_shoot():
+	elif event.is_action_pressed("shoot") and Upgrades.is_unlocked_id("SHOTGUN") and player.can_shoot():
 		player.shoot.transition_to()

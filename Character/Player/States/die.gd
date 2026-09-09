@@ -8,6 +8,7 @@ const DURATION := 1.0
 func enter() -> void:
 	super()
 	player.dummy.idle()
+	Game.victory = false
 	Game.register_history(UIFloor.HISTORY_DEATH)
 	
 	var tween := create_tween()

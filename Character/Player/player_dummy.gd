@@ -26,11 +26,11 @@ var parameter_walk := PARAMETER_WALK
 
 
 func _ready() -> void:
-	if not Game.is_locked(Game.UPGRADES.SHOTGUN):
+	if Upgrades.is_unlocked_id("SHOTGUN"):
 		parameter_walk = PARAMETER_WALK_SHOTGUN
 		animation.set(PARAMETER_STATE, "shotgun")
 		shotgun.show()
-	elif not Game.is_locked(Game.UPGRADES.SPEED):
+	elif Upgrades.is_unlocked_id("SPEED"):
 		parameter_walk = PARAMETER_WALK_FAST
 		animation.set(PARAMETER_STATE, "speed")
 	else:

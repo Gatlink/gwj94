@@ -2,37 +2,39 @@ class_name DecisionHelper
 extends RefCounted
 
 
-var choices: Array
-var scores: Array[float]
+var choices: Dictionary[Variant, float]
 
 
 func _init(_choices: Array) -> void:
-	choices = _choices
-	scores.resize(choices.size())
-	scores.fill(0)
+	for choice in _choices:
+		choices[choice] = 0
 
 
 func remove(method: Callable) -> void:
-	for i in range(choices.size(), 0, -1):
-		if method.call(choices[i - 1]):
-			choices.remove_at(i - 1)
-			scores.remove_at(i - 1)
+	for choice in choices.keys():
+		if method.call(choice):
+			choices.erase(choice)
 
 
 func score(method: Callable) -> void:
-	for i in choices.size():
-		scores[i] += method.call(choices[i])
+	for choice in choices:
+		choices[choice] += method.call(choice)
 
 
 func get_best() -> Variant:
 	if choices == null or choices.is_empty():
 		return null
 	
-	var best: Variant = choices[0]
-	var best_score := scores[0]
-	for i in range(1, choices.size()):
-		if scores[i] > best_score or (scores[i] == best_score and randf() >= 0.5):
-			best = choices[i]
-			best_score = scores[i]
+	var best: Variant = null
+	for choice in choices:
+		if best == null or choices[choice] > choices[best] or (choices[choice] == choices[best] and randf() >= 0.5):
+			best = choice
 	
+	return best
+
+
+func pop_best() -> Variant:
+	var best = get_best()
+	if best != null:
+		choices.erase(best)
 	return best

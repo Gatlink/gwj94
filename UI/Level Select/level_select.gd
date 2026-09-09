@@ -1,12 +1,11 @@
 extends Control
 
 
-const FLOOR = preload("uid://b0f437nyyx7kq")
-const FLOOR_BOTTOM = preload("uid://3qu4oer0jgst")
-const FLOOR_TOP = preload("uid://dx6vlfhr8quue")
+const LEVEL_BUTTON := preload("uid://dhdvxan6sqk3i")
 
 
 @onready var level_name: Label = $LevelName
+@onready var levels: HBoxContainer = $Levels
 
 
 var first_button: LevelButton
@@ -14,17 +13,27 @@ var first_button: LevelButton
 
 func _ready() -> void:
 	level_name.hide()
-	for child in get_children():
-		var level_button := child as LevelButton
-		if level_button != null:
-			if first_button == null:
-				first_button = level_button
-			
-			level_button.mouse_entered.connect(on_mouse_enter.bind(level_button))
-			level_button.mouse_exited.connect(on_mouse_exit)
-			level_button.pressed.connect(on_pressed.bind(level_button))
-			level_button.focus_entered.connect(on_mouse_enter.bind(level_button))
-			level_button.focus_exited.connect(on_mouse_exit)
+	for level in Levels.all:
+		var button := LEVEL_BUTTON.instantiate() as LevelButton
+		levels.add_child(button)
+		button.data = level
+		
+		button.mouse_entered.connect(button.grab_focus)
+		button.mouse_exited.connect(button.release_focus)
+		
+		if first_button == null:
+			first_button = button
+	
+	first_button.grab_focus()
+
+
+func _process(_delta: float) -> void:
+	var button := get_viewport().gui_get_focus_owner() as LevelButton
+	if button != null:
+		level_name.text = button.data.name
+		level_name.show()
+	else:
+		level_name.hide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -38,19 +47,3 @@ func _unhandled_input(event: InputEvent) -> void:
 			first_button.grab_focus()
 	elif PlayerInput.use_kb_mouse:
 		focused.release_focus()
-
-
-func on_mouse_enter(level_button: LevelButton) -> void:
-	level_name.show()
-	level_name.text = level_button.data.name
-
-
-func on_mouse_exit() -> void:
-	level_name.hide()
-
-
-func on_pressed(level_button: LevelButton) -> void:
-	Game.reset()
-	Game.level = level_button.data
-	Game.start_time = Time.get_ticks_msec()
-	get_tree().change_scene_to_packed(level_button.data.scene)

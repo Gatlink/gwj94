@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://058fjbfkfsyx"]
+
+[ext_resource type="Script" uid="uid://jviiu8dxoyte" path="res://Upgrades/upgrades.gd" id="1_lausf"]
+[ext_resource type="Script" uid="uid://v5giuvkjoijs" path="res://Upgrades/upgrade.gd" id="2_4by1g"]
+[ext_resource type="Texture2D" uid="uid://bxsx8crbm1h8k" path="res://Art/Icons/Shell.png" id="3_bmwni"]
+[ext_resource type="Texture2D" uid="uid://cfy05eci2o078" path="res://Art/Icons/Light.png" id="4_eg2th"]
+[ext_resource type="Texture2D" uid="uid://ckyxlf86ab4ac" path="res://Art/Icons/Hide.png" id="5_luiuq"]
+[ext_resource type="Texture2D" uid="uid://c5ncp1f7wa8yl" path="res://Art/Icons/Shotgun.png" id="6_0iac8"]
+[ext_resource type="Texture2D" uid="uid://cgoyp2rhylfaq" path="res://Art/Icons/StrongLeg.png" id="7_bweyj"]
+
+[sub_resource type="Resource" id="Resource_grwik"]
+resource_name = "LIFE"
+script = ExtResource("2_4by1g")
+name = "Hard Shell"
+description = "Your shell thickens, allowing you to prevent one damage before dying."
+icon = ExtResource("3_bmwni")
+price = 50
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_2p2vl"]
+resource_name = "LIGHT"
+script = ExtResource("2_4by1g")
+name = "Natural light"
+description = "An organ grows on your forehead, the tip of which emits light to help you see in the dark."
+icon = ExtResource("4_eg2th")
+price = 15
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_ub4m8"]
+resource_name = "SHELL"
+script = ExtResource("2_4by1g")
+name = "Soft Body"
+description = "Your soft body allows you to retract in your shell, providing a handy hiding spot wherever you are.
+Press F (keyboard) or X (gamepad) to hide anywhere."
+icon = ExtResource("5_luiuq")
+price = 30
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_2qg1a"]
+resource_name = "SHOTGUN"
+script = ExtResource("2_4by1g")
+name = "Shotgun"
+description = "Wait, a SHOTGUN!? How is that a mutation? Wait, don't point that thing at me!"
+icon = ExtResource("6_0iac8")
+price = 75
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_3rbjs"]
+resource_name = "SPEED"
+script = ExtResource("2_4by1g")
+name = "Strong Legs"
+description = "Grow the muscle in your legs, allowing you to move faster."
+icon = ExtResource("7_bweyj")
+price = 25
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[node name="Upgrades" type="Node" unique_id=750500805]
+script = ExtResource("1_lausf")
+all = Array[ExtResource("2_4by1g")]([SubResource("Resource_grwik"), SubResource("Resource_2p2vl"), SubResource("Resource_ub4m8"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs")])

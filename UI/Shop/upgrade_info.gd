@@ -13,7 +13,7 @@ var upgrade: Upgrade
 func refresh(_upgrade: Upgrade) -> void:
 	upgrade = _upgrade
 	
-	var is_locked := Game.is_locked(upgrade)
+	var is_locked := not Upgrades.is_unlocked(upgrade)
 	label_name.text = upgrade.name
 	label_description.text = upgrade.description
 	button_buy.text = "$%d" % upgrade.price if is_locked else "SOLD OUT"
@@ -21,5 +21,5 @@ func refresh(_upgrade: Upgrade) -> void:
 
 
 func _on_button_buy_pressed() -> void:
-	Game.buy_upgrade(upgrade)
+	Upgrades.buy_upgrade(upgrade)
 	refresh(upgrade)

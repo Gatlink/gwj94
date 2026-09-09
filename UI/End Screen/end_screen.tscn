@@ -11,6 +11,13 @@ font_size = 128
 [sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
 font_size = 64
 
+[sub_resource type="InputEventAction" id="InputEventAction_qamop"]
+action = &"gamepad_ui_start"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_sf05b"]
+events = [SubResource("InputEventAction_qamop")]
+
 [node name="EndScreen" type="VBoxContainer" unique_id=1448510813]
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,4 +86,5 @@ offset_right = -16.0
 offset_bottom = -19.0
 grow_horizontal = 0
 grow_vertical = 0
+shortcut = SubResource("Shortcut_sf05b")
 next_scene = ExtResource("4_qamop")

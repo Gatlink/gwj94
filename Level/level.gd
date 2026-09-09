@@ -186,7 +186,7 @@ func place_hiding_spots() -> void:
 				prop_to_room[prop] = idx
 	
 	var already_spawned: Array[int] = []
-	for i in Game.get_hiding_spots_count():
+	for i in Game.get_hideout_count():
 		var spot_dh := DecisionHelper.new(props)
 		spot_dh.remove(func (p: Prop): return already_spawned.has(prop_to_room[p]))
 		spot_dh.score(func (p: Prop): return -1 if prop_to_room[p] == obj_room_idx else 0)

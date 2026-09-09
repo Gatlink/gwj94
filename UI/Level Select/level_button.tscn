@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dhdvxan6sqk3i"]
+
+[ext_resource type="Texture2D" uid="uid://djmpm6vgiwgwl" path="res://UI/Level Select/building.svg" id="1_jl6t7"]
+[ext_resource type="Texture2D" uid="uid://dj3xpty5cvsig" path="res://UI/Level Select/building_locked.svg" id="3_5yocv"]
+[ext_resource type="Texture2D" uid="uid://cs6ppybmbkl55" path="res://UI/Level Select/building_focus.svg" id="4_a488p"]
+[ext_resource type="Script" uid="uid://ddrba81q3hrnx" path="res://UI/Level Select/level_button.gd" id="5_qsidf"]
+
+[node name="LevelButton" type="TextureButton" unique_id=318391907]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.5
+offset_top = -1000.0
+offset_right = 160.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+texture_normal = ExtResource("1_jl6t7")
+texture_disabled = ExtResource("3_5yocv")
+texture_focused = ExtResource("4_a488p")
+stretch_mode = 3
+script = ExtResource("5_qsidf")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
