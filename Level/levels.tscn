@@ -83,7 +83,6 @@ metadata/_custom_type_script = "uid://bjdcijbj5nf2n"
 resource_name = "LAB"
 script = ExtResource("2_gcas3")
 name = "Lab"
-starts_available = true
 metadata/_custom_type_script = "uid://bjdcijbj5nf2n"
 
 [sub_resource type="Resource" id="Resource_f1suf"]
