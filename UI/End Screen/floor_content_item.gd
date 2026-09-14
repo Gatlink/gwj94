@@ -19,7 +19,7 @@ func set_content(content: String) -> void:
 		texture_rect.texture = CONTENT_OBJECTIVE
 	else:
 		var upgrade := content.get_slice(":", 1)
-		if Game.UPGRADES.has(upgrade):
-			texture_rect.texture = Game.UPGRADES[upgrade].icon
+		if Upgrades.is_unlocked_id(upgrade):
+			texture_rect.texture = Upgrades.by_id(upgrade).icon
 		else:
 			queue_free()
