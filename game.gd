@@ -9,7 +9,7 @@ const SECONDARY_OBJ_COUNT := 2
 
 
 var level: LevelData
-var floor_nbr: int = 10
+var floor_nbr: int = 1
 var money: int = 0
 var floor_history: Dictionary[int, PackedStringArray] = {}
 var start_time: float
