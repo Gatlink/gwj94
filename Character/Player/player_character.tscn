@@ -58,16 +58,19 @@ metadata/_custom_type_script = "uid://b7ajy1gfptajh"
 script = ExtResource("8_agv0s")
 metadata/_custom_type_script = "uid://dhg88r3n05dy8"
 
-[node name="CharacterDummy" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
+[node name="Graph" parent="." index="7" unique_id=789870063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CharacterDummy" parent="Graph" index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 play_sfx = false
 
-[node name="RemoteShoot" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="1" unique_id=316965958]
+[node name="RemoteShoot" type="RemoteTransform3D" parent="Graph" index="1" unique_id=316965958]
 remote_path = NodePath("../../HitBox")
 update_position = false
 update_scale = false
 
-[node name="RemoteLight" type="RemoteTransform3D" parent="Graph" parent_id_path=PackedInt32Array(789870063) index="2" unique_id=2011739591]
+[node name="RemoteLight" type="RemoteTransform3D" parent="Graph" index="2" unique_id=2011739591]
 remote_path = NodePath("../../LightHolder")
 update_position = false
 update_scale = false
@@ -81,7 +84,6 @@ script = ExtResource("6_wj11p")
 metadata/_custom_type_script = "uid://b2hjdph5wiest"
 
 [node name="HitBox" type="Area3D" parent="." index="9" unique_id=1152601203]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -99,7 +101,6 @@ collision_mask = 16
 debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="LightHolder" type="Node3D" parent="." index="11" unique_id=1397906411]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Light" type="OmniLight3D" parent="LightHolder" index="0" unique_id=1389191218]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1.55, -0.2)

@@ -11,7 +11,7 @@ var target: Vector3
 func enter() -> void:
 	super()
 	if player.global_position != target:
-		player.graph.look_at(target)
+		player.look_at(target)
 	player.dummy.walk(player.get_speed())
 	player.collision.disabled = true
 	

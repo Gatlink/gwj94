@@ -157,8 +157,8 @@ gamepad_ui_start={
 3d_physics/layer_2="Obstacles"
 3d_physics/layer_3="Player"
 3d_physics/layer_4="Mutant"
-3d_physics/layer_5="walls"
-3d_physics/layer_6="steps"
+3d_physics/layer_5="Walls"
+3d_physics/layer_6="Steps"
 
 [navigation]
 

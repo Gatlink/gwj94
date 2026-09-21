@@ -28,8 +28,7 @@ var detection_timer: float
 
 
 func _process(_delta: float) -> void:
-	if velocity:
-		graph.look_at(global_position + velocity.normalized())
+	look_toward(velocity)
 
 
 func _physics_process(delta: float) -> void:
@@ -64,7 +63,7 @@ func update_target_pos() -> void:
 		return
 	
 	var to := (player.global_position - global_position) * Vector3(1.0, 0.0, 1.0)
-	if (-graph.global_basis.z).dot(to) <= 0:
+	if (-global_basis.z).dot(to) <= 0:
 		if to.length_squared() > DETECTION_RANGE_MIN * DETECTION_RANGE_MIN:
 			return
 		to = to.normalized() * DETECTION_RANGE_MIN

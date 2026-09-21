@@ -3,7 +3,12 @@ extends PlayerState
 
 
 func _process(_delta: float) -> void:
-	player.update_stand_parameters()
+	var look_forward := -player.basis.z
+	var look_dir := Vector2(look_forward.x, look_forward.z)
+	var walk_forward := player.velocity.normalized()
+	var walk_dir := Vector2(walk_forward.x, walk_forward.z)
+	walk_dir = walk_dir.rotated(look_dir.angle_to(Vector2.DOWN))
+	player.dummy.set_stand_parameter(walk_dir, player.velocity.length() if player.velocity else 1.0)
 
 
 func _physics_process(_delta: float) -> void:
@@ -18,10 +23,10 @@ func _physics_process(_delta: float) -> void:
 	character.move_and_slide()
 	
 	# Look At
-	if PlayerInput.look_dir:
-		character.graph.look_at(character.global_position + PlayerInput.look_dir)
-	elif PlayerInput.move_dir:
-		character.graph.look_at(character.global_position + PlayerInput.move_dir)
+	if PlayerInput.look_dir != Vector3.ZERO:
+		character.look_toward(PlayerInput.look_dir)
+	elif PlayerInput.move_dir != Vector3.ZERO:
+		character.look_toward(PlayerInput.move_dir)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shell") and Upgrades.is_unlocked_id("SHELL"):

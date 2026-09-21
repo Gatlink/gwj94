@@ -7,7 +7,7 @@ var target: PlayerCharacter
 
 func enter() -> void:
 	super()
-	mutant.graph.look_at(target.global_position)
+	mutant.look_at(target.global_position)
 	mutant.navigation.target_position = mutant.global_position
 	
 	var dummy := mutant.dummy as MutantDummy
