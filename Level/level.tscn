@@ -14,9 +14,9 @@
 [sub_resource type="NavigationMesh" id="NavigationMesh_52x1o"]
 geometry_parsed_geometry_type = 1
 geometry_collision_mask = 19
-cell_height = 0.01
-agent_radius = 0.75
-agent_max_climb = 0.0
+cell_size = 0.1
+cell_height = 0.15
+agent_max_climb = 0.15
 
 [node name="Level" type="Node3D" unique_id=1460984159]
 script = ExtResource("1_52x1o")

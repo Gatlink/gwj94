@@ -13,3 +13,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_p4jld")
 
 [node name="Office_Closet" parent="." index="1" unique_id=872718220 instance=ExtResource("2_ykl8u")]
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="2" unique_id=710822342]
+height = 2.0
+vertices = PackedVector3Array(-0.4992479, 0, -0.35634717, 0.50286555, 0, -0.35272944, 0.49563026, 0, 0.35996497, -0.49563003, 0, 0.3635827)
+affect_navigation_mesh = true

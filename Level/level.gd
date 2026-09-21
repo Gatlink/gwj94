@@ -70,11 +70,11 @@ func _ready() -> void:
 		var room_idx: int = unconnected_rooms_idx.pick_random()
 		connect_room(room_idx, unconnected_rooms_idx)
 	
-	navigation_region.bake_navigation_mesh()
-	
 	place_objectives()
 	place_mutants()
 	place_hiding_spots()
+	
+	navigation_region.bake_navigation_mesh.call_deferred()
 
 
 func connect_room(room_idx: int, unconnected_idx: Array[int]) -> void:

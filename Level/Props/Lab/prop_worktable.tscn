@@ -52,3 +52,8 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.19999999, 0, 0.95000
 script = ExtResource("10_7ilyt")
 angle = 180.0
 metadata/_custom_type_script = "uid://d1fdmaqhtleem"
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="5" unique_id=1417066908]
+height = 2.0
+vertices = PackedVector3Array(-1.186289, 0, -0.49731672, 1.18798, 0, -0.49911734, 1.1871097, 0, 0.49998456, -1.1854826, 0, 0.49885547)
+affect_navigation_mesh = true

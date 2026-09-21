@@ -168,6 +168,8 @@ update_position = false
 update_scale = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="5" unique_id=168669667]
+path_desired_distance = 0.3
+path_height_offset = 0.15
 
 [node name="Detection" type="Area3D" parent="." index="6" unique_id=2122562429]
 collision_layer = 0

@@ -20,3 +20,8 @@ shape = SubResource("SphereShape3D_7hfcf")
 
 [node name="DeskLamp" parent="." unique_id=771299055 instance=ExtResource("3_3pgvf")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.9, 1, -0.175)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." unique_id=1980759664]
+height = 2.0
+vertices = PackedVector3Array(-1.1861761, 0, -0.4995721, 1.1861761, 0, -0.49465021, 1.1861761, 0, 0.5044941, -1.1861761, 0, 0.5044941)
+carve_navigation_mesh = true
