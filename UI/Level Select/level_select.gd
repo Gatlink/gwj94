@@ -18,9 +18,6 @@ func _ready() -> void:
 		levels.add_child(button)
 		button.data = level
 		
-		button.mouse_entered.connect(button.grab_focus)
-		button.mouse_exited.connect(button.release_focus)
-		
 		if first_button == null:
 			first_button = button
 	

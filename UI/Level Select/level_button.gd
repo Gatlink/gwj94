@@ -11,3 +11,13 @@ var data: LevelData:
 
 func _on_pressed() -> void:
 	Game.start_level(data)
+
+
+func _on_mouse_entered() -> void:
+	if not disabled:
+		grab_focus()
+
+
+func _on_mouse_exited() -> void:
+	if not disabled:
+		release_focus()
