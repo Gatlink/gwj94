@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var dummy: CharacterDummy
 
 
+@onready var health_manager: HealthManager = $HealthManager
 @onready var graph: Node3D = $Graph
 
 
@@ -18,3 +19,7 @@ func look_toward(direction: Vector3) -> void:
 	target.y = global_position.y
 	if target != global_position:
 		look_at(target)
+
+
+func is_dead() -> bool:
+	return health_manager.is_dead()

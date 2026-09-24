@@ -15,7 +15,7 @@ func enter() -> void:
 
 
 func _process(_delta: float) -> void:
-	if mutant.strike.target != null:
+	if mutant.strike.target != null and not mutant.strike.target.is_dead():
 		mutant.strike.transition_to()
 	elif not mutant.has_target:
 		mutant.idle.transition_to(0.5)

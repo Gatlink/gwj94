@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c0ln62oshwty4"]
+
+[ext_resource type="PackedScene" uid="uid://dygur5m004uo2" path="res://Character/Player/Weapons/weapon_base.tscn" id="1_xkosg"]
+[ext_resource type="AudioStream" uid="uid://fk5nogexmpsv" path="res://Character/Player/SFX/shotgun.ogg" id="2_a6kwh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6kwh"]
+resource_local_to_scene = true
+size = Vector3(2, 1, 4)
+
+[node name="Shotgun" unique_id=1788314314 node_paths=PackedStringArray("sfx_strike") instance=ExtResource("1_xkosg")]
+ammo_max = 2
+cooldown = 1.5
+sfx_strike = NodePath("SFXShotgun")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=1893947607]
+shape = SubResource("BoxShape3D_a6kwh")
+
+[node name="SFXShotgun" type="AudioStreamPlayer3D" parent="." index="2" unique_id=922937491]
+stream = ExtResource("2_a6kwh")
+volume_db = -4.0
+bus = &"SFXPlayer"

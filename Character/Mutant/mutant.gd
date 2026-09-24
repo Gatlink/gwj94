@@ -9,15 +9,16 @@ const TURN_SPEED := 0.2
 
 
 @onready var range_shape: CollisionShape3D = $Range/RangeShape
-@onready var hitbox: Area3D = $Hitbox
+@onready var hitbox: DamageSource = $Hitbox
 @onready var navigation: NavigationAgent3D = $NavigationAgent3D
 @onready var detection_ray: RayCast3D = $DetectionRay
+@onready var question_animation: AnimationPlayer = $QuestionMark/AnimationPlayer
+@onready var sfx_low_growl: AudioStreamPlayer3D = $LowGrowl
+@onready var sfx_big_growl: AudioStreamPlayer3D = $BigGrowl
+# STATES
 @onready var idle: MutantIdle = $Idle
 @onready var chase: MutantChase = $Chase
 @onready var strike: MutantStrike = $Strike
-@onready var sfx_low_growl: AudioStreamPlayer3D = $LowGrowl
-@onready var sfx_big_growl: AudioStreamPlayer3D = $BigGrowl
-@onready var question_animation: AnimationPlayer = $QuestionMark/AnimationPlayer
 
 
 var has_target: bool
@@ -59,7 +60,7 @@ func _on_detection_body_exited(body: Node3D) -> void:
 
 func update_target_pos() -> void:
 	has_target = false
-	if not is_instance_valid(player) or player.state is PlayerDie:
+	if not is_instance_valid(player) or player.is_dead():
 		return
 	
 	var to := (player.global_position - global_position) * Vector3(1.0, 0.0, 1.0)
@@ -75,10 +76,6 @@ func update_target_pos() -> void:
 		has_target = true
 		target_pos = player.global_position
 	detection_ray.enabled = false
-
-
-func die() -> void:
-	queue_free()
 
 
 func display_question() -> void:

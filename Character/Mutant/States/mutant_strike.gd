@@ -15,12 +15,11 @@ func enter() -> void:
 	
 	await dummy.animation.animation_finished
 	
-	if mutant.hitbox.overlaps_body(PlayerCharacter.instance):
-		PlayerCharacter.instance.hurt()
-		target = null
+	mutant.hitbox.set_active(true)
 	
 	await get_tree().create_timer(0.5).timeout
 	
+	mutant.hitbox.set_active(false)
 	mutant.chase.transition_to()
 
 

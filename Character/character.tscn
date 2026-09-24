@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dki85rwv7lgio"]
 
 [ext_resource type="Script" uid="uid://d1himhrdk4lh2" path="res://Character/character.gd" id="1_k3002"]
+[ext_resource type="Script" uid="uid://tt4j6n0ibj8d" path="res://Health/health_manager.gd" id="2_nwtvh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
 radius = 0.25
@@ -17,3 +18,14 @@ shape = SubResource("CapsuleShape3D_7dm0k")
 
 [node name="Graph" type="Node3D" parent="." unique_id=789870063]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="HealthManager" type="Area3D" parent="." unique_id=609887048]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+script = ExtResource("2_nwtvh")
+metadata/_custom_type_script = "uid://tt4j6n0ibj8d"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealthManager" unique_id=133349658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_7dm0k")

@@ -159,6 +159,8 @@ gamepad_ui_start={
 3d_physics/layer_4="Mutant"
 3d_physics/layer_5="Walls"
 3d_physics/layer_6="Steps"
+3d_physics/layer_7="PlayerHealth"
+3d_physics/layer_8="EnemyHealth"
 
 [navigation]
 

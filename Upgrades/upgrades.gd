@@ -7,13 +7,8 @@ signal unlocked(upgrade: Upgrade)
 @export var all: Array[Upgrade]
 
 
-var _unlocked: Dictionary[Upgrade, bool] = {}
+var _unlocked: Array[String] = ["SHOTGUN"]
 var _available: Array[Upgrade] = []
-
-
-func _ready() -> void:
-	for upgrade in all:
-		_unlocked[upgrade] = false
 
 
 func by_id(id: String) -> Upgrade:
@@ -26,19 +21,18 @@ func by_id(id: String) -> Upgrade:
 
 
 func is_unlocked(upgrade: Upgrade) -> bool:
-	return _unlocked[upgrade]
+	return _unlocked.has(upgrade.resource_name)
 
 
 func is_unlocked_id(id: String) -> bool:
-	var upgrade := by_id(id)
-	return upgrade != null and _unlocked[upgrade]
+	return _unlocked.has(id)
 
 
 func buy_upgrade(upgrade: Upgrade) -> void:
-	if _unlocked[upgrade] or Game.money < upgrade.price:
+	if is_unlocked(upgrade) or Game.money < upgrade.price:
 		return
 	
-	_unlocked[upgrade] = true
+	_unlocked.append(upgrade.resource_name)
 	Game.money -= upgrade.price
 	Game.register_history("%s%s" % [UIFloor.HISTORY_UPGRADE, upgrade.resource_name])
 	
