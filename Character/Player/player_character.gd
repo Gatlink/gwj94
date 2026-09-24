@@ -22,6 +22,7 @@ static var instance: PlayerCharacter
 @onready var hide_state: PlayerHide = $Hide
 @onready var die: PlayerDie = $Die
 @onready var shoot: PlayerShoot = $Shoot
+@onready var bump: PlayerBump = $PlayerBump
 
 
 var was_hit: bool
@@ -47,6 +48,11 @@ func _exit_tree() -> void:
 
 func get_speed() -> float:
 	return SPEED_BOOSTED if Upgrades.is_unlocked_id("SPEED") else SPEED
+
+
+func hit(bump_force: Vector3) -> void:
+	bump.bump = bump_force
+	bump.transition_to()
 
 
 func kill() -> void:

@@ -12,14 +12,14 @@ func enter() -> void:
 	
 	var dummy := mutant.dummy as MutantDummy
 	dummy.hit()
+	mutant.hitbox.set_active(true)
 	
 	await dummy.animation.animation_finished
 	
-	mutant.hitbox.set_active(true)
+	mutant.hitbox.set_active(false)
 	
 	await get_tree().create_timer(0.5).timeout
 	
-	mutant.hitbox.set_active(false)
 	mutant.chase.transition_to()
 
 

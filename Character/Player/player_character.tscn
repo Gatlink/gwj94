@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="6_wj11p"]
 [ext_resource type="Script" uid="uid://b7ajy1gfptajh" path="res://Character/Player/States/die.gd" id="7_1vi68"]
 [ext_resource type="Script" uid="uid://dhg88r3n05dy8" path="res://Character/Player/States/shoot.gd" id="8_agv0s"]
+[ext_resource type="Script" uid="uid://bpox8jgld4tig" path="res://Character/Player/States/bump.gd" id="9_6vabk"]
 [ext_resource type="AudioStream" uid="uid://d4joi7x7b8rb1" path="res://Objective/SFX/ding1.ogg" id="13_6vabk"]
 [ext_resource type="AudioStream" uid="uid://dtpen3k3ggdno" path="res://Objective/SFX/ding2.ogg" id="14_mss4s"]
 [ext_resource type="AudioStream" uid="uid://cj40rbfusanf3" path="res://Objective/SFX/ding3.ogg" id="15_8dlre"]
@@ -54,7 +55,11 @@ metadata/_custom_type_script = "uid://b7ajy1gfptajh"
 script = ExtResource("8_agv0s")
 metadata/_custom_type_script = "uid://dhg88r3n05dy8"
 
-[node name="Graph" parent="." index="7" unique_id=789870063]
+[node name="PlayerBump" type="Node" parent="." index="6" unique_id=1854220829]
+script = ExtResource("9_6vabk")
+metadata/_custom_type_script = "uid://bpox8jgld4tig"
+
+[node name="Graph" parent="." index="8" unique_id=789870063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CharacterDummy" parent="Graph" index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
@@ -70,12 +75,12 @@ remote_path = NodePath("../../LightHolder")
 update_position = false
 update_scale = false
 
-[node name="HealthManager" parent="." index="8" unique_id=609887048]
+[node name="HealthManager" parent="." index="9" unique_id=609887048]
 collision_layer = 64
 max_hp = 3
 invulnerability_duration = 0.5
 
-[node name="InputPrompt" type="Sprite3D" parent="." index="9" unique_id=1407943177]
+[node name="InputPrompt" type="Sprite3D" parent="." index="10" unique_id=1407943177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9900403, 0)
 visible = false
 billboard = 1
@@ -83,7 +88,7 @@ texture = ExtResource("6_03ek6")
 script = ExtResource("6_wj11p")
 metadata/_custom_type_script = "uid://b2hjdph5wiest"
 
-[node name="LightHolder" type="Node3D" parent="." index="10" unique_id=1397906411]
+[node name="LightHolder" type="Node3D" parent="." index="11" unique_id=1397906411]
 
 [node name="Light" type="OmniLight3D" parent="LightHolder" index="0" unique_id=1389191218]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1.55, -0.2)
@@ -92,7 +97,7 @@ light_energy = 0.8
 light_cull_mask = 4293918723
 omni_attenuation = 2.0
 
-[node name="SFXObjective" type="AudioStreamPlayer3D" parent="." index="11" unique_id=1258425193]
+[node name="SFXObjective" type="AudioStreamPlayer3D" parent="." index="12" unique_id=1258425193]
 stream = SubResource("AudioStreamRandomizer_0i5j3")
 volume_db = -4.0
 bus = &"SFXPlayer"

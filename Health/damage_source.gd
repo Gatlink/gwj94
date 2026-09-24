@@ -2,7 +2,8 @@ class_name DamageSource
 extends Area3D
 
 
-@export_range(0, 100) var damage : int = 1
+@export_range(0, 100) var damage: int = 1
+@export_range(0, 100, 0.1) var bump: float
 
 
 var collision_shapes : Array[CollisionShape3D] = []
@@ -29,7 +30,9 @@ func on_area_entered(area : Area3D) -> void:
 
 
 func apply_damage(health_manager : HealthManager) -> void:
-	health_manager.hit(damage)
+	var dir := Vector3(health_manager.global_position - global_position)
+	dir.y = 0
+	health_manager.hit(damage, bump * dir.normalized())
 
 
 func set_active(is_active : bool) -> void:

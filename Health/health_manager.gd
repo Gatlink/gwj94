@@ -23,7 +23,7 @@ func is_dead() -> bool:
 	return current_hp <= 0
 
 
-func hit(damage : int = 1) -> void:
+func hit(damage : int, bump: Vector3) -> void:
 	if timer > 0:
 		return
 	
@@ -39,7 +39,7 @@ func hit(damage : int = 1) -> void:
 			owner.queue_free()
 		return
 	elif owner.has_method("hit"):
-		owner.hit()
+		owner.hit(bump)
 	
 	if invulnerability_duration > 0:
 		timer = invulnerability_duration

@@ -20,4 +20,5 @@ func walk(speed: float) -> void:
 
 
 func hit() -> void:
+	animation.stop()
 	animation.play("Attack", 0.2, 2.0)
