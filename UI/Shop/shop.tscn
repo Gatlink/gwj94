@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dav4apgnobv4" path="res://UI/Shop/upgrade_info.tscn" id="5_eeyqd"]
 [ext_resource type="PackedScene" uid="uid://br4gk8vxbkj74" path="res://UI/ValidateButton/validate_button.tscn" id="6_eeyqd"]
 [ext_resource type="FontFile" uid="uid://csf2jrs5e2xlu" path="res://UI/BricolageGrotesque_72pt-ExtraBold.ttf" id="6_gyclb"]
-[ext_resource type="PackedScene" uid="uid://c0qcxgn2gtgnq" path="res://UI/Shop/heal_button.tscn" id="6_w83ww"]
 [ext_resource type="PackedScene" uid="uid://nq5weqkbj1jc" path="res://main.tscn" id="8_l4q0s"]
+[ext_resource type="PackedScene" uid="uid://ch2a1c5xeiwbs" path="res://UI/HUD/Life Bar/life_bar.tscn" id="8_pagdw"]
+[ext_resource type="Texture2D" uid="uid://kms1te886y1o" path="res://UI/Shop/heal.svg" id="9_eo7k6"]
+[ext_resource type="Theme" uid="uid://t37g0mac1odw" path="res://UI/ValidateButton/theme_validate_button.tres" id="10_glx3d"]
+[ext_resource type="Script" uid="uid://c8lekdkqvnbdc" path="res://UI/Input Prompt/button_input_prompt.gd" id="10_pagdw"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_l4q0s"]
 grow_begin = 32.0
@@ -25,22 +28,30 @@ font = ExtResource("6_gyclb")
 font_size = 42
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="InputEventAction" id="InputEventAction_l4q0s"]
+[sub_resource type="InputEventAction" id="InputEventAction_a3not"]
 action = &"gamepad_ui_start"
 pressed = true
 
-[sub_resource type="Shortcut" id="Shortcut_pagdw"]
-events = [SubResource("InputEventAction_l4q0s")]
+[sub_resource type="Shortcut" id="Shortcut_8pe2y"]
+events = [SubResource("InputEventAction_a3not")]
 
-[sub_resource type="LabelSettings" id="LabelSettings_w83ww"]
-font = ExtResource("6_gyclb")
-font_size = 72
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pagdw"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_dt0ho"]
-font = ExtResource("6_gyclb")
-font_size = 72
-font_color = Color(1, 0.49803922, 0.16470589, 1)
+[sub_resource type="InputEventAction" id="InputEventAction_ncxfr"]
+action = &"gamepad_ui_y"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_6h7q6"]
+events = [SubResource("InputEventAction_ncxfr")]
 
 [node name="Shop" type="Control" unique_id=1323299204]
 layout_mode = 3
@@ -195,29 +206,49 @@ size_flags_horizontal = 3
 layout_mode = 2
 focus_mode = 0
 focus_behavior_recursive = 1
-shortcut = SubResource("Shortcut_pagdw")
+shortcut = SubResource("Shortcut_8pe2y")
 next_scene = ExtResource("8_l4q0s")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=839061086]
+[node name="HealingPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2097213069]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_styles/panel = SubResource("StyleBoxFlat_pagdw")
 
-[node name="HealButton" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=239196852 instance=ExtResource("6_w83ww")]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=302678412]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/HealingPanel" unique_id=107806623]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="LabelHeal" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer" unique_id=2119158531]
+[node name="LifeBar" parent="MarginContainer/VBoxContainer/HBoxContainer2/HealingPanel/HBoxContainer" unique_id=766028274 instance=ExtResource("8_pagdw")]
+custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
-text = "HEAL"
-label_settings = SubResource("LabelSettings_w83ww")
+alignment = 1
 
-[node name="LabelPrice" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer" unique_id=989325057]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/HealingPanel/HBoxContainer" unique_id=2076590103]
 layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/HealingPanel/HBoxContainer/HBoxContainer" unique_id=390504018]
+layout_mode = 2
+texture = ExtResource("9_eo7k6")
+stretch_mode = 5
+
+[node name="HealButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/HealingPanel/HBoxContainer/HBoxContainer" unique_id=239196852]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+focus_behavior_recursive = 1
+theme = ExtResource("10_glx3d")
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_6h7q6")
 text = "$10"
-label_settings = SubResource("LabelSettings_dt0ho")
+expand_icon = true
+
+[node name="ButtonInputPrompt" type="Node" parent="MarginContainer/VBoxContainer/HBoxContainer2/HealingPanel/HBoxContainer/HBoxContainer/HealButton" unique_id=1765946298]
+script = ExtResource("10_pagdw")
+gamepad_button = "Y"
+metadata/_custom_type_script = "uid://c8lekdkqvnbdc"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/HealingPanel/HBoxContainer/HBoxContainer/HealButton" to="." method="_on_heal_button_pressed"]
