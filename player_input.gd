@@ -19,13 +19,11 @@ func _process(_delta: float) -> void:
 	move_dir = Vector3(input_dir.x, 0, input_dir.y)
 	
 	look_dir = Vector3.ZERO
-	if use_kb_mouse:
-		if update_mouse_pos():
-			look_dir = (mouse_pos - (camera.get_parent() as Node3D).global_position).normalized()
-	elif input_dir:
+	if not use_kb_mouse:
 		input_dir = Input.get_vector("look_left", "look_right", "look_forward", "look_back")
 		look_dir = Vector3(input_dir.x, 0, input_dir.y)
-		use_kb_mouse = false
+	elif update_mouse_pos():
+		look_dir = (mouse_pos - (camera.get_parent() as Node3D).global_position).normalized()
 
 
 func _input(event: InputEvent) -> void:
