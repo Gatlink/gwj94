@@ -7,7 +7,7 @@ signal unlocked(upgrade: Upgrade)
 @export var all: Array[Upgrade]
 
 
-var _unlocked: Array[String] = ["SHOTGUN"]
+var _unlocked: Array[String] = []
 var _available: Array[Upgrade] = []
 
 
