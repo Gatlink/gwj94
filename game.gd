@@ -6,6 +6,7 @@ const LEVEL_SCREEN := "res://UI/Level Select/level_select.tscn"
 const END_SCREEN := "res://UI/End Screen/end_screen.tscn"
 const SHOP_SCREEN := "res://UI/Shop/upgrade_screen.tscn"
 const SECONDARY_OBJ_COUNT := 2
+const HEAL_PRICE_BASE := 15
 
 
 var level: LevelData
@@ -14,6 +15,12 @@ var money: int = 0
 var floor_history: Dictionary[int, PackedStringArray] = {}
 var start_time: float
 var victory := true
+# HEALTH
+var heal_price: int = HEAL_PRICE_BASE
+var current_health: int = max_health
+var max_health: int:
+	get():
+		return 3
 
 
 func reset() -> void:
@@ -21,6 +28,8 @@ func reset() -> void:
 	floor_nbr = 1
 	money = 0
 	victory = true
+	current_health = max_health
+	heal_price = HEAL_PRICE_BASE
 
 
 func start_level(new_level: LevelData) -> void:
@@ -57,3 +66,12 @@ func register_history(content: String) -> void:
 	if not floor_history.has(floor_nbr):
 		floor_history[floor_nbr] = PackedStringArray()
 	floor_history[floor_nbr].append(content)
+
+
+func heal() -> void:
+	if current_health >= max_health or money < heal_price:
+		return
+	
+	current_health += 1
+	money -= heal_price
+	heal_price += HEAL_PRICE_BASE

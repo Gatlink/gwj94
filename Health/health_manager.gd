@@ -2,6 +2,9 @@ class_name HealthManager
 extends Area3D
 
 
+signal health_changed(current: int, max: int)
+
+
 @export_range(0, 100) var max_hp : int = 10
 @export_range(0, 10) var invulnerability_duration : float
 
@@ -31,6 +34,7 @@ func hit(damage : int, bump: Vector3) -> void:
 		return
 	
 	current_hp -= damage
+	health_changed.emit(current_hp, max_hp)
 	
 	if is_dead():
 		if owner.has_method("kill"):

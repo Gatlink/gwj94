@@ -40,6 +40,9 @@ func _ready() -> void:
 	super()
 	
 	dummy.play_sfx = true
+	health_manager.max_hp = Game.max_health
+	health_manager.current_hp = Game.current_health
+	health_manager.health_changed.connect(update_health)
 
 
 func _exit_tree() -> void:
@@ -61,3 +64,7 @@ func kill() -> void:
 		hide_state.transition_to()
 	else:
 		die.transition_to()
+
+
+func update_health(current: int, _max: int) -> void:
+	Game.current_health = current
