@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dygur5m004uo2" path="res://Character/Player/Weapons/weapon_base.tscn" id="1_xkosg"]
 [ext_resource type="AudioStream" uid="uid://fk5nogexmpsv" path="res://Character/Player/SFX/shotgun.ogg" id="2_a6kwh"]
+[ext_resource type="Texture2D" uid="uid://cscc3qo2j303x" path="res://Character/Player/Weapons/ammo_shotgun.svg" id="2_xj2df"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6kwh"]
 resource_local_to_scene = true
@@ -11,6 +12,7 @@ size = Vector3(2, 1, 4)
 ammo_max = 2
 cooldown = 1.5
 sfx_strike = NodePath("SFXShotgun")
+ammo_pip = ExtResource("2_xj2df")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1893947607]
 shape = SubResource("BoxShape3D_a6kwh")

@@ -42,8 +42,10 @@ func _ready() -> void:
 	dummy.play_sfx = true
 	health_manager.max_hp = Game.max_health
 	health_manager.current_hp = Game.current_health
-	HUD.instance.refresh_health(health_manager)
 	health_manager.health_changed.connect(update_health)
+	
+	HUD.instance.refresh_health(health_manager)
+	HUD.instance.refresh_ammo(weapon)
 
 
 func _exit_tree() -> void:

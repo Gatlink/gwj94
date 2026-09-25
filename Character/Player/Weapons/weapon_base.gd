@@ -10,6 +10,7 @@ extends DamageSource
 ## Time to complete a reload, 0 or less means the weapon cannot be reloaded
 @export var reload_duration: float
 @export var sfx_strike: AudioStreamPlayer3D 
+@export var ammo_pip: Texture2D
 
 
 @onready var target_ray: RayCast3D = $TargetRay

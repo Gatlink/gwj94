@@ -13,6 +13,7 @@ static var instance: HUD
 @onready var top: HBoxContainer = $Top
 @onready var money: Label = $Top/Money
 @onready var life_bar: LifeBar = $Top/LifeBar
+@onready var ammo_bar: AmmoBar = $Top/AmmoBar
 
 
 func _ready() -> void:
@@ -34,3 +35,11 @@ func refresh_money() -> void:
 func refresh_health(health: HealthManager) -> void:
 	life_bar.refresh(health.current_hp, health.max_hp)
 	health.health_changed.connect(life_bar.refresh)
+
+
+func refresh_ammo(weapon: WeaponBase) -> void:
+	if weapon == null:
+		ammo_bar.hide()
+	else:
+		ammo_bar.refresh(weapon)
+		ammo_bar.show()

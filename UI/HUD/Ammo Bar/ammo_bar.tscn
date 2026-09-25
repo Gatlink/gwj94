@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://x1oy25nlqyml"]
+
+[ext_resource type="Texture2D" uid="uid://cscc3qo2j303x" path="res://Character/Player/Weapons/ammo_shotgun.svg" id="1_6twop"]
+[ext_resource type="Script" uid="uid://bhy8gr8ubedox" path="res://UI/HUD/Ammo Bar/ammo_bar.gd" id="1_tnyfv"]
+
+[node name="AmmoBar" type="HBoxContainer" unique_id=752003766]
+offset_right = 1080.0
+offset_bottom = 64.0
+script = ExtResource("1_tnyfv")
+
+[node name="AmmoPip" type="TextureRect" parent="." unique_id=1881816235]
+layout_mode = 2
+texture = ExtResource("1_6twop")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AmmoPip2" type="TextureRect" parent="." unique_id=911031971]
+layout_mode = 2
+texture = ExtResource("1_6twop")
+expand_mode = 3
+stretch_mode = 5

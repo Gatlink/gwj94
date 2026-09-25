@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds2py6iwi2tuu" path="res://UI/HUD/hud.gd" id="1_ne75i"]
 [ext_resource type="PackedScene" uid="uid://ch2a1c5xeiwbs" path="res://UI/HUD/Life Bar/life_bar.tscn" id="2_ing8j"]
+[ext_resource type="PackedScene" uid="uid://x1oy25nlqyml" path="res://UI/HUD/Ammo Bar/ammo_bar.tscn" id="3_te8l2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4jld"]
 font_size = 48
@@ -46,6 +47,14 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
 [node name="LifeBar" parent="Top" unique_id=766028274 instance=ExtResource("2_ing8j")]
+layout_mode = 2
+
+[node name="Spacer4" type="Control" parent="Top" unique_id=1302611106]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="AmmoBar" parent="Top" unique_id=752003766 instance=ExtResource("3_te8l2")]
+visible = false
 layout_mode = 2
 
 [node name="Spacer" type="Control" parent="Top" unique_id=718702804]
