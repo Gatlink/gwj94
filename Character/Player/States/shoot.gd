@@ -27,3 +27,8 @@ func exit() -> void:
 	super()
 	if is_instance_valid(tween) and tween.is_running():
 		tween.kill()
+	
+	# Make sure values a reinitialized in case the player is moved out of this
+	# state before the end of the tween
+	player.weapon.set_active(false)
+	player.dummy.position = Vector3.ZERO
