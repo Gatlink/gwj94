@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cm8xk63x2bylx"]
 
 [ext_resource type="Script" uid="uid://ds2py6iwi2tuu" path="res://UI/HUD/hud.gd" id="1_ne75i"]
+[ext_resource type="PackedScene" uid="uid://ch2a1c5xeiwbs" path="res://UI/HUD/Life Bar/life_bar.tscn" id="2_ing8j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4jld"]
 font_size = 48
@@ -17,6 +18,7 @@ script = ExtResource("1_ne75i")
 
 [node name="Top" type="HBoxContainer" parent="." unique_id=532667376]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="FloorLabel" type="Label" parent="Top" unique_id=1268240850]
 layout_mode = 2
@@ -33,9 +35,18 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
 [node name="Money" type="Label" parent="Top" unique_id=102328961]
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-text = "$0"
+size_flags_horizontal = 0
+text = "$999"
 label_settings = SubResource("LabelSettings_p4jld")
+
+[node name="Spacer3" type="Control" parent="Top" unique_id=1748673249]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="LifeBar" parent="Top" unique_id=766028274 instance=ExtResource("2_ing8j")]
+layout_mode = 2
 
 [node name="Spacer" type="Control" parent="Top" unique_id=718702804]
 layout_mode = 2

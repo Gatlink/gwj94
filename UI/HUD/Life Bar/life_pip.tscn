@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dl73ch8xt7tp4"]
+
+[ext_resource type="Texture2D" uid="uid://ciwbpahqw5xhs" path="res://UI/HUD/Life Bar/suit_hearts.png" id="1_jefg7"]
+[ext_resource type="Script" uid="uid://djj38hpgemo3a" path="res://UI/HUD/Life Bar/life_pip.gd" id="2_1tngk"]
+
+[node name="LifePip" type="TextureRect" unique_id=1686365608]
+modulate = Color(1, 0.49803922, 0.16470589, 1)
+anchors_preset = -1
+anchor_right = 0.06666667
+anchor_bottom = 0.11851852
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jefg7")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_1tngk")
+metadata/_edit_use_anchors_ = true

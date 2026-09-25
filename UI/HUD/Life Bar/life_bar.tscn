@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ch2a1c5xeiwbs"]
+
+[ext_resource type="Script" uid="uid://dn55j31kft8kb" path="res://UI/HUD/Life Bar/life_bar.gd" id="1_trh3y"]
+[ext_resource type="PackedScene" uid="uid://dl73ch8xt7tp4" path="res://UI/HUD/Life Bar/life_pip.tscn" id="2_m4vei"]
+
+[node name="LifeBar" type="HBoxContainer" unique_id=766028274]
+anchors_preset = -1
+anchor_right = 0.104166664
+anchor_bottom = 0.05925926
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_trh3y")
+metadata/_edit_use_anchors_ = true
+
+[node name="LifePip" parent="." unique_id=1686365608 instance=ExtResource("2_m4vei")]
+layout_mode = 2
+
+[node name="LifePip2" parent="." unique_id=411934421 instance=ExtResource("2_m4vei")]
+layout_mode = 2
+
+[node name="LifePip3" parent="." unique_id=602766322 instance=ExtResource("2_m4vei")]
+layout_mode = 2

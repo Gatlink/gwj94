@@ -12,6 +12,7 @@ static var instance: HUD
 @onready var lift_label: Label = $Top/LiftLabel
 @onready var top: HBoxContainer = $Top
 @onready var money: Label = $Top/Money
+@onready var life_bar: LifeBar = $Top/LifeBar
 
 
 func _ready() -> void:
@@ -28,3 +29,8 @@ func add_objective(objective: Objective) -> void:
 
 func refresh_money() -> void:
 	money.text = "$%d" % Game.money
+
+
+func refresh_health(health: HealthManager) -> void:
+	life_bar.refresh(health.current_hp, health.max_hp)
+	health.health_changed.connect(life_bar.refresh)
