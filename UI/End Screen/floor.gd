@@ -8,6 +8,7 @@ const HISTORY_UPGRADE := "upgrade:"
 const HISTORY_DEATH := "death"
 const HISTORY_MAIN_OBJECTIVE := "main_objective"
 const HISTORY_OBJECTIVE := "objective"
+const HISTORY_HEAL := "heal"
 
 
 @onready var content_anchor_left: Control = $ContentAnchorLeft

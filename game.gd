@@ -75,3 +75,5 @@ func heal() -> void:
 	current_health += 1
 	money -= heal_price
 	heal_price += HEAL_PRICE_BASE
+	
+	register_history(UIFloor.HISTORY_HEAL)
