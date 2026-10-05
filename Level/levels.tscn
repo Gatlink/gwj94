@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://b7lkvteys8mky"
 script = ExtResource("3_4sqco")
 mutant_count = 3
 hideout_count = 6
+available_upgrades = 8
 metadata/_custom_type_script = "uid://b7lkvteys8mky"
 
 [sub_resource type="Resource" id="Resource_4sqco"]
@@ -47,7 +48,7 @@ metadata/_custom_type_script = "uid://b7lkvteys8mky"
 script = ExtResource("3_4sqco")
 mutant_count = 4
 hideout_count = 2
-available_upgrades = 8
+available_upgrades = 12
 metadata/_custom_type_script = "uid://b7lkvteys8mky"
 
 [sub_resource type="Resource" id="Resource_imxe7"]
