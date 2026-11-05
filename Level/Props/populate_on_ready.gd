@@ -5,10 +5,11 @@ extends Node3D
 @export var models: Array[PackedScene]
 @export var unique: bool
 @export_range(0, 1, 0.05) var empty_chance: float
+@export var can_be_small_objective: bool
 
 
 func _ready() -> void:
-	if randf() < empty_chance:
+	if randf() < empty_chance or models.is_empty():
 		return
 	
 	var children := get_children()

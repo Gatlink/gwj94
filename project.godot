@@ -37,6 +37,10 @@ window/size/resizable=false
 
 movie_writer/movie_file="/var/home/gatlink/Documents/GitHub/gwj94/movie.avi"
 
+[global_group]
+
+REVEAL="Nodes in this group can be replaced by small objectives by the LIGHT_REVEAL upgrade"
+
 [input]
 
 ui_accept={

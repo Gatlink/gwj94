@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bavdl652wfwip" path="res://Character/Mutant/States/mutant_idle.gd" id="2_rskt8"]
 [ext_resource type="Script" uid="uid://bwvr2tsxuy7do" path="res://Character/Mutant/States/mutant_chase.gd" id="4_hqjvr"]
 [ext_resource type="Script" uid="uid://pfaisxguwrfg" path="res://Character/Mutant/States/mutant_strike.gd" id="6_d6aly"]
+[ext_resource type="Script" uid="uid://l50ha6kte28o" path="res://Character/Mutant/States/mutant_stun.gd" id="6_gs2bg"]
 [ext_resource type="Script" uid="uid://f8jcmfkgavu6" path="res://Health/damage_source.gd" id="7_66wpc"]
 [ext_resource type="PackedScene" uid="uid://ch6opmwy3lvq3" path="res://Character/Mutant/mutant_dummy.tscn" id="7_d6aly"]
 [ext_resource type="AudioStream" uid="uid://dd0btf0sqfwty" path="res://Character/Mutant/SFX/low_growl1.ogg" id="8_l10f5"]
@@ -21,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://cxsd1g3irrfs3" path="res://Character/Mutant/SFX/big_growl5.ogg" id="19_tn1tj"]
 [ext_resource type="AudioStream" uid="uid://r27npmciap57" path="res://Character/Mutant/SFX/big_growl6.ogg" id="20_05k2w"]
 [ext_resource type="Texture2D" uid="uid://cgxjhnxqigpjf" path="res://Character/Mutant/question_mark.svg" id="21_66wpc"]
+[ext_resource type="PackedScene" uid="uid://dbipbfaiejd60" path="res://Character/Mutant/fx_stun.tscn" id="23_tn1tj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_08fwr"]
 radius = 0.39208984
@@ -160,11 +162,15 @@ metadata/_custom_type_script = "uid://bwvr2tsxuy7do"
 script = ExtResource("6_d6aly")
 metadata/_custom_type_script = "uid://pfaisxguwrfg"
 
-[node name="PhysicsCollision" parent="." index="3" unique_id=632068445]
+[node name="Stunned" type="Node" parent="." index="3" unique_id=1246172350]
+script = ExtResource("6_gs2bg")
+metadata/_custom_type_script = "uid://l50ha6kte28o"
+
+[node name="PhysicsCollision" parent="." index="4" unique_id=632068445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9133301, 0)
 shape = SubResource("CapsuleShape3D_08fwr")
 
-[node name="Graph" parent="." index="4" unique_id=789870063]
+[node name="Graph" parent="." index="5" unique_id=789870063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MutantDummy" parent="Graph" index="0" unique_id=2140569891 instance=ExtResource("7_d6aly")]
@@ -176,7 +182,7 @@ remote_path = NodePath("../../Hitbox")
 update_position = false
 update_scale = false
 
-[node name="HealthManager" parent="." index="5" unique_id=609887048]
+[node name="HealthManager" parent="." index="6" unique_id=609887048]
 collision_layer = 128
 max_hp = 5
 
@@ -184,11 +190,11 @@ max_hp = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_08fwr")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="6" unique_id=168669667]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="7" unique_id=168669667]
 path_desired_distance = 0.3
 path_height_offset = 0.15
 
-[node name="Detection" type="Area3D" parent="." index="7" unique_id=2122562429]
+[node name="Detection" type="Area3D" parent="." index="8" unique_id=2122562429]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -196,7 +202,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" index="0" unique_id=1256561918]
 shape = SubResource("SphereShape3D_4degh")
 
-[node name="Range" type="Area3D" parent="." index="8" unique_id=338861457]
+[node name="Range" type="Area3D" parent="." index="9" unique_id=338861457]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -204,7 +210,7 @@ monitorable = false
 [node name="RangeShape" type="CollisionShape3D" parent="Range" index="0" unique_id=1987966512]
 shape = SubResource("SphereShape3D_0lmxh")
 
-[node name="Hitbox" type="Area3D" parent="." index="9" unique_id=325993911]
+[node name="Hitbox" type="Area3D" parent="." index="10" unique_id=325993911]
 collision_layer = 0
 collision_mask = 64
 monitorable = false
@@ -216,21 +222,21 @@ metadata/_custom_type_script = "uid://f8jcmfkgavu6"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4041265e-07, 0, -0.5)
 shape = SubResource("SphereShape3D_d6aly")
 
-[node name="DetectionRay" type="RayCast3D" parent="." index="10" unique_id=44878972]
+[node name="DetectionRay" type="RayCast3D" parent="." index="11" unique_id=44878972]
 enabled = false
 target_position = Vector3(0, 0, -1)
 collision_mask = 16
 debug_shape_custom_color = Color(1, 0, 0, 1)
 
-[node name="LowGrowl" type="AudioStreamPlayer3D" parent="." index="11" unique_id=539114344]
+[node name="LowGrowl" type="AudioStreamPlayer3D" parent="." index="12" unique_id=539114344]
 stream = SubResource("AudioStreamRandomizer_p4jld")
 bus = &"SFXMonster"
 
-[node name="BigGrowl" type="AudioStreamPlayer3D" parent="." index="12" unique_id=1381619338]
+[node name="BigGrowl" type="AudioStreamPlayer3D" parent="." index="13" unique_id=1381619338]
 stream = SubResource("AudioStreamRandomizer_61nkt")
 bus = &"SFXMonster"
 
-[node name="QuestionMark" type="Node3D" parent="." index="13" unique_id=583749478]
+[node name="QuestionMark" type="Node3D" parent="." index="14" unique_id=583749478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 visible = false
 
@@ -244,6 +250,10 @@ texture = ExtResource("21_66wpc")
 root_node = NodePath("../Sprite3D")
 libraries/ = SubResource("AnimationLibrary_tn1tj")
 autoplay = &"RESET"
+
+[node name="FXStun" parent="." index="15" unique_id=1799926108 instance=ExtResource("23_tn1tj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.9, 0)
+visible = false
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

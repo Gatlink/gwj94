@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c6gktdqwguged" path="res://Art/Assets/Lab_Microscope.glb" id="1_kfbux"]
 [ext_resource type="Script" uid="uid://d1fdmaqhtleem" path="res://Level/Props/rotate_on_ready.gd" id="2_h6x7h"]
 
-[node name="Microscope" type="Node3D" unique_id=1056879715]
+[node name="Microscope" type="Node3D" unique_id=1056879715 groups=["REVEAL"]]
 
 [node name="Lab_Microscope" parent="." unique_id=551344200 instance=ExtResource("1_kfbux")]
 

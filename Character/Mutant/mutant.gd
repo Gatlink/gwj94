@@ -15,10 +15,12 @@ const TURN_SPEED := 0.2
 @onready var question_animation: AnimationPlayer = $QuestionMark/AnimationPlayer
 @onready var sfx_low_growl: AudioStreamPlayer3D = $LowGrowl
 @onready var sfx_big_growl: AudioStreamPlayer3D = $BigGrowl
+@onready var fx_stun: Node3D = $FXStun
 # STATES
 @onready var idle: MutantIdle = $Idle
 @onready var chase: MutantChase = $Chase
 @onready var strike: MutantStrike = $Strike
+@onready var stunned: MutantStunned = $Stunned
 
 
 var has_target: bool

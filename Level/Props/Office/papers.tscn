@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="3_lup7t"]
 [ext_resource type="PackedScene" uid="uid://cwujql00ixot2" path="res://Art/Assets/Office_Pen.glb" id="4_ne70t"]
 
-[node name="Papers" type="Node3D" unique_id=885027884]
+[node name="Papers" type="Node3D" unique_id=885027884 groups=["REVEAL"]]
 
 [node name="Office_Paper" parent="." unique_id=152246341 instance=ExtResource("1_s1sbb")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

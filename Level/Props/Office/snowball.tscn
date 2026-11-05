@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3ongg55hq1od" path="res://Art/Assets/Office_Snowball.glb" id="1_684jj"]
 
-[node name="Snowball" type="Node3D" unique_id=1512697731]
+[node name="Snowball" type="Node3D" unique_id=1512697731 groups=["REVEAL"]]
 
 [node name="Office_Snowball" parent="." unique_id=1059023547 instance=ExtResource("1_684jj")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

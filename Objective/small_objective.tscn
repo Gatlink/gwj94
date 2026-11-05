@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bxguvfx43j8di"]
+
+[ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="1_slofa"]
+[ext_resource type="Script" uid="uid://dcq1jk3wtvjll" path="res://Objective/small_objective.gd" id="2_okf2s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_slofa"]
+resource_local_to_scene = true
+height = 0.25
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slofa"]
+transparency = 4
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_slofa")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="Gradient" id="Gradient_okf2s"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 7.0
+
+[node name="Objective" unique_id=1332854662 instance=ExtResource("1_slofa")]
+script = ExtResource("2_okf2s")
+money_gain = 2
+
+[node name="AnimationPlayer" parent="." index="0" unique_id=1069526299]
+autoplay = &""
+
+[node name="Graph" parent="." index="1" unique_id=1031166380]
+models = Array[PackedScene]([])
+
+[node name="Spotlight" parent="." index="2" unique_id=2001835366]
+transform = Transform3D(1, 0, 0, 0, 4.371139e-08, 1, 0, -1, 4.371139e-08, 0, 1, 0)
+visible = false
+light_energy = 1.0
+spot_range = 2.0
+
+[node name="CollisionShape3D" parent="." index="3" unique_id=555346625]
+shape = SubResource("CylinderShape3D_slofa")
+
+[node name="Particles" type="CPUParticles3D" parent="." index="4" unique_id=144281263]
+emitting = false
+amount = 6
+mesh = SubResource("SphereMesh_g4v7s")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+linear_accel_min = -1.0
+linear_accel_max = -0.8
+color = Color(1, 0.938, 0.38, 0.72156864)
+color_ramp = SubResource("Gradient_okf2s")
+
+[node name="RevealArea" type="Area3D" parent="." index="5" unique_id=429509397]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RevealArea" index="0" unique_id=1088368874]
+shape = SubResource("SphereShape3D_g4v7s")
+
+[connection signal="body_entered" from="RevealArea" to="." method="_on_reveal_area_body_entered"]
+[connection signal="body_exited" from="RevealArea" to="." method="_on_reveal_area_body_exited"]

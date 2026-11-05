@@ -2,6 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cg8bdt16qiqve" path="res://Art/Assets/Lab_Erlenmeyer.glb" id="1_ygn06"]
 
-[node name="Erlenmeyer" type="Node3D" unique_id=520389769]
+[node name="Erlenmeyer" type="Node3D" unique_id=520389769 groups=["REVEAL"]]
 
 [node name="Lab_Erlenmeyer" parent="." unique_id=1741744375 instance=ExtResource("1_ygn06")]

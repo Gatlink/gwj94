@@ -4,6 +4,7 @@ extends Node3D
 
 const MAIN_OBJECTIVE = preload("uid://d1ooremb8kc7p")
 const OBJECTIVE = preload("uid://c888bstisw35")
+const REVEAL_OBJECTIVE = preload("uid://bxguvfx43j8di")
 const MUTANT := preload("uid://bmefsumjb7wc2")
 const ROOM_SIZE := 10
 # MUST BE ODD
@@ -11,6 +12,7 @@ const ROOM_ROW := 3
 const ROOM_COL := 3
 const CLOSE_DOOR_COUNT := 3
 const LIFT_ROOM_IDX := floori(ROOM_COL / 2.0)
+const REVEAL_COUNT := 10
 
 
 enum {
@@ -73,6 +75,9 @@ func _ready() -> void:
 	place_objectives()
 	place_mutants()
 	place_hiding_spots()
+	
+	if Upgrades.is_unlocked_id("LIGHT_REVEAL"):
+		place_reveal_objectives()
 	
 	navigation_region.bake_navigation_mesh.call_deferred()
 
@@ -142,6 +147,20 @@ func place_objectives() -> void:
 		add_child(objective)
 		objective.global_position = marker.global_position
 		HUD.instance.add_objective(objective)
+
+
+func place_reveal_objectives() -> void:
+	var items := get_tree().get_nodes_in_group("REVEAL")
+	for i in REVEAL_COUNT:
+		if items.is_empty():
+			break
+		
+		var item: Node3D = items.pick_random()
+		var instance: Objective = REVEAL_OBJECTIVE.instantiate()
+		add_child(instance)
+		instance.global_position = item.global_position
+		item.reparent(instance.graph)
+		items.erase(item)
 
 
 func place_mutants() -> void:

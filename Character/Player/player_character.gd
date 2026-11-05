@@ -6,6 +6,7 @@ const SPEED := 5.0
 const SPEED_BOOSTED := SPEED * 1.2
 const LIGHT_RANGE_BONUS := 2.0
 const WEAPON_SHOTGUN := preload("uid://c0ln62oshwty4")
+const LIGHT_STUN := preload("uid://do4psnfi756tu")
 
 
 static var instance: PlayerCharacter
@@ -36,6 +37,8 @@ func _ready() -> void:
 	if Upgrades.is_unlocked_id("SHOTGUN"):
 		weapon = WEAPON_SHOTGUN.instantiate() as WeaponBase
 		add_child(weapon)
+	if Upgrades.is_unlocked_id("LIGHT_STUN"):
+		add_child(LIGHT_STUN.instantiate())
 	
 	super()
 	

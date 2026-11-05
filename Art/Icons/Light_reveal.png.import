@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p1gsxaqkw55e"
-path="res://.godot/imported/icon_life.png-938e3f5b0d7fad6f9b1772c7472c5583.ctex"
+uid="uid://by4v0j8si67xq"
+path="res://.godot/imported/Light_reveal.png-7beb0f204dc8fd46f1f1256c2a345f2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Upgrades/Icons/icon_life.png"
-dest_files=["res://.godot/imported/icon_life.png-938e3f5b0d7fad6f9b1772c7472c5583.ctex"]
+source_file="res://Art/Icons/Light_reveal.png"
+dest_files=["res://.godot/imported/Light_reveal.png-7beb0f204dc8fd46f1f1256c2a345f2e.ctex"]
 
 [params]
 
