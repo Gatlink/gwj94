@@ -7,6 +7,7 @@ const SPEED_BOOSTED := SPEED * 1.2
 const LIGHT_RANGE_BONUS := 2.0
 const WEAPON_SHOTGUN := preload("uid://c0ln62oshwty4")
 const LIGHT_STUN := preload("uid://do4psnfi756tu")
+const LIGHT_ROOM := preload("uid://cbd6b526axmhr")
 
 
 static var instance: PlayerCharacter
@@ -28,11 +29,15 @@ static var instance: PlayerCharacter
 
 var was_hit: bool
 var weapon: WeaponBase
+var current_room_idx: int = -1
 
 
 func _ready() -> void:
 	instance = self
-	if Upgrades.is_unlocked_id("LIGHT"):
+	if Upgrades.is_unlocked_id("LIGHT_ROOM"):
+		Level.current.add_child(LIGHT_ROOM.instantiate())
+		light.queue_free()
+	elif Upgrades.is_unlocked_id("LIGHT"):
 		light.omni_range += LIGHT_RANGE_BONUS
 	if Upgrades.is_unlocked_id("SHOTGUN"):
 		weapon = WEAPON_SHOTGUN.instantiate() as WeaponBase
@@ -55,6 +60,15 @@ func _exit_tree() -> void:
 	instance = null
 
 
+func _process(_delta: float) -> void:
+	if Level.current == null:
+		return
+	
+	var current_room := Level.current.get_room_idx(global_position)
+	if current_room != current_room_idx:
+		current_room_idx = current_room
+
+
 func get_speed() -> float:
 	return SPEED_BOOSTED if Upgrades.is_unlocked_id("SPEED") else SPEED
 
@@ -74,3 +88,9 @@ func kill() -> void:
 
 func update_health(current: int, _max: int) -> void:
 	Game.current_health = current
+
+
+func is_in_light_range(pos: Vector3) -> bool:
+	if Upgrades.is_unlocked_id("LIGHT_ROOM"):
+		return Level.current.get_room_idx(pos) == current_room_idx
+	return global_position.distance_squared_to(pos) <= light.omni_range ** 2

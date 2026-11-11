@@ -34,6 +34,7 @@ static func get_opposite(side: int) -> int:
 
 
 static var directions: Array[int] = [NORTH, EAST, SOUTH, WEST]
+static var current: Level
 
 
 @export var room_scenes: Array[PackedScene]
@@ -56,6 +57,7 @@ func _ready() -> void:
 			var room := room_scenes.pick_random().instantiate() as Room
 			navigation_region.add_child(room)
 			room.position = pos
+			room.update_bounds()
 			rooms.append(room)
 			room_dist.append(-1)
 	
@@ -80,6 +82,11 @@ func _ready() -> void:
 		place_reveal_objectives()
 	
 	navigation_region.bake_navigation_mesh.call_deferred()
+	current = self
+
+
+func _exit_tree() -> void:
+	current = null
 
 
 func connect_room(room_idx: int, unconnected_idx: Array[int]) -> void:
@@ -245,3 +252,11 @@ func are_neighbors(idx_a: int, idx_b: int) -> bool:
 			return true
 	
 	return false
+
+
+func get_room_idx(pos: Vector3) -> int:
+	var ground_pos := Vector2(pos.x, pos.z)
+	for i in rooms.size():
+		if rooms[i].bounds.has_point(ground_pos):
+			return i
+	return -1

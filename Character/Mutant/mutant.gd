@@ -8,6 +8,9 @@ const DETECTION_MASK := 0b0010
 const TURN_SPEED := 0.2
 
 
+static var all: Array[Mutant] = []
+
+
 @onready var range_shape: CollisionShape3D = $Range/RangeShape
 @onready var hitbox: DamageSource = $Hitbox
 @onready var navigation: NavigationAgent3D = $NavigationAgent3D
@@ -28,10 +31,23 @@ var target_pos: Vector3
 var player: PlayerCharacter
 var current_speed: float
 var detection_timer: float
+var stun_immunity: float
 
 
-func _process(_delta: float) -> void:
+func _ready() -> void:
+	super()
+	all.append(self)
+
+
+func _exit_tree() -> void:
+	all.erase(self)
+
+
+func _process(delta: float) -> void:
 	look_toward(velocity)
+	
+	if stun_immunity > 0:
+		stun_immunity -= delta
 
 
 func _physics_process(delta: float) -> void:
@@ -83,3 +99,7 @@ func update_target_pos() -> void:
 func display_question() -> void:
 	question_animation.stop()
 	question_animation.play("show")
+
+
+func can_be_stunned() -> bool:
+	return stun_immunity <= 0

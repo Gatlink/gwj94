@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cbd6b526axmhr"]
+
+[ext_resource type="Script" uid="uid://irnxm0dmr2e7" path="res://Upgrades/light_room.gd" id="1_6r8qc"]
+
+[node name="LightRoom" type="Node3D" unique_id=749826586]
+script = ExtResource("1_6r8qc")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1442415982]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3, 0)
+light_energy = 1.5
+area_range = 4.5
+area_size = Vector2(10, 10)

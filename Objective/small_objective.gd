@@ -2,12 +2,17 @@ class_name SmallObjective
 extends Objective
 
 
+const CHECK_FREQUENCY := 0.5
+
+
+var timer := CHECK_FREQUENCY
+
+
 @onready var particles: CPUParticles3D = $Particles
 
 
-func _on_reveal_area_body_entered(_body: Node3D) -> void:
-	particles.emitting = true
-
-
-func _on_reveal_area_body_exited(_body: Node3D) -> void:
-	particles.emitting = false
+func _process(delta: float) -> void:
+	timer -= delta
+	if timer <= 0:
+		particles.emitting = PlayerCharacter.instance.is_in_light_range(global_position)
+		timer = CHECK_FREQUENCY

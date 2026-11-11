@@ -2,8 +2,12 @@ class_name Room
 extends Node3D
 
 
-@onready var model: RoomModel = $RoomModel
+var bounds: Rect2
 
+
+@onready var model: RoomModel = $RoomModel
+@onready var mutant_spawn_points: Node3D = $MutantSpawnPoints
+@onready var objective_spawn_points: Node3D = $ObjectiveSpawnPoints
 @onready var door_colliders: Dictionary[int, CollisionShape3D] = {
 	Level.NORTH: $CollisionWalls/DoorNorth,
 	Level.EAST: $CollisionWalls/DoorEast,
@@ -11,8 +15,11 @@ extends Node3D
 	Level.WEST: $CollisionWalls/DoorWest
 }
 
-@onready var mutant_spawn_points: Node3D = $MutantSpawnPoints
-@onready var objective_spawn_points: Node3D = $ObjectiveSpawnPoints
+
+func update_bounds() -> void:
+	var size := Vector2.ONE * Level.ROOM_SIZE
+	var pos := Vector2(global_position.x, global_position.z) - size * 0.5
+	bounds = Rect2(pos, size)
 
 
 func open_door(side: int) -> void:

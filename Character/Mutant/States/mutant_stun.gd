@@ -3,6 +3,7 @@ extends MutantState
 
 
 const DURATION: float = 2.0
+const IMMUNITY: float = 3.0
 
 
 var timer: float
@@ -19,6 +20,7 @@ func enter() -> void:
 func exit() -> void:
 	super()
 	mutant.fx_stun.hide()
+	mutant.stun_immunity = IMMUNITY
 
 
 func _process(delta: float) -> void:
