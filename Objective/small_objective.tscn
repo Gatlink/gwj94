@@ -26,6 +26,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [node name="SmallObjective" unique_id=1332854662 instance=ExtResource("1_slofa")]
 script = ExtResource("2_okf2s")
 money_gain = 2
+dont_register = true
 
 [node name="AnimationPlayer" parent="." index="0" unique_id=1069526299]
 autoplay = &""

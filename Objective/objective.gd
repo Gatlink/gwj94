@@ -4,6 +4,7 @@ extends Interactable
 
 @export var money_gain := 5
 @export var is_main: bool = false
+@export var dont_register: bool
 
 
 @onready var graph: PopulateOnReady = $Graph
@@ -20,5 +21,5 @@ func on_interact() -> void:
 		Lift.instance.is_unlocked = true
 		HUD.instance.lift_label.show()
 		Game.register_history(UIFloor.HISTORY_MAIN_OBJECTIVE)
-	else:
+	elif not dont_register:
 		Game.register_history(UIFloor.HISTORY_OBJECTIVE)
