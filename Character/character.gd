@@ -17,7 +17,7 @@ func _ready() -> void:
 func look_toward(direction: Vector3) -> void:
 	var target := global_position + direction
 	target.y = global_position.y
-	if target != global_position:
+	if not global_position.is_equal_approx(target):
 		look_at(target)
 
 
