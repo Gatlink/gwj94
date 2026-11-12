@@ -8,6 +8,7 @@ const LIGHT_RANGE_BONUS := 2.0
 const WEAPON_SHOTGUN := preload("uid://c0ln62oshwty4")
 const LIGHT_STUN := preload("uid://do4psnfi756tu")
 const LIGHT_ROOM := preload("uid://cbd6b526axmhr")
+const LIFE_STUN_RANGE := 5.0
 
 
 static var instance: PlayerCharacter
@@ -44,6 +45,8 @@ func _ready() -> void:
 		add_child(weapon)
 	if Upgrades.is_unlocked_id("LIGHT_STUN"):
 		add_child(LIGHT_STUN.instantiate())
+	if Upgrades.is_unlocked_id("LIFE_PROTECTION"):
+		health_manager.damage_cap = 1
 	
 	super()
 	
@@ -76,12 +79,17 @@ func get_speed() -> float:
 func hit(bump_force: Vector3) -> void:
 	bump.bump = bump_force
 	bump.transition_to()
+	
+	if Upgrades.is_unlocked_id("LIFE_STUN"):
+		for mutant in Mutant.all:
+			if mutant.can_be_stunned() and mutant.global_position.distance_squared_to(global_position) <= LIFE_STUN_RANGE ** 2:
+				mutant.stunned.transition_to()
 
 
 func kill() -> void:
-	if Upgrades.is_unlocked_id("LIFE") and not was_hit:
+	if Upgrades.is_unlocked_id("LIFE_REBIRTH") and not was_hit:
 		was_hit = true
-		hide_state.transition_to()
+		health_manager.heal(3)
 	else:
 		die.transition_to()
 

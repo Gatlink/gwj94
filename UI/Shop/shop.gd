@@ -83,5 +83,5 @@ func refresh_ugprades() -> void:
 
 func refresh_health() -> void:
 	life_bar.refresh(Game.current_health, Game.max_health)
-	heal_button.disabled = Game.money < Game.heal_price or Game.current_health >= Game.max_health
-	heal_button.text = "$%d" % Game.heal_price
+	heal_button.disabled = Game.money < Game.get_heal_price() or Game.current_health >= Game.max_health
+	heal_button.text = "$%d" % Game.get_heal_price()

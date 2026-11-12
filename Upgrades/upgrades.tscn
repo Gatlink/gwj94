@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://jviiu8dxoyte" path="res://Upgrades/upgrades.gd" id="1_lausf"]
 [ext_resource type="Script" uid="uid://v5giuvkjoijs" path="res://Upgrades/upgrade.gd" id="2_4by1g"]
-[ext_resource type="Texture2D" uid="uid://bxsx8crbm1h8k" path="res://Art/Icons/Shell.png" id="3_bmwni"]
+[ext_resource type="Texture2D" uid="uid://bxsx8crbm1h8k" path="res://Art/Icons/Life.png" id="3_bmwni"]
 [ext_resource type="Texture2D" uid="uid://dlhy68cm1yxqr" path="res://Art/Icons/Light_stun.png" id="4_bmwni"]
 [ext_resource type="Texture2D" uid="uid://cfy05eci2o078" path="res://Art/Icons/Light.png" id="4_eg2th"]
 [ext_resource type="Texture2D" uid="uid://ckyxlf86ab4ac" path="res://Art/Icons/Hide.png" id="5_luiuq"]
@@ -10,7 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://8a80kb1s5843" path="res://Art/Icons/Light_room.png" id="6_luiuq"]
 [ext_resource type="Texture2D" uid="uid://cgoyp2rhylfaq" path="res://Art/Icons/StrongLeg.png" id="7_bweyj"]
 [ext_resource type="Texture2D" uid="uid://by4v0j8si67xq" path="res://Art/Icons/Light_reveal.png" id="9_eg2th"]
+[ext_resource type="Texture2D" uid="uid://geb56nx7ijgk" path="res://Art/Icons/Life_protection.png" id="9_grwik"]
 [ext_resource type="Texture2D" uid="uid://cclsydc2fnrct" path="res://Art/Icons/Light_weak.png" id="11_0iac8"]
+[ext_resource type="Texture2D" uid="uid://ch60f15wlg7ye" path="res://Art/Icons/Life_stun.png" id="13_2p2vl"]
+[ext_resource type="Texture2D" uid="uid://cv0ndq4xdbhro" path="res://Art/Icons/Life_rebirth.png" id="14_2p2vl"]
+[ext_resource type="Texture2D" uid="uid://b82euxg5qotxd" path="res://Art/Icons/Life_cheap.png" id="15_ub4m8"]
 
 [sub_resource type="Resource" id="Resource_2p2vl"]
 resource_name = "LIGHT"
@@ -65,8 +69,48 @@ metadata/_custom_type_script = "uid://v5giuvkjoijs"
 resource_name = "LIFE"
 script = ExtResource("2_4by1g")
 name = "Hard Shell"
-description = "Your shell thickens, allowing you to prevent one damage before dying."
+description = "Your shell thickens, +1 HP."
 icon = ExtResource("3_bmwni")
+price = 50
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_2nlv4"]
+resource_name = "LIFE_PROTECTION"
+script = ExtResource("2_4by1g")
+name = "Protection"
+description = "A mutant hit can never remove more than 1 HP to you."
+prerequisite = SubResource("Resource_grwik")
+icon = ExtResource("9_grwik")
+price = 100
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_bweyj"]
+resource_name = "LIFE_STUN"
+script = ExtResource("2_4by1g")
+name = "Acid Blood"
+description = "Stuns nearby enemies when hurt."
+prerequisite = SubResource("Resource_grwik")
+icon = ExtResource("13_2p2vl")
+price = 60
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_okf2s"]
+resource_name = "LIFE_REBIRTH"
+script = ExtResource("2_4by1g")
+name = "Second Wind"
+description = "Prevents death and heal 3 HP once."
+prerequisite = SubResource("Resource_grwik")
+icon = ExtResource("14_2p2vl")
+price = 125
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_6d0u2"]
+resource_name = "LIFE_CHEAP"
+script = ExtResource("2_4by1g")
+name = "Easy Recovery"
+description = "Healing is cheaper in the shop."
+prerequisite = SubResource("Resource_grwik")
+icon = ExtResource("15_ub4m8")
 price = 50
 metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
@@ -100,4 +144,4 @@ metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
 [node name="Upgrades" type="Node" unique_id=750500805]
 script = ExtResource("1_lausf")
-all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_ub4m8"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs")])
+all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_2nlv4"), SubResource("Resource_bweyj"), SubResource("Resource_okf2s"), SubResource("Resource_6d0u2"), SubResource("Resource_ub4m8"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs")])

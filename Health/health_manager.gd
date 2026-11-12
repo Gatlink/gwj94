@@ -14,6 +14,7 @@ signal health_changed(current: int, max: int)
 
 var timer: float
 var damage_bonus: int
+var damage_cap: int
 
 
 func _process(delta : float) -> void:
@@ -34,17 +35,20 @@ func hit(damage : int, bump: Vector3) -> void:
 	if current_hp <= 0:
 		return
 	
-	current_hp -= damage + damage_bonus
+	damage += damage_bonus
+	if damage_cap >= 0:
+		damage = mini(damage_cap, damage)
+	current_hp -= damage
 	health_changed.emit(current_hp, max_hp)
+	
+	if owner.has_method("hit"):
+		owner.hit(bump)
 	
 	if is_dead():
 		if owner.has_method("kill"):
 			owner.kill()
 		else:
 			owner.queue_free()
-		return
-	elif owner.has_method("hit"):
-		owner.hit(bump)
 	
 	if invulnerability_duration > 0:
 		timer = invulnerability_duration
@@ -56,3 +60,8 @@ func set_can_be_touched(can_be_touched : bool) -> void:
 		var shape := child as CollisionShape3D
 		if shape != null:
 			shape.disabled = not can_be_touched
+
+
+func heal(amount: int) -> void:
+	current_hp = mini(current_hp + amount, max_hp)
+	health_changed.emit(current_hp, max_hp)

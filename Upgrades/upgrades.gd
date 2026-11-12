@@ -32,6 +32,9 @@ func buy_upgrade(upgrade: Upgrade) -> void:
 	if is_unlocked(upgrade) or Game.money < upgrade.price:
 		return
 	
+	if upgrade.resource_name == "LIFE":
+		Game.current_health += 1
+	
 	_unlocked.append(upgrade.resource_name)
 	Game.money -= upgrade.price
 	Game.register_history("%s%s" % [UIFloor.HISTORY_UPGRADE, upgrade.resource_name])

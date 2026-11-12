@@ -7,6 +7,7 @@ const END_SCREEN := "res://UI/End Screen/end_screen.tscn"
 const SHOP_SCREEN := "res://UI/Shop/upgrade_screen.tscn"
 const SECONDARY_OBJ_COUNT := 2
 const HEAL_PRICE_BASE := 15
+const HEAL_PRICE_REDUCED := 10
 
 
 var level: LevelData
@@ -16,11 +17,11 @@ var floor_history: Dictionary[int, PackedStringArray] = {}
 var start_time: float
 var victory := true
 # HEALTH
-var heal_price: int = HEAL_PRICE_BASE
+var heal_price_factor: int = 1
 var current_health: int = max_health
 var max_health: int:
 	get():
-		return 3
+		return 4 if Upgrades.is_unlocked_id("LIFE") else 3
 
 
 func reset() -> void:
@@ -29,7 +30,7 @@ func reset() -> void:
 	money = 0
 	victory = true
 	current_health = max_health
-	heal_price = HEAL_PRICE_BASE
+	heal_price_factor = 1
 	Upgrades.reset()
 
 
@@ -69,12 +70,17 @@ func register_history(content: String) -> void:
 	floor_history[floor_nbr].append(content)
 
 
+func get_heal_price() -> int:
+	return heal_price_factor * (HEAL_PRICE_REDUCED if Upgrades.is_unlocked_id("LIFE_CHEAP") else HEAL_PRICE_BASE)
+
+
 func heal() -> void:
-	if current_health >= max_health or money < heal_price:
+	var price := get_heal_price()
+	if current_health >= max_health or money < price:
 		return
 	
 	current_health += 1
-	money -= heal_price
-	heal_price += HEAL_PRICE_BASE
+	money -= price
+	heal_price_factor += 1
 	
 	register_history(UIFloor.HISTORY_HEAL)
