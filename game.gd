@@ -30,6 +30,7 @@ func reset() -> void:
 	victory = true
 	current_health = max_health
 	heal_price = HEAL_PRICE_BASE
+	Upgrades.reset()
 
 
 func start_level(new_level: LevelData) -> void:

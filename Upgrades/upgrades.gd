@@ -56,3 +56,8 @@ func get_available_upgrades() -> Array[Upgrade]:
 			break
 	
 	return _available
+
+
+func reset() -> void:
+	_available.clear()
+	_unlocked.clear()
