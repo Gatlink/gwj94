@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ckyxlf86ab4ac" path="res://Art/Icons/Shell.png" id="1_hk36w"]
 [ext_resource type="PackedScene" uid="uid://dgct6t57ahoc7" path="res://UI/CircularProgressBar/circular_progress_bar.tscn" id="1_jqrxu"]
 [ext_resource type="Texture2D" uid="uid://1jqfn24h1gr7" path="res://UI/AboveHeadUI/xbox_button_a.svg" id="2_nowia"]
+[ext_resource type="Texture2D" uid="uid://cmln3hxdw8bv8" path="res://Art/Icons/Speed_dash.png" id="5_23oup"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 48
 
 [node name="AboveHeadUI" type="Control" unique_id=1488416326]
 layout_mode = 3
@@ -32,6 +36,7 @@ stretch_mode = 5
 
 [node name="All" type="HBoxContainer" parent="VBoxContainer" unique_id=2020710012]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -48,4 +53,32 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="ShellProgress" parent="VBoxContainer/All/Shell" unique_id=373222627 instance=ExtResource("1_jqrxu")]
+layout_mode = 2
+
+[node name="Dash" type="HBoxContainer" parent="VBoxContainer/All" unique_id=877160333]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/All/Dash" unique_id=260677385]
+layout_mode = 2
+texture = ExtResource("5_23oup")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Crossed" type="Label" parent="VBoxContainer/All/Dash/TextureRect" unique_id=219527918]
+self_modulate = Color(1, 0.16000003, 0.16000003, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DashProgress" parent="VBoxContainer/All/Dash" unique_id=1772277993 instance=ExtResource("1_jqrxu")]
 layout_mode = 2

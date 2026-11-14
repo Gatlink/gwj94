@@ -22,6 +22,7 @@ var current_room_idx: int = -1
 @onready var collision: CollisionShape3D = $PhysicsCollision
 @onready var light: OmniLight3D = $LightHolder/Light
 @onready var sfx_objective: AudioStreamPlayer3D = $SFXObjective
+@onready var above_ui_pos: Marker3D = $AboveUIPos
 
 #region STATES
 @onready var no_input: PlayerNoInput = $NoInput
@@ -32,7 +33,7 @@ var current_room_idx: int = -1
 @onready var die: PlayerDie = $Die
 @onready var shoot: PlayerShoot = $Shoot
 @onready var bump: PlayerBump = $Bump
-@onready var above_ui_pos: Marker3D = $AboveUIPos
+@onready var dash: PlayerDash = $Dash
 #endregion
 
 func _ready() -> void:

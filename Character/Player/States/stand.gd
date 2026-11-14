@@ -18,5 +18,11 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shell") and Upgrades.is_unlocked_id("SHELL"):
 		player.hide_shell.transition_to()
-	elif event.is_action_pressed("shoot") and player.weapon != null and player.weapon.can_use():
+	elif event.is_action_pressed("shoot") \
+			and player.weapon != null \
+			and player.weapon.can_use():
 		player.shoot.transition_to()
+	elif event.is_action_pressed("dash") \
+			and Upgrades.is_unlocked_id("SPEED_DASH") \
+			and player.dash.can_dash():
+		player.dash.transition_to()

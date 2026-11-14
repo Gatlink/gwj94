@@ -6,18 +6,18 @@ const DURATION := 0.1
 
 
 var bump: Vector3
-var timer: float
+var _timer: float
 
 
 func enter() -> void:
 	super()
-	timer = 0
+	_timer = DURATION
 
 
 func _physics_process(delta: float) -> void:
 	player.velocity = bump
 	player.move_and_slide()
 	
-	timer += delta
-	if timer >= DURATION:
+	_timer -= delta
+	if _timer <= 0:
 		player.stand.transition_to()
