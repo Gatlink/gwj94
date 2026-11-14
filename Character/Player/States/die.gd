@@ -7,6 +7,7 @@ const DURATION := 1.0
 
 func enter() -> void:
 	super()
+	AboveHeadUI.hide_all()
 	player.dummy.idle()
 	Game.victory = false
 	Game.register_history(UIFloor.HISTORY_DEATH)
