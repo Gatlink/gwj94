@@ -14,7 +14,7 @@ signal health_changed(current: int, max: int)
 
 var timer: float
 var damage_bonus: int
-var damage_cap: int
+var damage_cap: int = -1
 
 
 func _process(delta : float) -> void:
