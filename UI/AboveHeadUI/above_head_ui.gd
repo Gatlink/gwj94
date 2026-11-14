@@ -49,6 +49,10 @@ func _process(_delta: float) -> void:
 	var pos_3d: Vector3 = PlayerCharacter.instance.above_ui_pos.global_position
 	position = get_viewport().get_camera_3d().unproject_position(pos_3d)
 	
+	if _visible_elements & UIElement.SHELL:
+		var hide_state := PlayerCharacter.instance.hide_shell
+		_shell_progress.value = hide_state.get_timer_ratio()
+	
 	if _visible_elements & UIElement.INPUT:
 		var use_keyboard: bool = PlayerInput.use_kb_mouse
 		_input.modulate = KEYBOARD_COLOR if use_keyboard else JOYPAD_COLOR
