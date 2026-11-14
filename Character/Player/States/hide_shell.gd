@@ -3,11 +3,12 @@ extends PlayerHide
 
 
 const DURATION: float = 5.0
+const DURATION_VENT: float = DURATION * 1.5
 const REFILL_DURATION: float = 8.0
 const MOVE_FACTOR: float = 0.25
 
 
-var _timer: float = DURATION
+var _timer: float
 var _refill_tween: Tween
 
 
@@ -22,8 +23,13 @@ func exit() -> void:
 	super()
 	var tween_duration: float = REFILL_DURATION * (1 - get_timer_ratio())
 	_refill_tween = create_tween()
-	_refill_tween.tween_property(self, "_timer", DURATION, tween_duration)
+	_refill_tween.tween_property(self, "_timer", get_duration(), tween_duration)
 	_refill_tween.tween_callback(AboveHeadUI.hide_element.bind(AboveHeadUI.UIElement.SHELL))
+
+
+func _ready() -> void:
+	super()
+	_timer = get_duration()
 
 
 func _process(delta: float) -> void:
@@ -37,9 +43,13 @@ func _physics_process(_delta: float) -> void:
 		player.move(MOVE_FACTOR, true)
 
 
+func get_duration() -> float:
+	return DURATION_VENT if Upgrades.is_unlocked_id("SHELL_VENT") else DURATION
+
+
 func get_timer_ratio() -> float:
-	return _timer / DURATION
+	return _timer / get_duration()
 
 
 func emergency_refill() -> void:
-	_timer = maxf(_timer, DURATION * 0.5)
+	_timer = maxf(_timer, get_duration() * 0.5)
