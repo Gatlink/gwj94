@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c10jop47j7lis"]
 
 [ext_resource type="Script" uid="uid://0i5o45qms8ea" path="res://UI/AboveHeadUI/above_head_ui.gd" id="1_7k2ef"]
-[ext_resource type="Texture2D" uid="uid://ckyxlf86ab4ac" path="res://Art/Icons/Hide.png" id="1_hk36w"]
+[ext_resource type="Texture2D" uid="uid://ckyxlf86ab4ac" path="res://Art/Icons/Shell.png" id="1_hk36w"]
 [ext_resource type="PackedScene" uid="uid://dgct6t57ahoc7" path="res://UI/CircularProgressBar/circular_progress_bar.tscn" id="1_jqrxu"]
 [ext_resource type="Texture2D" uid="uid://1jqfn24h1gr7" path="res://UI/AboveHeadUI/xbox_button_a.svg" id="2_nowia"]
 
