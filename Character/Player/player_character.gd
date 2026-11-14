@@ -86,6 +86,13 @@ func hit(bump_force: Vector3) -> void:
 		for mutant in Mutant.all:
 			if mutant.can_be_stunned() and mutant.global_position.distance_squared_to(global_position) <= LIFE_STUN_RANGE ** 2:
 				mutant.stunned.transition_to()
+	
+	if is_dead():
+		return
+	
+	if Upgrades.is_unlocked_id("SHELL_EMERGENCY"):
+		hide_shell.transition_to()
+		hide_shell.emergency_refill()
 
 
 func kill() -> void:

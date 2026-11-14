@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bxsx8crbm1h8k" path="res://Art/Icons/Life.png" id="3_bmwni"]
 [ext_resource type="Texture2D" uid="uid://dlhy68cm1yxqr" path="res://Art/Icons/Light_stun.png" id="4_bmwni"]
 [ext_resource type="Texture2D" uid="uid://cfy05eci2o078" path="res://Art/Icons/Light.png" id="4_eg2th"]
-[ext_resource type="Texture2D" uid="uid://ckyxlf86ab4ac" path="res://Art/Icons/Hide.png" id="5_luiuq"]
+[ext_resource type="Texture2D" uid="uid://ckyxlf86ab4ac" path="res://Art/Icons/Shell.png" id="5_luiuq"]
 [ext_resource type="Texture2D" uid="uid://c5ncp1f7wa8yl" path="res://Art/Icons/Shotgun.png" id="6_0iac8"]
 [ext_resource type="Texture2D" uid="uid://8a80kb1s5843" path="res://Art/Icons/Light_room.png" id="6_luiuq"]
 [ext_resource type="Texture2D" uid="uid://cgoyp2rhylfaq" path="res://Art/Icons/StrongLeg.png" id="7_bweyj"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ch60f15wlg7ye" path="res://Art/Icons/Life_stun.png" id="13_2p2vl"]
 [ext_resource type="Texture2D" uid="uid://cv0ndq4xdbhro" path="res://Art/Icons/Life_rebirth.png" id="14_2p2vl"]
 [ext_resource type="Texture2D" uid="uid://b82euxg5qotxd" path="res://Art/Icons/Life_cheap.png" id="15_ub4m8"]
+[ext_resource type="Texture2D" uid="uid://c2re8bctimra5" path="res://Art/Icons/Shell_emergency.png" id="16_2qg1a"]
 
 [sub_resource type="Resource" id="Resource_2p2vl"]
 resource_name = "LIGHT"
@@ -124,6 +125,16 @@ icon = ExtResource("5_luiuq")
 price = 30
 metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
+[sub_resource type="Resource" id="Resource_nowia"]
+resource_name = "SHELL_EMERGENCY"
+script = ExtResource("2_4by1g")
+name = "Withdrawal"
+description = "When hit, automatically hide in your shell."
+prerequisite = SubResource("Resource_ub4m8")
+icon = ExtResource("16_2qg1a")
+price = 50
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
 [sub_resource type="Resource" id="Resource_2qg1a"]
 resource_name = "SHOTGUN"
 script = ExtResource("2_4by1g")
@@ -144,4 +155,4 @@ metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
 [node name="Upgrades" type="Node" unique_id=750500805]
 script = ExtResource("1_lausf")
-all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_2nlv4"), SubResource("Resource_bweyj"), SubResource("Resource_okf2s"), SubResource("Resource_6d0u2"), SubResource("Resource_ub4m8"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs")])
+all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_2nlv4"), SubResource("Resource_bweyj"), SubResource("Resource_okf2s"), SubResource("Resource_6d0u2"), SubResource("Resource_ub4m8"), SubResource("Resource_nowia"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs")])

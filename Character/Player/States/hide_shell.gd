@@ -33,3 +33,7 @@ func _process(delta: float) -> void:
 
 func get_timer_ratio() -> float:
 	return _timer / DURATION
+
+
+func emergency_refill() -> void:
+	_timer = maxf(_timer, DURATION * 0.5)
