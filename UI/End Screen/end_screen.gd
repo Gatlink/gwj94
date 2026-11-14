@@ -14,7 +14,7 @@ const FLOOR_TOP = preload("uid://dx6vlfhr8quue")
 
 
 func _ready() -> void:
-	if Game.victory:
+	if Game.current_health > 0:
 		title.text = "Victory!"
 	
 	var duration := roundi((Time.get_ticks_msec() - Game.start_time) / 1000)
@@ -54,5 +54,5 @@ func add_floor(floor_idx: int) -> void:
 		else:
 			instance.display_content_right(floor_idx)
 	
-	if floor_idx < Game.floor_nbr or Game.floor_nbr == floor_idx and Game.victory:
+	if floor_idx < Game.floor_nbr or (Game.floor_nbr == floor_idx and Game.current_health > 0):
 		instance.light_windows()

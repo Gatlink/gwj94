@@ -9,7 +9,6 @@ func enter() -> void:
 	super()
 	AboveHeadUI.hide_all()
 	player.dummy.idle()
-	Game.victory = false
 	Game.register_history(UIFloor.HISTORY_DEATH)
 	
 	var tween := create_tween()

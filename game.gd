@@ -15,7 +15,6 @@ var floor_nbr: int = 1
 var money: int = 0
 var floor_history: Dictionary[int, PackedStringArray] = {}
 var start_time: float
-var victory := true
 # HEALTH
 var heal_price_factor: int = 1
 var current_health: int = max_health
@@ -28,7 +27,6 @@ func reset() -> void:
 	floor_history.clear()
 	floor_nbr = 1
 	money = 0
-	victory = true
 	current_health = max_health
 	heal_price_factor = 1
 	Upgrades.reset()
