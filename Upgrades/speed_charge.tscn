@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://daucqa7on3wdc"]
+
+[ext_resource type="Script" uid="uid://ba6l7cl2gvmj4" path="res://Upgrades/speed_charge.gd" id="1_kx4bx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 1.0
+
+[node name="SpeedCharge" type="Area3D" unique_id=1803840521]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("1_kx4bx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=789177333]
+shape = SubResource("SphereShape3D_g4v7s")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
