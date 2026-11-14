@@ -7,7 +7,8 @@ enum {
 	SHELL = 0b1,
 	INPUT = 0b10,
 	DASH = 0b100,
-	ALL = 0b111,
+	DODGE = 0b1000,
+	ALL = 0b1111,
 }
 
 
@@ -29,6 +30,8 @@ var _visible_elements: int = NONE
 @onready var _shell_progress: TextureProgressBar = $VBoxContainer/All/Shell/ShellProgress
 @onready var _dash: HBoxContainer = $VBoxContainer/All/Dash
 @onready var _dash_progress: TextureProgressBar = $VBoxContainer/All/Dash/DashProgress
+@onready var _dodge: HBoxContainer = $VBoxContainer/All/Dodge
+@onready var _dodge_progress: TextureProgressBar = $VBoxContainer/All/Dodge/DodgeProgress
 
 
 static func show_element(element: int) -> void:
@@ -69,6 +72,9 @@ func _process(_delta: float) -> void:
 	if _visible_elements & DASH:
 		var dash: PlayerDash = PlayerCharacter.instance.dash
 		_dash_progress.value = dash.get_cooldown_ratio()
+	
+	if _visible_elements & DODGE:
+		_dodge_progress.value = PlayerCharacter.instance.get_dodge_cooldown_ratio()
 
 
 func _exit_tree() -> void:
@@ -96,3 +102,4 @@ func _refresh_elements() -> void:
 	_shell.visible = _visible_elements & SHELL
 	_input.visible = _visible_elements & INPUT
 	_dash.visible = _visible_elements & DASH
+	_dodge.visible = _visible_elements & DODGE

@@ -38,6 +38,7 @@ func hit(damage : int, bump: Vector3) -> void:
 	damage += damage_bonus
 	if damage_cap >= 0:
 		damage = mini(damage_cap, damage)
+	
 	current_hp -= damage
 	health_changed.emit(current_hp, max_hp)
 	

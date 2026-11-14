@@ -2,14 +2,15 @@ class_name PlayerCharacter
 extends Character
 
 
-const SPEED := 5.0
-const SPEED_BOOSTED := SPEED * 1.2
-const LIGHT_RANGE_BONUS := 2.0
 const WEAPON_SHOTGUN := preload("uid://c0ln62oshwty4")
 const LIGHT_STUN = preload("uid://do4psnfi756tu")
 const LIGHT_ROOM = preload("uid://cbd6b526axmhr")
-const LIFE_STUN_RANGE := 5.0
 const SPEED_CHARGE = preload("uid://daucqa7on3wdc")
+const SPEED := 5.0
+const SPEED_BOOSTED := SPEED * 1.2
+const LIGHT_RANGE_BONUS := 2.0
+const LIFE_STUN_RANGE := 5.0
+const DODGE_COOLDOWN := 30.0
 
 
 static var instance: PlayerCharacter
@@ -18,6 +19,7 @@ static var instance: PlayerCharacter
 var was_hit: bool
 var weapon: WeaponBase
 var current_room_idx: int = -1
+var _dodge_cooldown: float
 
 
 @onready var collision: CollisionShape3D = $PhysicsCollision
@@ -49,10 +51,10 @@ func _ready() -> void:
 		add_child(weapon)
 	if Upgrades.is_unlocked_id("LIGHT_STUN"):
 		add_child(LIGHT_STUN.instantiate())
-	if Upgrades.is_unlocked_id("LIFE_PROTECTION"):
-		health_manager.damage_cap = 1
 	if Upgrades.is_unlocked_id("SPEED_CHARGE"):
 		add_child(SPEED_CHARGE.instantiate())
+	
+	_set_damage_cap()
 	
 	super()
 	
@@ -76,6 +78,12 @@ func _process(_delta: float) -> void:
 	var current_room := Level.current.get_room_idx(global_position)
 	if current_room != current_room_idx:
 		current_room_idx = current_room
+	
+	if _dodge_cooldown > 0:
+		_dodge_cooldown -= _delta
+		if _dodge_cooldown <= 0:
+			_set_damage_cap()
+			AboveHeadUI.hide_element(AboveHeadUI.DODGE)
 
 
 func get_speed() -> float:
@@ -102,6 +110,12 @@ func move(speed_factor: float = 1.0, lock_look_at: bool = false) -> void:
 
 
 func hit(bump_force: Vector3) -> void:
+	if _can_dodge():
+		_dodge_cooldown = DODGE_COOLDOWN
+		_set_damage_cap()
+		AboveHeadUI.show_element(AboveHeadUI.DODGE)
+		return
+	
 	bump.bump = bump_force
 	bump.transition_to()
 	
@@ -134,3 +148,20 @@ func is_in_light_range(pos: Vector3) -> bool:
 	if Upgrades.is_unlocked_id("LIGHT_ROOM"):
 		return Level.current.get_room_idx(pos) == current_room_idx
 	return global_position.distance_squared_to(pos) <= light.omni_range ** 2
+
+
+func get_dodge_cooldown_ratio() -> float:
+	return _dodge_cooldown / DODGE_COOLDOWN
+
+
+func _set_damage_cap() -> void:
+	if _can_dodge():
+		health_manager.damage_cap = 0
+	elif Upgrades.is_unlocked_id("LIFE_PROTECTION"):
+		health_manager.damage_cap = 1
+	else:
+		health_manager.damage_cap = -1
+
+
+func _can_dodge() -> bool:
+	return Upgrades.is_unlocked_id("SPEED_DODGE") and _dodge_cooldown <= 0
