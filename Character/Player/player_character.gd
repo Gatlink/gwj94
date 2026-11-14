@@ -11,6 +11,7 @@ const SPEED_BOOSTED := SPEED * 1.2
 const LIGHT_RANGE_BONUS := 2.0
 const LIFE_STUN_RANGE := 5.0
 const DODGE_COOLDOWN := 30.0
+const REACH_RADIUS := 2.5
 
 
 static var instance: PlayerCharacter
@@ -28,6 +29,7 @@ var _dodge_cooldown: float
 @onready var light: OmniLight3D = $LightHolder/Light
 @onready var sfx_objective: AudioStreamPlayer3D = $SFXObjective
 @onready var above_ui_pos: Marker3D = $AboveUIPos
+@onready var reach_shape: CollisionShape3D = $InteractionRange/CollisionShape3D
 
 #region STATES
 @onready var no_input: PlayerNoInput = $NoInput
@@ -55,6 +57,8 @@ func _ready() -> void:
 		add_child(LIGHT_STUN.instantiate())
 	if Upgrades.is_unlocked_id("SPEED_CHARGE"):
 		add_child(SPEED_CHARGE.instantiate())
+	if Upgrades.is_unlocked_id("SPEED_REACH"):
+		reach_shape.shape.radius = REACH_RADIUS
 	
 	_set_damage_cap()
 	
