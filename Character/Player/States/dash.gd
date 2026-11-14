@@ -27,11 +27,11 @@ func enter() -> void:
 func exit() -> void:
 	super()
 	player.health_manager.set_can_be_touched(true)
-	AboveHeadUI.show_element(AboveHeadUI.UIElement.DASH)
+	AboveHeadUI.show_element(AboveHeadUI.DASH)
 	_cooldown = DASH_COOLDOWN
 	_cooldown_tween = create_tween()
 	_cooldown_tween.tween_property(self, "_cooldown", 0.0, DASH_COOLDOWN)
-	_cooldown_tween.tween_callback(AboveHeadUI.hide_element.bind(AboveHeadUI.UIElement.DASH))
+	_cooldown_tween.tween_callback(AboveHeadUI.hide_element.bind(AboveHeadUI.DASH))
 	_cooldown_tween.play()
 
 

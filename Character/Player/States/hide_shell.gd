@@ -14,7 +14,7 @@ var _refill_tween: Tween
 
 func enter() -> void:
 	super()
-	AboveHeadUI.show_element(AboveHeadUI.UIElement.SHELL)
+	AboveHeadUI.show_element(AboveHeadUI.SHELL)
 	if _refill_tween != null and _refill_tween.is_running():
 		_refill_tween.kill()
 
@@ -24,7 +24,7 @@ func exit() -> void:
 	var tween_duration: float = REFILL_DURATION * (1 - get_timer_ratio())
 	_refill_tween = create_tween()
 	_refill_tween.tween_property(self, "_timer", get_duration(), tween_duration)
-	_refill_tween.tween_callback(AboveHeadUI.hide_element.bind(AboveHeadUI.UIElement.SHELL))
+	_refill_tween.tween_callback(AboveHeadUI.hide_element.bind(AboveHeadUI.SHELL))
 
 
 func _ready() -> void:

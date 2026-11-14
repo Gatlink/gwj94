@@ -2,7 +2,7 @@ class_name AboveHeadUI
 extends Control
 
 
-enum UIElement {
+enum {
 	NONE = 0b0,
 	SHELL = 0b1,
 	INPUT = 0b10,
@@ -20,7 +20,7 @@ const KEYBOARD_TEXTURE = preload("uid://cmg4y7p1qgp4y")
 static var _instance: AboveHeadUI
 
 
-var _visible_elements: int = UIElement.NONE
+var _visible_elements: int = NONE
 
 
 @onready var _input: TextureRect = $VBoxContainer/Input
@@ -31,18 +31,18 @@ var _visible_elements: int = UIElement.NONE
 @onready var _dash_progress: TextureProgressBar = $VBoxContainer/All/Dash/DashProgress
 
 
-static func show_element(element: UIElement) -> void:
+static func show_element(element: int) -> void:
 	if _instance != null:
 		_instance._show_element(element)
 
 
-static func hide_element(element: UIElement) -> void:
+static func hide_element(element: int) -> void:
 	if _instance != null:
 		_instance._hide_element(element)
 
 
 static func hide_all() -> void:
-	hide_element(UIElement.ALL)
+	hide_element(ALL)
 
 
 func _ready() -> void:
@@ -57,16 +57,16 @@ func _process(_delta: float) -> void:
 	var pos_3d: Vector3 = PlayerCharacter.instance.above_ui_pos.global_position
 	position = get_viewport().get_camera_3d().unproject_position(pos_3d)
 	
-	if _visible_elements & UIElement.INPUT:
+	if _visible_elements & INPUT:
 		var use_keyboard: bool = PlayerInput.use_kb_mouse
 		_input.modulate = KEYBOARD_COLOR if use_keyboard else JOYPAD_COLOR
 		_input.texture = KEYBOARD_TEXTURE if use_keyboard else JOYPAD_TEXTURE
 	
-	if _visible_elements & UIElement.SHELL:
+	if _visible_elements & SHELL:
 		var hide_state: PlayerHideShell = PlayerCharacter.instance.hide_shell
 		_shell_progress.value = hide_state.get_timer_ratio()
 	
-	if _visible_elements & UIElement.DASH:
+	if _visible_elements & DASH:
 		var dash: PlayerDash = PlayerCharacter.instance.dash
 		_dash_progress.value = dash.get_cooldown_ratio()
 
@@ -75,7 +75,7 @@ func _exit_tree() -> void:
 	_instance = null
 
 
-func _show_element(element: UIElement) -> void:
+func _show_element(element: int) -> void:
 	_visible_elements |= element
 	set_process(true)
 	_refresh_elements()
@@ -84,15 +84,15 @@ func _show_element(element: UIElement) -> void:
 		show()
 
 
-func _hide_element(element: UIElement) -> void:
+func _hide_element(element: int) -> void:
 	_visible_elements &= ~element
 	_refresh_elements()
-	if _visible_elements == UIElement.NONE:
+	if _visible_elements == NONE:
 		set_process(false)
 		hide()
 
 
 func _refresh_elements() -> void:
-	_shell.visible = _visible_elements & UIElement.SHELL
-	_input.visible = _visible_elements & UIElement.INPUT
-	_dash.visible = _visible_elements & UIElement.DASH
+	_shell.visible = _visible_elements & SHELL
+	_input.visible = _visible_elements & INPUT
+	_dash.visible = _visible_elements & DASH
