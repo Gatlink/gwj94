@@ -6,12 +6,11 @@
 [ext_resource type="Script" uid="uid://dpys6klengdyb" path="res://Character/Player/States/stand.gd" id="3_wj11p"]
 [ext_resource type="Script" uid="uid://bof87jdc17wsj" path="res://Character/Player/States/move_to.gd" id="4_03ek6"]
 [ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/Player/player_dummy.tscn" id="5_14b3u"]
-[ext_resource type="Texture2D" uid="uid://1jqfn24h1gr7" path="res://InputPrompt/xbox_button_a.svg" id="6_03ek6"]
 [ext_resource type="Script" uid="uid://cxb0llhvd73j7" path="res://Character/Player/States/hide.gd" id="6_08wd5"]
-[ext_resource type="Script" uid="uid://b2hjdph5wiest" path="res://InputPrompt/input_prompt.gd" id="6_wj11p"]
 [ext_resource type="Script" uid="uid://b7ajy1gfptajh" path="res://Character/Player/States/die.gd" id="7_1vi68"]
 [ext_resource type="Script" uid="uid://dhg88r3n05dy8" path="res://Character/Player/States/shoot.gd" id="8_agv0s"]
 [ext_resource type="Script" uid="uid://bpox8jgld4tig" path="res://Character/Player/States/bump.gd" id="9_6vabk"]
+[ext_resource type="Script" uid="uid://tdgr373khtc6" path="res://Character/Player/States/hide_shell.gd" id="10_mss4s"]
 [ext_resource type="AudioStream" uid="uid://d4joi7x7b8rb1" path="res://Objective/SFX/ding1.ogg" id="13_6vabk"]
 [ext_resource type="AudioStream" uid="uid://dtpen3k3ggdno" path="res://Objective/SFX/ding2.ogg" id="14_mss4s"]
 [ext_resource type="AudioStream" uid="uid://cj40rbfusanf3" path="res://Objective/SFX/ding3.ogg" id="15_8dlre"]
@@ -55,11 +54,15 @@ metadata/_custom_type_script = "uid://b7ajy1gfptajh"
 script = ExtResource("8_agv0s")
 metadata/_custom_type_script = "uid://dhg88r3n05dy8"
 
-[node name="PlayerBump" type="Node" parent="." index="6" unique_id=1854220829]
+[node name="Bump" type="Node" parent="." index="6" unique_id=1854220829]
 script = ExtResource("9_6vabk")
 metadata/_custom_type_script = "uid://bpox8jgld4tig"
 
-[node name="Graph" parent="." index="8" unique_id=789870063]
+[node name="HideShell" type="Node" parent="." index="7" unique_id=227970775]
+script = ExtResource("10_mss4s")
+metadata/_custom_type_script = "uid://tdgr373khtc6"
+
+[node name="Graph" parent="." index="9" unique_id=789870063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CharacterDummy" parent="Graph" index="0" unique_id=1327689915 instance=ExtResource("5_14b3u")]
@@ -75,18 +78,10 @@ remote_path = NodePath("../../LightHolder")
 update_position = false
 update_scale = false
 
-[node name="HealthManager" parent="." index="9" unique_id=609887048]
+[node name="HealthManager" parent="." index="10" unique_id=609887048]
 collision_layer = 64
 max_hp = 3
 invulnerability_duration = 0.5
-
-[node name="InputPrompt" type="Sprite3D" parent="." index="10" unique_id=1407943177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9900403, 0)
-visible = false
-billboard = 1
-texture = ExtResource("6_03ek6")
-script = ExtResource("6_wj11p")
-metadata/_custom_type_script = "uid://b2hjdph5wiest"
 
 [node name="LightHolder" type="Node3D" parent="." index="11" unique_id=1397906411]
 
@@ -101,3 +96,6 @@ omni_attenuation = 2.0
 stream = SubResource("AudioStreamRandomizer_0i5j3")
 volume_db = -4.0
 bus = &"SFXPlayer"
+
+[node name="AboveUIPos" type="Marker3D" parent="." index="13" unique_id=739801044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)

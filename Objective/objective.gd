@@ -12,7 +12,7 @@ extends Interactable
 
 func on_interact() -> void:
 	Game.money += money_gain
-	player.input_prompt.hide()
+	AboveHeadUI.hide_element(AboveHeadUI.UIElement.INPUT)
 	player.sfx_objective.play()
 	HUD.instance.refresh_money()
 	queue_free()

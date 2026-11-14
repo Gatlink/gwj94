@@ -14,24 +14,26 @@ const LIFE_STUN_RANGE := 5.0
 static var instance: PlayerCharacter
 
 
-@onready var input_prompt: InputPrompt = $InputPrompt
-@onready var collision: CollisionShape3D = $PhysicsCollision
-@onready var light: OmniLight3D = $LightHolder/Light
-@onready var sfx_objective: AudioStreamPlayer3D = $SFXObjective
-# STATES
-@onready var no_input: PlayerNoInput = $NoInput
-@onready var stand: PlayerStand = $Stand
-@onready var move_to: PlayerMoveTo = $MoveTo
-@onready var hide_state: PlayerHide = $Hide
-@onready var die: PlayerDie = $Die
-@onready var shoot: PlayerShoot = $Shoot
-@onready var bump: PlayerBump = $PlayerBump
-
-
 var was_hit: bool
 var weapon: WeaponBase
 var current_room_idx: int = -1
 
+
+@onready var collision: CollisionShape3D = $PhysicsCollision
+@onready var light: OmniLight3D = $LightHolder/Light
+@onready var sfx_objective: AudioStreamPlayer3D = $SFXObjective
+
+#region STATES
+@onready var no_input: PlayerNoInput = $NoInput
+@onready var stand: PlayerStand = $Stand
+@onready var move_to: PlayerMoveTo = $MoveTo
+@onready var hide_state: PlayerHide = $Hide
+@onready var hide_shell: PlayerHideShell = $HideShell
+@onready var die: PlayerDie = $Die
+@onready var shoot: PlayerShoot = $Shoot
+@onready var bump: PlayerBump = $Bump
+@onready var above_ui_pos: Marker3D = $AboveUIPos
+#endregion
 
 func _ready() -> void:
 	instance = self

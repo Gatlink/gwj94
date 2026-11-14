@@ -8,7 +8,7 @@ func enter() -> void:
 	player.dummy.idle()
 	player.dummy.armature.hide()
 	player.dummy.shell.show()
-	player.input_prompt.show()
+	AboveHeadUI.show_element(AboveHeadUI.UIElement.INPUT)
 
 
 func exit() -> void:
@@ -16,7 +16,7 @@ func exit() -> void:
 	player.collision.disabled = false
 	player.dummy.shell.hide()
 	player.dummy.armature.show()
-	player.input_prompt.hide()
+	AboveHeadUI.hide_element(AboveHeadUI.UIElement.INPUT)
 
 
 func _unhandled_input(event: InputEvent) -> void:

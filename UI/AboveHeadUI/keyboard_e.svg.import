@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1jqfn24h1gr7"
-path.s3tc="res://.godot/imported/xbox_button_a.svg-44a0717db533b3ae317a41a811480d97.s3tc.ctex"
+uid="uid://cmg4y7p1qgp4y"
+path.s3tc="res://.godot/imported/keyboard_e.svg-cb4335d1d78a34c31395c24caff01257.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://InputPrompt/xbox_button_a.svg"
-dest_files=["res://.godot/imported/xbox_button_a.svg-44a0717db533b3ae317a41a811480d97.s3tc.ctex"]
+source_file="res://UI/AboveHeadUI/keyboard_e.svg"
+dest_files=["res://.godot/imported/keyboard_e.svg-cb4335d1d78a34c31395c24caff01257.s3tc.ctex"]
 
 [params]
 

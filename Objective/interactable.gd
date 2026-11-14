@@ -20,13 +20,13 @@ func _on_body_entered(body: Node3D) -> void:
 	var new_char = body as PlayerCharacter
 	if new_char != null and not new_char.state is PlayerDie:
 		player = new_char
-		player.input_prompt.show()
+		AboveHeadUI.show_element(AboveHeadUI.UIElement.INPUT)
 
 
 func _on_body_exited(body: Node3D) -> void:
 	var new_char = body as PlayerCharacter
 	if new_char != null and player == new_char:
-		player.input_prompt.hide()
+		AboveHeadUI.hide_element(AboveHeadUI.UIElement.INPUT)
 		player = null
 
 
