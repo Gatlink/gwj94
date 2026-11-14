@@ -78,6 +78,25 @@ func get_speed() -> float:
 	return SPEED_BOOSTED if Upgrades.is_unlocked_id("SPEED") else SPEED
 
 
+func move(speed_factor: float = 1.0, lock_look_at: bool = false) -> void:
+	# Movement
+	var speed: float = get_speed() * speed_factor
+	if PlayerInput.move_dir:
+		velocity.x = PlayerInput.move_dir.x * speed
+		velocity.z = PlayerInput.move_dir.z * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
+	
+	move_and_slide()
+	
+	# Look At
+	if not lock_look_at and PlayerInput.look_dir != Vector3.ZERO:
+		look_toward(PlayerInput.look_dir)
+	elif PlayerInput.move_dir != Vector3.ZERO:
+		look_toward(PlayerInput.move_dir)
+
+
 func hit(bump_force: Vector3) -> void:
 	bump.bump = bump_force
 	bump.transition_to()

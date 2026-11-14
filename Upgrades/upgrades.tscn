@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cclsydc2fnrct" path="res://Art/Icons/Light_weak.png" id="11_0iac8"]
 [ext_resource type="Texture2D" uid="uid://ch60f15wlg7ye" path="res://Art/Icons/Life_stun.png" id="13_2p2vl"]
 [ext_resource type="Texture2D" uid="uid://cv0ndq4xdbhro" path="res://Art/Icons/Life_rebirth.png" id="14_2p2vl"]
+[ext_resource type="Texture2D" uid="uid://qaqfojlhu2x3" path="res://Art/Icons/Shell_move.png" id="15_3rbjs"]
 [ext_resource type="Texture2D" uid="uid://b82euxg5qotxd" path="res://Art/Icons/Life_cheap.png" id="15_ub4m8"]
 [ext_resource type="Texture2D" uid="uid://c2re8bctimra5" path="res://Art/Icons/Shell_emergency.png" id="16_2qg1a"]
 
@@ -136,6 +137,16 @@ price = 50
 metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
 [sub_resource type="Resource" id="Resource_2qg1a"]
+resource_name = "SHELL_MOVE"
+script = ExtResource("2_4by1g")
+name = "Tip Toe"
+description = "Allows you to move while being hidden in your shell."
+prerequisite = SubResource("Resource_ub4m8")
+icon = ExtResource("15_3rbjs")
+price = 75
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
+[sub_resource type="Resource" id="Resource_8w1q4"]
 resource_name = "SHOTGUN"
 script = ExtResource("2_4by1g")
 name = "Shotgun"
@@ -155,4 +166,4 @@ metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
 [node name="Upgrades" type="Node" unique_id=750500805]
 script = ExtResource("1_lausf")
-all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_2nlv4"), SubResource("Resource_bweyj"), SubResource("Resource_okf2s"), SubResource("Resource_6d0u2"), SubResource("Resource_ub4m8"), SubResource("Resource_nowia"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs")])
+all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_2nlv4"), SubResource("Resource_bweyj"), SubResource("Resource_okf2s"), SubResource("Resource_6d0u2"), SubResource("Resource_ub4m8"), SubResource("Resource_nowia"), SubResource("Resource_2qg1a"), SubResource("Resource_8w1q4"), SubResource("Resource_3rbjs")])

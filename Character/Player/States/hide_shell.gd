@@ -4,6 +4,7 @@ extends PlayerHide
 
 const DURATION: float = 5.0
 const REFILL_DURATION: float = 8.0
+const MOVE_FACTOR: float = 0.25
 
 
 var _timer: float = DURATION
@@ -29,6 +30,11 @@ func _process(delta: float) -> void:
 	_timer -= delta
 	if _timer <= 0:
 		player.stand.transition_to()
+
+
+func _physics_process(_delta: float) -> void:
+	if Upgrades.is_unlocked_id("SHELL_MOVE"):
+		player.move(MOVE_FACTOR, true)
 
 
 func get_timer_ratio() -> float:
