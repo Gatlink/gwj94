@@ -24,12 +24,12 @@ func refresh(_upgrade: Upgrade) -> void:
 		return
 	
 	var is_unlocked := Upgrades.is_unlocked(upgrade)
-	var has_money := upgrade.price <= Game.money
+	var can_buy := Upgrades.can_buy(upgrade)
 	disabled = false
 	texture_icon.texture = upgrade.icon
-	texture_icon.self_modulate.a = 0.5 if not has_money or is_unlocked else 1.0
+	texture_icon.self_modulate.a = 0.5 if not can_buy else 1.0
 	label_price.text = "SOLD" if is_unlocked else "$%d" % upgrade.price
-	label_price.self_modulate = Color.DARK_RED if not has_money and not is_unlocked else Color.WHITE
+	label_price.self_modulate = Color.WHITE if is_unlocked or can_buy else Color.DARK_RED
 	label_price.show()
 	focus_mode = Control.FOCUS_ALL
 	focus_behavior_recursive = Control.FOCUS_BEHAVIOR_INHERITED

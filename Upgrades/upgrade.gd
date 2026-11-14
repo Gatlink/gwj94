@@ -7,3 +7,6 @@ extends Resource
 @export var prerequisite: Upgrade
 @export var icon: Texture2D
 @export var price: int
+@export var id: String:
+	get():
+		return resource_name

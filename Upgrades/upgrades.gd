@@ -21,23 +21,31 @@ func by_id(id: String) -> Upgrade:
 
 
 func is_unlocked(upgrade: Upgrade) -> bool:
-	return _unlocked.has(upgrade.resource_name)
+	return _unlocked.has(upgrade.id)
 
 
 func is_unlocked_id(id: String) -> bool:
 	return _unlocked.has(id)
 
 
+func can_buy(upgrade: Upgrade) -> bool:
+	return (
+			not is_unlocked(upgrade)
+			and Game.money >= upgrade.price
+			and (upgrade.prerequisite == null or is_unlocked(upgrade.prerequisite))
+	)
+
+
 func buy_upgrade(upgrade: Upgrade) -> void:
 	if is_unlocked(upgrade) or Game.money < upgrade.price:
 		return
 	
-	if upgrade.resource_name == "LIFE":
+	if upgrade.id == "LIFE":
 		Game.current_health += 1
 	
-	_unlocked.append(upgrade.resource_name)
+	_unlocked.append(upgrade.id)
 	Game.money -= upgrade.price
-	Game.register_history("%s%s" % [UIFloor.HISTORY_UPGRADE, upgrade.resource_name])
+	Game.register_history("%s%s" % [UIFloor.HISTORY_UPGRADE, upgrade.id])
 	
 	unlocked.emit(upgrade)
 
@@ -48,7 +56,7 @@ func get_available_upgrades() -> Array[Upgrade]:
 	var dh := DecisionHelper.new(all)
 	dh.remove(_available.has)
 	dh.remove(func (u: Upgrade) -> bool: return u.prerequisite != null and not _available.has(u.prerequisite))
-	dh.score(func (u: Upgrade) -> float: return 2 if u.prerequisite != null and _available.has(u.prerequisite) else 0)
+	dh.score(func (u: Upgrade) -> float: return 3.5 if u.prerequisite != null and _unlocked.has(u.prerequisite.id) else 0.0)
 	dh.score(func (_u: Upgrade) -> float: return randi() % 5)
 	
 	for i in count - _available.size():
