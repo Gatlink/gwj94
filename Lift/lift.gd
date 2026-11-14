@@ -24,6 +24,7 @@ func _exit_tree() -> void:
 
 func on_interact() -> void:
 	is_unlocked = false
+	AboveHeadUI.hide_all()
 	PlayerCharacter.instance.move_to.transition_to(character_mark.global_position)
 	
 	await PlayerCharacter.instance.move_to.target_reached
