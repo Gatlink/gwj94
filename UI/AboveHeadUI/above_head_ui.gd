@@ -6,6 +6,7 @@ enum UIElement {
 	NONE = 0b0,
 	SHELL = 0b1,
 	INPUT = 0b10,
+	ALL = 0b11,
 }
 
 
@@ -35,6 +36,10 @@ static func show_element(element: UIElement) -> void:
 static func hide_element(element: UIElement) -> void:
 	if _instance != null:
 		_instance._hide_element(element)
+
+
+static func hide_all() -> void:
+	hide_element(UIElement.ALL)
 
 
 func _ready() -> void:
