@@ -5,10 +5,9 @@ extends Control
 enum {
 	NONE = 0b0,
 	SHELL = 0b1,
-	INPUT = 0b10,
-	DASH = 0b100,
-	DODGE = 0b1000,
-	ALL = 0b1111,
+	DASH = 0b10,
+	DODGE = 0b100,
+	ALL = 0b111,
 }
 
 
@@ -24,7 +23,9 @@ static var _instance: AboveHeadUI
 var _visible_elements: int = NONE
 
 
-@onready var _input: TextureRect = $VBoxContainer/Input
+@onready var _interaction: HBoxContainer = $VBoxContainer/Interaction
+@onready var _interaction_name = $VBoxContainer/Interaction/Name
+@onready var _input: TextureRect = $VBoxContainer/Interaction/Input
 @onready var _all: HBoxContainer = $VBoxContainer/All
 @onready var _shell: HBoxContainer = $VBoxContainer/All/Shell
 @onready var _shell_progress: TextureProgressBar = $VBoxContainer/All/Shell/ShellProgress
@@ -46,35 +47,39 @@ static func hide_element(element: int) -> void:
 
 static func hide_all() -> void:
 	hide_element(ALL)
+	_instance._interaction.hide()
 
 
 func _ready() -> void:
 	_instance = self
-	set_process(false)
-	hide()
 	for child in _all.get_children():
 		child.hide()
 
 
 func _process(_delta: float) -> void:
-	var pos_3d: Vector3 = PlayerCharacter.instance.above_ui_pos.global_position
-	position = get_viewport().get_camera_3d().unproject_position(pos_3d)
-	
-	if _visible_elements & INPUT:
+	if PlayerCharacter.instance.can_interact():
 		var use_keyboard: bool = PlayerInput.use_kb_mouse
 		_input.modulate = KEYBOARD_COLOR if use_keyboard else JOYPAD_COLOR
 		_input.texture = KEYBOARD_TEXTURE if use_keyboard else JOYPAD_TEXTURE
+		_interaction_name.text = PlayerCharacter.instance.get_interaction_name()
+		_interaction.show()
+	else:
+		_interaction.hide()
 	
-	if _visible_elements & SHELL:
+	if _shell.visible:
 		var hide_state: PlayerHideShell = PlayerCharacter.instance.hide_shell
 		_shell_progress.value = hide_state.get_timer_ratio()
 	
-	if _visible_elements & DASH:
+	if _dash.visible:
 		var dash: PlayerDash = PlayerCharacter.instance.dash
 		_dash_progress.value = dash.get_cooldown_ratio()
 	
-	if _visible_elements & DODGE:
+	if _dodge.visible:
 		_dodge_progress.value = PlayerCharacter.instance.get_dodge_cooldown_ratio()
+	
+	if _visible_elements > 0 or _input.visible:
+		var pos_3d: Vector3 = PlayerCharacter.instance.above_ui_pos.global_position
+		position = get_viewport().get_camera_3d().unproject_position(pos_3d)
 
 
 func _exit_tree() -> void:
@@ -83,23 +88,15 @@ func _exit_tree() -> void:
 
 func _show_element(element: int) -> void:
 	_visible_elements |= element
-	set_process(true)
 	_refresh_elements()
-	
-	if not visible:
-		show()
 
 
 func _hide_element(element: int) -> void:
 	_visible_elements &= ~element
 	_refresh_elements()
-	if _visible_elements == NONE:
-		set_process(false)
-		hide()
 
 
 func _refresh_elements() -> void:
 	_shell.visible = _visible_elements & SHELL
-	_input.visible = _visible_elements & INPUT
 	_dash.visible = _visible_elements & DASH
 	_dodge.visible = _visible_elements & DODGE

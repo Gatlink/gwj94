@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://vi7mrak5vlgl" path="res://Character/Player/player_dummy.tscn" id="2_07h7l"]
 [ext_resource type="AudioStream" uid="uid://cous1d5ygjgu" path="res://Lift/SFX/ding.ogg" id="3_dmwkf"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_6vabk"]
+radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_07h7l"]
+size = Vector3(2, 2, 0.1)
+
 [sub_resource type="Animation" id="Animation_vdouh"]
 length = 0.001
 tracks/0/type = "value"
@@ -435,21 +441,18 @@ _data = {
 &"go": SubResource("Animation_dmwkf")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
-size = Vector3(2, 0.52500004, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_07h7l"]
-size = Vector3(2, 2, 0.1)
-
 [node name="Lift" type="Area3D" unique_id=25060028]
-collision_layer = 0
-collision_mask = 4
-monitorable = false
+collision_layer = 256
+collision_mask = 0
+input_ray_pickable = false
+monitoring = false
+priority = 30
 script = ExtResource("1_vdouh")
+action_name = "Leave"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1797716496]
-libraries/ = SubResource("AnimationLibrary_dmwkf")
-autoplay = &"come"
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1456047246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+shape = SubResource("SphereShape3D_6vabk")
 
 [node name="Graph" type="Node3D" parent="." unique_id=1029428374]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.875)
@@ -488,10 +491,6 @@ size = Vector3(1, 2, 0.075)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.925)
 size = Vector3(1, 2, 0.075)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1456047246]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.5)
-shape = SubResource("BoxShape3D_1bvp3")
-
 [node name="CharacterMark" type="Marker3D" parent="." unique_id=1512177337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
@@ -509,3 +508,7 @@ shape = SubResource("BoxShape3D_07h7l")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=184896825]
 stream = ExtResource("3_dmwkf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1797716496]
+libraries/ = SubResource("AnimationLibrary_dmwkf")
+autoplay = &"come"

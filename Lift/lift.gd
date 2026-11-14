@@ -13,7 +13,6 @@ var is_unlocked: bool
 
 
 func _ready() -> void:
-	super()
 	instance = self
 	Fade.fade_in()
 
@@ -22,7 +21,7 @@ func _exit_tree() -> void:
 	instance = null
 
 
-func on_interact() -> void:
+func interact() -> void:
 	is_unlocked = false
 	AboveHeadUI.hide_all()
 	PlayerCharacter.instance.move_to.transition_to(character_mark.global_position)
@@ -39,11 +38,8 @@ func on_interact() -> void:
 	Game.change_floor()
 
 
-func _on_body_entered(body: Node3D) -> void:
-	if not is_unlocked:
-		return
-	
-	super(body)
+func can_interact() -> bool:
+	return is_unlocked
 
 
 func spawn_character() -> void:

@@ -171,6 +171,7 @@ dash={
 3d_physics/layer_6="Steps"
 3d_physics/layer_7="PlayerHealth"
 3d_physics/layer_8="EnemyHealth"
+3d_physics/layer_9="Interactable"
 
 [navigation]
 

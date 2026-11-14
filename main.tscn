@@ -16,7 +16,6 @@ reflected_light_source = 1
 [node name="Main" type="Node3D" unique_id=389403922]
 
 [node name="AboveHeadUi" parent="." unique_id=2020710012 instance=ExtResource("1_7mycd")]
-visible = false
 
 [node name="Hud" parent="." unique_id=970830937 instance=ExtResource("3_1bvp3")]
 offset_bottom = 99.0

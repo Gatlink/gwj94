@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://bpox8jgld4tig" path="res://Character/Player/States/bump.gd" id="9_6vabk"]
 [ext_resource type="Script" uid="uid://tdgr373khtc6" path="res://Character/Player/States/hide_shell.gd" id="10_mss4s"]
 [ext_resource type="Script" uid="uid://bchm5a7ubwu6l" path="res://Character/Player/States/dash.gd" id="11_6vabk"]
-[ext_resource type="AudioStream" uid="uid://d4joi7x7b8rb1" path="res://Objective/SFX/ding1.ogg" id="13_6vabk"]
-[ext_resource type="AudioStream" uid="uid://dtpen3k3ggdno" path="res://Objective/SFX/ding2.ogg" id="14_mss4s"]
-[ext_resource type="AudioStream" uid="uid://cj40rbfusanf3" path="res://Objective/SFX/ding3.ogg" id="15_8dlre"]
-[ext_resource type="AudioStream" uid="uid://dybg6ge5toiwt" path="res://Objective/SFX/ding4.ogg" id="16_h4mg0"]
+[ext_resource type="AudioStream" uid="uid://d4joi7x7b8rb1" path="res://Interactable/Objective/SFX/ding1.ogg" id="13_6vabk"]
+[ext_resource type="AudioStream" uid="uid://dtpen3k3ggdno" path="res://Interactable/Objective/SFX/ding2.ogg" id="14_mss4s"]
+[ext_resource type="AudioStream" uid="uid://cj40rbfusanf3" path="res://Interactable/Objective/SFX/ding3.ogg" id="15_8dlre"]
+[ext_resource type="AudioStream" uid="uid://dybg6ge5toiwt" path="res://Interactable/Objective/SFX/ding4.ogg" id="16_h4mg0"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0i5j3"]
 streams_count = 4
@@ -23,6 +23,9 @@ stream_0/stream = ExtResource("13_6vabk")
 stream_1/stream = ExtResource("14_mss4s")
 stream_2/stream = ExtResource("15_8dlre")
 stream_3/stream = ExtResource("16_h4mg0")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 1.5
 
 [node name="PlayerCharacter" unique_id=1469343844 node_paths=PackedStringArray("state", "dummy") instance=ExtResource("1_atbs6")]
 visible = false
@@ -104,3 +107,15 @@ bus = &"SFXPlayer"
 
 [node name="AboveUIPos" type="Marker3D" parent="." index="14" unique_id=739801044]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="InteractionRange" type="Area3D" parent="." index="15" unique_id=1417252357]
+collision_layer = 0
+collision_mask = 256
+input_ray_pickable = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionRange" index="0" unique_id=664699037]
+shape = SubResource("SphereShape3D_g4v7s")
+
+[connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
+[connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]

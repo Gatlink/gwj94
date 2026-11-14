@@ -19,6 +19,8 @@ static var instance: PlayerCharacter
 var was_hit: bool
 var weapon: WeaponBase
 var current_room_idx: int = -1
+var _interactables: Array[Interactable]
+var _will_interact: Interactable
 var _dodge_cooldown: float
 
 
@@ -165,3 +167,46 @@ func _set_damage_cap() -> void:
 
 func _can_dodge() -> bool:
 	return Upgrades.is_unlocked_id("SPEED_DODGE") and _dodge_cooldown <= 0
+
+#region Interaction
+func can_interact() -> bool:
+	return (_will_interact != null and state is PlayerStand) or state is PlayerHide
+
+
+func get_interaction_name() -> String:
+	if state is PlayerHide:
+		return "Get out"
+	if _will_interact != null:
+		return _will_interact.action_name
+	return ""
+
+
+func interact() -> void:
+	if _will_interact != null:
+		_will_interact.interact()
+
+
+func _refresh_will_interact() -> void:
+	if _interactables.is_empty():
+		_will_interact = null
+	elif _interactables.size() == 1:
+		_will_interact = _interactables[0]
+	else:
+		var dh := DecisionHelper.new(_interactables)
+		dh.score(func (i: Interactable) -> float: return i.priority)
+		_will_interact = dh.get_best()
+
+
+func _on_interaction_range_area_entered(area: Area3D) -> void:
+	var interactable := area as Interactable
+	if interactable != null and interactable.can_interact():
+		_interactables.append(interactable)
+		_refresh_will_interact()
+
+
+func _on_interaction_range_area_exited(area: Area3D) -> void:
+	var interactable := area as Interactable
+	if interactable != null:
+		_interactables.erase(interactable)
+		_refresh_will_interact()
+#endregion

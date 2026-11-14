@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1ooremb8kc7p"]
 
-[ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Objective/objective.tscn" id="1_wthkv"]
+[ext_resource type="PackedScene" uid="uid://c888bstisw35" path="res://Interactable/Objective/objective.tscn" id="1_wthkv"]
 
 [node name="MainObjective" unique_id=1332854662 instance=ExtResource("1_wthkv")]
 money_gain = 25

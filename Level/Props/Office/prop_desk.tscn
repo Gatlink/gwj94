@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://nv6jw4ug10ou"]
 
 [ext_resource type="PackedScene" uid="uid://c6c0aham8dfad" path="res://Level/Props/base_prop.tscn" id="1_dyrwf"]
-[ext_resource type="PackedScene" uid="uid://h0usm14q2wg6" path="res://HidingSpot/hiding_spot_desk.tscn" id="2_1sgyb"]
+[ext_resource type="PackedScene" uid="uid://h0usm14q2wg6" path="res://Interactable/HidingSpot/hiding_spot_desk.tscn" id="2_1sgyb"]
 [ext_resource type="PackedScene" uid="uid://c5c5ylbbjtl2k" path="res://Art/Assets/Office_Desk.glb" id="2_27yf3"]
 [ext_resource type="PackedScene" uid="uid://civoqngouayln" path="res://Art/Assets/Office_Chair.glb" id="3_2ne0u"]
 [ext_resource type="Script" uid="uid://cuqeph06nmvcr" path="res://Level/Props/populate_on_ready.gd" id="4_2llth"]

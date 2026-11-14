@@ -26,3 +26,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			and Upgrades.is_unlocked_id("SPEED_DASH") \
 			and player.dash.can_dash():
 		player.dash.transition_to()
+	elif event.is_action_pressed("interact"):
+		player.interact()

@@ -10,10 +10,14 @@ extends Interactable
 @onready var graph: PopulateOnReady = $Graph
 
 
-func on_interact() -> void:
+func _ready() -> void:
+	if is_main:
+		priority = 5
+
+
+func interact() -> void:
 	Game.money += money_gain
-	AboveHeadUI.hide_element(AboveHeadUI.INPUT)
-	player.sfx_objective.play()
+	PlayerCharacter.instance.sfx_objective.play()
 	HUD.instance.refresh_money()
 	queue_free()
 	
