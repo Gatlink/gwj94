@@ -17,7 +17,7 @@ func _ready() -> void:
 	models.shuffle()
 	for child in children:
 		var mark := child as Marker3D
-		if mark == null:
+		if mark == null or models.is_empty():
 			continue
 		
 		var instance := models.pop_front().instantiate() as Node3D

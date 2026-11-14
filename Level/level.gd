@@ -158,14 +158,19 @@ func place_objectives() -> void:
 
 func place_reveal_objectives() -> void:
 	var items := get_tree().get_nodes_in_group("REVEAL")
+	for i in items.size():
+		var idx: int = -(i + 1)
+		if not is_instance_valid(items[idx]):
+			items.remove_at(idx)
+	
 	for i in REVEAL_COUNT:
 		if items.is_empty():
 			break
 		
 		var item: Node3D = items.pick_random()
 		var instance: Objective = REVEAL_OBJECTIVE.instantiate()
-		add_child(instance)
-		instance.global_position = item.global_position
+		item.get_parent().add_child(instance)
+		instance.position = item.position
 		item.reparent(instance.graph)
 		items.erase(item)
 
