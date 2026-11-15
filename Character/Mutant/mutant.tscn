@@ -28,9 +28,6 @@
 radius = 0.39208984
 height = 1.8266602
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_4degh"]
-radius = 6.0
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_0lmxh"]
 radius = 1.0
 
@@ -194,15 +191,7 @@ shape = SubResource("CapsuleShape3D_08fwr")
 path_desired_distance = 0.3
 path_height_offset = 0.15
 
-[node name="Detection" type="Area3D" parent="." index="8" unique_id=2122562429]
-collision_layer = 0
-collision_mask = 4
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" index="0" unique_id=1256561918]
-shape = SubResource("SphereShape3D_4degh")
-
-[node name="Range" type="Area3D" parent="." index="9" unique_id=338861457]
+[node name="Range" type="Area3D" parent="." index="8" unique_id=338861457]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -210,7 +199,7 @@ monitorable = false
 [node name="RangeShape" type="CollisionShape3D" parent="Range" index="0" unique_id=1987966512]
 shape = SubResource("SphereShape3D_0lmxh")
 
-[node name="Hitbox" type="Area3D" parent="." index="10" unique_id=325993911]
+[node name="Hitbox" type="Area3D" parent="." index="9" unique_id=325993911]
 collision_layer = 0
 collision_mask = 64
 monitorable = false
@@ -222,21 +211,21 @@ metadata/_custom_type_script = "uid://f8jcmfkgavu6"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4041265e-07, 0, -0.5)
 shape = SubResource("SphereShape3D_d6aly")
 
-[node name="DetectionRay" type="RayCast3D" parent="." index="11" unique_id=44878972]
+[node name="DetectionRay" type="RayCast3D" parent="." index="10" unique_id=44878972]
 enabled = false
 target_position = Vector3(0, 0, -1)
 collision_mask = 16
 debug_shape_custom_color = Color(1, 0, 0, 1)
 
-[node name="LowGrowl" type="AudioStreamPlayer3D" parent="." index="12" unique_id=539114344]
+[node name="LowGrowl" type="AudioStreamPlayer3D" parent="." index="11" unique_id=539114344]
 stream = SubResource("AudioStreamRandomizer_p4jld")
 bus = &"SFXMonster"
 
-[node name="BigGrowl" type="AudioStreamPlayer3D" parent="." index="13" unique_id=1381619338]
+[node name="BigGrowl" type="AudioStreamPlayer3D" parent="." index="12" unique_id=1381619338]
 stream = SubResource("AudioStreamRandomizer_61nkt")
 bus = &"SFXMonster"
 
-[node name="QuestionMark" type="Node3D" parent="." index="14" unique_id=583749478]
+[node name="QuestionMark" type="Node3D" parent="." index="13" unique_id=583749478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 visible = false
 
@@ -251,11 +240,9 @@ root_node = NodePath("../Sprite3D")
 libraries/ = SubResource("AnimationLibrary_tn1tj")
 autoplay = &"RESET"
 
-[node name="FXStun" parent="." index="15" unique_id=1799926108 instance=ExtResource("23_tn1tj")]
+[node name="FXStun" parent="." index="14" unique_id=1799926108 instance=ExtResource("23_tn1tj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.9, 0)
 visible = false
 
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
-[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
 [connection signal="body_entered" from="Range" to="Strike" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="Strike" method="_on_range_body_exited"]

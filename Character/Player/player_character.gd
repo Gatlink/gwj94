@@ -84,6 +84,10 @@ func _process(_delta: float) -> void:
 			AboveHeadUI.hide_element(AboveHeadUI.DODGE)
 
 
+func is_hidden() -> bool:
+	return state is PlayerHide
+
+
 func get_speed() -> float:
 	return SPEED_BOOSTED if Upgrades.is_unlocked_id("SPEED") else SPEED
 

@@ -2,10 +2,9 @@ class_name Mutant
 extends Character
 
 
-const DETECTION_RANGE_MIN := 1.0
-const DETECTION_DELAY := 0.2
-const DETECTION_MASK := 0b0010
-const TURN_SPEED := 0.2
+const DETECTION_ANGLE: float = deg_to_rad(120)
+const DETECTION_RANGE: float = 7.0
+const TURN_SPEED: float = 0.1
 
 
 static var all: Array[Mutant] = []
@@ -13,9 +12,7 @@ static var all: Array[Mutant] = []
 
 var has_target: bool
 var target_pos: Vector3
-var player: PlayerCharacter
 var current_speed: float
-var detection_timer: float
 var stun_immunity: float
 
 
@@ -52,56 +49,47 @@ func _process(delta: float) -> void:
 		stun_immunity -= delta
 
 
-func _physics_process(delta: float) -> void:
-	detection_timer -= delta
-	if detection_timer <= 0:
-		detection_timer = DETECTION_DELAY
-		update_target_pos()
+func _physics_process(_delta: float) -> void:
+	update_target()
 	
-	if navigation.is_navigation_finished():
-		return
-	
-	var next_pos := navigation.get_next_path_position()
-	var next_dir := global_position.direction_to(next_pos)
-	next_dir = velocity.normalized().lerp(next_dir, TURN_SPEED).normalized()
-	velocity = next_dir * current_speed
-	move_and_slide()
+	if not navigation.is_navigation_finished():
+		var next_pos := navigation.get_next_path_position()
+		var next_dir := global_position.direction_to(next_pos)
+		next_dir = velocity.normalized().lerp(next_dir, TURN_SPEED).normalized()
+		velocity = next_dir * current_speed
+		move_and_slide()
 
 
-func _on_detection_body_entered(body: Node3D) -> void:
-	if body == PlayerCharacter.instance:
-		player = body
-
-
-func _on_detection_body_exited(body: Node3D) -> void:
-	if body == PlayerCharacter.instance:
-		player = null
-
-
-func force_target_pos(pos: Vector3, keep_duration: float) -> void:
-	has_target = true
-	target_pos = pos
-	detection_timer = keep_duration
-
-
-func update_target_pos() -> void:
+func update_target() -> void:
 	has_target = false
-	if not is_instance_valid(player) or player.is_dead():
+	
+	# Is the player hidden
+	if PlayerCharacter.instance.is_hidden():
 		return
 	
-	var to := (player.global_position - global_position) * Vector3(1.0, 0.0, 1.0)
-	if (-global_basis.z).dot(to) <= 0:
-		if to.length_squared() > DETECTION_RANGE_MIN * DETECTION_RANGE_MIN:
-			return
-		to = to.normalized() * DETECTION_RANGE_MIN
+	# Is the player not in the same room or in an adjacent connected room
+	var player_room := PlayerCharacter.instance.room_idx
+	if room_idx != player_room and not Level.current.are_neighbors(player_room, room_idx, true):
+		return
 	
-	detection_ray.enabled = true
-	detection_ray.target_position = to
-	detection_ray.force_raycast_update()
-	if not detection_ray.is_colliding():
-		has_target = true
-		target_pos = player.global_position
-	detection_ray.enabled = false
+	# Is the mutant not facing the player
+	var player_pos := PlayerCharacter.instance.global_position
+	if not _is_in_front(player_pos):
+		return
+	
+	# Is the player too far away
+	if global_position.distance_squared_to(player_pos) > DETECTION_RANGE ** 2:
+		return
+	
+	# Is there a wall between the mutant and the player
+	if room_idx != player_room:
+		detection_ray.target_position = player_pos - global_position
+		detection_ray.force_raycast_update()
+		if detection_ray.is_colliding():
+			return
+	
+	has_target = true
+	target_pos = player_pos
 
 
 func display_question() -> void:
@@ -111,3 +99,7 @@ func display_question() -> void:
 
 func can_be_stunned() -> bool:
 	return stun_immunity <= 0
+
+
+func _is_in_front(pos: Vector3) -> bool:
+	return absf(forward.angle_to(pos - global_position)) <= DETECTION_ANGLE * 0.5

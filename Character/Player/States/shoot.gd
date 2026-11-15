@@ -3,7 +3,6 @@ extends PlayerState
 
 
 const KICKBACK: float = 0.2
-const MUTANT_KEEP_TARGET: float = 5.0
 
 
 var tween: Tween
@@ -20,7 +19,7 @@ func enter() -> void:
 	var rooms: Array[int] = Level.current.get_connected_rooms(player.room_idx, player.weapon.loudness)
 	for mutant in Mutant.all:
 		if rooms.has(mutant.room_idx):
-			mutant.force_target_pos(player.global_position, MUTANT_KEEP_TARGET)
+			mutant.target_pos = player.global_position
 			mutant.chase.transition_to()
 	
 	tween = create_tween()

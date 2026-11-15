@@ -251,11 +251,10 @@ func get_neighbor_index(idx: int, side: int) -> int:
 	return -1
 
 
-func are_neighbors(idx_a: int, idx_b: int) -> bool:
+func are_neighbors(idx_a: int, idx_b: int, check_connection := false) -> bool:
 	for side in directions:
 		if get_neighbor_index(idx_a, side) == idx_b:
-			return true
-	
+			return not check_connection or rooms[idx_a].is_door_open(side)
 	return false
 
 

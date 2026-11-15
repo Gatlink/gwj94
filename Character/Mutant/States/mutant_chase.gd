@@ -17,11 +17,8 @@ func enter() -> void:
 func _process(_delta: float) -> void:
 	if mutant.strike.target != null and not mutant.strike.target.is_dead():
 		mutant.strike.transition_to()
-	elif not mutant.has_target:
+	elif mutant.has_target:
+		mutant.navigation.target_position = mutant.target_pos
+	elif mutant.navigation.is_navigation_finished():
 		mutant.idle.transition_to(0.5)
 		mutant.display_question()
-
-
-func _physics_process(_delta: float) -> void:
-	if mutant.navigation.is_navigation_finished() and mutant.has_target:
-		mutant.navigation.target_position = mutant.target_pos

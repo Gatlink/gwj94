@@ -50,6 +50,10 @@ func get_open_doors_count() -> int:
 func get_open_doors() -> int:
 	var result: int = 0
 	for direction in door_colliders:
-		if door_colliders[direction].disabled:
+		if is_door_open(direction):
 			result |= direction
 	return result
+
+
+func is_door_open(side: int) -> bool:
+	return door_colliders[side].disabled

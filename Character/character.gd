@@ -9,6 +9,9 @@ extends CharacterBody3D
 var room_idx: int:
 	get():
 		return Level.current.get_room_idx(global_position)
+var forward: Vector3:
+	get():
+		return -global_basis.z
 
 
 @onready var health_manager: HealthManager = $HealthManager
