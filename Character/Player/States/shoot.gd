@@ -2,7 +2,8 @@ class_name PlayerShoot
 extends PlayerState
 
 
-const KICKBACK := 0.2
+const KICKBACK: float = 0.2
+const MUTANT_KEEP_TARGET: float = 5.0
 
 
 var tween: Tween
@@ -15,6 +16,12 @@ func enter() -> void:
 	player.dummy.flash.play()
 	Camera.shake(0.2, 0.3)
 	HUD.instance.refresh_ammo(player.weapon)
+	
+	var rooms: Array[int] = Level.current.get_connected_rooms(player.room_idx, player.weapon.loudness)
+	for mutant in Mutant.all:
+		if rooms.has(mutant.room_idx):
+			mutant.force_target_pos(player.global_position, MUTANT_KEEP_TARGET)
+			mutant.chase.transition_to()
 	
 	tween = create_tween()
 	tween.tween_property(player.dummy, "position", player.dummy.basis.z * KICKBACK, 0.1).set_ease(Tween.EASE_OUT)

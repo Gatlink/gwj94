@@ -11,6 +11,9 @@ extends DamageSource
 @export var reload_duration: float
 @export var sfx_strike: AudioStreamPlayer3D 
 @export var ammo_pip: Texture2D
+## When fired, mutants in connected rooms up to this value away will hear.
+## -1 means the weapon is silent
+@export var loudness: int = -1
 
 
 @onready var target_ray: RayCast3D = $TargetRay

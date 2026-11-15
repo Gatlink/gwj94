@@ -6,6 +6,11 @@ extends CharacterBody3D
 @export var dummy: CharacterDummy
 
 
+var room_idx: int:
+	get():
+		return Level.current.get_room_idx(global_position)
+
+
 @onready var health_manager: HealthManager = $HealthManager
 @onready var graph: Node3D = $Graph
 

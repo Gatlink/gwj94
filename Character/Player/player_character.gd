@@ -19,7 +19,6 @@ static var instance: PlayerCharacter
 
 var was_hit: bool
 var weapon: WeaponBase
-var current_room_idx: int = -1
 var _interactables: Array[Interactable]
 var _will_interact: Interactable
 var _dodge_cooldown: float
@@ -78,13 +77,6 @@ func _exit_tree() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Level.current == null:
-		return
-	
-	var current_room := Level.current.get_room_idx(global_position)
-	if current_room != current_room_idx:
-		current_room_idx = current_room
-	
 	if _dodge_cooldown > 0:
 		_dodge_cooldown -= _delta
 		if _dodge_cooldown <= 0:
@@ -152,7 +144,7 @@ func update_health(current: int, _max: int) -> void:
 
 func is_in_light_range(pos: Vector3) -> bool:
 	if Upgrades.is_unlocked_id("LIGHT_ROOM"):
-		return Level.current.get_room_idx(pos) == current_room_idx
+		return Level.current.get_room_idx(pos) == room_idx
 	return global_position.distance_squared_to(pos) <= light.omni_range ** 2
 
 

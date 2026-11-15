@@ -265,3 +265,18 @@ func get_room_idx(pos: Vector3) -> int:
 		if rooms[i].bounds.has_point(ground_pos):
 			return i
 	return -1
+
+## Return the index of all rooms connected to [param start_idx] (with a door open),
+## continuing until [param max_depth] is reached
+func get_connected_rooms(start_idx: int, max_depth: int = 1, connected: Array[int] = []) -> Array[int]:
+	if start_idx < 0:
+		return []
+	
+	connected.append(start_idx)
+	if max_depth > 0:
+		var opened_doors: int = rooms[start_idx].get_open_doors()
+		for direction in directions:
+			var neighbor: int = get_neighbor_index(start_idx, direction)
+			if opened_doors & direction > 0 and not connected.has(neighbor):
+				get_connected_rooms(neighbor, max_depth - 1, connected)
+	return connected

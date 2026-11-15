@@ -40,7 +40,16 @@ func get_spawn_points() -> Array[Vector3]:
 func get_open_doors_count() -> int:
 	var count := 0
 	for collider in door_colliders.values():
-		if not collider.disabled:
+		if collider.disabled:
 			count += 1
 	
 	return count
+
+
+# Return a mask of directions with an open door
+func get_open_doors() -> int:
+	var result: int = 0
+	for direction in door_colliders:
+		if door_colliders[direction].disabled:
+			result |= direction
+	return result

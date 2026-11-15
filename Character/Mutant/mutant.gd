@@ -11,6 +11,14 @@ const TURN_SPEED := 0.2
 static var all: Array[Mutant] = []
 
 
+var has_target: bool
+var target_pos: Vector3
+var player: PlayerCharacter
+var current_speed: float
+var detection_timer: float
+var stun_immunity: float
+
+
 @onready var range_shape: CollisionShape3D = $Range/RangeShape
 @onready var hitbox: DamageSource = $Hitbox
 @onready var navigation: NavigationAgent3D = $NavigationAgent3D
@@ -19,19 +27,13 @@ static var all: Array[Mutant] = []
 @onready var sfx_low_growl: AudioStreamPlayer3D = $LowGrowl
 @onready var sfx_big_growl: AudioStreamPlayer3D = $BigGrowl
 @onready var fx_stun: Node3D = $FXStun
-# STATES
+
+#region States
 @onready var idle: MutantIdle = $Idle
 @onready var chase: MutantChase = $Chase
 @onready var strike: MutantStrike = $Strike
 @onready var stunned: MutantStunned = $Stunned
-
-
-var has_target: bool
-var target_pos: Vector3
-var player: PlayerCharacter
-var current_speed: float
-var detection_timer: float
-var stun_immunity: float
+#endregion
 
 
 func _ready() -> void:
@@ -61,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	
 	var next_pos := navigation.get_next_path_position()
 	var next_dir := global_position.direction_to(next_pos)
-	next_dir = velocity.normalized().lerp(next_dir, TURN_SPEED)
+	next_dir = velocity.normalized().lerp(next_dir, TURN_SPEED).normalized()
 	velocity = next_dir * current_speed
 	move_and_slide()
 
@@ -74,6 +76,12 @@ func _on_detection_body_entered(body: Node3D) -> void:
 func _on_detection_body_exited(body: Node3D) -> void:
 	if body == PlayerCharacter.instance:
 		player = null
+
+
+func force_target_pos(pos: Vector3, keep_duration: float) -> void:
+	has_target = true
+	target_pos = pos
+	detection_timer = keep_duration
 
 
 func update_target_pos() -> void:
