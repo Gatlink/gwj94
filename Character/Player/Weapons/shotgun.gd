@@ -16,6 +16,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		handled = true
 	elif event.is_action_released("shoot"):
 		reload_duration = 0
+		timer = 0
 		AboveHeadUI.hide_element(AboveHeadUI.WEAPON)
 		handled = true
 	
