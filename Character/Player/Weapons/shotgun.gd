@@ -2,7 +2,11 @@ extends WeaponBase
 
 
 const RELOAD_DURATION: float = 2.0
-const RELOAD_COST: int = 10
+
+
+var reload_cost: int:
+	get():
+		return 5 if Upgrades.is_unlocked_id("SHOTGUN_DEAL") else 10
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -10,7 +14,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	var handled: bool = false
-	if event.is_action_pressed("shoot") and Game.money >= RELOAD_COST:
+	if event.is_action_pressed("shoot") and Game.money >= reload_cost:
 		reload_duration = RELOAD_DURATION
 		_start_reloading()
 		handled = true
@@ -26,6 +30,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _complete_reload() -> void:
 	super()
-	Game.money -= RELOAD_COST
+	Game.money -= reload_cost
 	HUD.instance.refresh_money()
 	reload_duration = 0
