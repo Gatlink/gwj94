@@ -16,19 +16,18 @@ extends DamageSource
 @export var loudness: int = -1
 
 
+var timer: float
+
+
 @onready var target_ray: RayCast3D = $TargetRay
 @onready var ammo: int = ammo_max
-
-
-var timer: float
 
 
 func _process(delta: float) -> void:
 	if timer > 0:
 		timer -= delta
-		
-		if timer <= 0 and ammo_max > 0 and ammo == 0:
-			ammo = ammo_max
+		if timer <= 0 and ammo == 0:
+			_complete_reload()
 
 
 func set_active(is_active : bool) -> void:
@@ -43,14 +42,16 @@ func set_active(is_active : bool) -> void:
 		if ammo <= 0:
 			return
 		ammo -= 1
-		timer = cooldown if ammo > 0 else reload_duration
+		if ammo > 0:
+			_start_cooldown()
+		else:
+			_start_reloading()
 	else:
 		timer = cooldown
 	
 	if sfx_strike != null:
 		sfx_strike.play()
 	
-	target_ray.enabled = true
 	super(true)
 
 
@@ -63,3 +64,24 @@ func apply_damage(health_manager : HealthManager) -> void:
 
 func can_use() -> bool:
 	return (ammo_max <= 0 or ammo > 0) and timer <= 0
+
+
+func get_reload_progress() -> float:
+	return 1.0 - timer / reload_duration
+
+
+func _start_reloading() -> void:
+	if reload_duration > 0:
+		timer = reload_duration
+		AboveHeadUI.show_element(AboveHeadUI.WEAPON)
+
+
+func _complete_reload() -> void:
+	if reload_duration > 0:
+		ammo = ammo_max
+		AboveHeadUI.hide_element(AboveHeadUI.WEAPON)
+		HUD.instance.refresh_ammo(PlayerCharacter.instance.weapon)
+
+
+func _start_cooldown() -> void:
+	timer = cooldown

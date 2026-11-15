@@ -7,7 +7,8 @@ enum {
 	SHELL = 0b1,
 	DASH = 0b10,
 	DODGE = 0b100,
-	ALL = 0b111,
+	WEAPON = 0b1000,
+	ALL = 0b1111,
 }
 
 
@@ -33,6 +34,9 @@ var _visible_elements: int = NONE
 @onready var _dash_progress: TextureProgressBar = $VBoxContainer/All/Dash/DashProgress
 @onready var _dodge: HBoxContainer = $VBoxContainer/All/Dodge
 @onready var _dodge_progress: TextureProgressBar = $VBoxContainer/All/Dodge/DodgeProgress
+@onready var _weapon: HBoxContainer = $VBoxContainer/All/Weapon
+@onready var _weapon_icon: TextureRect = $VBoxContainer/All/Weapon/WeaponIcon
+@onready var _weapon_progress: TextureProgressBar = $VBoxContainer/All/Weapon/WeaponProgress
 
 
 static func show_element(element: int) -> void:
@@ -77,6 +81,9 @@ func _process(_delta: float) -> void:
 	if _dodge.visible:
 		_dodge_progress.value = PlayerCharacter.instance.get_dodge_cooldown_ratio()
 	
+	if _weapon.visible:
+		_weapon_progress.value = PlayerCharacter.instance.weapon.get_reload_progress()
+	
 	if _visible_elements > 0 or _input.visible:
 		var pos_3d: Vector3 = PlayerCharacter.instance.above_ui_pos.global_position
 		position = get_viewport().get_camera_3d().unproject_position(pos_3d)
@@ -100,3 +107,7 @@ func _refresh_elements() -> void:
 	_shell.visible = _visible_elements & SHELL
 	_dash.visible = _visible_elements & DASH
 	_dodge.visible = _visible_elements & DODGE
+	_weapon.visible = _visible_elements & WEAPON
+	
+	if _weapon.visible and _weapon_icon.texture == null:
+		_weapon_icon.texture = PlayerCharacter.instance.weapon.ammo_pip
