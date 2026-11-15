@@ -165,7 +165,10 @@ metadata/_custom_type_script = "uid://v5giuvkjoijs"
 resource_name = "SHOTGUN"
 script = ExtResource("2_4by1g")
 name = "Shotgun"
-description = "Wait, a SHOTGUN!? How is that a mutation? Wait, don't point that thing at me!"
+description = "Wait, a SHOTGUN!? How is that a mutation? Wait, don't point that thing at me!
+
+Use RT (joypad) or left click to shoot. Nearby mutants might hear the shot.
+"
 icon = ExtResource("6_0iac8")
 price = 75
 metadata/_custom_type_script = "uid://v5giuvkjoijs"
