@@ -102,7 +102,10 @@ func on_door_breached(room: Room, direction: int) -> void:
 	var opposite_room := get_neighbor_index(room_idx, direction)
 	if opposite_room >= 0:
 		rooms[opposite_room].open_door(get_opposite(direction))
-	navigation_region.bake_navigation_mesh.call_deferred()
+	
+	if navigation_region.is_baking():
+		await navigation_region.bake_finished
+	navigation_region.bake_navigation_mesh()
 
 
 func connect_room(room_idx: int, unconnected_idx: Array[int]) -> void:
