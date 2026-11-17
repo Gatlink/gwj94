@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cmln3hxdw8bv8" path="res://Art/Icons/Speed_dash.png" id="19_6d0u2"]
 [ext_resource type="Texture2D" uid="uid://2eqcckq71rns" path="res://Art/Icons/Shotgun_deal.png" id="19_wn732"]
 [ext_resource type="Texture2D" uid="uid://b6mj1yqp4mecb" path="res://Art/Icons/Speed_dodge.png" id="20_8w1q4"]
+[ext_resource type="Texture2D" uid="uid://dqdlhw6pytpu5" path="res://Art/Icons/Shotgun_breach.png" id="20_12are"]
 [ext_resource type="Texture2D" uid="uid://dp0wlr3mlsv2f" path="res://Art/Icons/Speed_reach.png" id="21_8pdip"]
 [ext_resource type="Texture2D" uid="uid://ccft2wr0hl02u" path="res://Art/Icons/Speed_charge.png" id="22_tw0qi"]
 
@@ -195,6 +196,16 @@ icon = ExtResource("19_wn732")
 price = 40
 metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
+[sub_resource type="Resource" id="Resource_ognhp"]
+resource_name = "SHOTGUN_BREACH"
+script = ExtResource("2_4by1g")
+name = "Breaching Rounds"
+description = "Some walls can now be destroyed by shooting them."
+prerequisite = SubResource("Resource_8w1q4")
+icon = ExtResource("20_12are")
+price = 75
+metadata/_custom_type_script = "uid://v5giuvkjoijs"
+
 [sub_resource type="Resource" id="Resource_8d5el"]
 resource_name = "SPEED"
 script = ExtResource("2_4by1g")
@@ -246,4 +257,4 @@ metadata/_custom_type_script = "uid://v5giuvkjoijs"
 
 [node name="Upgrades" type="Node" unique_id=750500805]
 script = ExtResource("1_lausf")
-all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_2nlv4"), SubResource("Resource_bweyj"), SubResource("Resource_okf2s"), SubResource("Resource_6d0u2"), SubResource("Resource_ub4m8"), SubResource("Resource_nowia"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs"), SubResource("Resource_8w1q4"), SubResource("Resource_8pdip"), SubResource("Resource_6oj6a"), SubResource("Resource_8d5el"), SubResource("Resource_hpue5"), SubResource("Resource_tw0qi"), SubResource("Resource_wn732"), SubResource("Resource_12are")])
+all = Array[ExtResource("2_4by1g")]([SubResource("Resource_2p2vl"), SubResource("Resource_xrnar"), SubResource("Resource_eg2th"), SubResource("Resource_0iac8"), SubResource("Resource_luiuq"), SubResource("Resource_grwik"), SubResource("Resource_2nlv4"), SubResource("Resource_bweyj"), SubResource("Resource_okf2s"), SubResource("Resource_6d0u2"), SubResource("Resource_ub4m8"), SubResource("Resource_nowia"), SubResource("Resource_2qg1a"), SubResource("Resource_3rbjs"), SubResource("Resource_8w1q4"), SubResource("Resource_8pdip"), SubResource("Resource_6oj6a"), SubResource("Resource_ognhp"), SubResource("Resource_8d5el"), SubResource("Resource_hpue5"), SubResource("Resource_tw0qi"), SubResource("Resource_wn732"), SubResource("Resource_12are")])

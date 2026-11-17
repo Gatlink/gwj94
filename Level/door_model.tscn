@@ -8,6 +8,6 @@
 transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("2_k3ep0")
 
-[node name="Door_003" parent="." index="0" unique_id=704617158]
+[node name="Door_003" parent="." index="0" unique_id=272279539]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 surface_material_override/0 = ExtResource("2_y41pl")

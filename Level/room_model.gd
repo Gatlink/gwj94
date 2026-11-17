@@ -8,7 +8,7 @@ enum RoomType {
 	LAB
 }
 
-
+const BREACH_DOOR := preload("uid://bakt6rphi274u")
 const materials_floor: Dictionary[RoomType, StandardMaterial3D] = {
 	RoomType.OFFICE: preload("uid://b0f3j0jenm2bx"),
 	RoomType.LAB: preload("uid://0ma783jbfquw")
@@ -65,3 +65,14 @@ func update_materials() -> void:
 	door_east.set_material(materials_door[type])
 	door_south.set_material(materials_door[type])
 	door_west.set_material(materials_door[type])
+
+
+func set_door_breachable(direction: int, on_breached: Callable) -> void:
+	var instance := BREACH_DOOR.instantiate() as BreachableDoor
+	add_child(instance)
+	instance.set_material(materials_door[type])
+	instance.on_breached = on_breached
+	instance.direction = doors[direction].direction
+	doors[direction].queue_free()
+	doors[direction] = instance
+	

@@ -7,8 +7,13 @@ signal unlocked(upgrade: Upgrade)
 @export var all: Array[Upgrade]
 
 
-var _unlocked: Array[String] = []
 var _available: Array[Upgrade] = []
+#var _unlocked: Array[String] = []
+#var _unlocked: Array[String] = ["LIGHT", "LIGHT_STUN", "LIGHT_REVEAL", "LIGHT_ROOM", "LIGHT_WEAK"]
+#var _unlocked: Array[String] = ["LIFE", "LIFE_PROTECTION", "LIFE_STUN", "LIFE_REBIRTH", "LIFE_CHEAP"]
+#var _unlocked: Array[String] = ["SHELL", "SHELL_EMERGENCY", "SHELL_MOVE", "SHELL_VENT"]
+var _unlocked: Array[String] = ["SHOTGUN", "SHOTGUN_RELOAD", "SHOTGUN_DEAL", "SHOTGUN_BREACH"]
+#var _unlocked: Array[String] = ["SPEED", "SPEED_DODGE", "SPEED_DASH", "SPEED_REACH", "SPEED_CHARGE"]
 
 
 func by_id(id: String) -> Upgrade:

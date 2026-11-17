@@ -80,6 +80,13 @@ func _ready() -> void:
 	
 	if Upgrades.is_unlocked_id("LIGHT_REVEAL"):
 		place_reveal_objectives()
+	if Upgrades.is_unlocked_id("SHOTGUN_BREACH"):
+		for room_idx in rooms.size():
+			var room: Room = rooms[room_idx]
+			var doors: int = room.get_open_doors()
+			for direction in directions:
+				if doors & direction == 0 and get_neighbor_index(room_idx, direction) >= 0:
+					room.model.set_door_breachable(direction, on_door_breached.bind(room, direction))
 	
 	navigation_region.bake_navigation_mesh.call_deferred()
 	current = self
@@ -87,6 +94,15 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	current = null
+
+
+func on_door_breached(room: Room, direction: int) -> void:
+	room.open_door(direction)
+	var room_idx := get_room_idx(room.global_position)
+	var opposite_room := get_neighbor_index(room_idx, direction)
+	if opposite_room >= 0:
+		rooms[opposite_room].open_door(get_opposite(direction))
+	navigation_region.bake_navigation_mesh.call_deferred()
 
 
 func connect_room(room_idx: int, unconnected_idx: Array[int]) -> void:
